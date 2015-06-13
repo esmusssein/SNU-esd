@@ -244,7 +244,7 @@ module host_itf (
 	 * x8800_0030, x8800_0031, x8800_0032: input data bytes
 	 **************************************/
 	
-	parameter MAX_SEG_CLK_CNT = 999;
+	parameter CLK_CNT_FOR_ONE_SEC = 50000000 - 1;
 	// Possible states.
 	parameter SEG_IDLE = 0;
 	parameter SEG_SET = 1;
@@ -257,7 +257,6 @@ module host_itf (
 	// sec_a: last position of 7 segment, ..., sec_f: first position of 7 segment.
 	reg [3:0] sec_a, sec_b, sec_c, sec_d, sec_e, sec_f;
 	reg [2:0] cnt_segcon;
-	integer seg_clk_cnt;
 	integer my_clk_cnt;
 
 	/**
@@ -294,7 +293,7 @@ module host_itf (
 	 *
 	 * @update state
 	 */
-	always @(posedge seg_clk or negedge nRESET) begin
+	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			state <= SEG_IDLE;
 		end else begin
@@ -336,39 +335,32 @@ module host_itf (
 	
 	/**
 	 *
-	 * @update my_clk_cnt, seg_clk
+	 * @update my_clk_cnt
 	 */
 	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			my_clk_cnt <= 0;
-			seg_clk <= 0;
 		end else begin
-			if (my_clk_cnt == 24999) begin
+			if (my_clk_cnt == CLK_CNT_FOR_ONE_SEC) begin
 				my_clk_cnt <= 0;
-				seg_clk <= ~seg_clk;
 			end else begin
 				my_clk_cnt <= my_clk_cnt + 1;
-				seg_clk <= seg_clk;
 			end
 		end
 	end
 	
 	/**
 	 *
-	 * @update seg_clk_cnt
+	 * @update seg_clk
 	 */
-	always @(posedge seg_clk or negedge nRESET) begin
+	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
-			seg_clk_cnt <= 0;
+			seg_clk <= 0;
 		end else begin
-			if (seg_clk_cnt == MAX_SEG_CLK_CNT) begin
-				seg_clk_cnt <= 0;
-			end else if (state == SEG_IDLE) begin
-				seg_clk_cnt <= 0;
-			end else if (state == SEG_RUN) begin
-				seg_clk_cnt <= seg_clk_cnt + 1;
+			if ((my_clk_cnt + 1) % 25000 == 0) begin
+				seg_clk <= ~seg_clk;
 			end else begin
-				seg_clk_cnt <= seg_clk_cnt;
+				seg_clk <= seg_clk;
 			end
 		end
 	end
@@ -377,13 +369,13 @@ module host_itf (
 	 *
 	 * @update sec_a
 	 */
-	always @(posedge seg_clk or negedge nRESET) begin
+	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_a <= 0;
 		end else begin
 			if (state == SEG_SET) begin
 				sec_a <= x8800_0030[3:0];
-			end else if (seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
+			end else if (my_clk_cnt == CLK_CNT_FOR_ONE_SEC && state == SEG_RUN) begin
 				if (sec_a == 0) begin
 					sec_a <= 9;
 				end else begin
@@ -397,13 +389,13 @@ module host_itf (
 	 *
 	 * @update sec_b
 	 */
-	always @(posedge seg_clk or negedge nRESET) begin
+	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_b <= 0;
 		end else begin
 			if (state == SEG_SET) begin
 				sec_b <= x8800_0030[7:4];
-			end else if (sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
+			end else if (sec_a == 0 && my_clk_cnt == CLK_CNT_FOR_ONE_SEC && state == SEG_RUN) begin
 				if (sec_b == 0) begin
 					sec_b <= 9;
 				end else begin
@@ -417,13 +409,13 @@ module host_itf (
 	 *
 	 * @update sec_c
 	 */	
-	always @(posedge seg_clk or negedge nRESET) begin
+	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_c <= 0;
 		end else begin
 			if (state == SEG_SET) begin
 				sec_c <= x8800_0031[3:0];
-			end else if (sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
+			end else if (sec_b == 0 && sec_a == 0 && my_clk_cnt == CLK_CNT_FOR_ONE_SEC && state == SEG_RUN) begin
 				if (sec_c == 0) begin
 					sec_c <= 9;
 				end else begin
@@ -437,13 +429,13 @@ module host_itf (
 	 *
 	 * @update sec_d
 	 */	
-	always @(posedge seg_clk or negedge nRESET) begin
+	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_d <= 0;
 		end else begin
 			if (state == SEG_SET) begin
 				sec_d <= x8800_0031[7:4];
-			end else if (sec_c == 0 && sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
+			end else if (sec_c == 0 && sec_b == 0 && sec_a == 0 && my_clk_cnt == CLK_CNT_FOR_ONE_SEC && state == SEG_RUN) begin
 				if (sec_d == 0) begin
 					sec_d <= 9;
 				end else begin
@@ -457,13 +449,13 @@ module host_itf (
 	 *
 	 * @update sec_e
 	 */	
-	always @(posedge seg_clk or negedge nRESET) begin
+	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_e <= 0;
 		end else begin
 			if (state == SEG_SET) begin
 				sec_e <= x8800_0032[3:0];
-			end else if (sec_d == 0 && sec_c == 0 && sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
+			end else if (sec_d == 0 && sec_c == 0 && sec_b == 0 && sec_a == 0 && my_clk_cnt == CLK_CNT_FOR_ONE_SEC && state == SEG_RUN) begin
 				if (sec_e == 0) begin
 					sec_e <= 9;
 				end else begin
@@ -477,13 +469,13 @@ module host_itf (
 	 *
 	 * @update sec_f
 	 */	
-	always @(posedge seg_clk or negedge nRESET) begin
+	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_f <= 0;
 		end else begin
 			if (state == SEG_SET) begin
 				sec_f <= x8800_0032[7:4];
-			end else if (sec_e == 0 && sec_d == 0 && sec_c == 0 && sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
+			end else if (sec_e == 0 && sec_d == 0 && sec_c == 0 && sec_b == 0 && sec_a == 0 && my_clk_cnt == CLK_CNT_FOR_ONE_SEC && state == SEG_RUN) begin
 				if (sec_f == 0) begin
 					sec_f <= 9;
 				end else begin
