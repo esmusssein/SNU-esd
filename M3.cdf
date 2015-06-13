@@ -1,10 +1,10 @@
-/* Quartus II Version 10.1 Build 197 01/19/2011 Service Pack 1 SJ Full Version */
+/* Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition */
 JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C8F256) Path("D:/ESD2011/SM3_M3_FPGA/") File("M3.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C8F256) Path("C:/Users/Administrator/Desktop/SNU_ESD/") File("M3.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

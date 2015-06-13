@@ -4,7 +4,7 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 1991-2010 Altera Corporation
+Copyright (C) 1991-2011 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -35,6 +35,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 -120 24 -104))
 )
 (pin
 	(input)
@@ -51,6 +52,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 480 24 496))
 )
 (pin
 	(input)
@@ -67,6 +69,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 456 24 472))
 )
 (pin
 	(input)
@@ -83,6 +86,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 -160 24 -144))
 )
 (pin
 	(input)
@@ -99,6 +103,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 -144 24 -128))
 )
 (pin
 	(input)
@@ -131,6 +136,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 -8 24 8))
 )
 (pin
 	(input)
@@ -147,6 +153,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 168 24 184))
 )
 (pin
 	(input)
@@ -163,6 +170,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 184 24 200))
 )
 (pin
 	(input)
@@ -211,6 +219,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 -72 24 -56))
 )
 (pin
 	(input)
@@ -419,6 +428,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 208 24 224))
 )
 (pin
 	(input)
@@ -515,6 +525,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -168 1232 -152))
 )
 (pin
 	(output)
@@ -531,6 +542,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -40 1232 -24))
 )
 (pin
 	(output)
@@ -547,6 +559,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -24 1232 -8))
 )
 (pin
 	(output)
@@ -563,6 +576,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -144 1224 -128))
 )
 (pin
 	(output)
@@ -579,6 +593,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -128 1232 -112))
 )
 (pin
 	(output)
@@ -595,6 +610,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 8 1232 24))
 )
 (pin
 	(output)
@@ -611,6 +627,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 24 1232 40))
 )
 (pin
 	(output)
@@ -627,6 +644,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 40 1232 56))
 )
 (pin
 	(output)
@@ -643,6 +661,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 56 1232 72))
 )
 (pin
 	(output)
@@ -659,6 +678,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -80 1232 -64))
 )
 (pin
 	(output)
@@ -755,6 +775,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -104 1232 -88))
 )
 (pin
 	(bidir)
@@ -772,6 +793,7 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 240 240 296 256))
 )
 (symbol
 	(rect 472 -200 640 -72)
@@ -860,7 +882,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 472 248 640 344)
+	(rect 480 248 648 344)
 	(text "CLK_div_gen" (rect 5 0 71 12)(font "Arial" ))
 	(text "inst2" (rect 8 80 31 92)(font "Arial" ))
 	(port
@@ -939,7 +961,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 472 560 624 784)
+	(rect 472 568 624 792)
 	(text "seg_test" (rect 5 0 47 12)(font "Arial" ))
 	(text "inst4" (rect 8 208 31 220)(font "Arial" ))
 	(port
@@ -1862,31 +1884,6 @@ applicable agreement for further details.
 	(pt 368 952)
 )
 (connector
-	(text "FPGA_CLK" (rect 376 264 432 276)(font "Arial" ))
-	(pt 472 280)
-	(pt 368 280)
-)
-(connector
-	(text "nFPGA_RESET" (rect 376 280 452 292)(font "Arial" ))
-	(pt 472 296)
-	(pt 368 296)
-)
-(connector
-	(text "clk_1k" (rect 662 280 693 292)(font "Arial" ))
-	(pt 640 296)
-	(pt 712 296)
-)
-(connector
-	(text "clk_3k" (rect 662 296 693 308)(font "Arial" ))
-	(pt 640 312)
-	(pt 712 312)
-)
-(connector
-	(text "clk_1M" (rect 664 264 698 276)(font "Arial" ))
-	(pt 640 280)
-	(pt 712 280)
-)
-(connector
 	(text "CLK_1M" (rect 376 424 417 436)(font "Arial" ))
 	(pt 472 440)
 	(pt 368 440)
@@ -1895,28 +1892,6 @@ applicable agreement for further details.
 	(text "F_LED_D[7..0]" (rect 640 424 714 436)(font "Arial" ))
 	(pt 624 440)
 	(pt 728 440)
-	(bus)
-)
-(connector
-	(text "clk_1k" (rect 376 576 407 588)(font "Arial" ))
-	(pt 472 592)
-	(pt 368 592)
-)
-(connector
-	(text "nFPGA_RESET" (rect 376 592 452 604)(font "Arial" ))
-	(pt 472 608)
-	(pt 368 608)
-)
-(connector
-	(text "F_SEG_COM[5..0]" (rect 632 576 724 588)(font "Arial" ))
-	(pt 624 592)
-	(pt 720 592)
-	(bus)
-)
-(connector
-	(text "F_SEG_DATA[7..0]" (rect 632 592 727 604)(font "Arial" ))
-	(pt 624 608)
-	(pt 720 608)
 	(bus)
 )
 (connector
@@ -1985,54 +1960,6 @@ applicable agreement for further details.
 	(text "FLCD_RW" (rect 680 968 734 980)(font "Arial" ))
 	(pt 656 984)
 	(pt 776 984)
-)
-(connector
-	(text "cnt_1[7..0]" (rect 632 608 685 620)(font "Arial" ))
-	(pt 624 624)
-	(pt 720 624)
-	(bus)
-)
-(connector
-	(text "cnt_10[7..0]" (rect 632 624 691 636)(font "Arial" ))
-	(pt 624 640)
-	(pt 720 640)
-	(bus)
-)
-(connector
-	(text "sec_1[7..0]" (rect 632 640 687 652)(font "Arial" ))
-	(pt 624 656)
-	(pt 720 656)
-	(bus)
-)
-(connector
-	(text "sec_10[7..0]" (rect 632 656 693 668)(font "Arial" ))
-	(pt 624 672)
-	(pt 720 672)
-	(bus)
-)
-(connector
-	(text "min_1[7..0]" (rect 632 672 687 684)(font "Arial" ))
-	(pt 624 688)
-	(pt 720 688)
-	(bus)
-)
-(connector
-	(text "min_10[7..0]" (rect 632 688 693 700)(font "Arial" ))
-	(pt 624 704)
-	(pt 720 704)
-	(bus)
-)
-(connector
-	(text "hour_1[7..0]" (rect 632 704 691 716)(font "Arial" ))
-	(pt 624 720)
-	(pt 720 720)
-	(bus)
-)
-(connector
-	(text "hour_10[7..0]" (rect 632 720 696 732)(font "Arial" ))
-	(pt 624 736)
-	(pt 720 736)
-	(bus)
 )
 (connector
 	(text "cnt_1[7..0]" (rect 376 968 429 980)(font "Arial" ))
@@ -2229,5 +2156,100 @@ applicable agreement for further details.
 	(text "XM0DATA[15..0]" (rect -24 216 56 228)(font "Arial" ))
 	(pt -48 232)
 	(pt 64 232)
+	(bus)
+)
+(connector
+	(text "clk_1k" (rect 670 280 701 292)(font "Arial" ))
+	(pt 648 296)
+	(pt 720 296)
+)
+(connector
+	(text "clk_3k" (rect 670 296 701 308)(font "Arial" ))
+	(pt 648 312)
+	(pt 720 312)
+)
+(connector
+	(text "clk_1M" (rect 672 264 706 276)(font "Arial" ))
+	(pt 648 280)
+	(pt 720 280)
+)
+(connector
+	(text "FPGA_CLK" (rect 384 264 440 276)(font "Arial" ))
+	(pt 376 280)
+	(pt 480 280)
+)
+(connector
+	(text "nFPGA_RESET" (rect 384 280 460 292)(font "Arial" ))
+	(pt 376 296)
+	(pt 480 296)
+)
+(connector
+	(text "clk_1k" (rect 376 584 407 596)(font "Arial" ))
+	(pt 472 600)
+	(pt 368 600)
+)
+(connector
+	(text "nFPGA_RESET" (rect 376 600 452 612)(font "Arial" ))
+	(pt 472 616)
+	(pt 368 616)
+)
+(connector
+	(text "F_SEG_COM[5..0]" (rect 632 584 724 596)(font "Arial" ))
+	(pt 624 600)
+	(pt 720 600)
+	(bus)
+)
+(connector
+	(text "F_SEG_DATA[7..0]" (rect 632 600 727 612)(font "Arial" ))
+	(pt 624 616)
+	(pt 720 616)
+	(bus)
+)
+(connector
+	(text "cnt_1[7..0]" (rect 632 616 685 628)(font "Arial" ))
+	(pt 624 632)
+	(pt 720 632)
+	(bus)
+)
+(connector
+	(text "cnt_10[7..0]" (rect 632 632 691 644)(font "Arial" ))
+	(pt 624 648)
+	(pt 720 648)
+	(bus)
+)
+(connector
+	(text "sec_1[7..0]" (rect 632 648 687 660)(font "Arial" ))
+	(pt 624 664)
+	(pt 720 664)
+	(bus)
+)
+(connector
+	(text "sec_10[7..0]" (rect 632 664 693 676)(font "Arial" ))
+	(pt 624 680)
+	(pt 720 680)
+	(bus)
+)
+(connector
+	(text "min_1[7..0]" (rect 632 680 687 692)(font "Arial" ))
+	(pt 624 696)
+	(pt 720 696)
+	(bus)
+)
+(connector
+	(text "min_10[7..0]" (rect 632 696 693 708)(font "Arial" ))
+	(pt 624 712)
+	(pt 720 712)
+	(bus)
+)
+(connector
+	(text "hour_1[7..0]" (rect 632 712 691 724)(font "Arial" ))
+	(pt 624 728)
+	(pt 720 728)
+	(bus)
+)
+(connector
+	(text "hour_10[7..0]" (rect 632 728 696 740)(font "Arial" ))
+	(pt 624 744)
+	(pt 720 744)
 	(bus)
 )
