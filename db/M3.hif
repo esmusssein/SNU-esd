@@ -1,0 +1,521 @@
+Quartus II
+Version 11.0 Build 157 04/27/2011 SJ Web Edition
+14
+1013
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+M3
+# storage
+db|M3.(0).cnf
+db|M3.(0).cnf
+# case_insensitive
+# source_file
+m3.bdf
+594abf2bbf28899393d820e85551bd1f
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+data_CONT
+# storage
+db|M3.(1).cnf
+db|M3.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+fpga_if|data_cont.v
+239ec8cd21b17f61a4954e1797ea7d
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+data_CONT:inst5
+}
+# macro_sequence
+
+# end
+# entity
+CLK_div_gen
+# storage
+db|M3.(2).cnf
+db|M3.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+fpga_if|clk_div_gen.v
+365b047fce492a38771ae5f705ca4
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+CLK_div_gen:inst2
+}
+# macro_sequence
+
+# end
+# entity
+host_io
+# storage
+db|M3.(4).cnf
+db|M3.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+host_if|host_io.v
+6329d4ea4cbd15a87e6a7c5d18c83c0
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+host_io:inst
+}
+# macro_sequence
+
+# end
+# entity
+lcd_demo
+# storage
+db|M3.(5).cnf
+db|M3.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+fpga_if|lcd.v
+fa6817832f6f640e0c9d0318c897633
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+CNT_MAX
+4
+PARAMETER_SIGNED_DEC
+USR
+LCD_CHAR
+16
+PARAMETER_SIGNED_DEC
+USR
+STABLE_DELAY
+19
+PARAMETER_SIGNED_DEC
+USR
+DISPLAY_DELAY
+399
+PARAMETER_SIGNED_DEC
+USR
+DELAY_20M
+0
+PARAMETER_SIGNED_DEC
+DEF
+FUNCTION_SET
+1
+PARAMETER_SIGNED_DEC
+DEF
+ENTRY_MODE
+2
+PARAMETER_SIGNED_DEC
+DEF
+DISP_ON
+3
+PARAMETER_SIGNED_DEC
+DEF
+DISP_LINE1
+4
+PARAMETER_SIGNED_DEC
+DEF
+DISP_LINE2
+5
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+lcd_demo:inst8
+}
+# macro_sequence
+
+# end
+# entity
+seg_test
+# storage
+db|M3.(6).cnf
+db|M3.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+fpga_if|seg.v
+f02e9e3a375dd326503a2368681ae9ac
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+MAX_CNT
+999
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+seg_test:inst4
+}
+# macro_sequence
+
+# end
+# entity
+dotmatrix_test
+# storage
+db|M3.(7).cnf
+db|M3.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+fpga_if|dotmatrix.v
+288826325c772a42d4d375ac79e494ee
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+dotmatrix_test:inst6
+}
+# macro_sequence
+
+# end
+# entity
+dot_disp
+# storage
+db|M3.(8).cnf
+db|M3.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+fpga_if|dot_disp.v
+2e89f735cb5196c139ee85f1855b201
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+dotmatrix_test:inst6|dot_disp:b1
+}
+# macro_sequence
+
+# end
+# entity
+led_demo
+# storage
+db|M3.(9).cnf
+db|M3.(9).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+fpga_if|led.v
+a2ed34a6ac623867bea787b633a6d8f9
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+led_demo:inst3
+}
+# macro_sequence
+
+# end
+# entity
+led_clk_gen
+# storage
+db|M3.(10).cnf
+db|M3.(10).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+fpga_if|led_clk_gen.v
+23e0c9b92b939abdcebdb0b5657d8491
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+led_demo:inst3|led_clk_gen:b1
+}
+# macro_sequence
+
+# end
+# entity
+led_pwm_gen
+# storage
+db|M3.(11).cnf
+db|M3.(11).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+fpga_if|led_pwm_gen.v
+7b0a954f1a213ff3f87c453a7d1c3a9
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+led_demo:inst3|led_pwm_gen:b2
+}
+# macro_sequence
+
+# end
+# entity
+host_itf
+# storage
+db|M3.(3).cnf
+db|M3.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+host_if|host_itf.v
+73bf43a57aa6aee32494b03bceba4
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+MAX_SEG_CLK_CNT
+999
+PARAMETER_SIGNED_DEC
+DEF
+SEG_IDLE
+0
+PARAMETER_SIGNED_DEC
+DEF
+SEG_SET
+1
+PARAMETER_SIGNED_DEC
+DEF
+SEG_RUN
+2
+PARAMETER_SIGNED_DEC
+DEF
+SEG_READY
+3
+PARAMETER_SIGNED_DEC
+DEF
+LED_STOP
+0
+PARAMETER_SIGNED_DEC
+USR
+LED_START
+1
+PARAMETER_SIGNED_DEC
+USR
+LED_DONE
+2
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+host_itf:inst1
+}
+# macro_sequence
+
+# end
+# complete
+

@@ -68,8 +68,6 @@ module host_itf (
 	 *
 	 * @update x8800_0010
 	 * @update x8800_0020
-	 * @update x8800_0030
-	 * @update x8800_0032
 	 * @update x8800_0040
 	 * @update x8800_0042
 	 * @update x8800_0050
@@ -86,10 +84,6 @@ module host_itf (
 		if (nRESET == 1'b0) begin
 			x8800_0010 <= 16'b0;
 			x8800_0020 <= 16'b0;
-			x8800_0030 <= 16'b0;
-			x8800_0031 <= 16'b0;
-			x8800_0032 <= 16'b0;
-			x8800_0033 <= 16'b0;
 			x8800_0040 <= 16'b0;
 			x8800_0042 <= 16'b0;
 			x8800_0050 <= 16'b0;
@@ -106,10 +100,6 @@ module host_itf (
 				case (HOST_ADD[19:0])
 					20'h00010: x8800_0010 <= HDI;
 					20'h00020: x8800_0020 <= HDI;
-					20'h00030: x8800_0030 <= HDI;
-					20'h00031: x8800_0031 <= HDI;
-					20'h00032: x8800_0032 <= HDI;
-					20'h00033: x8800_0033 <= HDI;
 					20'h00040: x8800_0040 <= HDI;
 					20'h00042: x8800_0042 <= HDI;
 					20'h00050: x8800_0050 <= HDI;
@@ -246,14 +236,100 @@ module host_itf (
 	
 	/**************************************
 	 * 7 segment part.
+	 *
+	 * Use x8800_0030 ~ x8800_0033 as its device register
+	 * to get command and data from M1 host.
+	 *
+	 * x8800_0033[7:6]: command bits
+	 * x8800_0030, x8800_0031, x8800_0032: input data bytes
 	 **************************************/
 	
 	parameter MAX_SEG_CLK_CNT = 999;
+	// Possible states.
+	parameter SEG_IDLE = 0;
+	parameter SEG_SET = 1;
+	parameter SEG_RUN = 2;
+	parameter SEG_READY = 3;
 	
+	reg [2:0] state;
 	// sec_a: last position of 7 segment, ..., sec_f: first position of 7 segment.
 	reg [3:0] sec_a, sec_b, sec_c, sec_d, sec_e, sec_f;
 	reg [2:0] cnt_segcon;
 	integer seg_clk_cnt;
+
+	/**
+	 *
+	 * @update x8800_0030
+	 * @update x8800_0031
+	 * @update x8800_0032
+	 * @update x8800_0033
+	 */
+	always @(posedge clk or negedge nRESET) begin
+		if (nRESET == 1'b0) begin
+			x8800_0030 <= 16'b0;
+			x8800_0031 <= 16'b0;
+			x8800_0032 <= 16'b0;
+			x8800_0033 <= 16'b0;
+		end else begin
+			if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1) begin
+				case (HOST_ADD[19:0])
+					20'h00030: x8800_0030 <= HDI;
+					20'h00031: x8800_0031 <= HDI;
+					20'h00032: x8800_0032 <= HDI;
+					20'h00033: x8800_0033 <= HDI;
+				endcase
+			end else begin
+				x8800_0030 <= x8800_0030;
+				x8800_0031 <= x8800_0031;
+				x8800_0032 <= x8800_0032;
+				x8800_0033 <= x8800_0033;
+			end
+		end
+	end
+	
+	/**
+	 *
+	 * @update state
+	 */
+	always @(posedge clk_1k or negedge nRESET) begin
+		if (nRESET == 1'b0) begin
+			state <= SEG_IDLE;
+		end else begin
+			case (state)
+				SEG_IDLE: begin
+					if (x8800_0033[7:6] == 2'b01) begin
+						state <= SEG_SET;
+					end else begin
+						state <= SEG_IDLE;
+					end
+				end
+				SEG_SET: begin
+					state <= SEG_READY;
+				end
+				SEG_READY: begin
+					if (x8800_0033[7:6] == 2'b01) begin
+						state <= SEG_SET;
+					end else if (x8800_0033[7:6] == 2'b10) begin
+						state <= SEG_RUN;
+					end else begin
+						state <= SEG_READY;
+					end
+				end
+				SEG_RUN: begin
+					if (x8800_0033[7:6] == 2'b11) begin
+						state <= SEG_READY;
+					end else if (sec_a == 0 && sec_b == 0 && sec_c == 0 && sec_d == 0 && sec_e == 0 && sec_f == 0) begin
+					   state <= SEG_IDLE;
+					end else begin
+						state <= SEG_RUN;
+					end
+				end
+				default: begin
+					state <= SEG_IDLE;
+				end
+			endcase
+		end
+	end
 	
 	/**
 	 *
@@ -265,8 +341,12 @@ module host_itf (
 		end else begin
 			if (seg_clk_cnt == MAX_SEG_CLK_CNT) begin
 				seg_clk_cnt <= 0;
+			end else if (state == SEG_IDLE) begin
+				seg_clk_cnt <= 0;
+			end else if (state == SEG_RUN) begin
+				seg_clk_cnt <= seg_clk_cnt + 1;
 			end else begin
-				//seg_clk_cnt <= seg_clk_cnt + 1;
+				seg_clk_cnt <= seg_clk_cnt;
 			end
 		end
 	end
@@ -279,7 +359,9 @@ module host_itf (
 		if (nRESET == 1'b0) begin
 			sec_a <= 0;
 		end else begin
-			if (seg_clk_cnt == MAX_SEG_CLK_CNT) begin
+			if (state == SEG_SET) begin
+				sec_a <= x8800_0030[3:0];
+			end else if (seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
 				if (sec_a == 0) begin
 					sec_a <= 9;
 				end else begin
@@ -295,9 +377,11 @@ module host_itf (
 	 */
 	always @(posedge clk_1k or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
-			sec_b <= 1;
+			sec_b <= 0;
 		end else begin
-			if (sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT) begin
+			if (state == SEG_SET) begin
+				sec_b <= x8800_0030[7:4];
+			end else if (sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
 				if (sec_b == 0) begin
 					sec_b <= 9;
 				end else begin
@@ -315,7 +399,9 @@ module host_itf (
 		if (nRESET == 1'b0) begin
 			sec_c <= 0;
 		end else begin
-			if (sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT) begin
+			if (state == SEG_SET) begin
+				sec_c <= x8800_0031[3:0];
+			end else if (sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
 				if (sec_c == 0) begin
 					sec_c <= 9;
 				end else begin
@@ -333,7 +419,9 @@ module host_itf (
 		if (nRESET == 1'b0) begin
 			sec_d <= 0;
 		end else begin
-			if (sec_c == 0 && sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT) begin
+			if (state == SEG_SET) begin
+				sec_d <= x8800_0031[7:4];
+			end else if (sec_c == 0 && sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
 				if (sec_d == 0) begin
 					sec_d <= 9;
 				end else begin
@@ -351,7 +439,9 @@ module host_itf (
 		if (nRESET == 1'b0) begin
 			sec_e <= 0;
 		end else begin
-			if (sec_d == 0 && sec_c == 0 && sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT) begin
+			if (state == SEG_SET) begin
+				sec_e <= x8800_0032[3:0];
+			end else if (sec_d == 0 && sec_c == 0 && sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
 				if (sec_e == 0) begin
 					sec_e <= 9;
 				end else begin
@@ -367,9 +457,11 @@ module host_itf (
 	 */	
 	always @(posedge clk_1k or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
-			sec_f <= 1;
+			sec_f <= 0;
 		end else begin
-			if (sec_e == 0 && sec_d == 0 && sec_c == 0 && sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT) begin
+			if (state == SEG_SET) begin
+				sec_f <= x8800_0032[7:4];
+			end else if (sec_e == 0 && sec_d == 0 && sec_c == 0 && sec_b == 0 && sec_a == 0 && seg_clk_cnt == MAX_SEG_CLK_CNT && state == SEG_RUN) begin
 				if (sec_f == 0) begin
 					sec_f <= 9;
 				end else begin
@@ -392,12 +484,12 @@ module host_itf (
 			else                 cnt_segcon <= cnt_segcon+1'b1;
 			
 			case (cnt_segcon)
-				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(x8800_0030[3:0]), 1'b0}; end
-				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(x8800_0030[7:4]), 1'b0}; end
-				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(x8800_0031[3:0]), 1'b0}; end
-				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(x8800_0031[7:4]), 1'b0}; end
-				3'd4:   begin SEG_COM <= 6'b111101; SEG_DATA <= {conv_int(x8800_0032[3:0]), 1'b0}; end
-				3'd5:   begin SEG_COM <= 6'b111110; SEG_DATA <= {conv_int(x8800_0030[1:0]), 1'b0}; end
+				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(sec_a), 1'b0}; end
+				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(sec_b), 1'b0}; end
+				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(sec_c), 1'b0}; end
+				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(sec_d), 1'b0}; end
+				3'd4:   begin SEG_COM <= 6'b111101; SEG_DATA <= {conv_int(sec_e), 1'b0}; end
+				3'd5:   begin SEG_COM <= 6'b111110; SEG_DATA <= {conv_int(sec_f), 1'b0}; end
 				default begin SEG_COM <= 6'b111111; SEG_DATA <= 8'b00000000; end
 			endcase
 		end

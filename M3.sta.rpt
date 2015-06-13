@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for M3
-Sat Jun 13 17:20:43 2015
+Sat Jun 13 20:59:15 2015
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -87,7 +87,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; M3.sdc        ; OK     ; Sat Jun 13 17:20:43 2015 ;
+; M3.sdc        ; OK     ; Sat Jun 13 20:59:14 2015 ;
 +---------------+--------+--------------------------+
 
 
@@ -105,7 +105,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------+-----------------+------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
 +------------+-----------------+------------+------+
-; 158.68 MHz ; 158.68 MHz      ; FPGA_CLK   ;      ;
+; 144.43 MHz ; 144.43 MHz      ; FPGA_CLK   ;      ;
 +------------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -115,7 +115,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------+-------+---------------+
 ; Clock    ; Slack ; End Point TNS ;
 +----------+-------+---------------+
-; FPGA_CLK ; 3.698 ; 0.000         ;
+; FPGA_CLK ; 3.076 ; 0.000         ;
 +----------+-------+---------------+
 
 
@@ -154,106 +154,106 @@ No paths to report.
 +-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
-; 3.698 ; host_itf:inst1|x8800_0010[5]   ; host_itf:inst1|HDO[5]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.015     ; 6.327      ;
-; 4.008 ; host_itf:inst1|x8800_0040[14]  ; host_itf:inst1|HDO[14]         ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.026      ; 6.058      ;
-; 4.102 ; host_itf:inst1|x8800_0031[15]  ; host_itf:inst1|HDO[15]         ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.007      ; 5.945      ;
-; 4.114 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[31] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.005      ; 5.931      ;
-; 4.177 ; CLK_div_gen:inst2|CNT_1KHz[25] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.332      ; 6.195      ;
-; 4.189 ; CLK_div_gen:inst2|CNT_1KHz[2]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.313      ; 6.164      ;
-; 4.200 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.005      ; 5.845      ;
-; 4.245 ; CLK_div_gen:inst2|CNT_1KHz[1]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.313      ; 6.108      ;
-; 4.274 ; host_itf:inst1|CNT_1Hz[9]      ; host_itf:inst1|CNT_1Hz[6]      ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.766      ;
-; 4.274 ; host_itf:inst1|CNT_1Hz[9]      ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.766      ;
-; 4.274 ; host_itf:inst1|CNT_1Hz[9]      ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.766      ;
-; 4.275 ; host_itf:inst1|CNT_1Hz[9]      ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.765      ;
-; 4.277 ; host_itf:inst1|CNT_1Hz[9]      ; host_itf:inst1|CNT_1Hz[13]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.763      ;
-; 4.286 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[29] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.005      ; 5.759      ;
-; 4.364 ; host_itf:inst1|x8800_0020[0]   ; host_itf:inst1|HDO[0]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.024      ; 5.700      ;
-; 4.372 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[28] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.005      ; 5.673      ;
-; 4.419 ; host_itf:inst1|CNT_1Hz[10]     ; host_itf:inst1|CNT_1Hz[6]      ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.621      ;
-; 4.419 ; host_itf:inst1|CNT_1Hz[10]     ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.621      ;
-; 4.419 ; host_itf:inst1|CNT_1Hz[10]     ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.621      ;
-; 4.420 ; host_itf:inst1|CNT_1Hz[10]     ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.620      ;
-; 4.422 ; host_itf:inst1|CNT_1Hz[10]     ; host_itf:inst1|CNT_1Hz[13]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.618      ;
-; 4.449 ; host_itf:inst1|x8800_0030[1]   ; host_itf:inst1|HDO[1]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.007      ; 5.598      ;
-; 4.458 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[27] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.005      ; 5.587      ;
-; 4.461 ; CLK_div_gen:inst2|CNT_1MHz[0]  ; CLK_div_gen:inst2|CNT_1MHz[31] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.002     ; 5.577      ;
-; 4.461 ; CLK_div_gen:inst2|CNT_1KHz[3]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.313      ; 5.892      ;
-; 4.519 ; host_itf:inst1|x8800_0050[0]   ; host_itf:inst1|HDO[0]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.021      ; 5.542      ;
-; 4.534 ; host_itf:inst1|CNT_1Hz[11]     ; host_itf:inst1|CNT_1Hz[6]      ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.506      ;
-; 4.534 ; host_itf:inst1|CNT_1Hz[11]     ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.506      ;
-; 4.534 ; host_itf:inst1|CNT_1Hz[11]     ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.506      ;
-; 4.535 ; host_itf:inst1|CNT_1Hz[11]     ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.505      ;
-; 4.537 ; host_itf:inst1|CNT_1Hz[11]     ; host_itf:inst1|CNT_1Hz[13]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.503      ;
-; 4.540 ; host_itf:inst1|CNT_1Hz[0]      ; host_itf:inst1|CNT_1Hz[24]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.509      ;
-; 4.544 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[26] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.005      ; 5.501      ;
-; 4.547 ; CLK_div_gen:inst2|CNT_1MHz[0]  ; CLK_div_gen:inst2|CNT_1MHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.002     ; 5.491      ;
-; 4.583 ; host_itf:inst1|x8800_0040[13]  ; host_itf:inst1|HDO[13]         ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.036      ; 5.493      ;
-; 4.590 ; host_itf:inst1|CNT_1Hz[8]      ; host_itf:inst1|CNT_1Hz[6]      ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.450      ;
-; 4.590 ; host_itf:inst1|CNT_1Hz[8]      ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.450      ;
-; 4.590 ; host_itf:inst1|CNT_1Hz[8]      ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.450      ;
-; 4.591 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.313      ; 5.762      ;
-; 4.591 ; host_itf:inst1|CNT_1Hz[8]      ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.449      ;
-; 4.593 ; host_itf:inst1|CNT_1Hz[8]      ; host_itf:inst1|CNT_1Hz[13]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.447      ;
-; 4.613 ; CLK_div_gen:inst2|CNT_1KHz[22] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.332      ; 5.759      ;
-; 4.614 ; host_itf:inst1|x8800_0031[7]   ; host_itf:inst1|HDO[7]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.026      ; 5.452      ;
-; 4.621 ; host_itf:inst1|CNT_1Hz[1]      ; host_itf:inst1|CNT_1Hz[24]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.428      ;
-; 4.624 ; host_itf:inst1|x8800_0042[3]   ; host_itf:inst1|HDO[3]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.010     ; 5.406      ;
-; 4.630 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[25] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.005      ; 5.415      ;
-; 4.633 ; CLK_div_gen:inst2|CNT_1MHz[0]  ; CLK_div_gen:inst2|CNT_1MHz[29] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.002     ; 5.405      ;
-; 4.643 ; CLK_div_gen:inst2|CNT_1KHz[25] ; CLK_div_gen:inst2|CNT_1KHz[3]  ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.019      ; 5.416      ;
-; 4.646 ; CLK_div_gen:inst2|CNT_1KHz[25] ; CLK_div_gen:inst2|CNT_1KHz[14] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.019      ; 5.413      ;
-; 4.655 ; CLK_div_gen:inst2|CNT_1KHz[2]  ; CLK_div_gen:inst2|CNT_1KHz[3]  ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.385      ;
-; 4.658 ; CLK_div_gen:inst2|CNT_1KHz[2]  ; CLK_div_gen:inst2|CNT_1KHz[14] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.382      ;
-; 4.696 ; host_itf:inst1|CNT_1Hz[0]      ; host_itf:inst1|CNT_1Hz[19]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.353      ;
-; 4.698 ; host_itf:inst1|x8800_0020[1]   ; host_itf:inst1|HDO[1]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.036      ; 5.378      ;
-; 4.702 ; host_itf:inst1|CNT_1Hz[2]      ; host_itf:inst1|CNT_1Hz[24]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.347      ;
-; 4.711 ; host_itf:inst1|CNT_1Hz[30]     ; host_itf:inst1|CNT_1Hz[6]      ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.009     ; 5.320      ;
-; 4.711 ; host_itf:inst1|CNT_1Hz[30]     ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.009     ; 5.320      ;
-; 4.711 ; host_itf:inst1|CNT_1Hz[30]     ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.009     ; 5.320      ;
-; 4.711 ; CLK_div_gen:inst2|CNT_1KHz[1]  ; CLK_div_gen:inst2|CNT_1KHz[3]  ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.329      ;
-; 4.712 ; host_itf:inst1|CNT_1Hz[30]     ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.009     ; 5.319      ;
-; 4.714 ; host_itf:inst1|CNT_1Hz[30]     ; host_itf:inst1|CNT_1Hz[13]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.009     ; 5.317      ;
-; 4.714 ; CLK_div_gen:inst2|CNT_1KHz[1]  ; CLK_div_gen:inst2|CNT_1KHz[14] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.326      ;
-; 4.716 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[24] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.005      ; 5.329      ;
-; 4.719 ; CLK_div_gen:inst2|CNT_1MHz[0]  ; CLK_div_gen:inst2|CNT_1MHz[28] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.002     ; 5.319      ;
-; 4.742 ; host_itf:inst1|CNT_1Hz[3]      ; host_itf:inst1|CNT_1Hz[24]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.307      ;
-; 4.749 ; host_itf:inst1|CNT_1Hz[14]     ; host_itf:inst1|CNT_1Hz[6]      ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.291      ;
-; 4.749 ; host_itf:inst1|CNT_1Hz[14]     ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.291      ;
-; 4.749 ; host_itf:inst1|CNT_1Hz[14]     ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.291      ;
-; 4.750 ; host_itf:inst1|x8800_00A0[14]  ; host_itf:inst1|HDO[14]         ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.023     ; 5.267      ;
-; 4.750 ; host_itf:inst1|CNT_1Hz[14]     ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.290      ;
-; 4.752 ; host_itf:inst1|CNT_1Hz[14]     ; host_itf:inst1|CNT_1Hz[13]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.288      ;
-; 4.754 ; host_itf:inst1|CNT_1Hz[0]      ; host_itf:inst1|CNT_1Hz[22]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.295      ;
-; 4.763 ; CLK_div_gen:inst2|CNT_1MHz[3]  ; CLK_div_gen:inst2|CNT_1MHz[31] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.002     ; 5.275      ;
-; 4.777 ; host_itf:inst1|CNT_1Hz[1]      ; host_itf:inst1|CNT_1Hz[19]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.272      ;
-; 4.788 ; CLK_div_gen:inst2|CNT_1KHz[12] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.313      ; 5.565      ;
-; 4.796 ; host_itf:inst1|x8800_0040[2]   ; host_itf:inst1|HDO[2]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.002      ; 5.246      ;
-; 4.798 ; host_itf:inst1|x8800_0040[10]  ; host_itf:inst1|HDO[10]         ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.048      ; 5.290      ;
-; 4.805 ; CLK_div_gen:inst2|CNT_1MHz[0]  ; CLK_div_gen:inst2|CNT_1MHz[27] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.002     ; 5.233      ;
-; 4.812 ; CLK_div_gen:inst2|CNT_1KHz[27] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.332      ; 5.560      ;
-; 4.815 ; host_itf:inst1|x8800_0040[11]  ; host_itf:inst1|HDO[11]         ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.048      ; 5.273      ;
-; 4.828 ; host_itf:inst1|x8800_0010[1]   ; host_itf:inst1|HDO[1]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.036      ; 5.248      ;
-; 4.832 ; host_itf:inst1|CNT_1Hz[0]      ; host_itf:inst1|CNT_1Hz[21]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.217      ;
-; 4.835 ; host_itf:inst1|CNT_1Hz[1]      ; host_itf:inst1|CNT_1Hz[22]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.214      ;
-; 4.836 ; host_itf:inst1|CNT_1Hz[6]      ; host_itf:inst1|CNT_1Hz[24]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.213      ;
-; 4.849 ; CLK_div_gen:inst2|CNT_1MHz[3]  ; CLK_div_gen:inst2|CNT_1MHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.002     ; 5.189      ;
-; 4.852 ; CLK_div_gen:inst2|CNT_1MHz[4]  ; CLK_div_gen:inst2|CNT_1MHz[31] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.002     ; 5.186      ;
-; 4.852 ; CLK_div_gen:inst2|CNT_1KHz[14] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.313      ; 5.501      ;
-; 4.853 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[6]  ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.015     ; 5.172      ;
-; 4.858 ; host_itf:inst1|CNT_1Hz[2]      ; host_itf:inst1|CNT_1Hz[19]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.191      ;
-; 4.867 ; CLK_div_gen:inst2|CNT_1KHz[5]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.313      ; 5.486      ;
-; 4.868 ; host_itf:inst1|x8800_0040[5]   ; host_itf:inst1|HDO[5]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.181      ;
-; 4.872 ; CLK_div_gen:inst2|CNT_1KHz[31] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.332      ; 5.500      ;
-; 4.873 ; host_itf:inst1|CNT_1Hz[4]      ; host_itf:inst1|CNT_1Hz[24]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.176      ;
-; 4.876 ; CLK_div_gen:inst2|CNT_1KHz[28] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.332      ; 5.496      ;
-; 4.878 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[6]      ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.162      ;
-; 4.878 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.162      ;
-; 4.878 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.162      ;
-; 4.879 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.161      ;
-; 4.881 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[13]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.159      ;
-; 4.891 ; CLK_div_gen:inst2|CNT_1MHz[0]  ; CLK_div_gen:inst2|CNT_1MHz[26] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.002     ; 5.147      ;
-; 4.898 ; host_itf:inst1|CNT_1Hz[3]      ; host_itf:inst1|CNT_1Hz[19]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 5.151      ;
+; 3.076 ; host_itf:inst1|x8800_0020[0]   ; host_itf:inst1|HDO[0]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.009      ; 6.973      ;
+; 3.124 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[31] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.900      ;
+; 3.210 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.814      ;
+; 3.296 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[29] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.728      ;
+; 3.382 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[28] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.642      ;
+; 3.433 ; CLK_div_gen:inst2|CNT_1KHz[31] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.866      ;
+; 3.468 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[27] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.556      ;
+; 3.509 ; CLK_div_gen:inst2|CNT_1KHz[18] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.790      ;
+; 3.521 ; CLK_div_gen:inst2|CNT_1KHz[8]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.260      ; 6.779      ;
+; 3.554 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[26] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.470      ;
+; 3.640 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[25] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.384      ;
+; 3.706 ; CLK_div_gen:inst2|CNT_1KHz[21] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.593      ;
+; 3.714 ; CLK_div_gen:inst2|CNT_1KHz[2]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.264      ; 6.590      ;
+; 3.726 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[24] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.298      ;
+; 3.749 ; host_itf:inst1|x8800_0050[0]   ; host_itf:inst1|HDO[0]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.011     ; 6.280      ;
+; 3.796 ; CLK_div_gen:inst2|CNT_1KHz[28] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.503      ;
+; 3.819 ; CLK_div_gen:inst2|CNT_1KHz[30] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.480      ;
+; 3.823 ; CLK_div_gen:inst2|CNT_1MHz[2]  ; CLK_div_gen:inst2|BCLK_1MHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.243      ; 6.460      ;
+; 3.836 ; CLK_div_gen:inst2|CNT_1KHz[19] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.463      ;
+; 3.862 ; CLK_div_gen:inst2|CNT_1MHz[1]  ; CLK_div_gen:inst2|BCLK_1MHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.243      ; 6.421      ;
+; 3.889 ; CLK_div_gen:inst2|CNT_1KHz[26] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.410      ;
+; 3.892 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.264      ; 6.412      ;
+; 3.908 ; CLK_div_gen:inst2|CNT_1KHz[27] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.391      ;
+; 3.916 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[23] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.108      ;
+; 3.948 ; host_itf:inst1|x8800_0031[2]   ; host_itf:inst1|HDO[2]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.076      ;
+; 3.969 ; CLK_div_gen:inst2|CNT_1KHz[29] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.330      ;
+; 4.002 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[22] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 6.022      ;
+; 4.003 ; host_itf:inst1|x8800_0031[0]   ; host_itf:inst1|HDO[0]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.011     ; 6.026      ;
+; 4.027 ; CLK_div_gen:inst2|CNT_1KHz[16] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.272      ;
+; 4.034 ; CLK_div_gen:inst2|CNT_1KHz[13] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.260      ; 6.266      ;
+; 4.037 ; host_itf:inst1|x8800_0032[3]   ; host_itf:inst1|HDO[3]          ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.024     ; 5.979      ;
+; 4.054 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[12] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.035     ; 5.951      ;
+; 4.061 ; CLK_div_gen:inst2|CNT_1MHz[6]  ; CLK_div_gen:inst2|BCLK_1MHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.243      ; 6.222      ;
+; 4.082 ; CLK_div_gen:inst2|CNT_1KHz[22] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.217      ;
+; 4.088 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[21] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 5.936      ;
+; 4.119 ; CLK_div_gen:inst2|CNT_1KHz[23] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.180      ;
+; 4.143 ; host_itf:inst1|CNT_1Hz[12]     ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.897      ;
+; 4.144 ; host_itf:inst1|CNT_1Hz[12]     ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.896      ;
+; 4.145 ; host_itf:inst1|CNT_1Hz[12]     ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.895      ;
+; 4.174 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[20] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 5.850      ;
+; 4.194 ; CLK_div_gen:inst2|CNT_1KHz[17] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.105      ;
+; 4.234 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.805      ;
+; 4.235 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.804      ;
+; 4.236 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.803      ;
+; 4.241 ; CLK_div_gen:inst2|CNT_1KHz[20] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 6.058      ;
+; 4.258 ; CLK_div_gen:inst2|CNT_1KHz[14] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.260      ; 6.042      ;
+; 4.260 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[19] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 5.764      ;
+; 4.279 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|BCLK_3KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.515     ; 5.246      ;
+; 4.313 ; host_itf:inst1|CNT_1Hz[25]     ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.003     ; 5.724      ;
+; 4.314 ; host_itf:inst1|CNT_1Hz[25]     ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.003     ; 5.723      ;
+; 4.315 ; host_itf:inst1|CNT_1Hz[25]     ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.003     ; 5.722      ;
+; 4.346 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[18] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 5.678      ;
+; 4.412 ; CLK_div_gen:inst2|CNT_1KHz[24] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 5.887      ;
+; 4.414 ; CLK_div_gen:inst2|CNT_1KHz[3]  ; CLK_div_gen:inst2|CNT_1KHz[13] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.626      ;
+; 4.415 ; CLK_div_gen:inst2|CNT_1KHz[11] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.264      ; 5.889      ;
+; 4.419 ; host_itf:inst1|x8800_0040[15]  ; host_itf:inst1|HDO[15]         ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.012     ; 5.609      ;
+; 4.424 ; host_itf:inst1|x8800_0033[14]  ; host_itf:inst1|HDO[14]         ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.014     ; 5.602      ;
+; 4.428 ; CLK_div_gen:inst2|CNT_1KHz[1]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.264      ; 5.876      ;
+; 4.432 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[17] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 5.592      ;
+; 4.441 ; CLK_div_gen:inst2|CNT_1MHz[30] ; CLK_div_gen:inst2|BCLK_1MHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.238      ; 5.837      ;
+; 4.446 ; host_itf:inst1|CNT_1Hz[4]      ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.593      ;
+; 4.447 ; host_itf:inst1|CNT_1Hz[4]      ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.592      ;
+; 4.447 ; CLK_div_gen:inst2|CNT_1MHz[29] ; CLK_div_gen:inst2|BCLK_1MHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.238      ; 5.831      ;
+; 4.448 ; host_itf:inst1|CNT_1Hz[4]      ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.591      ;
+; 4.451 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[3]  ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.035     ; 5.554      ;
+; 4.453 ; host_itf:inst1|CNT_1Hz[12]     ; host_itf:inst1|CNT_1Hz[6]      ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.587      ;
+; 4.454 ; host_itf:inst1|CNT_1Hz[12]     ; host_itf:inst1|CNT_1Hz[13]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.586      ;
+; 4.496 ; host_itf:inst1|CNT_1Hz[27]     ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.003     ; 5.541      ;
+; 4.497 ; host_itf:inst1|CNT_1Hz[27]     ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.003     ; 5.540      ;
+; 4.497 ; CLK_div_gen:inst2|CNT_1MHz[19] ; CLK_div_gen:inst2|BCLK_1MHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.238      ; 5.781      ;
+; 4.498 ; host_itf:inst1|CNT_1Hz[27]     ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.003     ; 5.539      ;
+; 4.506 ; CLK_div_gen:inst2|CNT_1KHz[4]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.264      ; 5.798      ;
+; 4.509 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[6]  ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.035     ; 5.496      ;
+; 4.514 ; CLK_div_gen:inst2|CNT_1MHz[0]  ; CLK_div_gen:inst2|CNT_1MHz[31] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.525      ;
+; 4.518 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_3KHz[16] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.016     ; 5.506      ;
+; 4.540 ; host_itf:inst1|CNT_1Hz[1]      ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.499      ;
+; 4.541 ; host_itf:inst1|CNT_1Hz[1]      ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.498      ;
+; 4.542 ; host_itf:inst1|CNT_1Hz[1]      ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.497      ;
+; 4.544 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[6]      ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.495      ;
+; 4.545 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[13]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.494      ;
+; 4.559 ; CLK_div_gen:inst2|CNT_1KHz[8]  ; CLK_div_gen:inst2|CNT_1KHz[13] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.481      ;
+; 4.575 ; CLK_div_gen:inst2|CNT_1KHz[15] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.264      ; 5.729      ;
+; 4.578 ; CLK_div_gen:inst2|CNT_1MHz[7]  ; CLK_div_gen:inst2|BCLK_1MHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.243      ; 5.705      ;
+; 4.580 ; CLK_div_gen:inst2|CNT_1KHz[10] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.264      ; 5.724      ;
+; 4.585 ; host_itf:inst1|CNT_1Hz[0]      ; host_itf:inst1|CNT_1Hz[24]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.001      ; 5.456      ;
+; 4.586 ; CLK_div_gen:inst2|CNT_1MHz[5]  ; CLK_div_gen:inst2|BCLK_1MHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.243      ; 5.697      ;
+; 4.587 ; CLK_div_gen:inst2|CNT_1KHz[25] ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.259      ; 5.712      ;
+; 4.593 ; CLK_div_gen:inst2|CNT_1KHz[5]  ; CLK_div_gen:inst2|CNT_1KHz[13] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.447      ;
+; 4.598 ; host_itf:inst1|CNT_1Hz[12]     ; host_itf:inst1|CNT_1Hz[21]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.002      ; 5.444      ;
+; 4.598 ; host_itf:inst1|CNT_1Hz[12]     ; host_itf:inst1|CNT_1Hz[16]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.002      ; 5.444      ;
+; 4.599 ; host_itf:inst1|CNT_1Hz[12]     ; host_itf:inst1|CNT_1Hz[22]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.002      ; 5.443      ;
+; 4.600 ; CLK_div_gen:inst2|CNT_1MHz[0]  ; CLK_div_gen:inst2|CNT_1MHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.001     ; 5.439      ;
+; 4.600 ; host_itf:inst1|CNT_1Hz[12]     ; host_itf:inst1|CNT_1Hz[20]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.002      ; 5.442      ;
+; 4.600 ; host_itf:inst1|CNT_1Hz[13]     ; host_itf:inst1|CNT_1Hz[11]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.440      ;
+; 4.601 ; host_itf:inst1|CNT_1Hz[13]     ; host_itf:inst1|CNT_1Hz[14]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.439      ;
+; 4.602 ; host_itf:inst1|CNT_1Hz[13]     ; host_itf:inst1|CNT_1Hz[12]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.000      ; 5.438      ;
+; 4.605 ; CLK_div_gen:inst2|CNT_1KHz[6]  ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.264      ; 5.699      ;
+; 4.623 ; host_itf:inst1|CNT_1Hz[25]     ; host_itf:inst1|CNT_1Hz[6]      ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.003     ; 5.414      ;
+; 4.624 ; host_itf:inst1|CNT_1Hz[25]     ; host_itf:inst1|CNT_1Hz[13]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; -0.003     ; 5.413      ;
+; 4.636 ; host_itf:inst1|CNT_1Hz[12]     ; host_itf:inst1|CNT_1Hz[24]     ; FPGA_CLK     ; FPGA_CLK    ; 10.000       ; 0.002      ; 5.406      ;
 +-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -263,105 +263,105 @@ No paths to report.
 ; Slack ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
 ; 0.499 ; CLK_div_gen:inst2|BCLK_1MHz    ; CLK_div_gen:inst2|BCLK_1MHz    ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
-; 0.499 ; host_itf:inst1|x8800_00F0[8]   ; host_itf:inst1|x8800_00F0[8]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|x8800_00F0[0]   ; host_itf:inst1|x8800_00F0[0]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
-; 0.499 ; host_itf:inst1|x8800_00F0[1]   ; host_itf:inst1|x8800_00F0[1]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
-; 0.499 ; host_itf:inst1|x8800_00F0[3]   ; host_itf:inst1|x8800_00F0[3]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; host_itf:inst1|x8800_00F0[6]   ; host_itf:inst1|x8800_00F0[6]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; host_itf:inst1|x8800_00F0[7]   ; host_itf:inst1|x8800_00F0[7]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|x8800_00F0[4]   ; host_itf:inst1|x8800_00F0[4]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; host_itf:inst1|x8800_00F0[5]   ; host_itf:inst1|x8800_00F0[5]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|x8800_00F0[2]   ; host_itf:inst1|x8800_00F0[2]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; host_itf:inst1|x8800_00F0[3]   ; host_itf:inst1|x8800_00F0[3]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; host_itf:inst1|x8800_00F0[1]   ; host_itf:inst1|x8800_00F0[1]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; host_itf:inst1|x8800_00F0[8]   ; host_itf:inst1|x8800_00F0[8]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|x8800_00F0[10]  ; host_itf:inst1|x8800_00F0[10]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|x8800_00F0[9]   ; host_itf:inst1|x8800_00F0[9]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
-; 0.499 ; host_itf:inst1|x8800_00F0[6]   ; host_itf:inst1|x8800_00F0[6]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
-; 0.499 ; host_itf:inst1|x8800_00F0[5]   ; host_itf:inst1|x8800_00F0[5]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
-; 0.499 ; host_itf:inst1|x8800_00F0[7]   ; host_itf:inst1|x8800_00F0[7]   ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|x8800_00F0[15]  ; host_itf:inst1|x8800_00F0[15]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|x8800_00F0[14]  ; host_itf:inst1|x8800_00F0[14]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|x8800_00F0[13]  ; host_itf:inst1|x8800_00F0[13]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|x8800_00F0[12]  ; host_itf:inst1|x8800_00F0[12]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|x8800_00F0[11]  ; host_itf:inst1|x8800_00F0[11]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; CLK_div_gen:inst2|BCLK_1KHz    ; CLK_div_gen:inst2|BCLK_1KHz    ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
-; 0.499 ; CLK_div_gen:inst2|BCLK_3KHz    ; CLK_div_gen:inst2|BCLK_3KHz    ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.499 ; host_itf:inst1|BCLK_1Hz        ; host_itf:inst1|BCLK_1Hz        ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
+; 0.499 ; CLK_div_gen:inst2|BCLK_3KHz    ; CLK_div_gen:inst2|BCLK_3KHz    ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 0.805      ;
 ; 0.753 ; CLK_div_gen:inst2|CNT_1MHz[31] ; CLK_div_gen:inst2|CNT_1MHz[31] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.059      ;
 ; 0.753 ; CLK_div_gen:inst2|CNT_1KHz[31] ; CLK_div_gen:inst2|CNT_1KHz[31] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.059      ;
-; 0.753 ; CLK_div_gen:inst2|CNT_3KHz[31] ; CLK_div_gen:inst2|CNT_3KHz[31] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.059      ;
 ; 0.753 ; host_itf:inst1|CNT_1Hz[31]     ; host_itf:inst1|CNT_1Hz[31]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.059      ;
-; 1.069 ; host_itf:inst1|x8800_00A0[0]   ; host_itf:inst1|HDO[0]          ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.375      ;
-; 1.071 ; host_itf:inst1|x8800_00A0[2]   ; host_itf:inst1|HDO[2]          ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.377      ;
+; 0.753 ; CLK_div_gen:inst2|CNT_3KHz[31] ; CLK_div_gen:inst2|CNT_3KHz[31] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.059      ;
+; 0.889 ; host_io:inst|re_dly            ; host_io:inst|re_dly1           ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.195      ;
+; 0.904 ; host_itf:inst1|reg_sw[0]       ; host_itf:inst1|reg_sw[1]       ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.210      ;
+; 1.071 ; host_itf:inst1|x8800_00B0[0]   ; host_itf:inst1|HDO[0]          ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.377      ;
+; 1.071 ; host_itf:inst1|x8800_0030[11]  ; host_itf:inst1|HDO[11]         ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.377      ;
 ; 1.164 ; CLK_div_gen:inst2|CNT_1KHz[15] ; CLK_div_gen:inst2|CNT_1KHz[15] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.470      ;
-; 1.164 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[15]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.470      ;
 ; 1.164 ; host_itf:inst1|CNT_1Hz[23]     ; host_itf:inst1|CNT_1Hz[23]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.470      ;
+; 1.164 ; host_itf:inst1|CNT_1Hz[15]     ; host_itf:inst1|CNT_1Hz[15]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.470      ;
 ; 1.166 ; CLK_div_gen:inst2|CNT_1MHz[16] ; CLK_div_gen:inst2|CNT_1MHz[16] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.472      ;
 ; 1.166 ; CLK_div_gen:inst2|CNT_1KHz[16] ; CLK_div_gen:inst2|CNT_1KHz[16] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.472      ;
 ; 1.166 ; CLK_div_gen:inst2|CNT_3KHz[16] ; CLK_div_gen:inst2|CNT_3KHz[16] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.472      ;
-; 1.167 ; host_itf:inst1|CNT_1Hz[0]      ; host_itf:inst1|CNT_1Hz[0]      ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.473      ;
 ; 1.171 ; host_itf:inst1|CNT_1Hz[1]      ; host_itf:inst1|CNT_1Hz[1]      ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.477      ;
 ; 1.171 ; host_itf:inst1|CNT_1Hz[9]      ; host_itf:inst1|CNT_1Hz[9]      ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.477      ;
-; 1.172 ; CLK_div_gen:inst2|CNT_1MHz[7]  ; CLK_div_gen:inst2|CNT_1MHz[7]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.478      ;
 ; 1.172 ; CLK_div_gen:inst2|CNT_1MHz[2]  ; CLK_div_gen:inst2|CNT_1MHz[2]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.478      ;
+; 1.172 ; CLK_div_gen:inst2|CNT_1MHz[7]  ; CLK_div_gen:inst2|CNT_1MHz[7]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.478      ;
 ; 1.172 ; CLK_div_gen:inst2|CNT_1KHz[4]  ; CLK_div_gen:inst2|CNT_1KHz[4]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.478      ;
 ; 1.172 ; CLK_div_gen:inst2|CNT_1KHz[2]  ; CLK_div_gen:inst2|CNT_1KHz[2]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.478      ;
 ; 1.172 ; CLK_div_gen:inst2|CNT_1KHz[0]  ; CLK_div_gen:inst2|CNT_1KHz[0]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.478      ;
+; 1.172 ; host_itf:inst1|CNT_1Hz[0]      ; host_itf:inst1|CNT_1Hz[0]      ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.478      ;
 ; 1.175 ; CLK_div_gen:inst2|CNT_1MHz[1]  ; CLK_div_gen:inst2|CNT_1MHz[1]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.481      ;
 ; 1.175 ; CLK_div_gen:inst2|CNT_1MHz[17] ; CLK_div_gen:inst2|CNT_1MHz[17] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.481      ;
-; 1.175 ; CLK_div_gen:inst2|CNT_1KHz[1]  ; CLK_div_gen:inst2|CNT_1KHz[1]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.481      ;
 ; 1.175 ; CLK_div_gen:inst2|CNT_1KHz[17] ; CLK_div_gen:inst2|CNT_1KHz[17] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.481      ;
-; 1.175 ; CLK_div_gen:inst2|CNT_3KHz[17] ; CLK_div_gen:inst2|CNT_3KHz[17] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.481      ;
+; 1.175 ; CLK_div_gen:inst2|CNT_1KHz[1]  ; CLK_div_gen:inst2|CNT_1KHz[1]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.481      ;
 ; 1.175 ; host_itf:inst1|CNT_1Hz[17]     ; host_itf:inst1|CNT_1Hz[17]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.481      ;
-; 1.176 ; CLK_div_gen:inst2|CNT_1MHz[25] ; CLK_div_gen:inst2|CNT_1MHz[25] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
-; 1.176 ; CLK_div_gen:inst2|CNT_1MHz[18] ; CLK_div_gen:inst2|CNT_1MHz[18] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
+; 1.175 ; CLK_div_gen:inst2|CNT_3KHz[17] ; CLK_div_gen:inst2|CNT_3KHz[17] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.481      ;
 ; 1.176 ; CLK_div_gen:inst2|CNT_1MHz[9]  ; CLK_div_gen:inst2|CNT_1MHz[9]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
+; 1.176 ; CLK_div_gen:inst2|CNT_1MHz[18] ; CLK_div_gen:inst2|CNT_1MHz[18] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
+; 1.176 ; CLK_div_gen:inst2|CNT_1MHz[25] ; CLK_div_gen:inst2|CNT_1MHz[25] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
 ; 1.176 ; CLK_div_gen:inst2|CNT_1KHz[9]  ; CLK_div_gen:inst2|CNT_1KHz[9]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
-; 1.176 ; CLK_div_gen:inst2|CNT_1KHz[25] ; CLK_div_gen:inst2|CNT_1KHz[25] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
 ; 1.176 ; CLK_div_gen:inst2|CNT_1KHz[18] ; CLK_div_gen:inst2|CNT_1KHz[18] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
-; 1.176 ; CLK_div_gen:inst2|CNT_3KHz[25] ; CLK_div_gen:inst2|CNT_3KHz[25] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
-; 1.176 ; CLK_div_gen:inst2|CNT_3KHz[18] ; CLK_div_gen:inst2|CNT_3KHz[18] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
-; 1.176 ; CLK_div_gen:inst2|CNT_3KHz[9]  ; CLK_div_gen:inst2|CNT_3KHz[9]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
-; 1.176 ; CLK_div_gen:inst2|CNT_3KHz[1]  ; CLK_div_gen:inst2|CNT_3KHz[1]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
-; 1.176 ; CLK_div_gen:inst2|CNT_3KHz[2]  ; CLK_div_gen:inst2|CNT_3KHz[2]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
+; 1.176 ; CLK_div_gen:inst2|CNT_1KHz[25] ; CLK_div_gen:inst2|CNT_1KHz[25] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
 ; 1.176 ; host_itf:inst1|CNT_1Hz[2]      ; host_itf:inst1|CNT_1Hz[2]      ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
 ; 1.176 ; host_itf:inst1|CNT_1Hz[25]     ; host_itf:inst1|CNT_1Hz[25]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[15] ; CLK_div_gen:inst2|CNT_1MHz[15] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[14] ; CLK_div_gen:inst2|CNT_1MHz[14] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[27] ; CLK_div_gen:inst2|CNT_1MHz[27] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[30] ; CLK_div_gen:inst2|CNT_1MHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[29] ; CLK_div_gen:inst2|CNT_1MHz[29] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[23] ; CLK_div_gen:inst2|CNT_1MHz[23] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[20] ; CLK_div_gen:inst2|CNT_1MHz[20] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[11] ; CLK_div_gen:inst2|CNT_1MHz[11] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.176 ; CLK_div_gen:inst2|CNT_3KHz[25] ; CLK_div_gen:inst2|CNT_3KHz[25] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
+; 1.176 ; CLK_div_gen:inst2|CNT_3KHz[18] ; CLK_div_gen:inst2|CNT_3KHz[18] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.482      ;
 ; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[13] ; CLK_div_gen:inst2|CNT_1MHz[13] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[14] ; CLK_div_gen:inst2|CNT_1MHz[14] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[15] ; CLK_div_gen:inst2|CNT_1MHz[15] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[11] ; CLK_div_gen:inst2|CNT_1MHz[11] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[29] ; CLK_div_gen:inst2|CNT_1MHz[29] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[30] ; CLK_div_gen:inst2|CNT_1MHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[20] ; CLK_div_gen:inst2|CNT_1MHz[20] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[23] ; CLK_div_gen:inst2|CNT_1MHz[23] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_1MHz[27] ; CLK_div_gen:inst2|CNT_1MHz[27] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
 ; 1.177 ; CLK_div_gen:inst2|CNT_1KHz[11] ; CLK_div_gen:inst2|CNT_1KHz[11] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_1KHz[30] ; CLK_div_gen:inst2|CNT_1KHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_1KHz[29] ; CLK_div_gen:inst2|CNT_1KHz[29] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
 ; 1.177 ; CLK_div_gen:inst2|CNT_1KHz[20] ; CLK_div_gen:inst2|CNT_1KHz[20] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
 ; 1.177 ; CLK_div_gen:inst2|CNT_1KHz[23] ; CLK_div_gen:inst2|CNT_1KHz[23] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
 ; 1.177 ; CLK_div_gen:inst2|CNT_1KHz[27] ; CLK_div_gen:inst2|CNT_1KHz[27] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_1KHz[29] ; CLK_div_gen:inst2|CNT_1KHz[29] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_1KHz[30] ; CLK_div_gen:inst2|CNT_1KHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[23] ; CLK_div_gen:inst2|CNT_3KHz[23] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[27] ; CLK_div_gen:inst2|CNT_3KHz[27] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[20] ; CLK_div_gen:inst2|CNT_3KHz[20] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[30] ; CLK_div_gen:inst2|CNT_3KHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[29] ; CLK_div_gen:inst2|CNT_3KHz[29] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[11] ; CLK_div_gen:inst2|CNT_3KHz[11] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; host_itf:inst1|CNT_1Hz[4]      ; host_itf:inst1|CNT_1Hz[4]      ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; host_itf:inst1|CNT_1Hz[7]      ; host_itf:inst1|CNT_1Hz[7]      ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; host_itf:inst1|CNT_1Hz[27]     ; host_itf:inst1|CNT_1Hz[27]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; host_itf:inst1|CNT_1Hz[30]     ; host_itf:inst1|CNT_1Hz[30]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; host_itf:inst1|CNT_1Hz[29]     ; host_itf:inst1|CNT_1Hz[29]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
 ; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[15] ; CLK_div_gen:inst2|CNT_3KHz[15] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
 ; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[13] ; CLK_div_gen:inst2|CNT_3KHz[13] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
 ; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[14] ; CLK_div_gen:inst2|CNT_3KHz[14] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[7]  ; CLK_div_gen:inst2|CNT_3KHz[7]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[4]  ; CLK_div_gen:inst2|CNT_3KHz[4]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; host_itf:inst1|CNT_1Hz[4]      ; host_itf:inst1|CNT_1Hz[4]      ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; host_itf:inst1|CNT_1Hz[7]      ; host_itf:inst1|CNT_1Hz[7]      ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; host_itf:inst1|CNT_1Hz[30]     ; host_itf:inst1|CNT_1Hz[30]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; host_itf:inst1|CNT_1Hz[29]     ; host_itf:inst1|CNT_1Hz[29]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.177 ; host_itf:inst1|CNT_1Hz[27]     ; host_itf:inst1|CNT_1Hz[27]     ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
-; 1.193 ; host_io:inst|re_dly            ; host_io:inst|re_dly1           ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.499      ;
-; 1.195 ; host_itf:inst1|x8800_0030[9]   ; host_itf:inst1|HDO[9]          ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.501      ;
-; 1.205 ; host_itf:inst1|reg_sw[0]       ; host_itf:inst1|reg_sw[1]       ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.511      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[27] ; CLK_div_gen:inst2|CNT_3KHz[27] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[23] ; CLK_div_gen:inst2|CNT_3KHz[23] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[29] ; CLK_div_gen:inst2|CNT_3KHz[29] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[30] ; CLK_div_gen:inst2|CNT_3KHz[30] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; CLK_div_gen:inst2|CNT_3KHz[20] ; CLK_div_gen:inst2|CNT_3KHz[20] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.483      ;
+; 1.178 ; CLK_div_gen:inst2|CNT_3KHz[1]  ; CLK_div_gen:inst2|CNT_3KHz[1]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.484      ;
+; 1.181 ; CLK_div_gen:inst2|CNT_3KHz[9]  ; CLK_div_gen:inst2|CNT_3KHz[9]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.487      ;
+; 1.181 ; CLK_div_gen:inst2|CNT_3KHz[11] ; CLK_div_gen:inst2|CNT_3KHz[11] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.487      ;
+; 1.182 ; CLK_div_gen:inst2|CNT_3KHz[2]  ; CLK_div_gen:inst2|CNT_3KHz[2]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.488      ;
+; 1.183 ; host_itf:inst1|x8800_0040[3]   ; host_itf:inst1|HDO[3]          ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.489      ;
+; 1.183 ; host_itf:inst1|x8800_0030[1]   ; host_itf:inst1|HDO[1]          ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.489      ;
+; 1.183 ; CLK_div_gen:inst2|CNT_3KHz[4]  ; CLK_div_gen:inst2|CNT_3KHz[4]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.489      ;
+; 1.186 ; CLK_div_gen:inst2|CNT_3KHz[7]  ; CLK_div_gen:inst2|CNT_3KHz[7]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.492      ;
+; 1.187 ; host_itf:inst1|x8800_0030[4]   ; host_itf:inst1|HDO[4]          ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.493      ;
 ; 1.213 ; CLK_div_gen:inst2|CNT_1KHz[6]  ; CLK_div_gen:inst2|CNT_1KHz[6]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.519      ;
 ; 1.213 ; CLK_div_gen:inst2|CNT_3KHz[5]  ; CLK_div_gen:inst2|CNT_3KHz[5]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.519      ;
-; 1.220 ; CLK_div_gen:inst2|CNT_3KHz[8]  ; CLK_div_gen:inst2|CNT_3KHz[8]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.526      ;
 ; 1.220 ; host_itf:inst1|CNT_1Hz[8]      ; host_itf:inst1|CNT_1Hz[8]      ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.526      ;
+; 1.220 ; CLK_div_gen:inst2|CNT_3KHz[8]  ; CLK_div_gen:inst2|CNT_3KHz[8]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.526      ;
 ; 1.221 ; CLK_div_gen:inst2|CNT_1MHz[5]  ; CLK_div_gen:inst2|CNT_1MHz[5]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.527      ;
-; 1.221 ; CLK_div_gen:inst2|CNT_1MHz[6]  ; CLK_div_gen:inst2|CNT_1MHz[6]  ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.527      ;
-; 1.221 ; CLK_div_gen:inst2|CNT_1KHz[10] ; CLK_div_gen:inst2|CNT_1KHz[10] ; FPGA_CLK     ; FPGA_CLK    ; 0.000        ; 0.000      ; 1.527      ;
 +-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -478,119 +478,119 @@ No paths to report.
 +----------------+------------+--------+--------+------------+-----------------+
 ; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +----------------+------------+--------+--------+------------+-----------------+
-; CPLD_0         ; FPGA_CLK   ; 9.733  ; 9.733  ; Rise       ; FPGA_CLK        ;
-; XM0OEN         ; FPGA_CLK   ; 5.406  ; 5.406  ; Rise       ; FPGA_CLK        ;
-; XM0WEN         ; FPGA_CLK   ; 6.001  ; 6.001  ; Rise       ; FPGA_CLK        ;
-; XM0_ADDR[*]    ; FPGA_CLK   ; 16.598 ; 16.598 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[0]   ; FPGA_CLK   ; 16.598 ; 16.598 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[1]   ; FPGA_CLK   ; 16.053 ; 16.053 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[2]   ; FPGA_CLK   ; 14.764 ; 14.764 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[3]   ; FPGA_CLK   ; 14.924 ; 14.924 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[4]   ; FPGA_CLK   ; 15.608 ; 15.608 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[5]   ; FPGA_CLK   ; 15.700 ; 15.700 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[6]   ; FPGA_CLK   ; 14.229 ; 14.229 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[7]   ; FPGA_CLK   ; 14.651 ; 14.651 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[8]   ; FPGA_CLK   ; 14.763 ; 14.763 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[9]   ; FPGA_CLK   ; 14.541 ; 14.541 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[10]  ; FPGA_CLK   ; 15.032 ; 15.032 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[11]  ; FPGA_CLK   ; 15.070 ; 15.070 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[12]  ; FPGA_CLK   ; 15.140 ; 15.140 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[13]  ; FPGA_CLK   ; 14.697 ; 14.697 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[14]  ; FPGA_CLK   ; 14.747 ; 14.747 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[15]  ; FPGA_CLK   ; 14.953 ; 14.953 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[16]  ; FPGA_CLK   ; 14.616 ; 14.616 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[17]  ; FPGA_CLK   ; 14.498 ; 14.498 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[18]  ; FPGA_CLK   ; 14.844 ; 14.844 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[19]  ; FPGA_CLK   ; 14.819 ; 14.819 ; Rise       ; FPGA_CLK        ;
-; dip_sw[*]      ; FPGA_CLK   ; 9.577  ; 9.577  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[0]     ; FPGA_CLK   ; 8.386  ; 8.386  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[1]     ; FPGA_CLK   ; 9.577  ; 9.577  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[2]     ; FPGA_CLK   ; 9.520  ; 9.520  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[3]     ; FPGA_CLK   ; 9.253  ; 9.253  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[4]     ; FPGA_CLK   ; 7.811  ; 7.811  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[5]     ; FPGA_CLK   ; 9.553  ; 9.553  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[6]     ; FPGA_CLK   ; 7.264  ; 7.264  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[7]     ; FPGA_CLK   ; 7.897  ; 7.897  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[8]     ; FPGA_CLK   ; 6.722  ; 6.722  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[9]     ; FPGA_CLK   ; 6.738  ; 6.738  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[10]    ; FPGA_CLK   ; 6.721  ; 6.721  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[11]    ; FPGA_CLK   ; 7.400  ; 7.400  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[12]    ; FPGA_CLK   ; 7.376  ; 7.376  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[13]    ; FPGA_CLK   ; 7.687  ; 7.687  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[14]    ; FPGA_CLK   ; 6.957  ; 6.957  ; Rise       ; FPGA_CLK        ;
-;  dip_sw[15]    ; FPGA_CLK   ; 6.757  ; 6.757  ; Rise       ; FPGA_CLK        ;
-; key_data[*]    ; FPGA_CLK   ; 8.396  ; 8.396  ; Rise       ; FPGA_CLK        ;
-;  key_data[0]   ; FPGA_CLK   ; 8.137  ; 8.137  ; Rise       ; FPGA_CLK        ;
-;  key_data[1]   ; FPGA_CLK   ; 7.654  ; 7.654  ; Rise       ; FPGA_CLK        ;
-;  key_data[2]   ; FPGA_CLK   ; 8.396  ; 8.396  ; Rise       ; FPGA_CLK        ;
-;  key_data[3]   ; FPGA_CLK   ; 6.703  ; 6.703  ; Rise       ; FPGA_CLK        ;
-; nFPGA_RESET    ; FPGA_CLK   ; 8.368  ; 8.368  ; Rise       ; FPGA_CLK        ;
-; sel_button[*]  ; FPGA_CLK   ; 6.780  ; 6.780  ; Rise       ; FPGA_CLK        ;
-;  sel_button[0] ; FPGA_CLK   ; 6.162  ; 6.162  ; Rise       ; FPGA_CLK        ;
-;  sel_button[1] ; FPGA_CLK   ; 6.780  ; 6.780  ; Rise       ; FPGA_CLK        ;
-;  sel_button[2] ; FPGA_CLK   ; 6.036  ; 6.036  ; Rise       ; FPGA_CLK        ;
-;  sel_button[3] ; FPGA_CLK   ; 5.448  ; 5.448  ; Rise       ; FPGA_CLK        ;
+; CPLD_0         ; FPGA_CLK   ; 11.208 ; 11.208 ; Rise       ; FPGA_CLK        ;
+; XM0OEN         ; FPGA_CLK   ; 6.303  ; 6.303  ; Rise       ; FPGA_CLK        ;
+; XM0WEN         ; FPGA_CLK   ; 6.905  ; 6.905  ; Rise       ; FPGA_CLK        ;
+; XM0_ADDR[*]    ; FPGA_CLK   ; 16.122 ; 16.122 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[0]   ; FPGA_CLK   ; 14.065 ; 14.065 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[1]   ; FPGA_CLK   ; 13.939 ; 13.939 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[2]   ; FPGA_CLK   ; 15.331 ; 15.331 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[3]   ; FPGA_CLK   ; 15.191 ; 15.191 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[4]   ; FPGA_CLK   ; 14.607 ; 14.607 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[5]   ; FPGA_CLK   ; 13.484 ; 13.484 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[6]   ; FPGA_CLK   ; 14.148 ; 14.148 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[7]   ; FPGA_CLK   ; 14.229 ; 14.229 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[8]   ; FPGA_CLK   ; 15.854 ; 15.854 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[9]   ; FPGA_CLK   ; 15.605 ; 15.605 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[10]  ; FPGA_CLK   ; 16.085 ; 16.085 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[11]  ; FPGA_CLK   ; 16.122 ; 16.122 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[12]  ; FPGA_CLK   ; 15.421 ; 15.421 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[13]  ; FPGA_CLK   ; 15.310 ; 15.310 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[14]  ; FPGA_CLK   ; 15.694 ; 15.694 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[15]  ; FPGA_CLK   ; 15.580 ; 15.580 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[16]  ; FPGA_CLK   ; 15.255 ; 15.255 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[17]  ; FPGA_CLK   ; 15.125 ; 15.125 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[18]  ; FPGA_CLK   ; 15.483 ; 15.483 ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[19]  ; FPGA_CLK   ; 15.443 ; 15.443 ; Rise       ; FPGA_CLK        ;
+; dip_sw[*]      ; FPGA_CLK   ; 10.595 ; 10.595 ; Rise       ; FPGA_CLK        ;
+;  dip_sw[0]     ; FPGA_CLK   ; 8.424  ; 8.424  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[1]     ; FPGA_CLK   ; 8.440  ; 8.440  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[2]     ; FPGA_CLK   ; 7.981  ; 7.981  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[3]     ; FPGA_CLK   ; 10.595 ; 10.595 ; Rise       ; FPGA_CLK        ;
+;  dip_sw[4]     ; FPGA_CLK   ; 8.152  ; 8.152  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[5]     ; FPGA_CLK   ; 8.597  ; 8.597  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[6]     ; FPGA_CLK   ; 7.243  ; 7.243  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[7]     ; FPGA_CLK   ; 6.949  ; 6.949  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[8]     ; FPGA_CLK   ; 8.192  ; 8.192  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[9]     ; FPGA_CLK   ; 6.365  ; 6.365  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[10]    ; FPGA_CLK   ; 7.551  ; 7.551  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[11]    ; FPGA_CLK   ; 7.110  ; 7.110  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[12]    ; FPGA_CLK   ; 7.995  ; 7.995  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[13]    ; FPGA_CLK   ; 7.611  ; 7.611  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[14]    ; FPGA_CLK   ; 6.913  ; 6.913  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[15]    ; FPGA_CLK   ; 7.849  ; 7.849  ; Rise       ; FPGA_CLK        ;
+; key_data[*]    ; FPGA_CLK   ; 9.343  ; 9.343  ; Rise       ; FPGA_CLK        ;
+;  key_data[0]   ; FPGA_CLK   ; 9.343  ; 9.343  ; Rise       ; FPGA_CLK        ;
+;  key_data[1]   ; FPGA_CLK   ; 8.062  ; 8.062  ; Rise       ; FPGA_CLK        ;
+;  key_data[2]   ; FPGA_CLK   ; 8.235  ; 8.235  ; Rise       ; FPGA_CLK        ;
+;  key_data[3]   ; FPGA_CLK   ; 8.328  ; 8.328  ; Rise       ; FPGA_CLK        ;
+; nFPGA_RESET    ; FPGA_CLK   ; 10.080 ; 10.080 ; Rise       ; FPGA_CLK        ;
+; sel_button[*]  ; FPGA_CLK   ; 6.357  ; 6.357  ; Rise       ; FPGA_CLK        ;
+;  sel_button[0] ; FPGA_CLK   ; 5.879  ; 5.879  ; Rise       ; FPGA_CLK        ;
+;  sel_button[1] ; FPGA_CLK   ; 6.076  ; 6.076  ; Rise       ; FPGA_CLK        ;
+;  sel_button[2] ; FPGA_CLK   ; 6.310  ; 6.310  ; Rise       ; FPGA_CLK        ;
+;  sel_button[3] ; FPGA_CLK   ; 6.357  ; 6.357  ; Rise       ; FPGA_CLK        ;
 +----------------+------------+--------+--------+------------+-----------------+
 
 
-+------------------------------------------------------------------------------+
-; Hold Times                                                                   ;
-+----------------+------------+--------+--------+------------+-----------------+
-; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
-+----------------+------------+--------+--------+------------+-----------------+
-; CPLD_0         ; FPGA_CLK   ; -5.802 ; -5.802 ; Rise       ; FPGA_CLK        ;
-; XM0OEN         ; FPGA_CLK   ; -0.273 ; -0.273 ; Rise       ; FPGA_CLK        ;
-; XM0WEN         ; FPGA_CLK   ; -1.032 ; -1.032 ; Rise       ; FPGA_CLK        ;
-; XM0_ADDR[*]    ; FPGA_CLK   ; -5.741 ; -5.741 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[0]   ; FPGA_CLK   ; -6.941 ; -6.941 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[1]   ; FPGA_CLK   ; -8.175 ; -8.175 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[2]   ; FPGA_CLK   ; -8.606 ; -8.606 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[3]   ; FPGA_CLK   ; -8.766 ; -8.766 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[4]   ; FPGA_CLK   ; -7.750 ; -7.750 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[5]   ; FPGA_CLK   ; -7.744 ; -7.744 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[6]   ; FPGA_CLK   ; -6.833 ; -6.833 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[7]   ; FPGA_CLK   ; -5.741 ; -5.741 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[8]   ; FPGA_CLK   ; -8.605 ; -8.605 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[9]   ; FPGA_CLK   ; -8.383 ; -8.383 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[10]  ; FPGA_CLK   ; -8.874 ; -8.874 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[11]  ; FPGA_CLK   ; -8.912 ; -8.912 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[12]  ; FPGA_CLK   ; -8.982 ; -8.982 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[13]  ; FPGA_CLK   ; -8.539 ; -8.539 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[14]  ; FPGA_CLK   ; -8.589 ; -8.589 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[15]  ; FPGA_CLK   ; -8.795 ; -8.795 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[16]  ; FPGA_CLK   ; -8.458 ; -8.458 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[17]  ; FPGA_CLK   ; -8.340 ; -8.340 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[18]  ; FPGA_CLK   ; -8.686 ; -8.686 ; Rise       ; FPGA_CLK        ;
-;  XM0_ADDR[19]  ; FPGA_CLK   ; -8.661 ; -8.661 ; Rise       ; FPGA_CLK        ;
-; dip_sw[*]      ; FPGA_CLK   ; -6.455 ; -6.455 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[0]     ; FPGA_CLK   ; -8.120 ; -8.120 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[1]     ; FPGA_CLK   ; -9.311 ; -9.311 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[2]     ; FPGA_CLK   ; -9.254 ; -9.254 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[3]     ; FPGA_CLK   ; -8.987 ; -8.987 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[4]     ; FPGA_CLK   ; -7.545 ; -7.545 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[5]     ; FPGA_CLK   ; -9.287 ; -9.287 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[6]     ; FPGA_CLK   ; -6.998 ; -6.998 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[7]     ; FPGA_CLK   ; -7.631 ; -7.631 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[8]     ; FPGA_CLK   ; -6.456 ; -6.456 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[9]     ; FPGA_CLK   ; -6.472 ; -6.472 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[10]    ; FPGA_CLK   ; -6.455 ; -6.455 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[11]    ; FPGA_CLK   ; -7.134 ; -7.134 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[12]    ; FPGA_CLK   ; -7.110 ; -7.110 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[13]    ; FPGA_CLK   ; -7.421 ; -7.421 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[14]    ; FPGA_CLK   ; -6.691 ; -6.691 ; Rise       ; FPGA_CLK        ;
-;  dip_sw[15]    ; FPGA_CLK   ; -6.491 ; -6.491 ; Rise       ; FPGA_CLK        ;
-; key_data[*]    ; FPGA_CLK   ; -6.437 ; -6.437 ; Rise       ; FPGA_CLK        ;
-;  key_data[0]   ; FPGA_CLK   ; -7.871 ; -7.871 ; Rise       ; FPGA_CLK        ;
-;  key_data[1]   ; FPGA_CLK   ; -7.388 ; -7.388 ; Rise       ; FPGA_CLK        ;
-;  key_data[2]   ; FPGA_CLK   ; -8.130 ; -8.130 ; Rise       ; FPGA_CLK        ;
-;  key_data[3]   ; FPGA_CLK   ; -6.437 ; -6.437 ; Rise       ; FPGA_CLK        ;
-; nFPGA_RESET    ; FPGA_CLK   ; -5.500 ; -5.500 ; Rise       ; FPGA_CLK        ;
-; sel_button[*]  ; FPGA_CLK   ; -5.182 ; -5.182 ; Rise       ; FPGA_CLK        ;
-;  sel_button[0] ; FPGA_CLK   ; -5.896 ; -5.896 ; Rise       ; FPGA_CLK        ;
-;  sel_button[1] ; FPGA_CLK   ; -6.514 ; -6.514 ; Rise       ; FPGA_CLK        ;
-;  sel_button[2] ; FPGA_CLK   ; -5.770 ; -5.770 ; Rise       ; FPGA_CLK        ;
-;  sel_button[3] ; FPGA_CLK   ; -5.182 ; -5.182 ; Rise       ; FPGA_CLK        ;
-+----------------+------------+--------+--------+------------+-----------------+
++--------------------------------------------------------------------------------+
+; Hold Times                                                                     ;
++----------------+------------+---------+---------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise    ; Fall    ; Clock Edge ; Clock Reference ;
++----------------+------------+---------+---------+------------+-----------------+
+; CPLD_0         ; FPGA_CLK   ; -6.402  ; -6.402  ; Rise       ; FPGA_CLK        ;
+; XM0OEN         ; FPGA_CLK   ; 0.182   ; 0.182   ; Rise       ; FPGA_CLK        ;
+; XM0WEN         ; FPGA_CLK   ; -1.399  ; -1.399  ; Rise       ; FPGA_CLK        ;
+; XM0_ADDR[*]    ; FPGA_CLK   ; -5.988  ; -5.988  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[0]   ; FPGA_CLK   ; -7.042  ; -7.042  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[1]   ; FPGA_CLK   ; -7.681  ; -7.681  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[2]   ; FPGA_CLK   ; -8.248  ; -8.248  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[3]   ; FPGA_CLK   ; -8.108  ; -8.108  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[4]   ; FPGA_CLK   ; -7.292  ; -7.292  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[5]   ; FPGA_CLK   ; -6.086  ; -6.086  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[6]   ; FPGA_CLK   ; -6.053  ; -6.053  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[7]   ; FPGA_CLK   ; -5.988  ; -5.988  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[8]   ; FPGA_CLK   ; -8.771  ; -8.771  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[9]   ; FPGA_CLK   ; -8.522  ; -8.522  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[10]  ; FPGA_CLK   ; -9.002  ; -9.002  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[11]  ; FPGA_CLK   ; -9.039  ; -9.039  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[12]  ; FPGA_CLK   ; -8.338  ; -8.338  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[13]  ; FPGA_CLK   ; -8.227  ; -8.227  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[14]  ; FPGA_CLK   ; -8.611  ; -8.611  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[15]  ; FPGA_CLK   ; -8.497  ; -8.497  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[16]  ; FPGA_CLK   ; -8.172  ; -8.172  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[17]  ; FPGA_CLK   ; -8.042  ; -8.042  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[18]  ; FPGA_CLK   ; -8.400  ; -8.400  ; Rise       ; FPGA_CLK        ;
+;  XM0_ADDR[19]  ; FPGA_CLK   ; -8.360  ; -8.360  ; Rise       ; FPGA_CLK        ;
+; dip_sw[*]      ; FPGA_CLK   ; -6.099  ; -6.099  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[0]     ; FPGA_CLK   ; -8.158  ; -8.158  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[1]     ; FPGA_CLK   ; -8.174  ; -8.174  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[2]     ; FPGA_CLK   ; -7.715  ; -7.715  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[3]     ; FPGA_CLK   ; -10.329 ; -10.329 ; Rise       ; FPGA_CLK        ;
+;  dip_sw[4]     ; FPGA_CLK   ; -7.886  ; -7.886  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[5]     ; FPGA_CLK   ; -8.331  ; -8.331  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[6]     ; FPGA_CLK   ; -6.977  ; -6.977  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[7]     ; FPGA_CLK   ; -6.683  ; -6.683  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[8]     ; FPGA_CLK   ; -7.926  ; -7.926  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[9]     ; FPGA_CLK   ; -6.099  ; -6.099  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[10]    ; FPGA_CLK   ; -7.285  ; -7.285  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[11]    ; FPGA_CLK   ; -6.844  ; -6.844  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[12]    ; FPGA_CLK   ; -7.729  ; -7.729  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[13]    ; FPGA_CLK   ; -7.345  ; -7.345  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[14]    ; FPGA_CLK   ; -6.647  ; -6.647  ; Rise       ; FPGA_CLK        ;
+;  dip_sw[15]    ; FPGA_CLK   ; -7.583  ; -7.583  ; Rise       ; FPGA_CLK        ;
+; key_data[*]    ; FPGA_CLK   ; -7.796  ; -7.796  ; Rise       ; FPGA_CLK        ;
+;  key_data[0]   ; FPGA_CLK   ; -9.077  ; -9.077  ; Rise       ; FPGA_CLK        ;
+;  key_data[1]   ; FPGA_CLK   ; -7.796  ; -7.796  ; Rise       ; FPGA_CLK        ;
+;  key_data[2]   ; FPGA_CLK   ; -7.969  ; -7.969  ; Rise       ; FPGA_CLK        ;
+;  key_data[3]   ; FPGA_CLK   ; -8.062  ; -8.062  ; Rise       ; FPGA_CLK        ;
+; nFPGA_RESET    ; FPGA_CLK   ; -6.112  ; -6.112  ; Rise       ; FPGA_CLK        ;
+; sel_button[*]  ; FPGA_CLK   ; -5.613  ; -5.613  ; Rise       ; FPGA_CLK        ;
+;  sel_button[0] ; FPGA_CLK   ; -5.613  ; -5.613  ; Rise       ; FPGA_CLK        ;
+;  sel_button[1] ; FPGA_CLK   ; -5.810  ; -5.810  ; Rise       ; FPGA_CLK        ;
+;  sel_button[2] ; FPGA_CLK   ; -6.044  ; -6.044  ; Rise       ; FPGA_CLK        ;
+;  sel_button[3] ; FPGA_CLK   ; -6.091  ; -6.091  ; Rise       ; FPGA_CLK        ;
++----------------+------------+---------+---------+------------+-----------------+
 
 
 +-----------------------------------------------------------------------------+
@@ -598,84 +598,84 @@ No paths to report.
 +---------------+------------+--------+--------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +---------------+------------+--------+--------+------------+-----------------+
-; XM0_DATA[*]   ; FPGA_CLK   ; 8.344  ; 8.344  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[0]  ; FPGA_CLK   ; 7.935  ; 7.935  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[1]  ; FPGA_CLK   ; 8.344  ; 8.344  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[2]  ; FPGA_CLK   ; 7.890  ; 7.890  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[3]  ; FPGA_CLK   ; 7.905  ; 7.905  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[4]  ; FPGA_CLK   ; 7.908  ; 7.908  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[5]  ; FPGA_CLK   ; 7.996  ; 7.996  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[6]  ; FPGA_CLK   ; 7.606  ; 7.606  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[7]  ; FPGA_CLK   ; 7.571  ; 7.571  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[8]  ; FPGA_CLK   ; 7.153  ; 7.153  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[9]  ; FPGA_CLK   ; 7.559  ; 7.559  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[10] ; FPGA_CLK   ; 7.579  ; 7.579  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[11] ; FPGA_CLK   ; 7.630  ; 7.630  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[12] ; FPGA_CLK   ; 7.989  ; 7.989  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[13] ; FPGA_CLK   ; 7.595  ; 7.595  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[14] ; FPGA_CLK   ; 7.615  ; 7.615  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[15] ; FPGA_CLK   ; 7.984  ; 7.984  ; Rise       ; FPGA_CLK        ;
-; dot_d[*]      ; FPGA_CLK   ; 11.991 ; 11.991 ; Rise       ; FPGA_CLK        ;
-;  dot_d[0]     ; FPGA_CLK   ; 11.780 ; 11.780 ; Rise       ; FPGA_CLK        ;
-;  dot_d[1]     ; FPGA_CLK   ; 11.663 ; 11.663 ; Rise       ; FPGA_CLK        ;
-;  dot_d[2]     ; FPGA_CLK   ; 11.991 ; 11.991 ; Rise       ; FPGA_CLK        ;
-;  dot_d[3]     ; FPGA_CLK   ; 10.826 ; 10.826 ; Rise       ; FPGA_CLK        ;
-;  dot_d[4]     ; FPGA_CLK   ; 11.837 ; 11.837 ; Rise       ; FPGA_CLK        ;
-;  dot_d[5]     ; FPGA_CLK   ; 10.858 ; 10.858 ; Rise       ; FPGA_CLK        ;
-;  dot_d[6]     ; FPGA_CLK   ; 10.219 ; 10.219 ; Rise       ; FPGA_CLK        ;
-; dot_scan[*]   ; FPGA_CLK   ; 12.853 ; 12.853 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[0]  ; FPGA_CLK   ; 12.853 ; 12.853 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[1]  ; FPGA_CLK   ; 12.779 ; 12.779 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[2]  ; FPGA_CLK   ; 11.997 ; 11.997 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[3]  ; FPGA_CLK   ; 11.951 ; 11.951 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[4]  ; FPGA_CLK   ; 11.184 ; 11.184 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[5]  ; FPGA_CLK   ; 12.257 ; 12.257 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[6]  ; FPGA_CLK   ; 12.098 ; 12.098 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[7]  ; FPGA_CLK   ; 11.961 ; 11.961 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[8]  ; FPGA_CLK   ; 11.608 ; 11.608 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[9]  ; FPGA_CLK   ; 11.632 ; 11.632 ; Rise       ; FPGA_CLK        ;
-; key_scan[*]   ; FPGA_CLK   ; 8.460  ; 8.460  ; Rise       ; FPGA_CLK        ;
-;  key_scan[0]  ; FPGA_CLK   ; 8.460  ; 8.460  ; Rise       ; FPGA_CLK        ;
-;  key_scan[1]  ; FPGA_CLK   ; 8.444  ; 8.444  ; Rise       ; FPGA_CLK        ;
-;  key_scan[2]  ; FPGA_CLK   ; 7.673  ; 7.673  ; Rise       ; FPGA_CLK        ;
-;  key_scan[3]  ; FPGA_CLK   ; 8.317  ; 8.317  ; Rise       ; FPGA_CLK        ;
-; lcd_data[*]   ; FPGA_CLK   ; 11.759 ; 11.759 ; Rise       ; FPGA_CLK        ;
-;  lcd_data[0]  ; FPGA_CLK   ; 9.869  ; 9.869  ; Rise       ; FPGA_CLK        ;
-;  lcd_data[1]  ; FPGA_CLK   ; 10.544 ; 10.544 ; Rise       ; FPGA_CLK        ;
-;  lcd_data[2]  ; FPGA_CLK   ; 10.535 ; 10.535 ; Rise       ; FPGA_CLK        ;
-;  lcd_data[3]  ; FPGA_CLK   ; 11.759 ; 11.759 ; Rise       ; FPGA_CLK        ;
-;  lcd_data[4]  ; FPGA_CLK   ; 10.609 ; 10.609 ; Rise       ; FPGA_CLK        ;
-;  lcd_data[5]  ; FPGA_CLK   ; 10.960 ; 10.960 ; Rise       ; FPGA_CLK        ;
-;  lcd_data[6]  ; FPGA_CLK   ; 9.948  ; 9.948  ; Rise       ; FPGA_CLK        ;
-;  lcd_data[7]  ; FPGA_CLK   ; 11.747 ; 11.747 ; Rise       ; FPGA_CLK        ;
-; lcd_e         ; FPGA_CLK   ; 10.850 ; 10.850 ; Rise       ; FPGA_CLK        ;
-; lcd_rs        ; FPGA_CLK   ; 10.618 ; 10.618 ; Rise       ; FPGA_CLK        ;
-; lcd_rw        ; FPGA_CLK   ; 10.678 ; 10.678 ; Rise       ; FPGA_CLK        ;
-; led[*]        ; FPGA_CLK   ; 12.592 ; 12.592 ; Rise       ; FPGA_CLK        ;
-;  led[0]       ; FPGA_CLK   ; 11.930 ; 11.930 ; Rise       ; FPGA_CLK        ;
-;  led[1]       ; FPGA_CLK   ; 11.648 ; 11.648 ; Rise       ; FPGA_CLK        ;
-;  led[2]       ; FPGA_CLK   ; 11.738 ; 11.738 ; Rise       ; FPGA_CLK        ;
-;  led[3]       ; FPGA_CLK   ; 11.955 ; 11.955 ; Rise       ; FPGA_CLK        ;
-;  led[4]       ; FPGA_CLK   ; 12.120 ; 12.120 ; Rise       ; FPGA_CLK        ;
-;  led[5]       ; FPGA_CLK   ; 12.592 ; 12.592 ; Rise       ; FPGA_CLK        ;
-;  led[6]       ; FPGA_CLK   ; 11.587 ; 11.587 ; Rise       ; FPGA_CLK        ;
-;  led[7]       ; FPGA_CLK   ; 11.270 ; 11.270 ; Rise       ; FPGA_CLK        ;
-; piezo         ; FPGA_CLK   ; 9.508  ; 9.508  ; Rise       ; FPGA_CLK        ;
-; seg_com[*]    ; FPGA_CLK   ; 11.408 ; 11.408 ; Rise       ; FPGA_CLK        ;
-;  seg_com[0]   ; FPGA_CLK   ; 10.742 ; 10.742 ; Rise       ; FPGA_CLK        ;
-;  seg_com[1]   ; FPGA_CLK   ; 11.402 ; 11.402 ; Rise       ; FPGA_CLK        ;
-;  seg_com[2]   ; FPGA_CLK   ; 10.418 ; 10.418 ; Rise       ; FPGA_CLK        ;
-;  seg_com[3]   ; FPGA_CLK   ; 10.727 ; 10.727 ; Rise       ; FPGA_CLK        ;
-;  seg_com[4]   ; FPGA_CLK   ; 11.408 ; 11.408 ; Rise       ; FPGA_CLK        ;
-;  seg_com[5]   ; FPGA_CLK   ; 9.252  ; 9.252  ; Rise       ; FPGA_CLK        ;
-; seg_disp[*]   ; FPGA_CLK   ; 11.663 ; 11.663 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[1]  ; FPGA_CLK   ; 10.621 ; 10.621 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[2]  ; FPGA_CLK   ; 11.105 ; 11.105 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[3]  ; FPGA_CLK   ; 11.663 ; 11.663 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[4]  ; FPGA_CLK   ; 10.932 ; 10.932 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[5]  ; FPGA_CLK   ; 11.359 ; 11.359 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[6]  ; FPGA_CLK   ; 11.290 ; 11.290 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[7]  ; FPGA_CLK   ; 10.920 ; 10.920 ; Rise       ; FPGA_CLK        ;
+; XM0_DATA[*]   ; FPGA_CLK   ; 8.712  ; 8.712  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[0]  ; FPGA_CLK   ; 8.287  ; 8.287  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[1]  ; FPGA_CLK   ; 8.313  ; 8.313  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[2]  ; FPGA_CLK   ; 7.913  ; 7.913  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[3]  ; FPGA_CLK   ; 8.179  ; 8.179  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[4]  ; FPGA_CLK   ; 8.276  ; 8.276  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[5]  ; FPGA_CLK   ; 8.712  ; 8.712  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[6]  ; FPGA_CLK   ; 8.209  ; 8.209  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[7]  ; FPGA_CLK   ; 7.855  ; 7.855  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[8]  ; FPGA_CLK   ; 7.443  ; 7.443  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[9]  ; FPGA_CLK   ; 8.238  ; 8.238  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[10] ; FPGA_CLK   ; 7.882  ; 7.882  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[11] ; FPGA_CLK   ; 7.861  ; 7.861  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[12] ; FPGA_CLK   ; 8.275  ; 8.275  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[13] ; FPGA_CLK   ; 7.844  ; 7.844  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[14] ; FPGA_CLK   ; 7.863  ; 7.863  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[15] ; FPGA_CLK   ; 7.834  ; 7.834  ; Rise       ; FPGA_CLK        ;
+; dot_d[*]      ; FPGA_CLK   ; 14.323 ; 14.323 ; Rise       ; FPGA_CLK        ;
+;  dot_d[0]     ; FPGA_CLK   ; 11.274 ; 11.274 ; Rise       ; FPGA_CLK        ;
+;  dot_d[1]     ; FPGA_CLK   ; 11.233 ; 11.233 ; Rise       ; FPGA_CLK        ;
+;  dot_d[2]     ; FPGA_CLK   ; 10.454 ; 10.454 ; Rise       ; FPGA_CLK        ;
+;  dot_d[3]     ; FPGA_CLK   ; 11.213 ; 11.213 ; Rise       ; FPGA_CLK        ;
+;  dot_d[4]     ; FPGA_CLK   ; 11.296 ; 11.296 ; Rise       ; FPGA_CLK        ;
+;  dot_d[5]     ; FPGA_CLK   ; 14.323 ; 14.323 ; Rise       ; FPGA_CLK        ;
+;  dot_d[6]     ; FPGA_CLK   ; 10.427 ; 10.427 ; Rise       ; FPGA_CLK        ;
+; dot_scan[*]   ; FPGA_CLK   ; 13.243 ; 13.243 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[0]  ; FPGA_CLK   ; 10.594 ; 10.594 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[1]  ; FPGA_CLK   ; 11.359 ; 11.359 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[2]  ; FPGA_CLK   ; 10.540 ; 10.540 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[3]  ; FPGA_CLK   ; 13.243 ; 13.243 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[4]  ; FPGA_CLK   ; 12.135 ; 12.135 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[5]  ; FPGA_CLK   ; 11.434 ; 11.434 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[6]  ; FPGA_CLK   ; 11.348 ; 11.348 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[7]  ; FPGA_CLK   ; 11.190 ; 11.190 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[8]  ; FPGA_CLK   ; 11.543 ; 11.543 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[9]  ; FPGA_CLK   ; 10.916 ; 10.916 ; Rise       ; FPGA_CLK        ;
+; key_scan[*]   ; FPGA_CLK   ; 8.748  ; 8.748  ; Rise       ; FPGA_CLK        ;
+;  key_scan[0]  ; FPGA_CLK   ; 8.118  ; 8.118  ; Rise       ; FPGA_CLK        ;
+;  key_scan[1]  ; FPGA_CLK   ; 7.695  ; 7.695  ; Rise       ; FPGA_CLK        ;
+;  key_scan[2]  ; FPGA_CLK   ; 8.069  ; 8.069  ; Rise       ; FPGA_CLK        ;
+;  key_scan[3]  ; FPGA_CLK   ; 8.748  ; 8.748  ; Rise       ; FPGA_CLK        ;
+; lcd_data[*]   ; FPGA_CLK   ; 10.951 ; 10.951 ; Rise       ; FPGA_CLK        ;
+;  lcd_data[0]  ; FPGA_CLK   ; 10.300 ; 10.300 ; Rise       ; FPGA_CLK        ;
+;  lcd_data[1]  ; FPGA_CLK   ; 9.843  ; 9.843  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[2]  ; FPGA_CLK   ; 9.847  ; 9.847  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[3]  ; FPGA_CLK   ; 10.937 ; 10.937 ; Rise       ; FPGA_CLK        ;
+;  lcd_data[4]  ; FPGA_CLK   ; 10.189 ; 10.189 ; Rise       ; FPGA_CLK        ;
+;  lcd_data[5]  ; FPGA_CLK   ; 10.951 ; 10.951 ; Rise       ; FPGA_CLK        ;
+;  lcd_data[6]  ; FPGA_CLK   ; 9.471  ; 9.471  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[7]  ; FPGA_CLK   ; 10.183 ; 10.183 ; Rise       ; FPGA_CLK        ;
+; lcd_e         ; FPGA_CLK   ; 10.171 ; 10.171 ; Rise       ; FPGA_CLK        ;
+; lcd_rs        ; FPGA_CLK   ; 10.566 ; 10.566 ; Rise       ; FPGA_CLK        ;
+; lcd_rw        ; FPGA_CLK   ; 10.583 ; 10.583 ; Rise       ; FPGA_CLK        ;
+; led[*]        ; FPGA_CLK   ; 11.669 ; 11.669 ; Rise       ; FPGA_CLK        ;
+;  led[0]       ; FPGA_CLK   ; 10.535 ; 10.535 ; Rise       ; FPGA_CLK        ;
+;  led[1]       ; FPGA_CLK   ; 10.670 ; 10.670 ; Rise       ; FPGA_CLK        ;
+;  led[2]       ; FPGA_CLK   ; 10.423 ; 10.423 ; Rise       ; FPGA_CLK        ;
+;  led[3]       ; FPGA_CLK   ; 11.401 ; 11.401 ; Rise       ; FPGA_CLK        ;
+;  led[4]       ; FPGA_CLK   ; 11.669 ; 11.669 ; Rise       ; FPGA_CLK        ;
+;  led[5]       ; FPGA_CLK   ; 11.070 ; 11.070 ; Rise       ; FPGA_CLK        ;
+;  led[6]       ; FPGA_CLK   ; 11.562 ; 11.562 ; Rise       ; FPGA_CLK        ;
+;  led[7]       ; FPGA_CLK   ; 10.400 ; 10.400 ; Rise       ; FPGA_CLK        ;
+; piezo         ; FPGA_CLK   ; 9.955  ; 9.955  ; Rise       ; FPGA_CLK        ;
+; seg_com[*]    ; FPGA_CLK   ; 9.936  ; 9.936  ; Rise       ; FPGA_CLK        ;
+;  seg_com[0]   ; FPGA_CLK   ; 9.936  ; 9.936  ; Rise       ; FPGA_CLK        ;
+;  seg_com[1]   ; FPGA_CLK   ; 9.576  ; 9.576  ; Rise       ; FPGA_CLK        ;
+;  seg_com[2]   ; FPGA_CLK   ; 8.897  ; 8.897  ; Rise       ; FPGA_CLK        ;
+;  seg_com[3]   ; FPGA_CLK   ; 9.515  ; 9.515  ; Rise       ; FPGA_CLK        ;
+;  seg_com[4]   ; FPGA_CLK   ; 9.594  ; 9.594  ; Rise       ; FPGA_CLK        ;
+;  seg_com[5]   ; FPGA_CLK   ; 9.251  ; 9.251  ; Rise       ; FPGA_CLK        ;
+; seg_disp[*]   ; FPGA_CLK   ; 11.262 ; 11.262 ; Rise       ; FPGA_CLK        ;
+;  seg_disp[1]  ; FPGA_CLK   ; 9.738  ; 9.738  ; Rise       ; FPGA_CLK        ;
+;  seg_disp[2]  ; FPGA_CLK   ; 10.985 ; 10.985 ; Rise       ; FPGA_CLK        ;
+;  seg_disp[3]  ; FPGA_CLK   ; 11.262 ; 11.262 ; Rise       ; FPGA_CLK        ;
+;  seg_disp[4]  ; FPGA_CLK   ; 10.071 ; 10.071 ; Rise       ; FPGA_CLK        ;
+;  seg_disp[5]  ; FPGA_CLK   ; 9.781  ; 9.781  ; Rise       ; FPGA_CLK        ;
+;  seg_disp[6]  ; FPGA_CLK   ; 9.748  ; 9.748  ; Rise       ; FPGA_CLK        ;
+;  seg_disp[7]  ; FPGA_CLK   ; 9.775  ; 9.775  ; Rise       ; FPGA_CLK        ;
 +---------------+------------+--------+--------+------------+-----------------+
 
 
@@ -684,84 +684,84 @@ No paths to report.
 +---------------+------------+--------+--------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +---------------+------------+--------+--------+------------+-----------------+
-; XM0_DATA[*]   ; FPGA_CLK   ; 7.153  ; 7.153  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[0]  ; FPGA_CLK   ; 7.935  ; 7.935  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[1]  ; FPGA_CLK   ; 8.344  ; 8.344  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[2]  ; FPGA_CLK   ; 7.890  ; 7.890  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[3]  ; FPGA_CLK   ; 7.905  ; 7.905  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[4]  ; FPGA_CLK   ; 7.908  ; 7.908  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[5]  ; FPGA_CLK   ; 7.996  ; 7.996  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[6]  ; FPGA_CLK   ; 7.606  ; 7.606  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[7]  ; FPGA_CLK   ; 7.571  ; 7.571  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[8]  ; FPGA_CLK   ; 7.153  ; 7.153  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[9]  ; FPGA_CLK   ; 7.559  ; 7.559  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[10] ; FPGA_CLK   ; 7.579  ; 7.579  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[11] ; FPGA_CLK   ; 7.630  ; 7.630  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[12] ; FPGA_CLK   ; 7.989  ; 7.989  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[13] ; FPGA_CLK   ; 7.595  ; 7.595  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[14] ; FPGA_CLK   ; 7.615  ; 7.615  ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[15] ; FPGA_CLK   ; 7.984  ; 7.984  ; Rise       ; FPGA_CLK        ;
-; dot_d[*]      ; FPGA_CLK   ; 8.777  ; 8.777  ; Rise       ; FPGA_CLK        ;
-;  dot_d[0]     ; FPGA_CLK   ; 10.334 ; 10.334 ; Rise       ; FPGA_CLK        ;
-;  dot_d[1]     ; FPGA_CLK   ; 10.214 ; 10.214 ; Rise       ; FPGA_CLK        ;
-;  dot_d[2]     ; FPGA_CLK   ; 10.544 ; 10.544 ; Rise       ; FPGA_CLK        ;
-;  dot_d[3]     ; FPGA_CLK   ; 9.384  ; 9.384  ; Rise       ; FPGA_CLK        ;
-;  dot_d[4]     ; FPGA_CLK   ; 10.389 ; 10.389 ; Rise       ; FPGA_CLK        ;
-;  dot_d[5]     ; FPGA_CLK   ; 9.413  ; 9.413  ; Rise       ; FPGA_CLK        ;
-;  dot_d[6]     ; FPGA_CLK   ; 8.777  ; 8.777  ; Rise       ; FPGA_CLK        ;
-; dot_scan[*]   ; FPGA_CLK   ; 9.397  ; 9.397  ; Rise       ; FPGA_CLK        ;
-;  dot_scan[0]  ; FPGA_CLK   ; 11.075 ; 11.075 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[1]  ; FPGA_CLK   ; 11.410 ; 11.410 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[2]  ; FPGA_CLK   ; 10.219 ; 10.219 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[3]  ; FPGA_CLK   ; 10.849 ; 10.849 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[4]  ; FPGA_CLK   ; 9.397  ; 9.397  ; Rise       ; FPGA_CLK        ;
-;  dot_scan[5]  ; FPGA_CLK   ; 10.470 ; 10.470 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[6]  ; FPGA_CLK   ; 10.311 ; 10.311 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[7]  ; FPGA_CLK   ; 10.173 ; 10.173 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[8]  ; FPGA_CLK   ; 10.579 ; 10.579 ; Rise       ; FPGA_CLK        ;
-;  dot_scan[9]  ; FPGA_CLK   ; 10.605 ; 10.605 ; Rise       ; FPGA_CLK        ;
-; key_scan[*]   ; FPGA_CLK   ; 7.673  ; 7.673  ; Rise       ; FPGA_CLK        ;
-;  key_scan[0]  ; FPGA_CLK   ; 8.460  ; 8.460  ; Rise       ; FPGA_CLK        ;
-;  key_scan[1]  ; FPGA_CLK   ; 8.444  ; 8.444  ; Rise       ; FPGA_CLK        ;
-;  key_scan[2]  ; FPGA_CLK   ; 7.673  ; 7.673  ; Rise       ; FPGA_CLK        ;
-;  key_scan[3]  ; FPGA_CLK   ; 8.317  ; 8.317  ; Rise       ; FPGA_CLK        ;
-; lcd_data[*]   ; FPGA_CLK   ; 8.240  ; 8.240  ; Rise       ; FPGA_CLK        ;
-;  lcd_data[0]  ; FPGA_CLK   ; 9.436  ; 9.436  ; Rise       ; FPGA_CLK        ;
-;  lcd_data[1]  ; FPGA_CLK   ; 8.824  ; 8.824  ; Rise       ; FPGA_CLK        ;
-;  lcd_data[2]  ; FPGA_CLK   ; 8.813  ; 8.813  ; Rise       ; FPGA_CLK        ;
-;  lcd_data[3]  ; FPGA_CLK   ; 9.540  ; 9.540  ; Rise       ; FPGA_CLK        ;
-;  lcd_data[4]  ; FPGA_CLK   ; 8.902  ; 8.902  ; Rise       ; FPGA_CLK        ;
-;  lcd_data[5]  ; FPGA_CLK   ; 9.254  ; 9.254  ; Rise       ; FPGA_CLK        ;
-;  lcd_data[6]  ; FPGA_CLK   ; 8.240  ; 8.240  ; Rise       ; FPGA_CLK        ;
-;  lcd_data[7]  ; FPGA_CLK   ; 9.992  ; 9.992  ; Rise       ; FPGA_CLK        ;
-; lcd_e         ; FPGA_CLK   ; 9.128  ; 9.128  ; Rise       ; FPGA_CLK        ;
-; lcd_rs        ; FPGA_CLK   ; 8.397  ; 8.397  ; Rise       ; FPGA_CLK        ;
-; lcd_rw        ; FPGA_CLK   ; 8.457  ; 8.457  ; Rise       ; FPGA_CLK        ;
-; led[*]        ; FPGA_CLK   ; 11.270 ; 11.270 ; Rise       ; FPGA_CLK        ;
-;  led[0]       ; FPGA_CLK   ; 11.930 ; 11.930 ; Rise       ; FPGA_CLK        ;
-;  led[1]       ; FPGA_CLK   ; 11.648 ; 11.648 ; Rise       ; FPGA_CLK        ;
-;  led[2]       ; FPGA_CLK   ; 11.738 ; 11.738 ; Rise       ; FPGA_CLK        ;
-;  led[3]       ; FPGA_CLK   ; 11.955 ; 11.955 ; Rise       ; FPGA_CLK        ;
-;  led[4]       ; FPGA_CLK   ; 12.120 ; 12.120 ; Rise       ; FPGA_CLK        ;
-;  led[5]       ; FPGA_CLK   ; 12.592 ; 12.592 ; Rise       ; FPGA_CLK        ;
-;  led[6]       ; FPGA_CLK   ; 11.587 ; 11.587 ; Rise       ; FPGA_CLK        ;
-;  led[7]       ; FPGA_CLK   ; 11.270 ; 11.270 ; Rise       ; FPGA_CLK        ;
-; piezo         ; FPGA_CLK   ; 9.508  ; 9.508  ; Rise       ; FPGA_CLK        ;
-; seg_com[*]    ; FPGA_CLK   ; 9.252  ; 9.252  ; Rise       ; FPGA_CLK        ;
-;  seg_com[0]   ; FPGA_CLK   ; 10.742 ; 10.742 ; Rise       ; FPGA_CLK        ;
-;  seg_com[1]   ; FPGA_CLK   ; 11.402 ; 11.402 ; Rise       ; FPGA_CLK        ;
-;  seg_com[2]   ; FPGA_CLK   ; 10.418 ; 10.418 ; Rise       ; FPGA_CLK        ;
-;  seg_com[3]   ; FPGA_CLK   ; 10.727 ; 10.727 ; Rise       ; FPGA_CLK        ;
-;  seg_com[4]   ; FPGA_CLK   ; 11.408 ; 11.408 ; Rise       ; FPGA_CLK        ;
-;  seg_com[5]   ; FPGA_CLK   ; 9.252  ; 9.252  ; Rise       ; FPGA_CLK        ;
-; seg_disp[*]   ; FPGA_CLK   ; 10.621 ; 10.621 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[1]  ; FPGA_CLK   ; 10.621 ; 10.621 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[2]  ; FPGA_CLK   ; 11.105 ; 11.105 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[3]  ; FPGA_CLK   ; 11.663 ; 11.663 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[4]  ; FPGA_CLK   ; 10.932 ; 10.932 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[5]  ; FPGA_CLK   ; 11.359 ; 11.359 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[6]  ; FPGA_CLK   ; 11.290 ; 11.290 ; Rise       ; FPGA_CLK        ;
-;  seg_disp[7]  ; FPGA_CLK   ; 10.920 ; 10.920 ; Rise       ; FPGA_CLK        ;
+; XM0_DATA[*]   ; FPGA_CLK   ; 7.443  ; 7.443  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[0]  ; FPGA_CLK   ; 8.287  ; 8.287  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[1]  ; FPGA_CLK   ; 8.313  ; 8.313  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[2]  ; FPGA_CLK   ; 7.913  ; 7.913  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[3]  ; FPGA_CLK   ; 8.179  ; 8.179  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[4]  ; FPGA_CLK   ; 8.276  ; 8.276  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[5]  ; FPGA_CLK   ; 8.712  ; 8.712  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[6]  ; FPGA_CLK   ; 8.209  ; 8.209  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[7]  ; FPGA_CLK   ; 7.855  ; 7.855  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[8]  ; FPGA_CLK   ; 7.443  ; 7.443  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[9]  ; FPGA_CLK   ; 8.238  ; 8.238  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[10] ; FPGA_CLK   ; 7.882  ; 7.882  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[11] ; FPGA_CLK   ; 7.861  ; 7.861  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[12] ; FPGA_CLK   ; 8.275  ; 8.275  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[13] ; FPGA_CLK   ; 7.844  ; 7.844  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[14] ; FPGA_CLK   ; 7.863  ; 7.863  ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[15] ; FPGA_CLK   ; 7.834  ; 7.834  ; Rise       ; FPGA_CLK        ;
+; dot_d[*]      ; FPGA_CLK   ; 9.046  ; 9.046  ; Rise       ; FPGA_CLK        ;
+;  dot_d[0]     ; FPGA_CLK   ; 9.894  ; 9.894  ; Rise       ; FPGA_CLK        ;
+;  dot_d[1]     ; FPGA_CLK   ; 9.851  ; 9.851  ; Rise       ; FPGA_CLK        ;
+;  dot_d[2]     ; FPGA_CLK   ; 9.073  ; 9.073  ; Rise       ; FPGA_CLK        ;
+;  dot_d[3]     ; FPGA_CLK   ; 9.833  ; 9.833  ; Rise       ; FPGA_CLK        ;
+;  dot_d[4]     ; FPGA_CLK   ; 9.916  ; 9.916  ; Rise       ; FPGA_CLK        ;
+;  dot_d[5]     ; FPGA_CLK   ; 11.362 ; 11.362 ; Rise       ; FPGA_CLK        ;
+;  dot_d[6]     ; FPGA_CLK   ; 9.046  ; 9.046  ; Rise       ; FPGA_CLK        ;
+; dot_scan[*]   ; FPGA_CLK   ; 9.069  ; 9.069  ; Rise       ; FPGA_CLK        ;
+;  dot_scan[0]  ; FPGA_CLK   ; 9.111  ; 9.111  ; Rise       ; FPGA_CLK        ;
+;  dot_scan[1]  ; FPGA_CLK   ; 10.065 ; 10.065 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[2]  ; FPGA_CLK   ; 9.069  ; 9.069  ; Rise       ; FPGA_CLK        ;
+;  dot_scan[3]  ; FPGA_CLK   ; 11.972 ; 11.972 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[4]  ; FPGA_CLK   ; 10.658 ; 10.658 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[5]  ; FPGA_CLK   ; 9.959  ; 9.959  ; Rise       ; FPGA_CLK        ;
+;  dot_scan[6]  ; FPGA_CLK   ; 9.866  ; 9.866  ; Rise       ; FPGA_CLK        ;
+;  dot_scan[7]  ; FPGA_CLK   ; 9.708  ; 9.708  ; Rise       ; FPGA_CLK        ;
+;  dot_scan[8]  ; FPGA_CLK   ; 10.057 ; 10.057 ; Rise       ; FPGA_CLK        ;
+;  dot_scan[9]  ; FPGA_CLK   ; 9.432  ; 9.432  ; Rise       ; FPGA_CLK        ;
+; key_scan[*]   ; FPGA_CLK   ; 7.695  ; 7.695  ; Rise       ; FPGA_CLK        ;
+;  key_scan[0]  ; FPGA_CLK   ; 8.118  ; 8.118  ; Rise       ; FPGA_CLK        ;
+;  key_scan[1]  ; FPGA_CLK   ; 7.695  ; 7.695  ; Rise       ; FPGA_CLK        ;
+;  key_scan[2]  ; FPGA_CLK   ; 8.069  ; 8.069  ; Rise       ; FPGA_CLK        ;
+;  key_scan[3]  ; FPGA_CLK   ; 8.748  ; 8.748  ; Rise       ; FPGA_CLK        ;
+; lcd_data[*]   ; FPGA_CLK   ; 8.386  ; 8.386  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[0]  ; FPGA_CLK   ; 9.238  ; 9.238  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[1]  ; FPGA_CLK   ; 9.245  ; 9.245  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[2]  ; FPGA_CLK   ; 8.841  ; 8.841  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[3]  ; FPGA_CLK   ; 9.135  ; 9.135  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[4]  ; FPGA_CLK   ; 8.386  ; 8.386  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[5]  ; FPGA_CLK   ; 8.424  ; 8.424  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[6]  ; FPGA_CLK   ; 8.471  ; 8.471  ; Rise       ; FPGA_CLK        ;
+;  lcd_data[7]  ; FPGA_CLK   ; 9.184  ; 9.184  ; Rise       ; FPGA_CLK        ;
+; lcd_e         ; FPGA_CLK   ; 9.165  ; 9.165  ; Rise       ; FPGA_CLK        ;
+; lcd_rs        ; FPGA_CLK   ; 8.041  ; 8.041  ; Rise       ; FPGA_CLK        ;
+; lcd_rw        ; FPGA_CLK   ; 8.054  ; 8.054  ; Rise       ; FPGA_CLK        ;
+; led[*]        ; FPGA_CLK   ; 10.400 ; 10.400 ; Rise       ; FPGA_CLK        ;
+;  led[0]       ; FPGA_CLK   ; 10.535 ; 10.535 ; Rise       ; FPGA_CLK        ;
+;  led[1]       ; FPGA_CLK   ; 10.670 ; 10.670 ; Rise       ; FPGA_CLK        ;
+;  led[2]       ; FPGA_CLK   ; 10.423 ; 10.423 ; Rise       ; FPGA_CLK        ;
+;  led[3]       ; FPGA_CLK   ; 11.401 ; 11.401 ; Rise       ; FPGA_CLK        ;
+;  led[4]       ; FPGA_CLK   ; 11.669 ; 11.669 ; Rise       ; FPGA_CLK        ;
+;  led[5]       ; FPGA_CLK   ; 11.070 ; 11.070 ; Rise       ; FPGA_CLK        ;
+;  led[6]       ; FPGA_CLK   ; 11.562 ; 11.562 ; Rise       ; FPGA_CLK        ;
+;  led[7]       ; FPGA_CLK   ; 10.400 ; 10.400 ; Rise       ; FPGA_CLK        ;
+; piezo         ; FPGA_CLK   ; 9.955  ; 9.955  ; Rise       ; FPGA_CLK        ;
+; seg_com[*]    ; FPGA_CLK   ; 8.897  ; 8.897  ; Rise       ; FPGA_CLK        ;
+;  seg_com[0]   ; FPGA_CLK   ; 9.936  ; 9.936  ; Rise       ; FPGA_CLK        ;
+;  seg_com[1]   ; FPGA_CLK   ; 9.576  ; 9.576  ; Rise       ; FPGA_CLK        ;
+;  seg_com[2]   ; FPGA_CLK   ; 8.897  ; 8.897  ; Rise       ; FPGA_CLK        ;
+;  seg_com[3]   ; FPGA_CLK   ; 9.515  ; 9.515  ; Rise       ; FPGA_CLK        ;
+;  seg_com[4]   ; FPGA_CLK   ; 9.594  ; 9.594  ; Rise       ; FPGA_CLK        ;
+;  seg_com[5]   ; FPGA_CLK   ; 9.251  ; 9.251  ; Rise       ; FPGA_CLK        ;
+; seg_disp[*]   ; FPGA_CLK   ; 9.738  ; 9.738  ; Rise       ; FPGA_CLK        ;
+;  seg_disp[1]  ; FPGA_CLK   ; 9.738  ; 9.738  ; Rise       ; FPGA_CLK        ;
+;  seg_disp[2]  ; FPGA_CLK   ; 10.985 ; 10.985 ; Rise       ; FPGA_CLK        ;
+;  seg_disp[3]  ; FPGA_CLK   ; 11.262 ; 11.262 ; Rise       ; FPGA_CLK        ;
+;  seg_disp[4]  ; FPGA_CLK   ; 10.071 ; 10.071 ; Rise       ; FPGA_CLK        ;
+;  seg_disp[5]  ; FPGA_CLK   ; 9.781  ; 9.781  ; Rise       ; FPGA_CLK        ;
+;  seg_disp[6]  ; FPGA_CLK   ; 9.748  ; 9.748  ; Rise       ; FPGA_CLK        ;
+;  seg_disp[7]  ; FPGA_CLK   ; 9.775  ; 9.775  ; Rise       ; FPGA_CLK        ;
 +---------------+------------+--------+--------+------------+-----------------+
 
 
@@ -770,46 +770,46 @@ No paths to report.
 +-------------+--------------+--------+--------+--------+--------+
 ; Input Port  ; Output Port  ; RR     ; RF     ; FR     ; FF     ;
 +-------------+--------------+--------+--------+--------+--------+
-; CPLD_0      ; XM0_DATA[0]  ; 12.856 ; 12.856 ; 12.856 ; 12.856 ;
-; CPLD_0      ; XM0_DATA[1]  ; 12.862 ; 12.862 ; 12.862 ; 12.862 ;
-; CPLD_0      ; XM0_DATA[2]  ; 12.432 ; 12.432 ; 12.432 ; 12.432 ;
-; CPLD_0      ; XM0_DATA[3]  ; 12.432 ; 12.432 ; 12.432 ; 12.432 ;
-; CPLD_0      ; XM0_DATA[4]  ; 12.386 ; 12.386 ; 12.386 ; 12.386 ;
-; CPLD_0      ; XM0_DATA[5]  ; 12.862 ; 12.862 ; 12.862 ; 12.862 ;
-; CPLD_0      ; XM0_DATA[6]  ; 12.338 ; 12.338 ; 12.338 ; 12.338 ;
-; CPLD_0      ; XM0_DATA[7]  ; 12.338 ; 12.338 ; 12.338 ; 12.338 ;
-; CPLD_0      ; XM0_DATA[8]  ; 12.366 ; 12.366 ; 12.366 ; 12.366 ;
-; CPLD_0      ; XM0_DATA[9]  ; 12.862 ; 12.862 ; 12.862 ; 12.862 ;
-; CPLD_0      ; XM0_DATA[10] ; 11.961 ; 11.961 ; 11.961 ; 11.961 ;
-; CPLD_0      ; XM0_DATA[11] ; 11.961 ; 11.961 ; 11.961 ; 11.961 ;
-; CPLD_0      ; XM0_DATA[12] ; 12.856 ; 12.856 ; 12.856 ; 12.856 ;
-; CPLD_0      ; XM0_DATA[13] ; 12.413 ; 12.413 ; 12.413 ; 12.413 ;
-; CPLD_0      ; XM0_DATA[14] ; 12.369 ; 12.369 ; 12.369 ; 12.369 ;
-; CPLD_0      ; XM0_DATA[15] ; 12.774 ; 12.774 ; 12.774 ; 12.774 ;
-; XM0OEN      ; XM0_DATA[0]  ; 8.348  ; 8.348  ; 8.348  ; 8.348  ;
-; XM0OEN      ; XM0_DATA[1]  ; 8.354  ; 8.354  ; 8.354  ; 8.354  ;
-; XM0OEN      ; XM0_DATA[2]  ; 7.924  ; 7.924  ; 7.924  ; 7.924  ;
-; XM0OEN      ; XM0_DATA[3]  ; 7.924  ; 7.924  ; 7.924  ; 7.924  ;
-; XM0OEN      ; XM0_DATA[4]  ; 7.878  ; 7.878  ; 7.878  ; 7.878  ;
-; XM0OEN      ; XM0_DATA[5]  ; 8.354  ; 8.354  ; 8.354  ; 8.354  ;
-; XM0OEN      ; XM0_DATA[6]  ; 7.830  ; 7.830  ; 7.830  ; 7.830  ;
-; XM0OEN      ; XM0_DATA[7]  ; 7.830  ; 7.830  ; 7.830  ; 7.830  ;
-; XM0OEN      ; XM0_DATA[8]  ; 7.858  ; 7.858  ; 7.858  ; 7.858  ;
-; XM0OEN      ; XM0_DATA[9]  ; 8.354  ; 8.354  ; 8.354  ; 8.354  ;
-; XM0OEN      ; XM0_DATA[10] ; 7.453  ; 7.453  ; 7.453  ; 7.453  ;
-; XM0OEN      ; XM0_DATA[11] ; 7.453  ; 7.453  ; 7.453  ; 7.453  ;
-; XM0OEN      ; XM0_DATA[12] ; 8.348  ; 8.348  ; 8.348  ; 8.348  ;
-; XM0OEN      ; XM0_DATA[13] ; 7.905  ; 7.905  ; 7.905  ; 7.905  ;
-; XM0OEN      ; XM0_DATA[14] ; 7.861  ; 7.861  ; 7.861  ; 7.861  ;
-; XM0OEN      ; XM0_DATA[15] ; 8.266  ; 8.266  ; 8.266  ; 8.266  ;
-; nFPGA_RESET ; led[0]       ; 22.879 ;        ;        ; 22.879 ;
-; nFPGA_RESET ; led[1]       ; 24.292 ;        ;        ; 24.292 ;
-; nFPGA_RESET ; led[2]       ; 24.015 ;        ;        ; 24.015 ;
-; nFPGA_RESET ; led[3]       ; 23.058 ;        ;        ; 23.058 ;
-; nFPGA_RESET ; led[4]       ; 22.708 ;        ;        ; 22.708 ;
-; nFPGA_RESET ; led[5]       ; 24.892 ;        ;        ; 24.892 ;
-; nFPGA_RESET ; led[6]       ; 22.188 ;        ;        ; 22.188 ;
-; nFPGA_RESET ; led[7]       ; 23.484 ;        ;        ; 23.484 ;
+; CPLD_0      ; XM0_DATA[0]  ; 13.370 ; 13.370 ; 13.370 ; 13.370 ;
+; CPLD_0      ; XM0_DATA[1]  ; 12.963 ; 12.963 ; 12.963 ; 12.963 ;
+; CPLD_0      ; XM0_DATA[2]  ; 13.820 ; 13.820 ; 13.820 ; 13.820 ;
+; CPLD_0      ; XM0_DATA[3]  ; 13.820 ; 13.820 ; 13.820 ; 13.820 ;
+; CPLD_0      ; XM0_DATA[4]  ; 13.422 ; 13.422 ; 13.422 ; 13.422 ;
+; CPLD_0      ; XM0_DATA[5]  ; 12.963 ; 12.963 ; 12.963 ; 12.963 ;
+; CPLD_0      ; XM0_DATA[6]  ; 12.496 ; 12.496 ; 12.496 ; 12.496 ;
+; CPLD_0      ; XM0_DATA[7]  ; 12.496 ; 12.496 ; 12.496 ; 12.496 ;
+; CPLD_0      ; XM0_DATA[8]  ; 12.139 ; 12.139 ; 12.139 ; 12.139 ;
+; CPLD_0      ; XM0_DATA[9]  ; 12.963 ; 12.963 ; 12.963 ; 12.963 ;
+; CPLD_0      ; XM0_DATA[10] ; 12.512 ; 12.512 ; 12.512 ; 12.512 ;
+; CPLD_0      ; XM0_DATA[11] ; 12.512 ; 12.512 ; 12.512 ; 12.512 ;
+; CPLD_0      ; XM0_DATA[12] ; 13.370 ; 13.370 ; 13.370 ; 13.370 ;
+; CPLD_0      ; XM0_DATA[13] ; 12.598 ; 12.598 ; 12.598 ; 12.598 ;
+; CPLD_0      ; XM0_DATA[14] ; 12.946 ; 12.946 ; 12.946 ; 12.946 ;
+; CPLD_0      ; XM0_DATA[15] ; 12.957 ; 12.957 ; 12.957 ; 12.957 ;
+; XM0OEN      ; XM0_DATA[0]  ; 7.976  ; 7.976  ; 7.976  ; 7.976  ;
+; XM0OEN      ; XM0_DATA[1]  ; 7.569  ; 7.569  ; 7.569  ; 7.569  ;
+; XM0OEN      ; XM0_DATA[2]  ; 8.426  ; 8.426  ; 8.426  ; 8.426  ;
+; XM0OEN      ; XM0_DATA[3]  ; 8.426  ; 8.426  ; 8.426  ; 8.426  ;
+; XM0OEN      ; XM0_DATA[4]  ; 8.028  ; 8.028  ; 8.028  ; 8.028  ;
+; XM0OEN      ; XM0_DATA[5]  ; 7.569  ; 7.569  ; 7.569  ; 7.569  ;
+; XM0OEN      ; XM0_DATA[6]  ; 7.102  ; 7.102  ; 7.102  ; 7.102  ;
+; XM0OEN      ; XM0_DATA[7]  ; 7.102  ; 7.102  ; 7.102  ; 7.102  ;
+; XM0OEN      ; XM0_DATA[8]  ; 6.745  ; 6.745  ; 6.745  ; 6.745  ;
+; XM0OEN      ; XM0_DATA[9]  ; 7.569  ; 7.569  ; 7.569  ; 7.569  ;
+; XM0OEN      ; XM0_DATA[10] ; 7.118  ; 7.118  ; 7.118  ; 7.118  ;
+; XM0OEN      ; XM0_DATA[11] ; 7.118  ; 7.118  ; 7.118  ; 7.118  ;
+; XM0OEN      ; XM0_DATA[12] ; 7.976  ; 7.976  ; 7.976  ; 7.976  ;
+; XM0OEN      ; XM0_DATA[13] ; 7.204  ; 7.204  ; 7.204  ; 7.204  ;
+; XM0OEN      ; XM0_DATA[14] ; 7.552  ; 7.552  ; 7.552  ; 7.552  ;
+; XM0OEN      ; XM0_DATA[15] ; 7.563  ; 7.563  ; 7.563  ; 7.563  ;
+; nFPGA_RESET ; led[0]       ; 22.397 ;        ;        ; 22.397 ;
+; nFPGA_RESET ; led[1]       ; 23.031 ;        ;        ; 23.031 ;
+; nFPGA_RESET ; led[2]       ; 22.122 ;        ;        ; 22.122 ;
+; nFPGA_RESET ; led[3]       ; 23.306 ;        ;        ; 23.306 ;
+; nFPGA_RESET ; led[4]       ; 22.392 ;        ;        ; 22.392 ;
+; nFPGA_RESET ; led[5]       ; 23.418 ;        ;        ; 23.418 ;
+; nFPGA_RESET ; led[6]       ; 23.370 ;        ;        ; 23.370 ;
+; nFPGA_RESET ; led[7]       ; 21.649 ;        ;        ; 21.649 ;
 +-------------+--------------+--------+--------+--------+--------+
 
 
@@ -818,46 +818,46 @@ No paths to report.
 +-------------+--------------+--------+--------+--------+--------+
 ; Input Port  ; Output Port  ; RR     ; RF     ; FR     ; FF     ;
 +-------------+--------------+--------+--------+--------+--------+
-; CPLD_0      ; XM0_DATA[0]  ; 12.856 ; 12.856 ; 12.856 ; 12.856 ;
-; CPLD_0      ; XM0_DATA[1]  ; 12.862 ; 12.862 ; 12.862 ; 12.862 ;
-; CPLD_0      ; XM0_DATA[2]  ; 12.432 ; 12.432 ; 12.432 ; 12.432 ;
-; CPLD_0      ; XM0_DATA[3]  ; 12.432 ; 12.432 ; 12.432 ; 12.432 ;
-; CPLD_0      ; XM0_DATA[4]  ; 12.386 ; 12.386 ; 12.386 ; 12.386 ;
-; CPLD_0      ; XM0_DATA[5]  ; 12.862 ; 12.862 ; 12.862 ; 12.862 ;
-; CPLD_0      ; XM0_DATA[6]  ; 12.338 ; 12.338 ; 12.338 ; 12.338 ;
-; CPLD_0      ; XM0_DATA[7]  ; 12.338 ; 12.338 ; 12.338 ; 12.338 ;
-; CPLD_0      ; XM0_DATA[8]  ; 12.366 ; 12.366 ; 12.366 ; 12.366 ;
-; CPLD_0      ; XM0_DATA[9]  ; 12.862 ; 12.862 ; 12.862 ; 12.862 ;
-; CPLD_0      ; XM0_DATA[10] ; 11.961 ; 11.961 ; 11.961 ; 11.961 ;
-; CPLD_0      ; XM0_DATA[11] ; 11.961 ; 11.961 ; 11.961 ; 11.961 ;
-; CPLD_0      ; XM0_DATA[12] ; 12.856 ; 12.856 ; 12.856 ; 12.856 ;
-; CPLD_0      ; XM0_DATA[13] ; 12.413 ; 12.413 ; 12.413 ; 12.413 ;
-; CPLD_0      ; XM0_DATA[14] ; 12.369 ; 12.369 ; 12.369 ; 12.369 ;
-; CPLD_0      ; XM0_DATA[15] ; 12.774 ; 12.774 ; 12.774 ; 12.774 ;
-; XM0OEN      ; XM0_DATA[0]  ; 8.348  ; 8.348  ; 8.348  ; 8.348  ;
-; XM0OEN      ; XM0_DATA[1]  ; 8.354  ; 8.354  ; 8.354  ; 8.354  ;
-; XM0OEN      ; XM0_DATA[2]  ; 7.924  ; 7.924  ; 7.924  ; 7.924  ;
-; XM0OEN      ; XM0_DATA[3]  ; 7.924  ; 7.924  ; 7.924  ; 7.924  ;
-; XM0OEN      ; XM0_DATA[4]  ; 7.878  ; 7.878  ; 7.878  ; 7.878  ;
-; XM0OEN      ; XM0_DATA[5]  ; 8.354  ; 8.354  ; 8.354  ; 8.354  ;
-; XM0OEN      ; XM0_DATA[6]  ; 7.830  ; 7.830  ; 7.830  ; 7.830  ;
-; XM0OEN      ; XM0_DATA[7]  ; 7.830  ; 7.830  ; 7.830  ; 7.830  ;
-; XM0OEN      ; XM0_DATA[8]  ; 7.858  ; 7.858  ; 7.858  ; 7.858  ;
-; XM0OEN      ; XM0_DATA[9]  ; 8.354  ; 8.354  ; 8.354  ; 8.354  ;
-; XM0OEN      ; XM0_DATA[10] ; 7.453  ; 7.453  ; 7.453  ; 7.453  ;
-; XM0OEN      ; XM0_DATA[11] ; 7.453  ; 7.453  ; 7.453  ; 7.453  ;
-; XM0OEN      ; XM0_DATA[12] ; 8.348  ; 8.348  ; 8.348  ; 8.348  ;
-; XM0OEN      ; XM0_DATA[13] ; 7.905  ; 7.905  ; 7.905  ; 7.905  ;
-; XM0OEN      ; XM0_DATA[14] ; 7.861  ; 7.861  ; 7.861  ; 7.861  ;
-; XM0OEN      ; XM0_DATA[15] ; 8.266  ; 8.266  ; 8.266  ; 8.266  ;
-; nFPGA_RESET ; led[0]       ; 19.464 ;        ;        ; 19.464 ;
-; nFPGA_RESET ; led[1]       ; 18.732 ;        ;        ; 18.732 ;
-; nFPGA_RESET ; led[2]       ; 19.619 ;        ;        ; 19.619 ;
-; nFPGA_RESET ; led[3]       ; 19.208 ;        ;        ; 19.208 ;
-; nFPGA_RESET ; led[4]       ; 18.631 ;        ;        ; 18.631 ;
-; nFPGA_RESET ; led[5]       ; 20.190 ;        ;        ; 20.190 ;
-; nFPGA_RESET ; led[6]       ; 18.404 ;        ;        ; 18.404 ;
-; nFPGA_RESET ; led[7]       ; 18.826 ;        ;        ; 18.826 ;
+; CPLD_0      ; XM0_DATA[0]  ; 13.370 ; 13.370 ; 13.370 ; 13.370 ;
+; CPLD_0      ; XM0_DATA[1]  ; 12.963 ; 12.963 ; 12.963 ; 12.963 ;
+; CPLD_0      ; XM0_DATA[2]  ; 13.820 ; 13.820 ; 13.820 ; 13.820 ;
+; CPLD_0      ; XM0_DATA[3]  ; 13.820 ; 13.820 ; 13.820 ; 13.820 ;
+; CPLD_0      ; XM0_DATA[4]  ; 13.422 ; 13.422 ; 13.422 ; 13.422 ;
+; CPLD_0      ; XM0_DATA[5]  ; 12.963 ; 12.963 ; 12.963 ; 12.963 ;
+; CPLD_0      ; XM0_DATA[6]  ; 12.496 ; 12.496 ; 12.496 ; 12.496 ;
+; CPLD_0      ; XM0_DATA[7]  ; 12.496 ; 12.496 ; 12.496 ; 12.496 ;
+; CPLD_0      ; XM0_DATA[8]  ; 12.139 ; 12.139 ; 12.139 ; 12.139 ;
+; CPLD_0      ; XM0_DATA[9]  ; 12.963 ; 12.963 ; 12.963 ; 12.963 ;
+; CPLD_0      ; XM0_DATA[10] ; 12.512 ; 12.512 ; 12.512 ; 12.512 ;
+; CPLD_0      ; XM0_DATA[11] ; 12.512 ; 12.512 ; 12.512 ; 12.512 ;
+; CPLD_0      ; XM0_DATA[12] ; 13.370 ; 13.370 ; 13.370 ; 13.370 ;
+; CPLD_0      ; XM0_DATA[13] ; 12.598 ; 12.598 ; 12.598 ; 12.598 ;
+; CPLD_0      ; XM0_DATA[14] ; 12.946 ; 12.946 ; 12.946 ; 12.946 ;
+; CPLD_0      ; XM0_DATA[15] ; 12.957 ; 12.957 ; 12.957 ; 12.957 ;
+; XM0OEN      ; XM0_DATA[0]  ; 7.976  ; 7.976  ; 7.976  ; 7.976  ;
+; XM0OEN      ; XM0_DATA[1]  ; 7.569  ; 7.569  ; 7.569  ; 7.569  ;
+; XM0OEN      ; XM0_DATA[2]  ; 8.426  ; 8.426  ; 8.426  ; 8.426  ;
+; XM0OEN      ; XM0_DATA[3]  ; 8.426  ; 8.426  ; 8.426  ; 8.426  ;
+; XM0OEN      ; XM0_DATA[4]  ; 8.028  ; 8.028  ; 8.028  ; 8.028  ;
+; XM0OEN      ; XM0_DATA[5]  ; 7.569  ; 7.569  ; 7.569  ; 7.569  ;
+; XM0OEN      ; XM0_DATA[6]  ; 7.102  ; 7.102  ; 7.102  ; 7.102  ;
+; XM0OEN      ; XM0_DATA[7]  ; 7.102  ; 7.102  ; 7.102  ; 7.102  ;
+; XM0OEN      ; XM0_DATA[8]  ; 6.745  ; 6.745  ; 6.745  ; 6.745  ;
+; XM0OEN      ; XM0_DATA[9]  ; 7.569  ; 7.569  ; 7.569  ; 7.569  ;
+; XM0OEN      ; XM0_DATA[10] ; 7.118  ; 7.118  ; 7.118  ; 7.118  ;
+; XM0OEN      ; XM0_DATA[11] ; 7.118  ; 7.118  ; 7.118  ; 7.118  ;
+; XM0OEN      ; XM0_DATA[12] ; 7.976  ; 7.976  ; 7.976  ; 7.976  ;
+; XM0OEN      ; XM0_DATA[13] ; 7.204  ; 7.204  ; 7.204  ; 7.204  ;
+; XM0OEN      ; XM0_DATA[14] ; 7.552  ; 7.552  ; 7.552  ; 7.552  ;
+; XM0OEN      ; XM0_DATA[15] ; 7.563  ; 7.563  ; 7.563  ; 7.563  ;
+; nFPGA_RESET ; led[0]       ; 17.390 ;        ;        ; 17.390 ;
+; nFPGA_RESET ; led[1]       ; 18.080 ;        ;        ; 18.080 ;
+; nFPGA_RESET ; led[2]       ; 18.374 ;        ;        ; 18.374 ;
+; nFPGA_RESET ; led[3]       ; 19.716 ;        ;        ; 19.716 ;
+; nFPGA_RESET ; led[4]       ; 18.401 ;        ;        ; 18.401 ;
+; nFPGA_RESET ; led[5]       ; 19.280 ;        ;        ; 19.280 ;
+; nFPGA_RESET ; led[6]       ; 19.815 ;        ;        ; 19.815 ;
+; nFPGA_RESET ; led[7]       ; 18.030 ;        ;        ; 18.030 ;
 +-------------+--------------+--------+--------+--------+--------+
 
 
@@ -866,23 +866,23 @@ No paths to report.
 +---------------+------------+-------+------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall ; Clock Edge ; Clock Reference ;
 +---------------+------------+-------+------+------------+-----------------+
-; XM0_DATA[*]   ; FPGA_CLK   ; 7.363 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[0]  ; FPGA_CLK   ; 8.258 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[1]  ; FPGA_CLK   ; 8.264 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[2]  ; FPGA_CLK   ; 7.834 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[3]  ; FPGA_CLK   ; 7.834 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[4]  ; FPGA_CLK   ; 7.788 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[5]  ; FPGA_CLK   ; 8.264 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[6]  ; FPGA_CLK   ; 7.740 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[7]  ; FPGA_CLK   ; 7.740 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[8]  ; FPGA_CLK   ; 7.768 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[9]  ; FPGA_CLK   ; 8.264 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[10] ; FPGA_CLK   ; 7.363 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[11] ; FPGA_CLK   ; 7.363 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[12] ; FPGA_CLK   ; 8.258 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[13] ; FPGA_CLK   ; 7.815 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[14] ; FPGA_CLK   ; 7.771 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[15] ; FPGA_CLK   ; 8.176 ;      ; Rise       ; FPGA_CLK        ;
+; XM0_DATA[*]   ; FPGA_CLK   ; 7.426 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[0]  ; FPGA_CLK   ; 8.657 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[1]  ; FPGA_CLK   ; 8.250 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[2]  ; FPGA_CLK   ; 9.107 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[3]  ; FPGA_CLK   ; 9.107 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[4]  ; FPGA_CLK   ; 8.709 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[5]  ; FPGA_CLK   ; 8.250 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[6]  ; FPGA_CLK   ; 7.783 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[7]  ; FPGA_CLK   ; 7.783 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[8]  ; FPGA_CLK   ; 7.426 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[9]  ; FPGA_CLK   ; 8.250 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[10] ; FPGA_CLK   ; 7.799 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[11] ; FPGA_CLK   ; 7.799 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[12] ; FPGA_CLK   ; 8.657 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[13] ; FPGA_CLK   ; 7.885 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[14] ; FPGA_CLK   ; 8.233 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[15] ; FPGA_CLK   ; 8.244 ;      ; Rise       ; FPGA_CLK        ;
 +---------------+------------+-------+------+------------+-----------------+
 
 
@@ -891,23 +891,23 @@ No paths to report.
 +---------------+------------+-------+------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall ; Clock Edge ; Clock Reference ;
 +---------------+------------+-------+------+------------+-----------------+
-; XM0_DATA[*]   ; FPGA_CLK   ; 7.363 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[0]  ; FPGA_CLK   ; 8.258 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[1]  ; FPGA_CLK   ; 8.264 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[2]  ; FPGA_CLK   ; 7.834 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[3]  ; FPGA_CLK   ; 7.834 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[4]  ; FPGA_CLK   ; 7.788 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[5]  ; FPGA_CLK   ; 8.264 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[6]  ; FPGA_CLK   ; 7.740 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[7]  ; FPGA_CLK   ; 7.740 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[8]  ; FPGA_CLK   ; 7.768 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[9]  ; FPGA_CLK   ; 8.264 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[10] ; FPGA_CLK   ; 7.363 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[11] ; FPGA_CLK   ; 7.363 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[12] ; FPGA_CLK   ; 8.258 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[13] ; FPGA_CLK   ; 7.815 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[14] ; FPGA_CLK   ; 7.771 ;      ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[15] ; FPGA_CLK   ; 8.176 ;      ; Rise       ; FPGA_CLK        ;
+; XM0_DATA[*]   ; FPGA_CLK   ; 7.426 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[0]  ; FPGA_CLK   ; 8.657 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[1]  ; FPGA_CLK   ; 8.250 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[2]  ; FPGA_CLK   ; 9.107 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[3]  ; FPGA_CLK   ; 9.107 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[4]  ; FPGA_CLK   ; 8.709 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[5]  ; FPGA_CLK   ; 8.250 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[6]  ; FPGA_CLK   ; 7.783 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[7]  ; FPGA_CLK   ; 7.783 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[8]  ; FPGA_CLK   ; 7.426 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[9]  ; FPGA_CLK   ; 8.250 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[10] ; FPGA_CLK   ; 7.799 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[11] ; FPGA_CLK   ; 7.799 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[12] ; FPGA_CLK   ; 8.657 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[13] ; FPGA_CLK   ; 7.885 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[14] ; FPGA_CLK   ; 8.233 ;      ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[15] ; FPGA_CLK   ; 8.244 ;      ; Rise       ; FPGA_CLK        ;
 +---------------+------------+-------+------+------------+-----------------+
 
 
@@ -916,23 +916,23 @@ No paths to report.
 +---------------+------------+-----------+-----------+------------+-----------------+
 ; Data Port     ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
 +---------------+------------+-----------+-----------+------------+-----------------+
-; XM0_DATA[*]   ; FPGA_CLK   ; 7.363     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[0]  ; FPGA_CLK   ; 8.258     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[1]  ; FPGA_CLK   ; 8.264     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[2]  ; FPGA_CLK   ; 7.834     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[3]  ; FPGA_CLK   ; 7.834     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[4]  ; FPGA_CLK   ; 7.788     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[5]  ; FPGA_CLK   ; 8.264     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[6]  ; FPGA_CLK   ; 7.740     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[7]  ; FPGA_CLK   ; 7.740     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[8]  ; FPGA_CLK   ; 7.768     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[9]  ; FPGA_CLK   ; 8.264     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[10] ; FPGA_CLK   ; 7.363     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[11] ; FPGA_CLK   ; 7.363     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[12] ; FPGA_CLK   ; 8.258     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[13] ; FPGA_CLK   ; 7.815     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[14] ; FPGA_CLK   ; 7.771     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[15] ; FPGA_CLK   ; 8.176     ;           ; Rise       ; FPGA_CLK        ;
+; XM0_DATA[*]   ; FPGA_CLK   ; 7.426     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[0]  ; FPGA_CLK   ; 8.657     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[1]  ; FPGA_CLK   ; 8.250     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[2]  ; FPGA_CLK   ; 9.107     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[3]  ; FPGA_CLK   ; 9.107     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[4]  ; FPGA_CLK   ; 8.709     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[5]  ; FPGA_CLK   ; 8.250     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[6]  ; FPGA_CLK   ; 7.783     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[7]  ; FPGA_CLK   ; 7.783     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[8]  ; FPGA_CLK   ; 7.426     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[9]  ; FPGA_CLK   ; 8.250     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[10] ; FPGA_CLK   ; 7.799     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[11] ; FPGA_CLK   ; 7.799     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[12] ; FPGA_CLK   ; 8.657     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[13] ; FPGA_CLK   ; 7.885     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[14] ; FPGA_CLK   ; 8.233     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[15] ; FPGA_CLK   ; 8.244     ;           ; Rise       ; FPGA_CLK        ;
 +---------------+------------+-----------+-----------+------------+-----------------+
 
 
@@ -941,23 +941,23 @@ No paths to report.
 +---------------+------------+-----------+-----------+------------+-----------------+
 ; Data Port     ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
 +---------------+------------+-----------+-----------+------------+-----------------+
-; XM0_DATA[*]   ; FPGA_CLK   ; 7.363     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[0]  ; FPGA_CLK   ; 8.258     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[1]  ; FPGA_CLK   ; 8.264     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[2]  ; FPGA_CLK   ; 7.834     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[3]  ; FPGA_CLK   ; 7.834     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[4]  ; FPGA_CLK   ; 7.788     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[5]  ; FPGA_CLK   ; 8.264     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[6]  ; FPGA_CLK   ; 7.740     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[7]  ; FPGA_CLK   ; 7.740     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[8]  ; FPGA_CLK   ; 7.768     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[9]  ; FPGA_CLK   ; 8.264     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[10] ; FPGA_CLK   ; 7.363     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[11] ; FPGA_CLK   ; 7.363     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[12] ; FPGA_CLK   ; 8.258     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[13] ; FPGA_CLK   ; 7.815     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[14] ; FPGA_CLK   ; 7.771     ;           ; Rise       ; FPGA_CLK        ;
-;  XM0_DATA[15] ; FPGA_CLK   ; 8.176     ;           ; Rise       ; FPGA_CLK        ;
+; XM0_DATA[*]   ; FPGA_CLK   ; 7.426     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[0]  ; FPGA_CLK   ; 8.657     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[1]  ; FPGA_CLK   ; 8.250     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[2]  ; FPGA_CLK   ; 9.107     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[3]  ; FPGA_CLK   ; 9.107     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[4]  ; FPGA_CLK   ; 8.709     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[5]  ; FPGA_CLK   ; 8.250     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[6]  ; FPGA_CLK   ; 7.783     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[7]  ; FPGA_CLK   ; 7.783     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[8]  ; FPGA_CLK   ; 7.426     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[9]  ; FPGA_CLK   ; 8.250     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[10] ; FPGA_CLK   ; 7.799     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[11] ; FPGA_CLK   ; 7.799     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[12] ; FPGA_CLK   ; 8.657     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[13] ; FPGA_CLK   ; 7.885     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[14] ; FPGA_CLK   ; 8.233     ;           ; Rise       ; FPGA_CLK        ;
+;  XM0_DATA[15] ; FPGA_CLK   ; 8.244     ;           ; Rise       ; FPGA_CLK        ;
 +---------------+------------+-----------+-----------+------------+-----------------+
 
 
@@ -1001,7 +1001,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 10    ; 10   ;
 ; Unconstrained Input Ports       ; 65    ; 65   ;
-; Unconstrained Input Port Paths  ; 7104  ; 7104 ;
+; Unconstrained Input Port Paths  ; 7164  ; 7164 ;
 ; Unconstrained Output Ports      ; 70    ; 70   ;
 ; Unconstrained Output Port Paths ; 340   ; 340  ;
 +---------------------------------+-------+------+
@@ -1013,7 +1013,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II TimeQuest Timing Analyzer
     Info: Version 11.0 Build 157 04/27/2011 SJ Web Edition
-    Info: Processing started: Sat Jun 13 17:20:42 2015
+    Info: Processing started: Sat Jun 13 20:59:14 2015
 Info: Command: quartus_sta M3 -c M3
 Info: qsta_default_script.tcl version: #1
 Warning: Parallel compilation is not licensed and has been disabled
@@ -1026,14 +1026,14 @@ Warning: Node: led_demo:inst3|led_clk_gen:b1|led_clk was determined to be a cloc
 Warning: Node: led_demo:inst3|led_clk_gen:b1|clk_cnt[1] was determined to be a clock but was found without an associated clock assignment.
 Warning: Node: CLK_div_gen:inst2|BCLK_1MHz was determined to be a clock but was found without an associated clock assignment.
 Warning: Node: CLK_div_gen:inst2|BCLK_1KHz was determined to be a clock but was found without an associated clock assignment.
-Warning: Node: CLK_div_gen:inst2|BCLK_3KHz was determined to be a clock but was found without an associated clock assignment.
-Warning: Node: dotmatrix_test:inst6|clk_20h was determined to be a clock but was found without an associated clock assignment.
 Warning: Node: CPLD_0 was determined to be a clock but was found without an associated clock assignment.
 Warning: Node: host_itf:inst1|BCLK_1Hz was determined to be a clock but was found without an associated clock assignment.
-Info: Worst-case setup slack is 3.698
+Warning: Node: CLK_div_gen:inst2|BCLK_3KHz was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: dotmatrix_test:inst6|clk_20h was determined to be a clock but was found without an associated clock assignment.
+Info: Worst-case setup slack is 3.076
     Info:     Slack End Point TNS Clock 
     Info: ========= ============= =====================
-    Info:     3.698         0.000 FPGA_CLK 
+    Info:     3.076         0.000 FPGA_CLK 
 Info: Worst-case hold slack is 0.499
     Info:     Slack End Point TNS Clock 
     Info: ========= ============= =====================
@@ -1049,7 +1049,7 @@ Info: Design is not fully constrained for setup requirements
 Info: Design is not fully constrained for hold requirements
 Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 11 warnings
     Info: Peak virtual memory: 242 megabytes
-    Info: Processing ended: Sat Jun 13 17:20:43 2015
+    Info: Processing ended: Sat Jun 13 20:59:15 2015
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
