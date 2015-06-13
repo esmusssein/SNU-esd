@@ -1,5 +1,5 @@
 Assembler report for M3
-Sat Jun 13 14:35:15 2015
+Sat Jun 13 17:20:43 2015
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sat Jun 13 14:35:15 2015 ;
+; Assembler Status      ; Successful - Sat Jun 13 17:20:43 2015 ;
 ; Revision Name         ; M3                                    ;
 ; Top-level Entity Name ; M3                                    ;
 ; Family                ; Cyclone II                            ;
@@ -95,7 +95,7 @@ applicable agreement for further details.
 +----------------+--------------------------------------------------------+
 ; Device         ; EP2C8F256C8                                            ;
 ; JTAG usercode  ; 0xFFFFFFFF                                             ;
-; Checksum       ; 0x0018CA2F                                             ;
+; Checksum       ; 0x001A4320                                             ;
 +----------------+--------------------------------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+----------------------------------------------------+
 ; Device             ; EPCS4                                              ;
 ; JTAG usercode      ; 0x00000000                                         ;
-; Checksum           ; 0x06DB8211                                         ;
+; Checksum           ; 0x06D9F763                                         ;
 ; Compression Ratio  ; 2                                                  ;
 +--------------------+----------------------------------------------------+
 
@@ -117,13 +117,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 11.0 Build 157 04/27/2011 SJ Web Edition
-    Info: Processing started: Sat Jun 13 14:35:14 2015
+    Info: Processing started: Sat Jun 13 17:20:42 2015
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off M3 -c M3
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 253 megabytes
-    Info: Processing ended: Sat Jun 13 14:35:15 2015
+    Info: Processing ended: Sat Jun 13 17:20:43 2015
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
