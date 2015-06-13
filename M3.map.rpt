@@ -1,5 +1,5 @@
 Analysis & Synthesis report for M3
-Sat Jun 13 20:59:08 2015
+Sat Jun 13 21:39:21 2015
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -51,15 +51,15 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 13 20:59:07 2015    ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 13 21:39:21 2015    ;
 ; Quartus II Version                 ; 11.0 Build 157 04/27/2011 SJ Web Edition ;
 ; Revision Name                      ; M3                                       ;
 ; Top-level Entity Name              ; M3                                       ;
 ; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 1,612                                    ;
-;     Total combinational functions  ; 1,298                                    ;
-;     Dedicated logic registers      ; 812                                      ;
-; Total registers                    ; 812                                      ;
+; Total logic elements               ; 1,665                                    ;
+;     Total combinational functions  ; 1,351                                    ;
+;     Dedicated logic registers      ; 843                                      ;
+; Total registers                    ; 843                                      ;
 ; Total pins                         ; 179                                      ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 0                                        ;
@@ -186,27 +186,27 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+---------+
 ; Resource                                    ; Usage   ;
 +---------------------------------------------+---------+
-; Estimated Total logic elements              ; 1,612   ;
+; Estimated Total logic elements              ; 1,665   ;
 ;                                             ;         ;
-; Total combinational functions               ; 1298    ;
+; Total combinational functions               ; 1351    ;
 ; Logic element usage by number of LUT inputs ;         ;
-;     -- 4 input functions                    ; 766     ;
-;     -- 3 input functions                    ; 156     ;
-;     -- <=2 input functions                  ; 376     ;
+;     -- 4 input functions                    ; 775     ;
+;     -- 3 input functions                    ; 169     ;
+;     -- <=2 input functions                  ; 407     ;
 ;                                             ;         ;
 ; Logic elements by mode                      ;         ;
-;     -- normal mode                          ; 1058    ;
-;     -- arithmetic mode                      ; 240     ;
+;     -- normal mode                          ; 1081    ;
+;     -- arithmetic mode                      ; 270     ;
 ;                                             ;         ;
-; Total registers                             ; 812     ;
-;     -- Dedicated logic registers            ; 812     ;
+; Total registers                             ; 843     ;
+;     -- Dedicated logic registers            ; 843     ;
 ;     -- I/O registers                        ; 0       ;
 ;                                             ;         ;
 ; I/O pins                                    ; 179     ;
 ; Maximum fan-out node                        ; XnRESET ;
-; Maximum fan-out                             ; 427     ;
-; Total fan-out                               ; 7340    ;
-; Average fan-out                             ; 3.21    ;
+; Maximum fan-out                             ; 458     ;
+; Total fan-out                               ; 7569    ;
+; Average fan-out                             ; 3.19    ;
 +---------------------------------------------+---------+
 
 
@@ -215,14 +215,14 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
-; |M3                        ; 1298 (2)          ; 812 (0)      ; 0           ; 0            ; 0       ; 0         ; 179  ; 0            ; |M3                                  ;              ;
+; |M3                        ; 1351 (2)          ; 843 (0)      ; 0           ; 0            ; 0       ; 0         ; 179  ; 0            ; |M3                                  ;              ;
 ;    |CLK_div_gen:inst2|     ; 143 (143)         ; 98 (98)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|CLK_div_gen:inst2                ;              ;
 ;    |data_CONT:inst5|       ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|data_CONT:inst5                  ;              ;
 ;    |dotmatrix_test:inst6|  ; 94 (44)           ; 81 (62)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|dotmatrix_test:inst6             ;              ;
 ;       |dot_disp:b1|        ; 50 (50)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|dotmatrix_test:inst6|dot_disp:b1 ;              ;
 ;    |host_io:inst|          ; 1 (1)             ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_io:inst                     ;              ;
-;    |host_itf:inst1|        ; 589 (589)         ; 427 (427)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst1                   ;              ;
-;    |lcd_demo:inst8|        ; 98 (98)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|lcd_demo:inst8                   ;              ;
+;    |host_itf:inst1|        ; 641 (641)         ; 458 (458)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst1                   ;              ;
+;    |lcd_demo:inst8|        ; 99 (99)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|lcd_demo:inst8                   ;              ;
 ;    |led_demo:inst3|        ; 145 (0)           ; 87 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|led_demo:inst3                   ;              ;
 ;       |led_clk_gen:b1|     ; 75 (75)           ; 78 (78)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|led_demo:inst3|led_clk_gen:b1    ;              ;
 ;       |led_pwm_gen:b2|     ; 70 (70)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|led_demo:inst3|led_pwm_gen:b2    ;              ;
@@ -313,12 +313,14 @@ Encoding Type:  One-Hot
 ; host_itf:inst1|state~6                      ; Lost fanout                                             ;
 ; host_itf:inst1|state~7                      ; Lost fanout                                             ;
 ; host_itf:inst1|state~8                      ; Lost fanout                                             ;
-; dotmatrix_test:inst6|cnt_clk[0]             ; Merged with dotmatrix_test:inst6|dot_disp:b1|cnt_clk[0] ;
 ; seg_test:inst4|cnt[0]                       ; Merged with dotmatrix_test:inst6|dot_disp:b1|cnt_clk[0] ;
+; dotmatrix_test:inst6|cnt_clk[0]             ; Merged with dotmatrix_test:inst6|dot_disp:b1|cnt_clk[0] ;
 ; CLK_div_gen:inst2|CNT_3KHz[0]               ; Merged with CLK_div_gen:inst2|CNT_1KHz[0]               ;
+; host_itf:inst1|my_clk_cnt[0]                ; Merged with host_itf:inst1|CNT_1Hz[0]                   ;
 ; dotmatrix_test:inst6|cnt_clk[1]             ; Merged with seg_test:inst4|cnt[1]                       ;
+; host_itf:inst1|my_clk_cnt[1]                ; Merged with host_itf:inst1|CNT_1Hz[1]                   ;
 ; led_demo:inst3|led_clk_gen:b1|clk_cnt[2..7] ; Lost fanout                                             ;
-; Total Number of Removed Registers = 49      ;                                                         ;
+; Total Number of Removed Registers = 51      ;                                                         ;
 +---------------------------------------------+---------------------------------------------------------+
 
 
@@ -342,10 +344,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 812   ;
+; Total registers                              ; 843   ;
 ; Number of registers using Synchronous Clear  ; 48    ;
 ; Number of registers using Synchronous Load   ; 88    ;
-; Number of registers using Asynchronous Clear ; 788   ;
+; Number of registers using Asynchronous Clear ; 819   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 401   ;
 ; Number of registers using Preset             ; 0     ;
@@ -371,28 +373,28 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                    ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------+----------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; |M3|host_itf:inst1|seg_clk_cnt[10]            ;                            ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; |M3|host_itf:inst1|clk_cnt[15]                ;                            ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; |M3|lcd_demo:inst8|cnt_delay_20m[4]           ;                            ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; |M3|lcd_demo:inst8|cnt_line[0]                ;                            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |M3|host_itf:inst1|sec_a[0]                   ;                            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |M3|host_itf:inst1|sec_b[2]                   ;                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; |M3|host_itf:inst1|seg_clk_cnt[0]             ;                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; |M3|host_itf:inst1|clk_cnt[3]                 ;                            ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; |M3|lcd_demo:inst8|cnt_delay_20m[3]           ;                            ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; |M3|lcd_demo:inst8|cnt_line[4]                ;                            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |M3|host_itf:inst1|sec_a[3]                   ;                            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |M3|host_itf:inst1|sec_b[3]                   ;                            ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |M3|host_itf:inst1|sec_c[0]                   ;                            ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |M3|host_itf:inst1|sec_d[3]                   ;                            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |M3|host_itf:inst1|sec_e[0]                   ;                            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |M3|host_itf:inst1|sec_e[3]                   ;                            ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |M3|host_itf:inst1|sec_f[0]                   ;                            ;
-; 8:1                ; 15 bits   ; 75 LEs        ; 60 LEs               ; 15 LEs                 ; |M3|led_demo:inst3|led_clk_gen:b1|led7[4]     ;                            ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; |M3|host_itf:inst1|SEG_DATA[6]                ;                            ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; |M3|seg_test:inst4|seg_disp[7]                ;                            ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; |M3|host_itf:inst1|x8800_00F0[13]             ;                            ;
+; 8:1                ; 15 bits   ; 75 LEs        ; 60 LEs               ; 15 LEs                 ; |M3|led_demo:inst3|led_clk_gen:b1|led7[2]     ;                            ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; |M3|host_itf:inst1|SEG_DATA[1]                ;                            ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; |M3|seg_test:inst4|seg_disp[5]                ;                            ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; |M3|host_itf:inst1|x8800_00F0[15]             ;                            ;
 ; 16:1               ; 5 bits    ; 50 LEs        ; 35 LEs               ; 15 LEs                 ; |M3|dotmatrix_test:inst6|dot_disp:b1|dot_d[5] ;                            ;
-; 16:1               ; 46 bits   ; 460 LEs       ; 414 LEs              ; 46 LEs                 ; |M3|led_demo:inst3|led_clk_gen:b1|led5[7]     ;                            ;
-; 23:1               ; 11 bits   ; 165 LEs       ; 165 LEs              ; 0 LEs                  ; |M3|host_itf:inst1|HDO[12]                    ;                            ;
-; 25:1               ; 2 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; |M3|host_itf:inst1|HDO[2]                     ;                            ;
+; 16:1               ; 46 bits   ; 460 LEs       ; 414 LEs              ; 46 LEs                 ; |M3|led_demo:inst3|led_clk_gen:b1|led2[5]     ;                            ;
+; 23:1               ; 11 bits   ; 165 LEs       ; 165 LEs              ; 0 LEs                  ; |M3|host_itf:inst1|HDO[15]                    ;                            ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; |M3|host_itf:inst1|HDO[0]                     ;                            ;
 ; 25:1               ; 2 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; |M3|host_itf:inst1|HDO[3]                     ;                            ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; |M3|host_itf:inst1|LED_ON1                    ;                            ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |M3|lcd_demo:inst8|lcd_routine                ;                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 2 LEs                ; 8 LEs                  ; |M3|led_demo:inst3|led_pwm_gen:b2|shades[6]   ;                            ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 2 LEs                ; 8 LEs                  ; |M3|led_demo:inst3|led_pwm_gen:b2|shades[7]   ;                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------+----------------------------+
 
 
@@ -457,7 +459,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 11.0 Build 157 04/27/2011 SJ Web Edition
-    Info: Processing started: Sat Jun 13 20:59:03 2015
+    Info: Processing started: Sat Jun 13 21:39:17 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off M3 -c M3
 Warning: Parallel compilation is not licensed and has been disabled
 Info: Found 1 design units, including 1 entities, in source file m3.bdf
@@ -515,15 +517,15 @@ Warning: Pin "SPI_AD_CS" not connected
 Info: Elaborating entity "data_CONT" for hierarchy "data_CONT:inst5"
 Info: Elaborating entity "CLK_div_gen" for hierarchy "CLK_div_gen:inst2"
 Info: Elaborating entity "host_itf" for hierarchy "host_itf:inst1"
-Warning (10036): Verilog HDL or VHDL warning at host_itf.v(529): object "LED_EN" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at host_itf.v(551): object "LED_EN" assigned a value but never read
 Warning (10240): Verilog HDL Always Construct warning at host_itf.v(83): inferring latch(es) for variable "x8800_0090", which holds its previous value in one or more paths through the always construct
-Warning (10235): Verilog HDL Always Construct warning at host_itf.v(550): variable "LED_POS" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at host_itf.v(564): variable "LED_DIR" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at host_itf.v(565): variable "LED_ON" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at host_itf.v(569): variable "LED_ON" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at host_itf.v(571): variable "LED_DIR" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at host_itf.v(572): variable "LED_ON" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at host_itf.v(576): variable "LED_ON" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at host_itf.v(572): variable "LED_POS" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at host_itf.v(586): variable "LED_DIR" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at host_itf.v(587): variable "LED_ON" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at host_itf.v(591): variable "LED_ON" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at host_itf.v(593): variable "LED_DIR" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at host_itf.v(594): variable "LED_ON" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at host_itf.v(598): variable "LED_ON" is read inside the Always Construct but isn't in the Always Construct's Event Control
 Info (10041): Inferred latch for "x8800_0090[0]" at host_itf.v(83)
 Info (10041): Inferred latch for "x8800_0090[1]" at host_itf.v(83)
 Info (10041): Inferred latch for "x8800_0090[2]" at host_itf.v(83)
@@ -625,15 +627,15 @@ Warning: Design contains 21 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SPI_SCLK"
     Warning (15610): No output dependent on input pin "SPI_DA_CS"
     Warning (15610): No output dependent on input pin "SPI_AD_CS"
-Info: Implemented 1805 device resources after synthesis - the final resource count might be different
+Info: Implemented 1858 device resources after synthesis - the final resource count might be different
     Info: Implemented 71 input pins
     Info: Implemented 92 output pins
     Info: Implemented 16 bidirectional pins
-    Info: Implemented 1626 logic cells
+    Info: Implemented 1679 logic cells
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 96 warnings
     Info: Peak virtual memory: 271 megabytes
-    Info: Processing ended: Sat Jun 13 20:59:08 2015
-    Info: Elapsed time: 00:00:05
+    Info: Processing ended: Sat Jun 13 21:39:21 2015
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:04
 
 

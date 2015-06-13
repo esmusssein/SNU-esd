@@ -251,11 +251,14 @@ module host_itf (
 	parameter SEG_RUN = 2;
 	parameter SEG_READY = 3;
 	
+	// 1kHz clock for 7 segment.
+	reg seg_clk;
 	reg [2:0] state;
 	// sec_a: last position of 7 segment, ..., sec_f: first position of 7 segment.
 	reg [3:0] sec_a, sec_b, sec_c, sec_d, sec_e, sec_f;
 	reg [2:0] cnt_segcon;
 	integer seg_clk_cnt;
+	integer my_clk_cnt;
 
 	/**
 	 *
@@ -291,7 +294,7 @@ module host_itf (
 	 *
 	 * @update state
 	 */
-	always @(posedge clk_1k or negedge nRESET) begin
+	always @(posedge seg_clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			state <= SEG_IDLE;
 		end else begin
@@ -333,9 +336,28 @@ module host_itf (
 	
 	/**
 	 *
+	 * @update my_clk_cnt, seg_clk
+	 */
+	always @(posedge clk or negedge nRESET) begin
+		if (nRESET == 1'b0) begin
+			my_clk_cnt <= 0;
+			seg_clk <= 0;
+		end else begin
+			if (my_clk_cnt == 24999) begin
+				my_clk_cnt <= 0;
+				seg_clk <= ~seg_clk;
+			end else begin
+				my_clk_cnt <= my_clk_cnt + 1;
+				seg_clk <= seg_clk;
+			end
+		end
+	end
+	
+	/**
+	 *
 	 * @update seg_clk_cnt
 	 */
-	always @(posedge clk_1k or negedge nRESET) begin
+	always @(posedge seg_clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			seg_clk_cnt <= 0;
 		end else begin
@@ -355,7 +377,7 @@ module host_itf (
 	 *
 	 * @update sec_a
 	 */
-	always @(posedge clk_1k or negedge nRESET) begin
+	always @(posedge seg_clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_a <= 0;
 		end else begin
@@ -375,7 +397,7 @@ module host_itf (
 	 *
 	 * @update sec_b
 	 */
-	always @(posedge clk_1k or negedge nRESET) begin
+	always @(posedge seg_clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_b <= 0;
 		end else begin
@@ -395,7 +417,7 @@ module host_itf (
 	 *
 	 * @update sec_c
 	 */	
-	always @(posedge clk_1k or negedge nRESET) begin
+	always @(posedge seg_clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_c <= 0;
 		end else begin
@@ -415,7 +437,7 @@ module host_itf (
 	 *
 	 * @update sec_d
 	 */	
-	always @(posedge clk_1k or negedge nRESET) begin
+	always @(posedge seg_clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_d <= 0;
 		end else begin
@@ -435,7 +457,7 @@ module host_itf (
 	 *
 	 * @update sec_e
 	 */	
-	always @(posedge clk_1k or negedge nRESET) begin
+	always @(posedge seg_clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_e <= 0;
 		end else begin
@@ -455,7 +477,7 @@ module host_itf (
 	 *
 	 * @update sec_f
 	 */	
-	always @(posedge clk_1k or negedge nRESET) begin
+	always @(posedge seg_clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_f <= 0;
 		end else begin
@@ -475,7 +497,7 @@ module host_itf (
 	 *
 	 * @update cnt_segcon, SEG_COM, SEG_DATA
 	 */
-	always @(posedge clk_1k or negedge nRESET) begin
+	always @(posedge seg_clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			SEG_COM <= 0;
 			SEG_DATA <= 0;
