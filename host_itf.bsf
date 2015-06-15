@@ -212,6 +212,38 @@ applicable agreement for further details.
 		(text "host_sel" (rect 179 219 235 231)(font "Arial" ))
 		(line (pt 256 224)(pt 240 224)(line_width 1))
 	)
+	(port
+		(pt 256 240)
+		(output)
+		(text "INT" (rect 0 0 21 12)(font "Arial" ))
+		(text "INT" (rect 214 235 235 247)(font "Arial" ))
+		(line (pt 256 240)(pt 240 240)(line_width 1))
+	)
+	(parameter
+		"CLK_CNT_FOR_ONE_SEC"
+		"49999999"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"SEG_IDLE"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"SEG_SET"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"SEG_RUN"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"SEG_READY"
+		"3"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"LED_STOP"
 		"0"

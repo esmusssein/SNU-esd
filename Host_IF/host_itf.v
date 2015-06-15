@@ -32,7 +32,7 @@ module host_itf (
 	clk, nRESET, FPGA_nRST, HOST_nOE, HOST_nWE, HOST_nCS, HOST_ADD, HDI, HDO,
 	CLCD_RS, CLCD_RW, CLCD_E, CLCD_DQ, LED_D, SEG_COM, SEG_DATA, DOT_SCAN, DOT_DATA,
 	Piezo, DIP_D, PUSH_RD, PUSH_LD, PUSH_SW,
-	clk_3k, host_sel, sw, clk_1k);
+	clk_3k, host_sel, sw, clk_1k,INT);
 	
 	input clk, nRESET, FPGA_nRST, HOST_nOE, HOST_nWE, HOST_nCS;
 	input [20:0] HOST_ADD;
@@ -53,15 +53,17 @@ module host_itf (
 	output Piezo ;
 	output [3:0] PUSH_LD;
 	output host_sel;
-	
+	output INT;
+
 	/***************************************
 	 * Common part.
 	 **************************************/
 	
-	reg [15:0] x8800_0010, x8800_0020, x8800_0030, x8800_0031, x8800_0032, x8800_0033, x8800_0040, x8800_0042, x8800_0050, x8800_0072, x8800_0090, x8800_00A0, x8800_00A2, x8800_00B0, x8800_00C0, x8800_00D0, x8800_00E0, x8800_00F0;
+	reg [15:0] x8800_0010, x8800_0020, x8800_0030, x8800_0031, x8800_0032, x8800_0033, x8800_0034, x8800_0035, x8800_0036, x8800_0040, x8800_0042, x8800_0050, x8800_0072, x8800_0090, x8800_00A0, x8800_00A2, x8800_00B0, x8800_00C0, x8800_00D0, x8800_00E0, x8800_00F0;
 	wire [15:0] x8800_0062, x8800_0022, x8800_0070, x8800_0080, x8800_0092;
 	reg [1:0] reg_sw;
 	reg V_SEL;
+	reg INT1;
 	integer clk_cnt;
 
 	/**
@@ -84,9 +86,6 @@ module host_itf (
 		if (nRESET == 1'b0) begin
 			x8800_0010 <= 16'b0;
 			x8800_0020 <= 16'b0;
-			x8800_0040 <= 16'b0;
-			x8800_0042 <= 16'b0;
-			x8800_0050 <= 16'b0;
 			x8800_0072 <= 16'b0;
 			x8800_0090 <= 16'b0;
 			x8800_00A0 <= 16'b0;
@@ -100,9 +99,6 @@ module host_itf (
 				case (HOST_ADD[19:0])
 					20'h00010: x8800_0010 <= HDI;
 					20'h00020: x8800_0020 <= HDI;
-					20'h00040: x8800_0040 <= HDI;
-					20'h00042: x8800_0042 <= HDI;
-					20'h00050: x8800_0050 <= HDI;
 					20'h00072: x8800_0072 <= HDI;
 					20'h000A0: x8800_00A0 <= HDI;
 					20'h000B0: x8800_00B0 <= HDI;
@@ -132,12 +128,12 @@ module host_itf (
 					20'h00010: HDO <= x8800_0010;
 					20'h00020: HDO <= x8800_0020;
 					20'h00030: HDO <= x8800_0030;
-					20'h00031: HDO <= x8800_0031;
-					20'h00032: HDO <= x8800_0032;
-					20'h00033: HDO <= x8800_0033;
+					20'h00034: HDO <= x8800_0034;
+					20'h00035: HDO <= x8800_0035;
+					20'h00036: HDO <= x8800_0036;		
 					20'h00040: HDO <= x8800_0040;
 					20'h00042: HDO <= x8800_0042;
-					20'h00050: HDO <= x8800_0050;
+					20'h00050: HDO <= x8800_0050;					
 					20'h00022: HDO <= x8800_0022;
 					20'h00062: HDO <= x8800_0062;
 					20'h00070: HDO <= x8800_0070;
@@ -265,6 +261,9 @@ module host_itf (
 	 * @update x8800_0031
 	 * @update x8800_0032
 	 * @update x8800_0033
+	 * @update x8800_0034
+	 * @update x8800_0035
+	 * @update x8800_0036
 	 */
 	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
@@ -289,6 +288,7 @@ module host_itf (
 		end
 	end
 	
+
 	/**
 	 *
 	 * @update state
@@ -299,6 +299,12 @@ module host_itf (
 		end else begin
 			case (state)
 				SEG_IDLE: begin
+					x8800_0034[3:0] <= 0;
+					x8800_0034[7:4] <= 0;
+					x8800_0034[11:8]<= 0;
+					x8800_0034[15:12]<= 0;
+					x8800_0036[3:0] <= 0;
+					x8800_0036[7:4] <= 0;
 					if (x8800_0033[7:6] == 2'b01) begin
 						state <= SEG_SET;
 					end else begin
@@ -306,6 +312,12 @@ module host_itf (
 					end
 				end
 				SEG_SET: begin
+					x8800_0034[3:0] <= sec_a;
+					x8800_0034[7:4] <= sec_b;
+					x8800_0034[11:8] <= sec_c;
+					x8800_0034[15:12] <= sec_d;
+					x8800_0036[3:0] <= sec_e;
+					x8800_0036[7:4] <= sec_f;
 					state <= SEG_READY;
 				end
 				SEG_READY: begin
@@ -318,6 +330,12 @@ module host_itf (
 					end
 				end
 				SEG_RUN: begin
+					x8800_0034[3:0] <= sec_a;
+					x8800_0034[7:4] <= sec_b;
+					x8800_0034[11:8] <= sec_c;
+					x8800_0034[15:12] <= sec_d;
+					x8800_0036[3:0] <= sec_e;
+					x8800_0036[7:4] <= sec_f;
 					if (x8800_0033[7:6] == 2'b11) begin
 						state <= SEG_READY;
 					end else if (sec_a == 0 && sec_b == 0 && sec_c == 0 && sec_d == 0 && sec_e == 0 && sec_f == 0) begin
@@ -368,27 +386,38 @@ module host_itf (
 	/**
 	 *
 	 * @update sec_a
+	 * @updata INT	
 	 */
+	assign INT = INT1;
 	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_a <= 0;
+			INT1 	<= 0;
 		end else begin
 			if (state == SEG_SET) begin
 				sec_a <= x8800_0030[3:0];
-			end else if (my_clk_cnt == CLK_CNT_FOR_ONE_SEC && state == SEG_RUN) begin
-				if (sec_a == 0) begin
-					sec_a <= 9;
+				INT1 <= 1;
+			end else if (state == SEG_RUN) begin
+				if (my_clk_cnt == CLK_CNT_FOR_ONE_SEC) begin
+					if (sec_a == 0) begin
+						sec_a <= 9;
+					end else begin
+						sec_a <= sec_a - 1'b1;
+					end
+					INT1 <= 1;
+				end else if (my_clk_cnt == CLK_CNT_FOR_ONE_SEC/2) begin 
+					INT1 <= 0;
 				end else begin
-					sec_a <= sec_a - 1'b1;
-				end
-			end
+				   INT1 <= INT1;
+			   end
+			end 
 		end
 	end
 	
 	/**
 	 *
 	 * @update sec_b
-	 */
+	 */ 
 	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			sec_b <= 0;
@@ -400,7 +429,7 @@ module host_itf (
 					sec_b <= 9;
 				end else begin
 					sec_b <= sec_b - 1'b1;
-				end
+				end				
 			end
 		end
 	end
@@ -434,7 +463,7 @@ module host_itf (
 			sec_d <= 0;
 		end else begin
 			if (state == SEG_SET) begin
-				sec_d <= x8800_0031[7:4];
+				sec_d <= x8800_0031[7:4];		
 			end else if (sec_c == 0 && sec_b == 0 && sec_a == 0 && my_clk_cnt == CLK_CNT_FOR_ONE_SEC && state == SEG_RUN) begin
 				if (sec_d == 0) begin
 					sec_d <= 9;
@@ -454,7 +483,7 @@ module host_itf (
 			sec_e <= 0;
 		end else begin
 			if (state == SEG_SET) begin
-				sec_e <= x8800_0032[3:0];
+				sec_e <= x8800_0032[3:0];				
 			end else if (sec_d == 0 && sec_c == 0 && sec_b == 0 && sec_a == 0 && my_clk_cnt == CLK_CNT_FOR_ONE_SEC && state == SEG_RUN) begin
 				if (sec_e == 0) begin
 					sec_e <= 9;
@@ -474,7 +503,7 @@ module host_itf (
 			sec_f <= 0;
 		end else begin
 			if (state == SEG_SET) begin
-				sec_f <= x8800_0032[7:4];
+				sec_f <= x8800_0032[7:4];				
 			end else if (sec_e == 0 && sec_d == 0 && sec_c == 0 && sec_b == 0 && sec_a == 0 && my_clk_cnt == CLK_CNT_FOR_ONE_SEC && state == SEG_RUN) begin
 				if (sec_f == 0) begin
 					sec_f <= 9;

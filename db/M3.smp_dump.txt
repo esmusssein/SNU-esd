@@ -8,13 +8,13 @@ lcd_routine.DISP_ON 0 0 1 0 0 1
 lcd_routine.DISP_LINE1 0 1 0 0 0 1 
 lcd_routine.DISP_LINE2 1 0 0 0 0 1 
 
-State Machine - |M3|host_itf:inst1|LED_STATE
+State Machine - |M3|host_itf:inst9|LED_STATE
 Name LED_STATE.LED_STOP LED_STATE.LED_DONE LED_STATE.LED_START 
 LED_STATE.LED_STOP 0 0 0 
 LED_STATE.LED_START 1 0 1 
 LED_STATE.LED_DONE 1 1 0 
 
-State Machine - |M3|host_itf:inst1|state
+State Machine - |M3|host_itf:inst9|state
 Name state.SEG_READY state.SEG_RUN state.SEG_SET state.SEG_IDLE 
 state.SEG_IDLE 0 0 0 0 
 state.SEG_SET 0 0 1 1 

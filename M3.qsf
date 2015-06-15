@@ -175,7 +175,7 @@ set_location_assignment PIN_E2 -to SRAM_nCS -disable
 set_location_assignment PIN_T14 -to CPLD_0
 set_location_assignment PIN_R14 -to CPLD_1 -disable
 set_location_assignment PIN_J16 -to CPLD_8 -disable
-set_location_assignment PIN_T7 -to XEINT8 -disable
+set_location_assignment PIN_T7 -to XEINT8
 set_location_assignment PIN_K6 -to STEP_nB -disable
 set_location_assignment PIN_N6 -to STEP_B -disable
 set_location_assignment PIN_P6 -to STEP_nA -disable
