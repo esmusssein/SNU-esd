@@ -4,7 +4,7 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 1991-2010 Altera Corporation
+Copyright (C) 1991-2011 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -35,6 +35,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 -120 24 -104))
 )
 (pin
 	(input)
@@ -51,6 +52,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 480 24 496))
 )
 (pin
 	(input)
@@ -67,6 +69,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 456 24 472))
 )
 (pin
 	(input)
@@ -83,6 +86,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 -160 24 -144))
 )
 (pin
 	(input)
@@ -99,6 +103,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 -144 24 -128))
 )
 (pin
 	(input)
@@ -131,6 +136,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 -8 24 8))
 )
 (pin
 	(input)
@@ -147,6 +153,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 168 24 184))
 )
 (pin
 	(input)
@@ -163,6 +170,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 184 24 200))
 )
 (pin
 	(input)
@@ -211,28 +219,13 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 -72 24 -56))
 )
 (pin
 	(input)
 	(rect 24 -72 192 -56)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "CPLD_1" (rect 9 0 50 12)(font "Arial" ))
-	(pt 168 8)
-	(drawing
-		(line (pt 92 12)(pt 117 12))
-		(line (pt 92 4)(pt 117 4))
-		(line (pt 121 8)(pt 168 8))
-		(line (pt 92 12)(pt 92 4))
-		(line (pt 117 4)(pt 121 8))
-		(line (pt 117 12)(pt 121 8))
-	)
-	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-)
-(pin
-	(input)
-	(rect 24 0 192 16)
-	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
-	(text "XEINT8" (rect 9 0 45 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 92 12)(pt 117 12))
@@ -419,6 +412,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -32 208 24 224))
 )
 (pin
 	(input)
@@ -515,6 +509,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -168 1232 -152))
 )
 (pin
 	(output)
@@ -531,6 +526,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -40 1232 -24))
 )
 (pin
 	(output)
@@ -547,6 +543,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -24 1232 -8))
 )
 (pin
 	(output)
@@ -563,6 +560,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -144 1224 -128))
 )
 (pin
 	(output)
@@ -579,6 +577,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -128 1232 -112))
 )
 (pin
 	(output)
@@ -595,6 +594,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 8 1232 24))
 )
 (pin
 	(output)
@@ -611,6 +611,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 24 1232 40))
 )
 (pin
 	(output)
@@ -627,6 +628,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 40 1232 56))
 )
 (pin
 	(output)
@@ -643,6 +645,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 56 1232 72))
 )
 (pin
 	(output)
@@ -659,6 +662,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -80 1232 -64))
 )
 (pin
 	(output)
@@ -755,6 +759,24 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1176 -104 1232 -88))
+)
+(pin
+	(output)
+	(rect 1000 72 1176 88)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "XEINT8" (rect 90 0 126 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1176 88 1232 104))
 )
 (pin
 	(bidir)
@@ -772,6 +794,7 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 240 240 296 256))
 )
 (symbol
 	(rect 472 -200 640 -72)
@@ -860,7 +883,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 472 248 640 344)
+	(rect 480 248 648 344)
 	(text "CLK_div_gen" (rect 5 0 71 12)(font "Arial" ))
 	(text "inst2" (rect 8 80 31 92)(font "Arial" ))
 	(port
@@ -939,7 +962,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 472 560 624 784)
+	(rect 472 568 624 792)
 	(text "seg_test" (rect 5 0 47 12)(font "Arial" ))
 	(text "inst4" (rect 8 208 31 220)(font "Arial" ))
 	(port
@@ -1369,9 +1392,9 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 472 -56 704 200)
+	(rect 472 -56 728 232)
 	(text "host_itf" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst1" (rect 8 240 31 252)(font "Arial" ))
+	(text "inst9" (rect 8 272 31 284)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -1464,99 +1487,154 @@ applicable agreement for further details.
 		(line (pt 0 224)(pt 16 224))
 	)
 	(port
-		(pt 232 32)
+		(pt 0 240)
+		(input)
+		(text "clk_1k" (rect 0 0 31 12)(font "Arial" ))
+		(text "clk_1k" (rect 21 235 52 247)(font "Arial" ))
+		(line (pt 0 240)(pt 16 240))
+	)
+	(port
+		(pt 256 32)
 		(output)
 		(text "HDO[15..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "HDO[15..0]" (rect 155 27 211 39)(font "Arial" ))
-		(line (pt 232 32)(pt 216 32)(line_width 3))
+		(text "HDO[15..0]" (rect 165 27 221 39)(font "Arial" ))
+		(line (pt 256 32)(pt 240 32)(line_width 3))
 	)
 	(port
-		(pt 232 48)
+		(pt 256 48)
 		(output)
 		(text "CLCD_RS" (rect 0 0 51 12)(font "Arial" ))
-		(text "CLCD_RS" (rect 160 43 211 55)(font "Arial" ))
-		(line (pt 232 48)(pt 216 48))
+		(text "CLCD_RS" (rect 186 43 237 55)(font "Arial" ))
+		(line (pt 256 48)(pt 240 48))
 	)
 	(port
-		(pt 232 64)
+		(pt 256 64)
 		(output)
 		(text "CLCD_RW" (rect 0 0 55 12)(font "Arial" ))
-		(text "CLCD_RW" (rect 156 59 211 71)(font "Arial" ))
-		(line (pt 232 64)(pt 216 64))
+		(text "CLCD_RW" (rect 186 59 241 71)(font "Arial" ))
+		(line (pt 256 64)(pt 240 64))
 	)
 	(port
-		(pt 232 80)
+		(pt 256 80)
 		(output)
 		(text "CLCD_E" (rect 0 0 43 12)(font "Arial" ))
-		(text "CLCD_E" (rect 168 75 211 87)(font "Arial" ))
-		(line (pt 232 80)(pt 216 80))
+		(text "CLCD_E" (rect 193 75 236 87)(font "Arial" ))
+		(line (pt 256 80)(pt 240 80))
 	)
 	(port
-		(pt 232 96)
+		(pt 256 96)
 		(output)
 		(text "CLCD_DQ[7..0]" (rect 0 0 79 12)(font "Arial" ))
-		(text "CLCD_DQ[7..0]" (rect 132 91 211 103)(font "Arial" ))
-		(line (pt 232 96)(pt 216 96)(line_width 3))
+		(text "CLCD_DQ[7..0]" (rect 143 91 222 103)(font "Arial" ))
+		(line (pt 256 96)(pt 240 96)(line_width 3))
 	)
 	(port
-		(pt 232 112)
+		(pt 256 112)
 		(output)
 		(text "LED_D[7..0]" (rect 0 0 61 12)(font "Arial" ))
-		(text "LED_D[7..0]" (rect 150 107 211 119)(font "Arial" ))
-		(line (pt 232 112)(pt 216 112)(line_width 3))
+		(text "LED_D[7..0]" (rect 158 107 219 119)(font "Arial" ))
+		(line (pt 256 112)(pt 240 112)(line_width 3))
 	)
 	(port
-		(pt 232 128)
+		(pt 256 128)
 		(output)
 		(text "SEG_COM[5..0]" (rect 0 0 79 12)(font "Arial" ))
-		(text "SEG_COM[5..0]" (rect 132 123 211 135)(font "Arial" ))
-		(line (pt 232 128)(pt 216 128)(line_width 3))
+		(text "SEG_COM[5..0]" (rect 143 123 222 135)(font "Arial" ))
+		(line (pt 256 128)(pt 240 128)(line_width 3))
 	)
 	(port
-		(pt 232 144)
+		(pt 256 144)
 		(output)
-		(text "SEG_Data[7..0]" (rect 0 0 77 12)(font "Arial" ))
-		(text "SEG_Data[7..0]" (rect 134 139 211 151)(font "Arial" ))
-		(line (pt 232 144)(pt 216 144)(line_width 3))
+		(text "SEG_DATA[7..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "SEG_DATA[7..0]" (rect 136 139 218 151)(font "Arial" ))
+		(line (pt 256 144)(pt 240 144)(line_width 3))
 	)
 	(port
-		(pt 232 160)
+		(pt 256 160)
 		(output)
 		(text "DOT_SCAN[9..0]" (rect 0 0 84 12)(font "Arial" ))
-		(text "DOT_SCAN[9..0]" (rect 127 155 211 167)(font "Arial" ))
-		(line (pt 232 160)(pt 216 160)(line_width 3))
+		(text "DOT_SCAN[9..0]" (rect 136 155 220 167)(font "Arial" ))
+		(line (pt 256 160)(pt 240 160)(line_width 3))
 	)
 	(port
-		(pt 232 176)
+		(pt 256 176)
 		(output)
 		(text "DOT_DATA[6..0]" (rect 0 0 82 12)(font "Arial" ))
-		(text "DOT_DATA[6..0]" (rect 129 171 211 183)(font "Arial" ))
-		(line (pt 232 176)(pt 216 176)(line_width 3))
+		(text "DOT_DATA[6..0]" (rect 136 171 218 183)(font "Arial" ))
+		(line (pt 256 176)(pt 240 176)(line_width 3))
 	)
 	(port
-		(pt 232 192)
+		(pt 256 192)
 		(output)
 		(text "Piezo" (rect 0 0 25 12)(font "Arial" ))
-		(text "Piezo" (rect 186 187 211 199)(font "Arial" ))
-		(line (pt 232 192)(pt 216 192))
+		(text "Piezo" (rect 200 187 225 199)(font "Arial" ))
+		(line (pt 256 192)(pt 240 192))
 	)
 	(port
-		(pt 232 208)
+		(pt 256 208)
 		(output)
 		(text "PUSH_LD[3..0]" (rect 0 0 76 12)(font "Arial" ))
-		(text "PUSH_LD[3..0]" (rect 135 203 211 215)(font "Arial" ))
-		(line (pt 232 208)(pt 216 208)(line_width 3))
+		(text "PUSH_LD[3..0]" (rect 143 203 219 215)(font "Arial" ))
+		(line (pt 256 208)(pt 240 208)(line_width 3))
 	)
 	(port
-		(pt 232 224)
+		(pt 256 224)
 		(output)
 		(text "host_sel" (rect 0 0 41 12)(font "Arial" ))
-		(text "host_sel" (rect 170 219 211 231)(font "Arial" ))
-		(line (pt 232 224)(pt 216 224))
+		(text "host_sel" (rect 179 219 220 231)(font "Arial" ))
+		(line (pt 256 224)(pt 240 224))
 	)
+	(port
+		(pt 256 240)
+		(output)
+		(text "INT" (rect 0 0 17 12)(font "Arial" ))
+		(text "INT" (rect 214 235 231 247)(font "Arial" ))
+		(line (pt 256 240)(pt 240 240))
+	)
+	(parameter
+		"CLK_CNT_FOR_ONE_SEC"
+		"49999999"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"SEG_IDLE"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"SEG_SET"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"SEG_RUN"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"SEG_READY"
+		"3"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"LED_STOP"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"LED_START"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"LED_DONE"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 216 240))
+		(rectangle (rect 16 16 240 272))
 	)
+	(annotation_block (parameter)(rect 728 -184 1000 -56))
 )
 (connector
 	(text "FPGA_nCS" (rect 200 -96 256 -84)(font "Arial" ))
@@ -1677,30 +1755,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "HDO[15..0]" (rect 728 -40 784 -28)(font "Arial" ))
-	(pt 704 -24)
-	(pt 824 -24)
-	(bus)
-)
-(connector
-	(text "H_LED_D[0..7]" (rect 728 40 803 52)(font "Arial" ))
-	(pt 704 56)
-	(pt 824 56)
-	(bus)
-)
-(connector
-	(text "H_SEG_COM[5..0]" (rect 728 56 821 68)(font "Arial" ))
-	(pt 704 72)
-	(pt 824 72)
-	(bus)
-)
-(connector
-	(text "H_SEG_DATA[7..0]" (rect 728 72 824 84)(font "Arial" ))
-	(pt 704 88)
-	(pt 824 88)
-	(bus)
-)
-(connector
 	(text "PUSH_RD[3..0]" (rect 376 104 455 116)(font "Arial" ))
 	(pt 472 120)
 	(pt 368 120)
@@ -1713,11 +1767,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "piezo" (rect 728 120 752 132)(font "Arial" ))
-	(pt 704 136)
-	(pt 824 136)
-)
-(connector
 	(text "DIP_SW[15..0]" (rect 200 432 274 444)(font "Arial" ))
 	(pt 192 448)
 	(pt 264 448)
@@ -1727,24 +1776,6 @@ applicable agreement for further details.
 	(text "DIP_SW[15..0]" (rect 376 88 450 100)(font "Arial" ))
 	(pt 472 104)
 	(pt 368 104)
-	(bus)
-)
-(connector
-	(text "PUSH_LD[3..0]" (rect 728 136 804 148)(font "Arial" ))
-	(pt 704 152)
-	(pt 824 152)
-	(bus)
-)
-(connector
-	(text "H_DOT_CD[9..0]" (rect 728 88 812 100)(font "Arial" ))
-	(pt 704 104)
-	(pt 824 104)
-	(bus)
-)
-(connector
-	(text "H_DOT_RD[6..0]" (rect 728 104 812 116)(font "Arial" ))
-	(pt 704 120)
-	(pt 824 120)
 	(bus)
 )
 (connector
@@ -1804,27 +1835,6 @@ applicable agreement for further details.
 	(pt 1000 32)
 )
 (connector
-	(text "HLCD_RS" (rect 728 -24 779 -12)(font "Arial" ))
-	(pt 704 -8)
-	(pt 824 -8)
-)
-(connector
-	(text "HLCD_RW" (rect 728 -8 783 4)(font "Arial" ))
-	(pt 704 8)
-	(pt 824 8)
-)
-(connector
-	(text "HLCD_E" (rect 728 8 771 20)(font "Arial" ))
-	(pt 704 24)
-	(pt 824 24)
-)
-(connector
-	(text "HLCD_D[7..0]" (rect 728 24 798 36)(font "Arial" ))
-	(pt 704 40)
-	(pt 824 40)
-	(bus)
-)
-(connector
 	(text "nFPGA_RESET" (rect 376 440 452 452)(font "Arial" ))
 	(pt 472 456)
 	(pt 368 456)
@@ -1862,31 +1872,6 @@ applicable agreement for further details.
 	(pt 368 952)
 )
 (connector
-	(text "FPGA_CLK" (rect 376 264 432 276)(font "Arial" ))
-	(pt 472 280)
-	(pt 368 280)
-)
-(connector
-	(text "nFPGA_RESET" (rect 376 280 452 292)(font "Arial" ))
-	(pt 472 296)
-	(pt 368 296)
-)
-(connector
-	(text "clk_1k" (rect 662 280 693 292)(font "Arial" ))
-	(pt 640 296)
-	(pt 712 296)
-)
-(connector
-	(text "clk_3k" (rect 662 296 693 308)(font "Arial" ))
-	(pt 640 312)
-	(pt 712 312)
-)
-(connector
-	(text "clk_1M" (rect 664 264 698 276)(font "Arial" ))
-	(pt 640 280)
-	(pt 712 280)
-)
-(connector
 	(text "CLK_1M" (rect 376 424 417 436)(font "Arial" ))
 	(pt 472 440)
 	(pt 368 440)
@@ -1895,28 +1880,6 @@ applicable agreement for further details.
 	(text "F_LED_D[7..0]" (rect 640 424 714 436)(font "Arial" ))
 	(pt 624 440)
 	(pt 728 440)
-	(bus)
-)
-(connector
-	(text "clk_1k" (rect 376 576 407 588)(font "Arial" ))
-	(pt 472 592)
-	(pt 368 592)
-)
-(connector
-	(text "nFPGA_RESET" (rect 376 592 452 604)(font "Arial" ))
-	(pt 472 608)
-	(pt 368 608)
-)
-(connector
-	(text "F_SEG_COM[5..0]" (rect 632 576 724 588)(font "Arial" ))
-	(pt 624 592)
-	(pt 720 592)
-	(bus)
-)
-(connector
-	(text "F_SEG_DATA[7..0]" (rect 632 592 727 604)(font "Arial" ))
-	(pt 624 608)
-	(pt 720 608)
 	(bus)
 )
 (connector
@@ -1985,54 +1948,6 @@ applicable agreement for further details.
 	(text "FLCD_RW" (rect 680 968 734 980)(font "Arial" ))
 	(pt 656 984)
 	(pt 776 984)
-)
-(connector
-	(text "cnt_1[7..0]" (rect 632 608 685 620)(font "Arial" ))
-	(pt 624 624)
-	(pt 720 624)
-	(bus)
-)
-(connector
-	(text "cnt_10[7..0]" (rect 632 624 691 636)(font "Arial" ))
-	(pt 624 640)
-	(pt 720 640)
-	(bus)
-)
-(connector
-	(text "sec_1[7..0]" (rect 632 640 687 652)(font "Arial" ))
-	(pt 624 656)
-	(pt 720 656)
-	(bus)
-)
-(connector
-	(text "sec_10[7..0]" (rect 632 656 693 668)(font "Arial" ))
-	(pt 624 672)
-	(pt 720 672)
-	(bus)
-)
-(connector
-	(text "min_1[7..0]" (rect 632 672 687 684)(font "Arial" ))
-	(pt 624 688)
-	(pt 720 688)
-	(bus)
-)
-(connector
-	(text "min_10[7..0]" (rect 632 688 693 700)(font "Arial" ))
-	(pt 624 704)
-	(pt 720 704)
-	(bus)
-)
-(connector
-	(text "hour_1[7..0]" (rect 632 704 691 716)(font "Arial" ))
-	(pt 624 720)
-	(pt 720 720)
-	(bus)
-)
-(connector
-	(text "hour_10[7..0]" (rect 632 720 696 732)(font "Arial" ))
-	(pt 624 736)
-	(pt 720 736)
-	(bus)
 )
 (connector
 	(text "cnt_1[7..0]" (rect 376 968 429 980)(font "Arial" ))
@@ -2210,11 +2125,6 @@ applicable agreement for further details.
 	(pt 368 152)
 )
 (connector
-	(text "HOST_SEL" (rect 728 152 783 164)(font "Arial" ))
-	(pt 704 168)
-	(pt 824 168)
-)
-(connector
 	(text "nFPGA_RESET" (rect 376 -8 452 4)(font "Arial" ))
 	(pt 472 8)
 	(pt 368 8)
@@ -2230,4 +2140,189 @@ applicable agreement for further details.
 	(pt -48 232)
 	(pt 64 232)
 	(bus)
+)
+(connector
+	(text "clk_1k" (rect 670 280 701 292)(font "Arial" ))
+	(pt 648 296)
+	(pt 720 296)
+)
+(connector
+	(text "clk_3k" (rect 670 296 701 308)(font "Arial" ))
+	(pt 648 312)
+	(pt 720 312)
+)
+(connector
+	(text "clk_1M" (rect 672 264 706 276)(font "Arial" ))
+	(pt 648 280)
+	(pt 720 280)
+)
+(connector
+	(text "FPGA_CLK" (rect 384 264 440 276)(font "Arial" ))
+	(pt 376 280)
+	(pt 480 280)
+)
+(connector
+	(text "nFPGA_RESET" (rect 384 280 460 292)(font "Arial" ))
+	(pt 376 296)
+	(pt 480 296)
+)
+(connector
+	(text "clk_1k" (rect 376 584 407 596)(font "Arial" ))
+	(pt 472 600)
+	(pt 368 600)
+)
+(connector
+	(text "nFPGA_RESET" (rect 376 600 452 612)(font "Arial" ))
+	(pt 472 616)
+	(pt 368 616)
+)
+(connector
+	(text "F_SEG_COM[5..0]" (rect 632 584 724 596)(font "Arial" ))
+	(pt 624 600)
+	(pt 720 600)
+	(bus)
+)
+(connector
+	(text "F_SEG_DATA[7..0]" (rect 632 600 727 612)(font "Arial" ))
+	(pt 624 616)
+	(pt 720 616)
+	(bus)
+)
+(connector
+	(text "cnt_1[7..0]" (rect 632 616 685 628)(font "Arial" ))
+	(pt 624 632)
+	(pt 720 632)
+	(bus)
+)
+(connector
+	(text "cnt_10[7..0]" (rect 632 632 691 644)(font "Arial" ))
+	(pt 624 648)
+	(pt 720 648)
+	(bus)
+)
+(connector
+	(text "sec_1[7..0]" (rect 632 648 687 660)(font "Arial" ))
+	(pt 624 664)
+	(pt 720 664)
+	(bus)
+)
+(connector
+	(text "sec_10[7..0]" (rect 632 664 693 676)(font "Arial" ))
+	(pt 624 680)
+	(pt 720 680)
+	(bus)
+)
+(connector
+	(text "min_1[7..0]" (rect 632 680 687 692)(font "Arial" ))
+	(pt 624 696)
+	(pt 720 696)
+	(bus)
+)
+(connector
+	(text "min_10[7..0]" (rect 632 696 693 708)(font "Arial" ))
+	(pt 624 712)
+	(pt 720 712)
+	(bus)
+)
+(connector
+	(text "hour_1[7..0]" (rect 632 712 691 724)(font "Arial" ))
+	(pt 624 728)
+	(pt 720 728)
+	(bus)
+)
+(connector
+	(text "hour_10[7..0]" (rect 632 728 696 740)(font "Arial" ))
+	(pt 624 744)
+	(pt 720 744)
+	(bus)
+)
+(connector
+	(text "clk_1k" (rect 378 168 409 180)(font "Arial" ))
+	(pt 472 184)
+	(pt 368 184)
+)
+(connector
+	(text "HDO[15..0]" (rect 752 -40 808 -28)(font "Arial" ))
+	(pt 728 -24)
+	(pt 848 -24)
+	(bus)
+)
+(connector
+	(text "HLCD_RS" (rect 752 -24 803 -12)(font "Arial" ))
+	(pt 728 -8)
+	(pt 848 -8)
+)
+(connector
+	(text "HLCD_RW" (rect 752 -8 807 4)(font "Arial" ))
+	(pt 728 8)
+	(pt 848 8)
+)
+(connector
+	(text "HLCD_E" (rect 752 8 795 20)(font "Arial" ))
+	(pt 728 24)
+	(pt 848 24)
+)
+(connector
+	(text "HLCD_D[7..0]" (rect 752 24 822 36)(font "Arial" ))
+	(pt 728 40)
+	(pt 848 40)
+	(bus)
+)
+(connector
+	(text "H_LED_D[0..7]" (rect 752 40 827 52)(font "Arial" ))
+	(pt 728 56)
+	(pt 848 56)
+	(bus)
+)
+(connector
+	(text "H_SEG_COM[5..0]" (rect 752 56 845 68)(font "Arial" ))
+	(pt 728 72)
+	(pt 848 72)
+	(bus)
+)
+(connector
+	(text "H_SEG_DATA[7..0]" (rect 752 72 848 84)(font "Arial" ))
+	(pt 728 88)
+	(pt 848 88)
+	(bus)
+)
+(connector
+	(text "H_DOT_CD[9..0]" (rect 752 88 836 100)(font "Arial" ))
+	(pt 728 104)
+	(pt 848 104)
+	(bus)
+)
+(connector
+	(text "H_DOT_RD[6..0]" (rect 752 104 836 116)(font "Arial" ))
+	(pt 728 120)
+	(pt 848 120)
+	(bus)
+)
+(connector
+	(text "piezo" (rect 752 120 776 132)(font "Arial" ))
+	(pt 728 136)
+	(pt 848 136)
+)
+(connector
+	(text "PUSH_LD[3..0]" (rect 752 136 828 148)(font "Arial" ))
+	(pt 728 152)
+	(pt 848 152)
+	(bus)
+)
+(connector
+	(text "HOST_SEL" (rect 752 152 807 164)(font "Arial" ))
+	(pt 728 168)
+	(pt 848 168)
+)
+(connector
+	(pt 728 184)
+	(pt 896 184)
+)
+(connector
+	(pt 896 184)
+	(pt 896 80)
+)
+(connector
+	(pt 896 80)
+	(pt 1000 80)
 )

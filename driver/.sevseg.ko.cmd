@@ -1,0 +1,1 @@
+cmd_/home/younha/driver/sevseg.ko := arm-none-eabi-ld -EL -r  -T /android/linux-2.6.35-hanback/scripts/module-common.lds --build-id -o /home/younha/driver/sevseg.ko /home/younha/driver/sevseg.o /home/younha/driver/sevseg.mod.o
