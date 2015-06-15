@@ -89,8 +89,8 @@ ssize_t driver_write_byte(struct file *file, const char *data, size_t len,
 ssize_t driver_read_byte(struct file *fp, char *data, size_t len, loff_t *off) {
     int i; 
     void *read_io_mem_start = io_mem_start + IO_MEM_READ_OFFSET;
-    for (i = len-1; i >= 0; i--) {
-        int rst = copy_to_user(data+i, read_io_mem_start+i, 1);
+    for (i = 0; i < len; i++) {
+        int rst = copy_to_user(data+i, read_io_mem_start+i*2, 1);
         if (rst < 0)
             return rst;
     }
