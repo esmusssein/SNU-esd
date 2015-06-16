@@ -3,12 +3,12 @@ module host_itf (
 	CLCD_RS, CLCD_RW, CLCD_E, CLCD_DQ, LED_D, SEG_COM, SEG_DATA, DOT_SCAN, DOT_DATA,
 	Piezo, DIP_D, PUSH_RD, PUSH_LD, PUSH_SW,
 	clk_3k, host_sel, sw);
-	
+
 	input clk, nRESET, FPGA_nRST, HOST_nOE, HOST_nWE, HOST_nCS;
 	input [20:0] HOST_ADD;
 	input [15:0] HDI;
 	output reg [15:0] HDO;
-	
+
 	output CLCD_RS, CLCD_RW, CLCD_E;
 	output [7:0] CLCD_DQ;
 	output [7:0] LED_D;
@@ -21,11 +21,11 @@ module host_itf (
 	input  [3:0] PUSH_RD;
 	output [3:0] PUSH_LD;
 	input  [3:0] PUSH_SW;
-	
+
 	input clk_3k, sw;
 	output host_sel;
-	
-	reg [15:0] x8800_0010, x8800_0020, x8800_0030, x8800_0032, x8800_0040, x8800_0042, x8800_0050, x8800_0072, x8800_0090, x8800_00A0, x8800_00A2, x8800_00B0, x8800_00C0, x8800_00D0, x8800_00E0, x8800_00F0;
+
+	reg [15:0] x8800_0000, x8800_0002, x8800_0010, x8800_0020, x8800_0030, x8800_0032, x8800_0040, x8800_0042, x8800_0050, x8800_0072, x8800_0090, x8800_00A0, x8800_00A2, x8800_00B0, x8800_00C0, x8800_00D0, x8800_00E0, x8800_00F0;
 	wire [15:0] x8800_0062, x8800_0022, x8800_0070, x8800_0080, x8800_0092;
 	reg [1:0] reg_sw;
 	reg V_SEL;
@@ -33,6 +33,8 @@ module host_itf (
 
 	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
+			x8800_0000 <= 16'b0;
+			x8800_0002 <= 16'b0;
 			x8800_0010 <= 16'b0;
 			x8800_0020 <= 16'b0;
 			x8800_0030 <= 16'b0;
@@ -51,6 +53,8 @@ module host_itf (
 		end else begin
 			if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1) begin
 				case (HOST_ADD[19:0])
+					20'h00000: x8800_0000 <= HDI;
+					20'h00002: x8800_0002 <= HDI;
 					20'h00010: x8800_0010 <= HDI;
 					20'h00020: x8800_0020 <= HDI;
 					20'h00030: x8800_0030 <= HDI;
@@ -69,17 +73,19 @@ module host_itf (
 			end else begin
 				if (FPGA_nRST == 1'b0)    x8800_00F0 <= 16'b0;
 				else if (reg_sw == 2'b10) x8800_00F0 <= ~x8800_00F0;
-				if (LED_STATE == LED_DONE) x8800_0020[0] <= 1'b0; 
+				if (LED_STATE == LED_DONE) x8800_0020[0] <= 1'b0;
 			end
 		end
 	end
-	
+
 	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			HDO <= 16'b0;
 		end else begin
 			if (HOST_nCS == 1'b0 && HOST_nOE == 1'b0) begin
 				case (HOST_ADD[19:0])
+					20'h00000: HDO <= x8800_0000;
+					20'h00002: HDO <= x8800_0002;
 					20'h00010: HDO <= x8800_0010;
 					20'h00020: HDO <= x8800_0020;
 					20'h00030: HDO <= x8800_0030;
@@ -104,30 +110,30 @@ module host_itf (
 			end
 		end
 	end
-	
+
 	assign CLCD_RS  = x8800_0010[10];
 	assign CLCD_RW  = x8800_0010[9];
 	assign CLCD_E   = x8800_0010[8];
 	assign CLCD_DQ  = x8800_0010[7:0];
-	
+
 	assign SEG_COM  = ~x8800_0030[5:0];
 	assign SEG_DATA = x8800_0032[7:0];
-	
+
 	assign DOT_SCAN = x8800_0040[9:0];
 	assign DOT_DATA = x8800_0042[6:0];
-	
+
 	assign Piezo    = (x8800_0050[0] == 1'b1) ? 1'b1 : 1'b0;
-	
+
 	assign x8800_0070 = (nRESET == 1'b1) ? {12'b0, PUSH_RD} : 16'b0;
 	assign PUSH_LD = x8800_0072[3:0];
-	
+
 	assign x8800_0022 = (nRESET == 1'b1) ? DIP_D : 16'b0;
 	assign x8800_0062 = x8800_0022;
 	assign x8800_0080 = (nRESET == 1'b1) ? {12'b0, ~PUSH_SW} : 16'b0;
 	assign x8800_0092 = (nRESET == 1'b1) ? {10'b0, 6'b101010} : 16'b0;
-	
+
 	assign host_sel = x8800_00F0[0];
-	
+
 	always @(posedge clk_3k or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			V_SEL <= 1'b1;
@@ -136,7 +142,7 @@ module host_itf (
 			if (sw == 1'b0) begin
 				if (clk_cnt >= 3) clk_cnt <= 3;
 				else              clk_cnt <= clk_cnt+1'b1;
-				
+
 				if (clk_cnt == 2) V_SEL <= 1'b0;
 				else              V_SEL <= 1'b1;
 			end else begin
@@ -144,7 +150,7 @@ module host_itf (
 			end
 		end
 	end
-	
+
 	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			reg_sw <= 2'b0;
@@ -155,7 +161,7 @@ module host_itf (
 
 		reg BCLK_1Hz;
 	integer CNT_1Hz;
-	
+
 	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			BCLK_1Hz <= 1'b0;
@@ -173,27 +179,27 @@ module host_itf (
 	parameter LED_STOP = 0;
 	parameter LED_START = 1;
 	parameter LED_DONE = 2;
-	
+
 	reg [1:0] LED_STATE, NEXT_LED_STATE;
 	wire LED_CONTROL, LED_DIR;
 	wire [2:0] LED_POS;
-	
+
 	reg LED_EN1, LED_EN;
 	reg [7:0] LED_ON1, LED_ON;
-		
+
 	assign LED_CONTROL = x8800_0020[0];
 	assign LED_DIR     = x8800_0020[1];
 	assign LED_POS     = x8800_0020[4:2];
 
 	reg [4:0] TTT;
-	
+
 	assign LED_D = LED_ON;
 	always @(LED_STATE or LED_CONTROL) begin
 		LED_EN1 = 0;
 		LED_ON1 = 0;
-		
+
 		NEXT_LED_STATE = LED_STOP;
-			
+
 		case (LED_STATE)
 			LED_STOP: begin
 				if (LED_CONTROL) begin
@@ -234,7 +240,7 @@ module host_itf (
 			end
 		endcase
 	end
-	
+
 	always @(posedge BCLK_1Hz or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
 			LED_EN <= 1'b0;
