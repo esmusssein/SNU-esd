@@ -1,0 +1,104 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Constants(S, K, r, sigma, T): "
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText android:id="@+id/edit_text_S"
+            android:inputType="number"
+            android:gravity="center"
+            android:text="55"
+            android:hint="S"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <EditText android:id="@+id/edit_text_K"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="50"
+            android:hint="K"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <EditText android:id="@+id/edit_text_r"
+            android:gravity="center"
+            android:text="0.05"
+            android:hint="r"
+            android:inputType="number"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <EditText android:id="@+id/edit_text_sigma"
+            android:gravity="center"
+            android:text="0.25"
+            android:inputType="number"
+            android:hint="sigma"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <EditText android:id="@+id/edit_text_T"
+            android:gravity="center"
+            android:text="3"
+            android:hint="T"
+            android:inputType="number"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Iteration: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText android:id="@+id/edit_text_M"
+            android:text="10000000"
+            android:gravity="center"
+            android:hint="M"
+            android:inputType="number"
+            android:layout_weight="1"
+            android:layout_width="0px"
+            android:layout_height="wrap_content" />
+        <Button android:id="@+id/compute_button"
+            android:onClick="onComputeButtonClick"
+            android:text="COMPUTE"
+            android:layout_weight="1"
+            android:layout_width="0px"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <ScrollView
+        android:background="#555"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout android:id="@+id/message_layout"
+            android:layout_width="match_parent"
+            android:padding="16dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="messages >"
+                android:textColor="#fff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
