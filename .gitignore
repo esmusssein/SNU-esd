@@ -1,2 +1,2 @@
-FPGA/incremental_db
-FPGA/db
+FPGA/incremental_db/*
+FPGA/db/*
