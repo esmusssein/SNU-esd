@@ -1,6 +1,6 @@
 Analysis & Synthesis report for M3
-Fri May 03 13:36:54 2013
-Quartus II 64-Bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Full Version
+Tue Jun 16 21:31:44 2015
+Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
 ---------------------
@@ -17,18 +17,19 @@ Quartus II 64-Bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Full Versi
   9. Registers Removed During Synthesis
  10. Removed Registers Triggering Further Register Optimizations
  11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: host_itf:inst1
  14. Parameter Settings for User Entity Instance: lcd_demo:inst8
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+ 15. Parameter Settings for Inferred Entity Instance: host_itf:inst1|lpm_divide:Mod0
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2012 Altera Corporation
+Copyright (C) 1991-2011 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -44,24 +45,24 @@ applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                        ;
-+------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 03 13:36:54 2013          ;
-; Quartus II 64-Bit Version          ; 12.1 Build 243 01/31/2013 SP 1 SJ Full Version ;
-; Revision Name                      ; M3                                             ;
-; Top-level Entity Name              ; M3                                             ;
-; Family                             ; Cyclone II                                     ;
-; Total logic elements               ; 1,252                                          ;
-;     Total combinational functions  ; 969                                            ;
-;     Dedicated logic registers      ; 631                                            ;
-; Total registers                    ; 631                                            ;
-; Total pins                         ; 179                                            ;
-; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 0                                              ;
-; Embedded Multiplier 9-bit elements ; 0                                              ;
-; Total PLLs                         ; 0                                              ;
-+------------------------------------+------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Jun 16 21:31:44 2015    ;
+; Quartus II Version                 ; 11.0 Build 157 04/27/2011 SJ Web Edition ;
+; Revision Name                      ; M3                                       ;
+; Top-level Entity Name              ; M3                                       ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 1,092                                    ;
+;     Total combinational functions  ; 1,050                                    ;
+;     Dedicated logic registers      ; 91                                       ;
+; Total registers                    ; 91                                       ;
+; Total pins                         ; 179                                      ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -89,7 +90,6 @@ applicable agreement for further details.
 ; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
 ; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
 ; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
 ; Parallel Synthesis                                                         ; On                 ; On                 ;
 ; DSP Block Balancing                                                        ; Auto               ; Auto               ;
 ; NOT Gate Push-Back                                                         ; On                 ; On                 ;
@@ -133,7 +133,6 @@ applicable agreement for further details.
 ; HDL message level                                                          ; Level2             ; Level2             ;
 ; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
 ; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
 ; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
 ; Clock MUX Protection                                                       ; On                 ; On                 ;
 ; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
@@ -141,7 +140,6 @@ applicable agreement for further details.
 ; SDC constraint protection                                                  ; Off                ; Off                ;
 ; Synthesis Effort                                                           ; Auto               ; Auto               ;
 ; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
 ; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
 ; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
 ; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
@@ -149,90 +147,91 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     1 processor            ; 100.0%      ;
-;     2-4 processors         ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                     ;
-+----------------------------------+-----------------+------------------------------------+--------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                           ; Library ;
-+----------------------------------+-----------------+------------------------------------+--------------------------------------------------------+---------+
-; M3.bdf                           ; yes             ; User Block Diagram/Schematic File  ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/M3.bdf                ;         ;
-; FPGA_IF/led.v                    ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/FPGA_IF/led.v         ;         ;
-; FPGA_IF/led_pwm_gen.v            ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/FPGA_IF/led_pwm_gen.v ;         ;
-; FPGA_IF/led_clk_gen.v            ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/FPGA_IF/led_clk_gen.v ;         ;
-; FPGA_IF/seg.v                    ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/FPGA_IF/seg.v         ;         ;
-; FPGA_IF/dotmatrix.v              ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/FPGA_IF/dotmatrix.v   ;         ;
-; FPGA_IF/dot_disp.v               ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/FPGA_IF/dot_disp.v    ;         ;
-; FPGA_IF/lcd.v                    ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/FPGA_IF/lcd.v         ;         ;
-; FPGA_IF/CLK_div_gen.v            ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/FPGA_IF/CLK_div_gen.v ;         ;
-; FPGA_IF/data_CONT.v              ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/FPGA_IF/data_CONT.v   ;         ;
-; Host_IF/host_io.v                ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/Host_IF/host_io.v     ;         ;
-; Host_IF/host_itf.v               ; yes             ; User Verilog HDL File              ; D:/ftp_embedded/Lab3/SM3_M3_FPGA/Host_IF/host_itf.v    ;         ;
-+----------------------------------+-----------------+------------------------------------+--------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                       ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------+
+; M3.bdf                           ; yes             ; User Block Diagram/Schematic File  ; D:/esd/SNU_ESD/FPGA/M3.bdf                                         ;
+; FPGA_IF/led.v                    ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/FPGA_IF/led.v                                  ;
+; FPGA_IF/led_pwm_gen.v            ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/FPGA_IF/led_pwm_gen.v                          ;
+; FPGA_IF/led_clk_gen.v            ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/FPGA_IF/led_clk_gen.v                          ;
+; FPGA_IF/seg.v                    ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/FPGA_IF/seg.v                                  ;
+; FPGA_IF/dotmatrix.v              ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/FPGA_IF/dotmatrix.v                            ;
+; FPGA_IF/dot_disp.v               ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/FPGA_IF/dot_disp.v                             ;
+; FPGA_IF/lcd.v                    ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/FPGA_IF/lcd.v                                  ;
+; FPGA_IF/CLK_div_gen.v            ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/FPGA_IF/CLK_div_gen.v                          ;
+; FPGA_IF/data_CONT.v              ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/FPGA_IF/data_CONT.v                            ;
+; Host_IF/host_io.v                ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/Host_IF/host_io.v                              ;
+; Host_IF/host_itf.v               ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/Host_IF/host_itf.v                             ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/lpm_divide.tdf      ;
+; abs_divider.inc                  ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/abs_divider.inc     ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/sign_div_unsign.inc ;
+; aglobal110.inc                   ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/aglobal110.inc      ;
+; db/lpm_divide_slo.tdf            ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/lpm_divide_slo.tdf                          ;
+; db/abs_divider_6dg.tdf           ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/abs_divider_6dg.tdf                         ;
+; db/alt_u_div_o5f.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/alt_u_div_o5f.tdf                           ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/add_sub_lkc.tdf                             ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/add_sub_mkc.tdf                             ;
+; db/lpm_abs_2s9.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/lpm_abs_2s9.tdf                             ;
+; db/lpm_abs_0s9.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/lpm_abs_0s9.tdf                             ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimated Total logic elements              ; 1,252 ;
-;                                             ;       ;
-; Total combinational functions               ; 969   ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 585   ;
-;     -- 3 input functions                    ; 147   ;
-;     -- <=2 input functions                  ; 237   ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 821   ;
-;     -- arithmetic mode                      ; 148   ;
-;                                             ;       ;
-; Total registers                             ; 631   ;
-;     -- Dedicated logic registers            ; 631   ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 179   ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out                             ; 360   ;
-; Total fan-out                               ; 5636  ;
-; Average fan-out                             ; 3.17  ;
-+---------------------------------------------+-------+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Estimated Total logic elements              ; 1,092   ;
+;                                             ;         ;
+; Total combinational functions               ; 1050    ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 339     ;
+;     -- 3 input functions                    ; 321     ;
+;     -- <=2 input functions                  ; 390     ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 724     ;
+;     -- arithmetic mode                      ; 326     ;
+;                                             ;         ;
+; Total registers                             ; 91      ;
+;     -- Dedicated logic registers            ; 91      ;
+;     -- I/O registers                        ; 0       ;
+;                                             ;         ;
+; I/O pins                                    ; 179     ;
+; Maximum fan-out node                        ; XnRESET ;
+; Maximum fan-out                             ; 73      ;
+; Total fan-out                               ; 3368    ;
+; Average fan-out                             ; 2.55    ;
++---------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                          ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
-; |M3                        ; 969 (2)           ; 631 (0)      ; 0           ; 0            ; 0       ; 0         ; 179  ; 0            ; |M3                                  ;              ;
-;    |CLK_div_gen:inst2|     ; 140 (140)         ; 98 (98)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|CLK_div_gen:inst2                ;              ;
-;    |data_CONT:inst5|       ; 50 (50)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|data_CONT:inst5                  ;              ;
-;    |dotmatrix_test:inst6|  ; 95 (44)           ; 82 (63)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|dotmatrix_test:inst6             ;              ;
-;       |dot_disp:b1|        ; 51 (51)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|dotmatrix_test:inst6|dot_disp:b1 ;              ;
-;    |host_io:inst|          ; 1 (1)             ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_io:inst                     ;              ;
-;    |host_itf:inst1|        ; 313 (313)         ; 275 (275)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst1                   ;              ;
-;    |lcd_demo:inst8|        ; 98 (98)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|lcd_demo:inst8                   ;              ;
-;    |led_demo:inst3|        ; 145 (0)           ; 87 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|led_demo:inst3                   ;              ;
-;       |led_clk_gen:b1|     ; 75 (75)           ; 78 (78)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|led_demo:inst3|led_clk_gen:b1    ;              ;
-;       |led_pwm_gen:b2|     ; 70 (70)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|led_demo:inst3|led_pwm_gen:b2    ;              ;
-;    |seg_test:inst4|        ; 125 (125)         ; 42 (42)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|seg_test:inst4                   ;              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                   ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Library Name ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
+; |M3                                      ; 1050 (0)          ; 91 (0)       ; 0           ; 0            ; 0       ; 0         ; 179  ; 0            ; |M3                                                                                                             ;              ;
+;    |host_io:inst|                        ; 1 (1)             ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_io:inst                                                                                                ;              ;
+;    |host_itf:inst1|                      ; 1049 (169)        ; 73 (73)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst1                                                                                              ;              ;
+;       |lpm_divide:Mod0|                  ; 880 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst1|lpm_divide:Mod0                                                                              ;              ;
+;          |lpm_divide_slo:auto_generated| ; 880 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst1|lpm_divide:Mod0|lpm_divide_slo:auto_generated                                                ;              ;
+;             |abs_divider_6dg:divider|    ; 880 (21)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst1|lpm_divide:Mod0|lpm_divide_slo:auto_generated|abs_divider_6dg:divider                        ;              ;
+;                |alt_u_div_o5f:divider|   ; 827 (827)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst1|lpm_divide:Mod0|lpm_divide_slo:auto_generated|abs_divider_6dg:divider|alt_u_div_o5f:divider  ;              ;
+;                |lpm_abs_0s9:my_abs_num|  ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst1|lpm_divide:Mod0|lpm_divide_slo:auto_generated|abs_divider_6dg:divider|lpm_abs_0s9:my_abs_num ;              ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -251,67 +250,230 @@ Encoding Type:  One-Hot
 +--------------------------+------------------------+------------------------+---------------------+------------------------+--------------------------+-----------------------+
 
 
-+-------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                    ;
-+---------------------------------------------+---------------------------------------------------------+
-; Register name                               ; Reason for Removal                                      ;
-+---------------------------------------------+---------------------------------------------------------+
-; led_demo:inst3|led_clk_gen:b1|led5[0]       ; Merged with led_demo:inst3|led_clk_gen:b1|led4[0]       ;
-; led_demo:inst3|led_clk_gen:b1|led8[6]       ; Merged with led_demo:inst3|led_clk_gen:b1|led8[7]       ;
-; dotmatrix_test:inst6|dot_data[9][0]         ; Merged with dotmatrix_test:inst6|dot_data[9][6]         ;
-; dotmatrix_test:inst6|dot_data[8][0]         ; Merged with dotmatrix_test:inst6|dot_data[8][6]         ;
-; dotmatrix_test:inst6|dot_data[7][0]         ; Merged with dotmatrix_test:inst6|dot_data[7][6]         ;
-; dotmatrix_test:inst6|dot_data[6][0]         ; Merged with dotmatrix_test:inst6|dot_data[6][6]         ;
-; dotmatrix_test:inst6|dot_data[5][0]         ; Merged with dotmatrix_test:inst6|dot_data[5][6]         ;
-; dotmatrix_test:inst6|dot_data[4][0]         ; Merged with dotmatrix_test:inst6|dot_data[4][6]         ;
-; dotmatrix_test:inst6|dot_data[3][0]         ; Merged with dotmatrix_test:inst6|dot_data[3][6]         ;
-; dotmatrix_test:inst6|dot_data[2][0]         ; Merged with dotmatrix_test:inst6|dot_data[2][6]         ;
-; dotmatrix_test:inst6|dot_data[1][0]         ; Merged with dotmatrix_test:inst6|dot_data[1][6]         ;
-; dotmatrix_test:inst6|dot_data[0][0]         ; Merged with dotmatrix_test:inst6|dot_data[0][6]         ;
-; seg_test:inst4|cnt[3]                       ; Merged with dotmatrix_test:inst6|dot_disp:b1|cnt_clk[3] ;
-; seg_test:inst4|cnt[2]                       ; Merged with dotmatrix_test:inst6|dot_disp:b1|cnt_clk[2] ;
-; seg_test:inst4|cnt[1]                       ; Merged with dotmatrix_test:inst6|dot_disp:b1|cnt_clk[1] ;
-; dotmatrix_test:inst6|dot_disp:b1|dot_d[6]   ; Merged with dotmatrix_test:inst6|dot_disp:b1|dot_d[0]   ;
-; seg_test:inst4|cnt[0]                       ; Merged with dotmatrix_test:inst6|dot_disp:b1|cnt_clk[0] ;
-; dotmatrix_test:inst6|dot_data[9][6]         ; Stuck at GND due to stuck port data_in                  ;
-; dotmatrix_test:inst6|dot_data[8][6]         ; Stuck at GND due to stuck port data_in                  ;
-; dotmatrix_test:inst6|dot_data[7][6]         ; Stuck at GND due to stuck port data_in                  ;
-; dotmatrix_test:inst6|dot_data[6][6]         ; Stuck at GND due to stuck port data_in                  ;
-; dotmatrix_test:inst6|dot_data[5][6]         ; Stuck at GND due to stuck port data_in                  ;
-; dotmatrix_test:inst6|dot_data[4][6]         ; Stuck at GND due to stuck port data_in                  ;
-; dotmatrix_test:inst6|dot_data[3][6]         ; Stuck at GND due to stuck port data_in                  ;
-; dotmatrix_test:inst6|dot_data[2][6]         ; Stuck at GND due to stuck port data_in                  ;
-; dotmatrix_test:inst6|dot_data[1][6]         ; Stuck at GND due to stuck port data_in                  ;
-; dotmatrix_test:inst6|dot_data[0][6]         ; Stuck at GND due to stuck port data_in                  ;
-; dotmatrix_test:inst6|dot_disp:b1|dot_d[0]   ; Stuck at GND due to stuck port data_in                  ;
-; seg_test:inst4|sec_h[3]                     ; Stuck at GND due to stuck port data_in                  ;
-; seg_test:inst4|sec_g[0,3]                   ; Stuck at GND due to stuck port data_in                  ;
-; seg_test:inst4|sec_h[0]                     ; Stuck at GND due to stuck port data_in                  ;
-; seg_test:inst4|sec_h[1,2]                   ; Stuck at GND due to stuck port clock_enable             ;
-; seg_test:inst4|sec_g[2]                     ; Merged with seg_test:inst4|sec_g[1]                     ;
-; lcd_demo:inst8|lcd_routine~9                ; Lost fanout                                             ;
-; lcd_demo:inst8|lcd_routine~10               ; Lost fanout                                             ;
-; lcd_demo:inst8|lcd_routine~11               ; Lost fanout                                             ;
-; dotmatrix_test:inst6|cnt_clk[0]             ; Merged with dotmatrix_test:inst6|dot_disp:b1|cnt_clk[0] ;
-; CLK_div_gen:inst2|CNT_3KHz[0]               ; Merged with CLK_div_gen:inst2|CNT_1KHz[0]               ;
-; led_demo:inst3|led_clk_gen:b1|clk_cnt[2..7] ; Lost fanout                                             ;
-; Total Number of Removed Registers = 46      ;                                                         ;
-+---------------------------------------------+---------------------------------------------------------+
++-----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                      ;
++------------------------------------------------+----------------------------------------+
+; Register name                                  ; Reason for Removal                     ;
++------------------------------------------------+----------------------------------------+
+; host_itf:inst1|HDO[0..15]                      ; Stuck at GND due to stuck port data_in ;
+; host_itf:inst1|SEG_DATA[0]                     ; Stuck at GND due to stuck port data_in ;
+; seg_test:inst4|seg_com[0..5]                   ; Lost fanout                            ;
+; seg_test:inst4|seg_disp[0..7]                  ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_disp:b1|scan[0..9]    ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[6]      ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[0][6]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[1][6]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[2][6]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[3][6]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[4][6]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[5][6]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[6][6]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[7][6]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[8][6]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[9][6]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[5]      ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[0][5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[1][5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[2][5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[3][5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[4][5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[5][5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[6][5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[7][5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[8][5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[9][5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[4]      ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[0][4]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[1][4]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[2][4]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[3][4]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[4][4]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[5][4]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[6][4]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[7][4]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[8][4]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[9][4]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[3]      ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[0][3]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[1][3]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[2][3]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[3][3]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[4][3]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[5][3]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[6][3]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[7][3]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[8][3]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[9][3]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[2]      ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[0][2]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[1][2]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[2][2]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[3][2]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[4][2]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[5][2]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[6][2]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[7][2]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[8][2]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[9][2]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[1]      ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[0][1]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[1][1]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[2][1]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[3][1]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[4][1]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[5][1]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[6][1]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[7][1]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[8][1]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[9][1]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[0]      ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[0][0]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[1][0]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[2][0]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[3][0]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[4][0]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[5][0]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[6][0]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[7][0]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[8][0]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_data[9][0]            ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_rs                          ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_e                           ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_data[0..7]                  ; Lost fanout                            ;
+; led_demo:inst3|led_pwm_gen:b2|fclk             ; Lost fanout                            ;
+; led_demo:inst3|led_pwm_gen:b2|cnt[0..7]        ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|clk_cnt[0..7]    ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|cnt_a[0..3]      ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|led_clk          ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|cnt_b[0..3]      ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|iclk             ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|cnt[1..3]        ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|led8[0]          ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|cnt[0]           ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|led1[0..7]       ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|led2[0..7]       ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|led3[0..7]       ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|led4[0..7]       ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|led5[0..7]       ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|led6[0..7]       ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|led7[0..7]       ; Lost fanout                            ;
+; led_demo:inst3|led_clk_gen:b1|led8[1..7]       ; Lost fanout                            ;
+; dotmatrix_test:inst6|cnt_clk[0..6]             ; Lost fanout                            ;
+; dotmatrix_test:inst6|clk_20h                   ; Lost fanout                            ;
+; dotmatrix_test:inst6|cnt_data[0..5]            ; Lost fanout                            ;
+; dotmatrix_test:inst6|dot_disp:b1|cnt_clk[0..3] ; Lost fanout                            ;
+; seg_test:inst4|cnt[0..3]                       ; Lost fanout                            ;
+; seg_test:inst4|sec_a[0..3]                     ; Lost fanout                            ;
+; seg_test:inst4|sec_b[0..3]                     ; Lost fanout                            ;
+; seg_test:inst4|sec_c[0..3]                     ; Lost fanout                            ;
+; seg_test:inst4|sec_d[0..3]                     ; Lost fanout                            ;
+; seg_test:inst4|sec_e[0..3]                     ; Lost fanout                            ;
+; seg_test:inst4|sec_f[0..3]                     ; Lost fanout                            ;
+; seg_test:inst4|sec_g[0..3]                     ; Lost fanout                            ;
+; seg_test:inst4|sec_h[1..3]                     ; Lost fanout                            ;
+; seg_test:inst4|cnt_segcon[0]                   ; Lost fanout                            ;
+; seg_test:inst4|sec_h[0]                        ; Lost fanout                            ;
+; seg_test:inst4|cnt_segcon[1,2]                 ; Lost fanout                            ;
+; CLK_div_gen:inst2|BCLK_1MHz                    ; Lost fanout                            ;
+; CLK_div_gen:inst2|CNT_1MHz[0..31]              ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_routine~9                   ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_routine~10                  ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_routine~11                  ; Lost fanout                            ;
+; lcd_demo:inst8|cnt_delay_20m[0..4]             ; Lost fanout                            ;
+; lcd_demo:inst8|cnt_line[0..4]                  ; Lost fanout                            ;
+; lcd_demo:inst8|cnt_clk[0..2]                   ; Lost fanout                            ;
+; CLK_div_gen:inst2|BCLK_1KHz                    ; Lost fanout                            ;
+; CLK_div_gen:inst2|CNT_1KHz[0..31]              ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_routine.DELAY_20M           ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_routine.FUNCTION_SET        ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_routine.ENTRY_MODE          ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_routine.DISP_ON             ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_routine.DISP_LINE1          ; Lost fanout                            ;
+; lcd_demo:inst8|lcd_routine.DISP_LINE2          ; Lost fanout                            ;
+; Total Number of Removed Registers = 368        ;                                        ;
++------------------------------------------------+----------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                      ;
-+-------------------------------------+---------------------------+--------------------------------------------------------------------------------+
-; Register name                       ; Reason for Removal        ; Registers Removed due to This Register                                         ;
-+-------------------------------------+---------------------------+--------------------------------------------------------------------------------+
-; dotmatrix_test:inst6|dot_data[9][6] ; Stuck at GND              ; dotmatrix_test:inst6|dot_data[8][6], dotmatrix_test:inst6|dot_data[7][6],      ;
-;                                     ; due to stuck port data_in ; dotmatrix_test:inst6|dot_data[6][6], dotmatrix_test:inst6|dot_data[5][6],      ;
-;                                     ;                           ; dotmatrix_test:inst6|dot_data[4][6], dotmatrix_test:inst6|dot_data[3][6],      ;
-;                                     ;                           ; dotmatrix_test:inst6|dot_data[2][6], dotmatrix_test:inst6|dot_data[1][6],      ;
-;                                     ;                           ; dotmatrix_test:inst6|dot_data[0][6], dotmatrix_test:inst6|dot_disp:b1|dot_d[0] ;
-; seg_test:inst4|sec_g[3]             ; Stuck at GND              ; seg_test:inst4|sec_h[0], seg_test:inst4|sec_h[1], seg_test:inst4|sec_h[2]      ;
-;                                     ; due to stuck port data_in ;                                                                                ;
-+-------------------------------------+---------------------------+--------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                 ;
++-------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name                             ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++-------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; seg_test:inst4|seg_disp[7]                ; Lost Fanouts              ; seg_test:inst4|sec_a[3], seg_test:inst4|sec_a[2], seg_test:inst4|sec_a[1],          ;
+;                                           ;                           ; seg_test:inst4|sec_a[0], seg_test:inst4|sec_b[3], seg_test:inst4|sec_b[2],          ;
+;                                           ;                           ; seg_test:inst4|sec_b[1], seg_test:inst4|sec_b[0], seg_test:inst4|sec_c[3],          ;
+;                                           ;                           ; seg_test:inst4|sec_c[2], seg_test:inst4|sec_c[1], seg_test:inst4|sec_d[3],          ;
+;                                           ;                           ; seg_test:inst4|sec_d[2], seg_test:inst4|sec_e[3]                                    ;
+; CLK_div_gen:inst2|CNT_1KHz[14]            ; Lost Fanouts              ; CLK_div_gen:inst2|CNT_1KHz[13], CLK_div_gen:inst2|CNT_1KHz[12],                     ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[11], CLK_div_gen:inst2|CNT_1KHz[10],                     ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[9], CLK_div_gen:inst2|CNT_1KHz[8],                       ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[7], CLK_div_gen:inst2|CNT_1KHz[6],                       ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[5], CLK_div_gen:inst2|CNT_1KHz[4],                       ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[3], CLK_div_gen:inst2|CNT_1KHz[2],                       ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[1], CLK_div_gen:inst2|CNT_1KHz[0]                        ;
+; seg_test:inst4|seg_com[5]                 ; Lost Fanouts              ; seg_test:inst4|cnt_segcon[0], seg_test:inst4|cnt_segcon[2],                         ;
+;                                           ;                           ; seg_test:inst4|cnt_segcon[1], CLK_div_gen:inst2|BCLK_1KHz,                          ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[31], CLK_div_gen:inst2|CNT_1KHz[30],                     ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[29], CLK_div_gen:inst2|CNT_1KHz[28],                     ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[27], CLK_div_gen:inst2|CNT_1KHz[26],                     ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[25], CLK_div_gen:inst2|CNT_1KHz[24],                     ;
+;                                           ;                           ; CLK_div_gen:inst2|CNT_1KHz[23]                                                      ;
+; dotmatrix_test:inst6|dot_disp:b1|scan[9]  ; Lost Fanouts              ; dotmatrix_test:inst6|dot_disp:b1|scan[8], dotmatrix_test:inst6|dot_disp:b1|scan[7], ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_disp:b1|scan[6], dotmatrix_test:inst6|dot_disp:b1|scan[5], ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_disp:b1|scan[4], dotmatrix_test:inst6|dot_disp:b1|scan[3], ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_disp:b1|scan[2], dotmatrix_test:inst6|dot_disp:b1|scan[1], ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_disp:b1|scan[0],                                           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_disp:b1|cnt_clk[3],                                        ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_disp:b1|cnt_clk[0]                                         ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[6] ; Lost Fanouts              ; dotmatrix_test:inst6|dot_data[0][6], dotmatrix_test:inst6|dot_data[1][6],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[2][6], dotmatrix_test:inst6|dot_data[3][6],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[4][6], dotmatrix_test:inst6|dot_data[5][6],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[6][6], dotmatrix_test:inst6|dot_data[7][6],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[8][6], dotmatrix_test:inst6|dot_data[9][6],           ;
+;                                           ;                           ; dotmatrix_test:inst6|clk_20h                                                        ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[5] ; Lost Fanouts              ; dotmatrix_test:inst6|dot_data[0][5], dotmatrix_test:inst6|dot_data[1][5],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[2][5], dotmatrix_test:inst6|dot_data[3][5],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[4][5], dotmatrix_test:inst6|dot_data[5][5],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[6][5], dotmatrix_test:inst6|dot_data[7][5],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[8][5], dotmatrix_test:inst6|dot_data[9][5]            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[4] ; Lost Fanouts              ; dotmatrix_test:inst6|dot_data[0][4], dotmatrix_test:inst6|dot_data[1][4],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[2][4], dotmatrix_test:inst6|dot_data[3][4],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[4][4], dotmatrix_test:inst6|dot_data[5][4],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[6][4], dotmatrix_test:inst6|dot_data[7][4],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[8][4], dotmatrix_test:inst6|dot_data[9][4]            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[3] ; Lost Fanouts              ; dotmatrix_test:inst6|dot_data[0][3], dotmatrix_test:inst6|dot_data[1][3],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[2][3], dotmatrix_test:inst6|dot_data[3][3],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[4][3], dotmatrix_test:inst6|dot_data[5][3],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[6][3], dotmatrix_test:inst6|dot_data[7][3],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[8][3], dotmatrix_test:inst6|dot_data[9][3]            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[2] ; Lost Fanouts              ; dotmatrix_test:inst6|dot_data[0][2], dotmatrix_test:inst6|dot_data[1][2],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[2][2], dotmatrix_test:inst6|dot_data[3][2],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[4][2], dotmatrix_test:inst6|dot_data[5][2],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[6][2], dotmatrix_test:inst6|dot_data[7][2],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[8][2], dotmatrix_test:inst6|dot_data[9][2]            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[1] ; Lost Fanouts              ; dotmatrix_test:inst6|dot_data[0][1], dotmatrix_test:inst6|dot_data[1][1],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[2][1], dotmatrix_test:inst6|dot_data[3][1],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[4][1], dotmatrix_test:inst6|dot_data[5][1],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[6][1], dotmatrix_test:inst6|dot_data[7][1],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[8][1], dotmatrix_test:inst6|dot_data[9][1]            ;
+; dotmatrix_test:inst6|dot_disp:b1|dot_d[0] ; Lost Fanouts              ; dotmatrix_test:inst6|dot_data[0][0], dotmatrix_test:inst6|dot_data[1][0],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[2][0], dotmatrix_test:inst6|dot_data[3][0],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[4][0], dotmatrix_test:inst6|dot_data[5][0],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[6][0], dotmatrix_test:inst6|dot_data[7][0],           ;
+;                                           ;                           ; dotmatrix_test:inst6|dot_data[8][0], dotmatrix_test:inst6|dot_data[9][0]            ;
+; led_demo:inst3|led_pwm_gen:b2|fclk        ; Lost Fanouts              ; led_demo:inst3|led_pwm_gen:b2|cnt[7], led_demo:inst3|led_pwm_gen:b2|cnt[6],         ;
+;                                           ;                           ; led_demo:inst3|led_pwm_gen:b2|cnt[5], led_demo:inst3|led_pwm_gen:b2|cnt[4],         ;
+;                                           ;                           ; led_demo:inst3|led_pwm_gen:b2|cnt[3], led_demo:inst3|led_pwm_gen:b2|cnt[2],         ;
+;                                           ;                           ; led_demo:inst3|led_pwm_gen:b2|cnt[1], led_demo:inst3|led_pwm_gen:b2|cnt[0],         ;
+;                                           ;                           ; led_demo:inst3|led_clk_gen:b1|led_clk                                               ;
+; lcd_demo:inst8|cnt_delay_20m[4]           ; Lost Fanouts              ; lcd_demo:inst8|cnt_delay_20m[3], lcd_demo:inst8|cnt_delay_20m[2],                   ;
+;                                           ;                           ; lcd_demo:inst8|cnt_delay_20m[1]                                                     ;
+; lcd_demo:inst8|cnt_line[4]                ; Lost Fanouts              ; lcd_demo:inst8|cnt_line[3], lcd_demo:inst8|cnt_line[2], lcd_demo:inst8|cnt_line[1]  ;
+; lcd_demo:inst8|cnt_clk[2]                 ; Lost Fanouts              ; lcd_demo:inst8|cnt_clk[1], lcd_demo:inst8|cnt_clk[0]                                ;
+; host_itf:inst1|SEG_DATA[0]                ; Stuck at GND              ; seg_test:inst4|seg_disp[0]                                                          ;
+;                                           ; due to stuck port data_in ;                                                                                     ;
+; led_demo:inst3|led_clk_gen:b1|clk_cnt[7]  ; Lost Fanouts              ; CLK_div_gen:inst2|BCLK_1MHz                                                         ;
++-------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -319,47 +481,36 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 631   ;
-; Number of registers using Synchronous Clear  ; 16    ;
-; Number of registers using Synchronous Load   ; 63    ;
-; Number of registers using Asynchronous Clear ; 610   ;
+; Total registers                              ; 91    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 70    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 337   ;
+; Number of registers using Clock Enable       ; 27    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------+
-; Inverted Register Statistics                       ;
-+------------------------------------------+---------+
-; Inverted Register                        ; Fan out ;
-+------------------------------------------+---------+
-; dotmatrix_test:inst6|dot_disp:b1|scan[0] ; 2       ;
-; led_demo:inst3|led_clk_gen:b1|iclk       ; 66      ;
-; host_itf:inst1|V_SEL                     ; 2       ;
-; Total number of inverted registers = 3   ;         ;
-+------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                          ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------+----------------------------+
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; |M3|lcd_demo:inst8|cnt_delay_20m[0] ;                            ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; |M3|lcd_demo:inst8|cnt_line[0]      ;                            ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; |M3|host_itf:inst1|SEG_DATA[7]      ;                            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |M3|lcd_demo:inst8|lcd_routine      ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------+----------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |M3|host_itf:inst1|clk_cnt[3]                 ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |M3|lcd_demo:inst8|cnt_delay_20m[0]           ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |M3|lcd_demo:inst8|cnt_line[4]                ;
-; 8:1                ; 15 bits   ; 75 LEs        ; 60 LEs               ; 15 LEs                 ; Yes        ; |M3|led_demo:inst3|led_clk_gen:b1|led1[6]     ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; Yes        ; |M3|seg_test:inst4|seg_disp[3]                ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |M3|host_itf:inst1|x8800_00F0[0]              ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 35 LEs               ; 15 LEs                 ; Yes        ; |M3|dotmatrix_test:inst6|dot_disp:b1|dot_d[4] ;
-; 16:1               ; 46 bits   ; 460 LEs       ; 414 LEs              ; 46 LEs                 ; Yes        ; |M3|led_demo:inst3|led_clk_gen:b1|led8[2]     ;
-; 21:1               ; 11 bits   ; 154 LEs       ; 154 LEs              ; 0 LEs                  ; Yes        ; |M3|host_itf:inst1|HDO[12]                    ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |M3|host_itf:inst1|HDO[0]                     ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |M3|host_itf:inst1|HDO[3]                     ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |M3|lcd_demo:inst8|lcd_routine                ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 2 LEs                ; 8 LEs                  ; No         ; |M3|led_demo:inst3|led_pwm_gen:b2|shades[7]   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: host_itf:inst1 ;
++---------------------+----------+----------------------------+
+; Parameter Name      ; Value    ; Type                       ;
++---------------------+----------+----------------------------+
+; CLK_CNT_FOR_ONE_SEC ; 49999999 ; Signed Integer             ;
++---------------------+----------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------------------------------------+
@@ -381,12 +532,35 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: host_itf:inst1|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------------+
+; Parameter Name         ; Value          ; Type                                  ;
++------------------------+----------------+---------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                               ;
+; LPM_WIDTHD             ; 16             ; Untyped                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
+; CBXI_PARAMETER         ; lpm_divide_slo ; Untyped                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
++------------------------+----------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -394,97 +568,159 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Fri May 03 13:36:10 2013
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 11.0 Build 157 04/27/2011 SJ Web Edition
+    Info: Processing started: Tue Jun 16 21:31:38 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off M3 -c M3
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file m3.bdf
-    Info (12023): Found entity 1: M3
-Info (12021): Found 1 design units, including 1 entities, in source file fpga_if/led.v
-    Info (12023): Found entity 1: led_demo
-Info (12021): Found 1 design units, including 1 entities, in source file fpga_if/led_pwm_gen.v
-    Info (12023): Found entity 1: led_pwm_gen
-Info (12021): Found 1 design units, including 1 entities, in source file fpga_if/led_clk_gen.v
-    Info (12023): Found entity 1: led_clk_gen
-Info (12021): Found 1 design units, including 1 entities, in source file fpga_if/seg.v
-    Info (12023): Found entity 1: seg_test
-Info (12021): Found 1 design units, including 1 entities, in source file fpga_if/dotmatrix.v
-    Info (12023): Found entity 1: dotmatrix_test
-Info (12021): Found 1 design units, including 1 entities, in source file fpga_if/dot_disp.v
-    Info (12023): Found entity 1: dot_disp
-Info (12021): Found 1 design units, including 1 entities, in source file fpga_if/lcd.v
-    Info (12023): Found entity 1: lcd_demo
-Info (12021): Found 1 design units, including 1 entities, in source file fpga_if/logic_out.v
-    Info (12023): Found entity 1: Logic_out
-Info (12021): Found 1 design units, including 1 entities, in source file fpga_if/clk_div_gen.v
-    Info (12023): Found entity 1: CLK_div_gen
-Info (12021): Found 1 design units, including 1 entities, in source file fpga_if/data_cont.v
-    Info (12023): Found entity 1: data_CONT
-Info (12021): Found 1 design units, including 1 entities, in source file host_if/host_io.v
-    Info (12023): Found entity 1: host_io
-Info (12021): Found 1 design units, including 1 entities, in source file host_if/host_itf.v
-    Info (12023): Found entity 1: host_itf
-Info (12127): Elaborating entity "M3" for the top level hierarchy
-Warning (275043): Pin "SRAM_nOE" is missing source
-Warning (275043): Pin "SRAM_nWE" is missing source
-Warning (275043): Pin "SRAM_nCS" is missing source
-Warning (275043): Pin "SRAM_ADDR[17..0]" is missing source
-Warning (275043): Pin "SRAM_DATA[15..0]" is missing source
-Warning (275009): Pin "M_nRESET" not connected
-Warning (275009): Pin "XCLKOUT" not connected
-Warning (275009): Pin "CPLD_8" not connected
-Warning (275009): Pin "CPLD_1" not connected
-Warning (275009): Pin "XEINT8" not connected
-Warning (275009): Pin "STEP_A" not connected
-Warning (275009): Pin "STEP_nA" not connected
-Warning (275009): Pin "STEP_B" not connected
-Warning (275009): Pin "STEP_nB" not connected
-Warning (275009): Pin "GPJ4_0" not connected
-Warning (275009): Pin "GPJ4_1" not connected
-Warning (275009): Pin "GPJ4_2" not connected
-Warning (275009): Pin "GPJ4_3" not connected
-Warning (275009): Pin "GPJ4_4" not connected
-Warning (275009): Pin "GPJ1_5" not connected
-Warning (275009): Pin "SPI_DOUT" not connected
-Warning (275009): Pin "SPI_DIN" not connected
-Warning (275009): Pin "SPI_SCLK" not connected
-Warning (275009): Pin "SPI_DA_CS" not connected
-Warning (275009): Pin "SPI_AD_CS" not connected
-Info (12128): Elaborating entity "data_CONT" for hierarchy "data_CONT:inst5"
-Info (12128): Elaborating entity "CLK_div_gen" for hierarchy "CLK_div_gen:inst2"
-Info (12128): Elaborating entity "host_itf" for hierarchy "host_itf:inst1"
-Warning (10240): Verilog HDL Always Construct warning at host_itf.v(34): inferring latch(es) for variable "x8800_0090", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "x8800_0090[0]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[1]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[2]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[3]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[4]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[5]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[6]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[7]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[8]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[9]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[10]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[11]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[12]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[13]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[14]" at host_itf.v(34)
-Info (10041): Inferred latch for "x8800_0090[15]" at host_itf.v(34)
-Info (12128): Elaborating entity "host_io" for hierarchy "host_io:inst"
-Info (12128): Elaborating entity "lcd_demo" for hierarchy "lcd_demo:inst8"
-Info (12128): Elaborating entity "seg_test" for hierarchy "seg_test:inst4"
-Info (12128): Elaborating entity "dotmatrix_test" for hierarchy "dotmatrix_test:inst6"
-Info (12128): Elaborating entity "dot_disp" for hierarchy "dotmatrix_test:inst6|dot_disp:b1"
-Info (12128): Elaborating entity "led_demo" for hierarchy "led_demo:inst3"
-Info (12128): Elaborating entity "led_clk_gen" for hierarchy "led_demo:inst3|led_clk_gen:b1"
-Info (12128): Elaborating entity "led_pwm_gen" for hierarchy "led_demo:inst3|led_pwm_gen:b2"
-Info (13000): Registers with preset signals will power-up high
-Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
-Warning (13024): Output pins are stuck at VCC or GND
+Warning: Parallel compilation is not licensed and has been disabled
+Info: Found 1 design units, including 1 entities, in source file m3.bdf
+    Info: Found entity 1: M3
+Info: Found 1 design units, including 1 entities, in source file fpga_if/led.v
+    Info: Found entity 1: led_demo
+Info: Found 1 design units, including 1 entities, in source file fpga_if/led_pwm_gen.v
+    Info: Found entity 1: led_pwm_gen
+Info: Found 1 design units, including 1 entities, in source file fpga_if/led_clk_gen.v
+    Info: Found entity 1: led_clk_gen
+Info: Found 1 design units, including 1 entities, in source file fpga_if/seg.v
+    Info: Found entity 1: seg_test
+Info: Found 1 design units, including 1 entities, in source file fpga_if/dotmatrix.v
+    Info: Found entity 1: dotmatrix_test
+Info: Found 1 design units, including 1 entities, in source file fpga_if/dot_disp.v
+    Info: Found entity 1: dot_disp
+Info: Found 1 design units, including 1 entities, in source file fpga_if/lcd.v
+    Info: Found entity 1: lcd_demo
+Info: Found 1 design units, including 1 entities, in source file fpga_if/logic_out.v
+    Info: Found entity 1: Logic_out
+Info: Found 1 design units, including 1 entities, in source file fpga_if/clk_div_gen.v
+    Info: Found entity 1: CLK_div_gen
+Info: Found 1 design units, including 1 entities, in source file fpga_if/data_cont.v
+    Info: Found entity 1: data_CONT
+Info: Found 1 design units, including 1 entities, in source file host_if/host_io.v
+    Info: Found entity 1: host_io
+Info: Found 1 design units, including 1 entities, in source file host_if/host_itf.v
+    Info: Found entity 1: host_itf
+Info: Elaborating entity "M3" for the top level hierarchy
+Warning: Pin "SRAM_nOE" is missing source
+Warning: Pin "SRAM_nWE" is missing source
+Warning: Pin "SRAM_nCS" is missing source
+Warning: Pin "SRAM_ADDR[17..0]" is missing source
+Warning: Pin "SRAM_DATA[15..0]" is missing source
+Warning: Pin "M_nRESET" not connected
+Warning: Pin "XCLKOUT" not connected
+Warning: Pin "CPLD_8" not connected
+Warning: Pin "CPLD_1" not connected
+Warning: Pin "XEINT8" not connected
+Warning: Pin "STEP_A" not connected
+Warning: Pin "STEP_nA" not connected
+Warning: Pin "STEP_B" not connected
+Warning: Pin "STEP_nB" not connected
+Warning: Pin "GPJ4_0" not connected
+Warning: Pin "GPJ4_1" not connected
+Warning: Pin "GPJ4_2" not connected
+Warning: Pin "GPJ4_3" not connected
+Warning: Pin "GPJ4_4" not connected
+Warning: Pin "GPJ1_5" not connected
+Warning: Pin "SPI_DOUT" not connected
+Warning: Pin "SPI_DIN" not connected
+Warning: Pin "SPI_SCLK" not connected
+Warning: Pin "SPI_DA_CS" not connected
+Warning: Pin "SPI_AD_CS" not connected
+Info: Elaborating entity "data_CONT" for hierarchy "data_CONT:inst5"
+Info: Elaborating entity "CLK_div_gen" for hierarchy "CLK_div_gen:inst2"
+Info: Elaborating entity "host_itf" for hierarchy "host_itf:inst1"
+Warning (10036): Verilog HDL or VHDL warning at host_itf.v(62): object "x8800_0004" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at host_itf.v(62): object "x8800_0006" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at host_itf.v(62): object "x8800_0008" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at host_itf.v(62): object "x8800_000A" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at host_itf.v(62): object "x8800_000C" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at host_itf.v(62): object "x8800_000E" assigned a value but never read
+Warning (10034): Output port "CLCD_DQ" at host_itf.v(47) has no driver
+Warning (10034): Output port "LED_D" at host_itf.v(48) has no driver
+Warning (10034): Output port "DOT_SCAN" at host_itf.v(51) has no driver
+Warning (10034): Output port "DOT_DATA" at host_itf.v(52) has no driver
+Warning (10034): Output port "PUSH_LD" at host_itf.v(54) has no driver
+Warning (10034): Output port "CLCD_RS" at host_itf.v(46) has no driver
+Warning (10034): Output port "CLCD_RW" at host_itf.v(46) has no driver
+Warning (10034): Output port "CLCD_E" at host_itf.v(46) has no driver
+Warning (10034): Output port "Piezo" at host_itf.v(53) has no driver
+Warning (10034): Output port "INT" at host_itf.v(56) has no driver
+Info: Elaborating entity "host_io" for hierarchy "host_io:inst"
+Info: Elaborating entity "lcd_demo" for hierarchy "lcd_demo:inst8"
+Info: Elaborating entity "seg_test" for hierarchy "seg_test:inst4"
+Info: Elaborating entity "dotmatrix_test" for hierarchy "dotmatrix_test:inst6"
+Info: Elaborating entity "dot_disp" for hierarchy "dotmatrix_test:inst6|dot_disp:b1"
+Info: Elaborating entity "led_demo" for hierarchy "led_demo:inst3"
+Info: Elaborating entity "led_clk_gen" for hierarchy "led_demo:inst3|led_clk_gen:b1"
+Info: Elaborating entity "led_pwm_gen" for hierarchy "led_demo:inst3|led_pwm_gen:b2"
+Info: Inferred 1 megafunctions from design logic
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "host_itf:inst1|Mod0"
+Info: Elaborated megafunction instantiation "host_itf:inst1|lpm_divide:Mod0"
+Info: Instantiated megafunction "host_itf:inst1|lpm_divide:Mod0" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "32"
+    Info: Parameter "LPM_WIDTHD" = "16"
+    Info: Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info: Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_slo.tdf
+    Info: Found entity 1: lpm_divide_slo
+Info: Found 1 design units, including 1 entities, in source file db/abs_divider_6dg.tdf
+    Info: Found entity 1: abs_divider_6dg
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_o5f.tdf
+    Info: Found entity 1: alt_u_div_o5f
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info: Found entity 1: add_sub_lkc
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info: Found entity 1: add_sub_mkc
+Info: Found 1 design units, including 1 entities, in source file db/lpm_abs_2s9.tdf
+    Info: Found entity 1: lpm_abs_2s9
+Info: Found 1 design units, including 1 entities, in source file db/lpm_abs_0s9.tdf
+    Info: Found entity 1: lpm_abs_0s9
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "lcd_e" is stuck at GND
+    Warning (13410): Pin "lcd_rs" is stuck at GND
+    Warning (13410): Pin "lcd_rw" is stuck at GND
+    Warning (13410): Pin "piezo" is stuck at GND
     Warning (13410): Pin "SRAM_nOE" is stuck at GND
     Warning (13410): Pin "SRAM_nWE" is stuck at GND
     Warning (13410): Pin "SRAM_nCS" is stuck at GND
+    Warning (13410): Pin "dot_d[6]" is stuck at GND
+    Warning (13410): Pin "dot_d[5]" is stuck at GND
+    Warning (13410): Pin "dot_d[4]" is stuck at GND
+    Warning (13410): Pin "dot_d[3]" is stuck at GND
+    Warning (13410): Pin "dot_d[2]" is stuck at GND
+    Warning (13410): Pin "dot_d[1]" is stuck at GND
+    Warning (13410): Pin "dot_d[0]" is stuck at GND
+    Warning (13410): Pin "dot_scan[9]" is stuck at GND
+    Warning (13410): Pin "dot_scan[8]" is stuck at GND
+    Warning (13410): Pin "dot_scan[7]" is stuck at GND
+    Warning (13410): Pin "dot_scan[6]" is stuck at GND
+    Warning (13410): Pin "dot_scan[5]" is stuck at GND
+    Warning (13410): Pin "dot_scan[4]" is stuck at GND
+    Warning (13410): Pin "dot_scan[3]" is stuck at GND
+    Warning (13410): Pin "dot_scan[2]" is stuck at GND
+    Warning (13410): Pin "dot_scan[1]" is stuck at GND
+    Warning (13410): Pin "dot_scan[0]" is stuck at GND
+    Warning (13410): Pin "key_scan[3]" is stuck at GND
+    Warning (13410): Pin "key_scan[2]" is stuck at GND
+    Warning (13410): Pin "key_scan[1]" is stuck at GND
+    Warning (13410): Pin "key_scan[0]" is stuck at GND
+    Warning (13410): Pin "lcd_data[7]" is stuck at GND
+    Warning (13410): Pin "lcd_data[6]" is stuck at GND
+    Warning (13410): Pin "lcd_data[5]" is stuck at GND
+    Warning (13410): Pin "lcd_data[4]" is stuck at GND
+    Warning (13410): Pin "lcd_data[3]" is stuck at GND
+    Warning (13410): Pin "lcd_data[2]" is stuck at GND
+    Warning (13410): Pin "lcd_data[1]" is stuck at GND
+    Warning (13410): Pin "lcd_data[0]" is stuck at GND
+    Warning (13410): Pin "led[7]" is stuck at GND
+    Warning (13410): Pin "led[6]" is stuck at GND
+    Warning (13410): Pin "led[5]" is stuck at GND
+    Warning (13410): Pin "led[4]" is stuck at GND
+    Warning (13410): Pin "led[3]" is stuck at GND
+    Warning (13410): Pin "led[2]" is stuck at GND
+    Warning (13410): Pin "led[1]" is stuck at GND
+    Warning (13410): Pin "led[0]" is stuck at GND
+    Warning (13410): Pin "seg_disp[0]" is stuck at GND
     Warning (13410): Pin "SRAM_ADDR[17]" is stuck at GND
     Warning (13410): Pin "SRAM_ADDR[16]" is stuck at GND
     Warning (13410): Pin "SRAM_ADDR[15]" is stuck at GND
@@ -519,11 +755,385 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "SRAM_DATA[2]" is stuck at GND
     Warning (13410): Pin "SRAM_DATA[1]" is stuck at GND
     Warning (13410): Pin "SRAM_DATA[0]" is stuck at GND
-Info (17049): 9 registers lost all their fanouts during netlist optimizations.
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 21 input pin(s) that do not drive logic
+Info: 351 registers lost all their fanouts during netlist optimizations. The first 351 are displayed below.
+    Info: Register "seg_test:inst4|seg_com[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_com[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_com[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_com[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_com[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_com[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_disp[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_disp[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_disp[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_disp[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_disp[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_disp[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_disp[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|seg_disp[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|scan[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|scan[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|scan[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|scan[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|scan[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|scan[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|scan[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|scan[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|scan[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|scan[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|dot_d[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[0][6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[1][6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[2][6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[3][6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[4][6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[5][6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[6][6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[7][6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[8][6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[9][6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|dot_d[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[0][5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[1][5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[2][5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[3][5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[4][5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[5][5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[6][5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[7][5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[8][5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[9][5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|dot_d[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[0][4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[1][4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[2][4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[3][4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[4][4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[5][4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[6][4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[7][4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[8][4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[9][4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|dot_d[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[0][3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[1][3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[2][3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[3][3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[4][3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[5][3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[6][3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[7][3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[8][3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[9][3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|dot_d[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[0][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[1][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[2][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[3][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[4][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[5][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[6][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[7][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[8][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[9][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|dot_d[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[0][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[1][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[2][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[3][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[4][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[5][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[6][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[7][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[8][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[9][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|dot_d[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[0][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[1][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[2][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[3][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[4][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[5][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[6][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[7][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[8][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_data[9][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_rs" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_e" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_data[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_data[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_data[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_data[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_data[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_data[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_data[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_data[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_pwm_gen:b2|fclk" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_pwm_gen:b2|cnt[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_pwm_gen:b2|cnt[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_pwm_gen:b2|cnt[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_pwm_gen:b2|cnt[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_pwm_gen:b2|cnt[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_pwm_gen:b2|cnt[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_pwm_gen:b2|cnt[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_pwm_gen:b2|cnt[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|clk_cnt[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|clk_cnt[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|clk_cnt[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|clk_cnt[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|clk_cnt[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|clk_cnt[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|clk_cnt[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|clk_cnt[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt_a[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt_a[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt_a[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt_a[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led_clk" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt_b[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt_b[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt_b[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt_b[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|iclk" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led8[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|cnt[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led1[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led1[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led1[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led1[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led1[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led1[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led1[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led1[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led2[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led2[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led2[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led2[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led2[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led2[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led2[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led2[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led3[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led3[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led3[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led3[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led3[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led3[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led3[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led3[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led4[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led4[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led4[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led4[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led4[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led4[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led4[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led4[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led5[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led5[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led5[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led5[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led5[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led5[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led5[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led5[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led6[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led6[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led6[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led6[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led6[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led6[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led6[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led6[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led7[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led7[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led7[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led7[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led7[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led7[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led7[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led7[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led8[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led8[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led8[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led8[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led8[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led8[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "led_demo:inst3|led_clk_gen:b1|led8[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_clk[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_clk[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_clk[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_clk[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_clk[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_clk[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_clk[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|clk_20h" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_data[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_data[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_data[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_data[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_data[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|cnt_data[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|cnt_clk[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|cnt_clk[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|cnt_clk[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "dotmatrix_test:inst6|dot_disp:b1|cnt_clk[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|cnt[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|cnt[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|cnt[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|cnt[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_a[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_a[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_a[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_a[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_b[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_b[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_b[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_b[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_c[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_c[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_c[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_c[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_d[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_d[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_d[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_d[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_e[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_e[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_e[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_e[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_f[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_f[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_f[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_f[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_g[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_g[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_g[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_g[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_h[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_h[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_h[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|cnt_segcon[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|sec_h[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|cnt_segcon[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "seg_test:inst4|cnt_segcon[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|BCLK_1MHz" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[31]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[30]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[29]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[28]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[27]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[26]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[25]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[24]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[23]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[22]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[21]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[20]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[19]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[18]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[17]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[16]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[15]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[14]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[13]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[12]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[10]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1MHz[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_routine~9" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_routine~10" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_routine~11" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_delay_20m[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_delay_20m[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_delay_20m[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_delay_20m[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_delay_20m[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_line[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_line[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_line[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_line[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_line[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_clk[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_clk[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|cnt_clk[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|BCLK_1KHz" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[31]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[30]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[29]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[28]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[27]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[26]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[25]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[24]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[23]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[22]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[21]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[20]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[19]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[18]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[17]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[16]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[15]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[14]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[13]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[12]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[10]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "CLK_div_gen:inst2|CNT_1KHz[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_routine.DELAY_20M" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_routine.FUNCTION_SET" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_routine.ENTRY_MODE" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_routine.DISP_ON" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_routine.DISP_LINE1" lost all its fanouts during netlist optimizations.
+    Info: Register "lcd_demo:inst8|lcd_routine.DISP_LINE2" lost all its fanouts during netlist optimizations.
+Info: Generating hard_block partition "hard_block:auto_generated_inst"
+Warning: Design contains 46 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "sel_button[3]"
+    Warning (15610): No output dependent on input pin "sel_button[2]"
+    Warning (15610): No output dependent on input pin "sel_button[1]"
+    Warning (15610): No output dependent on input pin "sel_button[0]"
+    Warning (15610): No output dependent on input pin "dip_sw[15]"
+    Warning (15610): No output dependent on input pin "dip_sw[14]"
+    Warning (15610): No output dependent on input pin "dip_sw[13]"
+    Warning (15610): No output dependent on input pin "dip_sw[12]"
+    Warning (15610): No output dependent on input pin "dip_sw[11]"
+    Warning (15610): No output dependent on input pin "dip_sw[10]"
+    Warning (15610): No output dependent on input pin "dip_sw[9]"
+    Warning (15610): No output dependent on input pin "dip_sw[8]"
+    Warning (15610): No output dependent on input pin "dip_sw[7]"
+    Warning (15610): No output dependent on input pin "dip_sw[6]"
+    Warning (15610): No output dependent on input pin "dip_sw[5]"
+    Warning (15610): No output dependent on input pin "dip_sw[4]"
+    Warning (15610): No output dependent on input pin "dip_sw[3]"
+    Warning (15610): No output dependent on input pin "dip_sw[2]"
+    Warning (15610): No output dependent on input pin "dip_sw[1]"
+    Warning (15610): No output dependent on input pin "dip_sw[0]"
     Warning (15610): No output dependent on input pin "XM0_ADDR[20]"
+    Warning (15610): No output dependent on input pin "key_data[3]"
+    Warning (15610): No output dependent on input pin "key_data[2]"
+    Warning (15610): No output dependent on input pin "key_data[1]"
+    Warning (15610): No output dependent on input pin "key_data[0]"
     Warning (15610): No output dependent on input pin "M_nRESET"
     Warning (15610): No output dependent on input pin "XCLKOUT"
     Warning (15610): No output dependent on input pin "CPLD_8"
@@ -544,15 +1154,16 @@ Warning (21074): Design contains 21 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SPI_SCLK"
     Warning (15610): No output dependent on input pin "SPI_DA_CS"
     Warning (15610): No output dependent on input pin "SPI_AD_CS"
-Info (21057): Implemented 1444 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 71 input pins
-    Info (21059): Implemented 92 output pins
-    Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 1265 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 86 warnings
-    Info: Peak virtual memory: 460 megabytes
-    Info: Processing ended: Fri May 03 13:36:54 2013
-    Info: Elapsed time: 00:00:44
-    Info: Total CPU time (on all processors): 00:00:03
+    Warning (15610): No output dependent on input pin "nFPGA_RESET"
+Info: Implemented 1291 device resources after synthesis - the final resource count might be different
+    Info: Implemented 71 input pins
+    Info: Implemented 92 output pins
+    Info: Implemented 16 bidirectional pins
+    Info: Implemented 1112 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 169 warnings
+    Info: Peak virtual memory: 282 megabytes
+    Info: Processing ended: Tue Jun 16 21:31:44 2015
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:05
 
 

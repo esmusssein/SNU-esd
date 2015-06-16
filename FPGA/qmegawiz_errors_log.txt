@@ -1,0 +1,13 @@
+
+
+D:/esd/SNU_ESD/FPGA/altfp_mult.v
+
+Jun 16 09PM:30:25>: Variation file name (altfp_mult) is identical with the name of one of its sub-components.
+
+MegaWizard Plug-In Manager will rename the variation to "altfp_mula" to prevent compilation errors
+
+D:/esd/SNU_ESD/FPGA/altfp_mult.v
+
+Jun 16 09PM:34:43>: Variation file name (altfp_mult) is identical with the name of one of its sub-components.
+
+MegaWizard Plug-In Manager will rename the variation to "altfp_mula" to prevent compilation errors
