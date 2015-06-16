@@ -340,6 +340,8 @@ deps_/home/younha/LinuxDriver/blackscholes.o := \
     $(wildcard include/config/arm/unwind.h) \
   include/trace/events/module.h \
   include/trace/define_trace.h \
+  include/linux/delay.h \
+  /android/linux-2.6.35-hanback/arch/arm/include/asm/delay.h \
   include/linux/interrupt.h \
     $(wildcard include/config/pm/sleep.h) \
     $(wildcard include/config/generic/irq/probe.h) \

@@ -17,18 +17,14 @@ Java_kr_ac_snu_blackscholes_MainActivity_setConstantsIntoDevice(JNIEnv* env,
     jobject thiz, jfloat K, jfloat const1, jfloat const2, jfloat const3)
 {
 	int fd;
-    // For test.
-    int data = 0x12345678;
-
 	fd = open("/dev/blackscholes", O_WRONLY);
 	if(fd < 0)
         return -1;
-
-	if (write(fd, &data, 4) == 0) {
-		close(fd);
-		return -2;
-	}
-
+    // TODO: there is a case that failed?
+    write(fd, &K, 4);
+    write(fd, &const1, 4);
+    write(fd, &const2, 4);
+    write(fd, &const3, 4);
 	close(fd);
 	return 0;
 }

@@ -6,6 +6,7 @@
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
+#include <linux/delay.h>
 #include <linux/interrupt.h>
 #include <linux/sched.h>
 #include <linux/signal.h>
@@ -56,52 +57,61 @@ static int drv_release(struct inode *inode, struct file *file)
 }
 
 /**
- * Writes bytes.
+ * Writes bytes. This supports lbuf for only a multiple of 2 and copies two
+ * bytes at several times because of a constraint of the device.
  */
 static ssize_t
 drv_write(struct file *file, const char __user *buf, size_t lbuf, loff_t *ppos)
 {
-    int nbytes;
+    int i;
 
-    // IO memory overflow handling.
+    // printk(KERN_INFO"drv_write(): lbuf: %d\n", lbuf);
+    // printk(KERN_INFO"drv_write(): buf: %x, *ppos %d\n", *(unsigned int *)buf, (unsigned int)*ppos);
+    // printk(KERN_INFO"drv_write(): buf[0]: %x\n", *(unsigned char *)buf);
+    // printk(KERN_INFO"drv_write(): buf[1]: %x\n", *(unsigned char *)(buf+1));
+    // printk(KERN_INFO"drv_write(): buf[2]: %x\n", *(unsigned char *)(buf+2));
+    // printk(KERN_INFO"drv_write(): buf[3]: %x\n", *(unsigned char *)(buf+3));
+
     if (io_mem_start + *ppos + lbuf >= io_mem_end) {
-        printk(KERN_WARNING"It is trying to write bytes over IO memory. Refuse \
-            the write request.");
+        printk(KERN_WARNING"drv_write(): tried to write data over given an io memory. Refuse the request.");
+        return -EINVAL;
+    }
+    if (lbuf % 2 != 0) {
+        printk(KERN_WARNING"drv_write(): lbuf should be a multiple of 2. Refuse the request.");
         return -EINVAL;
     }
 
-    // TODO: verify write operation.
-    // copy_from_user() will return non-zero value if it could not copy some
-    // data. See http://www.fsl.cs.sunysb.edu/kernel-api/re257.html
-    nbytes = lbuf - copy_from_user(io_mem_start + *ppos, buf, lbuf);
-    if (nbytes == lbuf)
-        *ppos += nbytes;
-    printk(KERN_INFO"Leaving write(): nbytes %d, pos %d\n", nbytes, (int)*ppos);
-    return nbytes;
+    for (i = 0; i < lbuf/2; i++) {
+        iowrite16(*(unsigned short *)(buf + i*2), io_mem_start + *ppos + i*2);
+    }
+    *ppos += lbuf;
+    return 0;
 }
 
-/*
- * Reads bytes.
+/**
+ * Reads bytes. This supports lbuf for only a multiple of 2 and copies two
+ * bytes at several times because of a constraint of the device.
  */
 static ssize_t
 drv_read(struct file *inode, char __user *buf, size_t lbuf, loff_t *ppos)
 {
-    int nbytes;
+    int i;
 
-    // IO memory overflow handling.
     if (io_mem_start + *ppos + lbuf >= io_mem_end) {
-        printk(KERN_WARNING"It is trying to read bytes over IO memory. Refuse the read request.");
+        printk(KERN_WARNING"drv_write(): tried to write data over given an io memory. Refuse the request.");
+        return -EINVAL;
+    }
+    if (lbuf % 2 != 0) {
+        printk(KERN_WARNING"drv_write(): lbuf should be a multiple of 2. Refuse the request.");
         return -EINVAL;
     }
 
     // TODO: verify read operation.
-    // copy_to_user() will return non-zero value if it could not copy some data.
-    // See http://www.fsl.cs.sunysb.edu/kernel-api/re257.html
-    nbytes = lbuf - copy_to_user(buf, io_mem_start + *ppos, lbuf);
-    if (nbytes == lbuf)
-        *ppos += nbytes;
-    printk(KERN_INFO"Leaving read(): nbytes %d, pos %d\n", nbytes, (int)*ppos);
-    return nbytes;
+    for (i = 0; i < lbuf/2; i++) {
+        *(unsigned short *)(buf + i*2) = ioread16(io_mem_start + *ppos + i*2);
+    }
+    *ppos += lbuf;
+    return 0;
 }
 
 /**
@@ -170,7 +180,7 @@ void init_io_mem(void)
 /**
  * Initializes interrupt-related.
  */
-void init_drv_intr(void)
+int init_drv_intr(void)
 {
     int *addr;
     int result;
@@ -193,6 +203,7 @@ void init_drv_intr(void)
         return result;
     }
     printk(KERN_INFO"init_drv_intr(): IRQ %d\n", FPGA_IRQ);
+    return 0;
 }
 
 /**
@@ -202,7 +213,9 @@ static int __init drv_init(void)
 {
     int result;
     init_io_mem();
-    init_drv_intr();
+    result = init_drv_intr();
+    if (result < 0)
+        return result;
     // Register this driver into the system.
     result = register_chrdev(DRIVER_MAJOR, DRIVER_NAME, &drv_fops);
     if (result < 0) {
