@@ -252,5 +252,6 @@ set_global_assignment -name VERILOG_FILE Host_IF/host_itf.v
 set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
 set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL OFF
 set_global_assignment -name SDC_FILE M3.sdc
-set_global_assignment -name QIP_FILE altfp_mult.qip
+set_global_assignment -name QIP_FILE altfp_exp0.qip
+set_global_assignment -name QIP_FILE altfp_mult0.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
