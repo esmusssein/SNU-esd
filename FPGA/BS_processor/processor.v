@@ -101,6 +101,6 @@ module processor(
 		end
 	end
 	
-	assign dout = s_const2;
+	assign dout = {state, 28'd0};
 	 
 endmodule

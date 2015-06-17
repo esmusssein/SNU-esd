@@ -35,13 +35,22 @@ module host_itf (
 	output [3:0] proc_cmd
 );
 	
-	reg [15:0] x8800_0000, x8800_0002, x8800_0004, x8800_0006, x8800_0008, x8800_000A, x8800_000C, x8800_000E;
+	reg [15:0] x8800_0000;
+	reg [15:0] x8800_0002;
+	reg [15:0] x8800_0004;
+	reg [15:0] x8800_0006;
+	reg [15:0] x8800_0008;
+	reg [15:0] x8800_000A;
+	reg [15:0] x8800_000C;
+	reg [15:0] x8800_000E;
+	reg [15:0] x8800_1000;
 	
 	assign host_sel = 1'b1;
 	assign constK = {x8800_0002, x8800_0000};
 	assign const1 = {x8800_0006, x8800_0004};
 	assign const2 = {x8800_000A, x8800_0008};
 	assign const3 = {x8800_000E, x8800_000C};
+	assign proc_cmd = x8800_1000[3:0];
 	
    /**
 	 *
@@ -57,6 +66,7 @@ module host_itf (
 			x8800_000A <= 16'd0;
 			x8800_000C <= 16'd0;
 			x8800_000E <= 16'd0;
+			x8800_1000 <= 16'd0;
 		end else begin
 			if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1) begin
 				case (HOST_ADD[19:0])
@@ -68,6 +78,7 @@ module host_itf (
 					20'h0000A: x8800_000A <= HDI;
 					20'h0000C: x8800_000C <= HDI;
 					20'h0000E: x8800_000E <= HDI;
+					20'h01000: x8800_1000 <= HDI;
 				endcase
 			end
 		end
