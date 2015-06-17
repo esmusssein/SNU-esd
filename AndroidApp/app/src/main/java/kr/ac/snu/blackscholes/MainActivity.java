@@ -13,6 +13,8 @@ import java.util.HashMap;
 
 public class MainActivity extends Activity {
 
+    private static final byte RUN = 0x01;
+    private static final byte ACK = 0x02;
     // Represents S*exp(r - 0.5*sigma^2)*T.
     private static final String DEP_CONST_1 = "dep1";
     // Represents sigma*sqrt(T).
@@ -32,6 +34,7 @@ public class MainActivity extends Activity {
     private int mIterateNumber;
 
     public native int setConstantsIntoDevice(float K, float const1, float const2, float const3);
+    public native int commandDevice(byte command);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +63,7 @@ public class MainActivity extends Activity {
         setIndependentConstants();
         addMessageToMessageLayout("Compute dependent constants for computation...");
         setDependentConstants();
-        addMessageToMessageLayout("Set constants into device...");
+        addMessageToMessageLayout("Set constants into the device...");
         result = setConstantsIntoDevice(
             mConstants.get("K"),
             mConstants.get(DEP_CONST_1),
@@ -72,6 +75,13 @@ public class MainActivity extends Activity {
             return;
         }
         addMessageToMessageLayout("Succeess");
+        addMessageToMessageLayout("Command the device to compute...");
+//        result = commandDevice(RUN);
+        if (result != 0) {
+            addMessageToMessageLayout("An error occurred at commandDevice(). Exit.");
+            return;
+        }
+        // TODO: Confirm the device is running.
     }
 
     private void addMessageToMessageLayout(String message) {

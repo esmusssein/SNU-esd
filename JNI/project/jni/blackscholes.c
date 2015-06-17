@@ -2,6 +2,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+static const char *dev_name = "/dev/blackscholes";
+
 /**
  * Sets constants that will be used in computation into device before it starts
  * computing.
@@ -13,12 +15,12 @@
  * @return 0 if it succeeded.
  */
 jint
-Java_kr_ac_snu_blackscholes_MainActivity_setConstantsIntoDevice(JNIEnv* env,
+Java_kr_ac_snu_blackscholes_MainActivity_setConstantsIntoDevice(JNIEnv *env,
     jobject thiz, jfloat K, jfloat const1, jfloat const2, jfloat const3)
 {
 	int fd;
-	fd = open("/dev/blackscholes", O_WRONLY);
-	if(fd < 0)
+	fd = open(dev_name, O_WRONLY);
+	if (fd < 0)
         return -1;
     // TODO: there is a case that failed?
     write(fd, &K, 4);
@@ -27,6 +29,30 @@ Java_kr_ac_snu_blackscholes_MainActivity_setConstantsIntoDevice(JNIEnv* env,
     write(fd, &const3, 4);
 	close(fd);
 	return 0;
+}
+
+/**
+ * Sets a command byte one pre-defined memory region.
+ *
+ * @param cmd
+ * @return 0 if it succeeded.
+ */
+jint
+Java_kr_ac_snu_blackscholes_MainActivity_commandDevice(JNIEnv *env,
+    jobject thiz, jbyte cmd)
+{
+    int fd;
+    int result;
+    fd = open(dev_name, O_WRONLY);
+    if (fd < 0)
+        return -1;
+    result = lseek(fd, 0x1000, SEEK_SET);
+    if (result < 0)
+        return result;
+    // TODO: there is a case that failed?
+    write(fd, &cmd, 2);
+    close(fd);
+    return 0;
 }
 
 // jint Java_com_example_esdhw2_MainActivity_readFromDeviceRegister(JNIEnv *env, jobject thiz)
