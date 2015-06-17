@@ -1107,9 +1107,106 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 432 -64 696 192)
+	(rect 440 304 672 464)
+	(text "processor" (rect 5 0 53 12)(font "Arial" ))
+	(text "inst7" (rect 8 144 31 156)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 27 35 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "nreset" (rect 0 0 30 12)(font "Arial" ))
+		(text "nreset" (rect 21 43 51 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "constK[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "constK[31..0]" (rect 21 59 87 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "const1[31..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "const1[31..0]" (rect 21 75 85 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "const2[31..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "const2[31..0]" (rect 21 91 85 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "const3[31..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "const3[31..0]" (rect 21 107 85 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "cmd[3..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "cmd[3..0]" (rect 21 123 68 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "status[3..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "status[3..0]" (rect 127 27 183 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 3))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "dout[31..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "dout[31..0]" (rect 134 43 187 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 3))
+	)
+	(parameter
+		"CMD_RUN"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CMD_ACK"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"IDLE"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"RUNNING"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"COMPLETE"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 216 144))
+	)
+	(annotation_block (parameter)(rect 464 464 648 552))
+)
+(symbol
+	(rect 432 -64 696 256)
 	(text "host_itf" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst4" (rect 8 240 31 252)(font "Arial" ))
+	(text "inst9" (rect 8 304 31 316)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -1285,86 +1382,43 @@ applicable agreement for further details.
 		(text "host_sel" (rect 187 219 228 231)(font "Arial" ))
 		(line (pt 264 224)(pt 248 224))
 	)
+	(port
+		(pt 264 240)
+		(output)
+		(text "constK[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "constK[31..0]" (rect 151 235 217 247)(font "Arial" ))
+		(line (pt 264 240)(pt 248 240)(line_width 3))
+	)
+	(port
+		(pt 264 256)
+		(output)
+		(text "const1[31..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "const1[31..0]" (rect 151 251 215 263)(font "Arial" ))
+		(line (pt 264 256)(pt 248 256)(line_width 3))
+	)
+	(port
+		(pt 264 272)
+		(output)
+		(text "const2[31..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "const2[31..0]" (rect 151 267 215 279)(font "Arial" ))
+		(line (pt 264 272)(pt 248 272)(line_width 3))
+	)
+	(port
+		(pt 264 288)
+		(output)
+		(text "const3[31..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "const3[31..0]" (rect 151 283 215 295)(font "Arial" ))
+		(line (pt 264 288)(pt 248 288)(line_width 3))
+	)
 	(parameter
 		"CLK_CNT_FOR_ONE_SEC"
 		"49999999"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 248 240))
+		(rectangle (rect 16 16 248 304))
 	)
 	(annotation_block (parameter)(rect 696 -96 968 -64))
-)
-(symbol
-	(rect 440 240 672 400)
-	(text "processor" (rect 5 0 53 12)(font "Arial" ))
-	(text "inst6" (rect 8 144 31 156)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 27 35 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "nreset" (rect 0 0 30 12)(font "Arial" ))
-		(text "nreset" (rect 21 43 51 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "constK[31..0]" (rect 0 0 66 12)(font "Arial" ))
-		(text "constK[31..0]" (rect 21 59 87 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "const1[31..0]" (rect 0 0 64 12)(font "Arial" ))
-		(text "const1[31..0]" (rect 21 75 85 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "const2[31..0]" (rect 0 0 64 12)(font "Arial" ))
-		(text "const2[31..0]" (rect 21 91 85 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96)(line_width 3))
-	)
-	(port
-		(pt 0 112)
-		(input)
-		(text "const3[31..0]" (rect 0 0 64 12)(font "Arial" ))
-		(text "const3[31..0]" (rect 21 107 85 119)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112)(line_width 3))
-	)
-	(port
-		(pt 0 128)
-		(input)
-		(text "req" (rect 0 0 15 12)(font "Arial" ))
-		(text "req" (rect 21 123 36 135)(font "Arial" ))
-		(line (pt 0 128)(pt 16 128))
-	)
-	(port
-		(pt 232 32)
-		(output)
-		(text "status[4..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "status[4..0]" (rect 127 27 183 39)(font "Arial" ))
-		(line (pt 232 32)(pt 216 32)(line_width 3))
-	)
-	(port
-		(pt 232 48)
-		(output)
-		(text "dout[31..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "dout[31..0]" (rect 134 43 187 55)(font "Arial" ))
-		(line (pt 232 48)(pt 216 48)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 216 144))
-	)
 )
 (connector
 	(text "FPGA_nCS" (rect 200 -96 256 -84)(font "Arial" ))
@@ -1788,18 +1842,66 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "FPGA_CLK" (rect 394 256 450 268)(font "Arial" ))
-	(pt 440 272)
-	(pt 384 272)
+	(text "FPGA_CLK" (rect 394 320 450 332)(font "Arial" ))
+	(pt 440 336)
+	(pt 384 336)
 )
 (connector
-	(text "host_nreset" (rect 394 272 451 284)(font "Arial" ))
-	(pt 440 288)
-	(pt 384 288)
+	(text "host_nreset" (rect 394 336 451 348)(font "Arial" ))
+	(pt 440 352)
+	(pt 384 352)
 )
 (connector
-	(text "PROC_DOUT[31..0]" (rect 672 272 772 284)(font "Arial" ))
-	(pt 672 288)
-	(pt 720 288)
+	(text "PROC_DOUT[31..0]" (rect 672 336 772 348)(font "Arial" ))
+	(pt 672 352)
+	(pt 720 352)
+	(bus)
+)
+(connector
+	(text "const3[31..0]" (rect 706 208 770 220)(font "Arial" ))
+	(pt 696 224)
+	(pt 808 224)
+	(bus)
+)
+(connector
+	(text "const2[31..0]" (rect 706 192 770 204)(font "Arial" ))
+	(pt 696 208)
+	(pt 808 208)
+	(bus)
+)
+(connector
+	(text "const1[31..0]" (rect 706 176 770 188)(font "Arial" ))
+	(pt 696 192)
+	(pt 808 192)
+	(bus)
+)
+(connector
+	(text "constK[31..0]" (rect 706 160 772 172)(font "Arial" ))
+	(pt 696 176)
+	(pt 816 176)
+	(bus)
+)
+(connector
+	(text "const3[31..0]" (rect 392 400 456 412)(font "Arial" ))
+	(pt 440 416)
+	(pt 392 416)
+	(bus)
+)
+(connector
+	(text "const2[31..0]" (rect 392 384 456 396)(font "Arial" ))
+	(pt 440 400)
+	(pt 392 400)
+	(bus)
+)
+(connector
+	(text "const1[31..0]" (rect 392 368 456 380)(font "Arial" ))
+	(pt 440 384)
+	(pt 392 384)
+	(bus)
+)
+(connector
+	(text "constK[31..0]" (rect 392 352 458 364)(font "Arial" ))
+	(pt 440 368)
+	(pt 392 368)
 	(bus)
 )

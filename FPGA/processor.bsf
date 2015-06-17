@@ -68,15 +68,15 @@ applicable agreement for further details.
 	(port
 		(pt 0 128)
 		(input)
-		(text "req" (rect 0 0 21 12)(font "Arial" ))
-		(text "req" (rect 21 123 42 135)(font "Arial" ))
-		(line (pt 0 128)(pt 16 128)(line_width 1))
+		(text "cmd[3..0]" (rect 0 0 63 12)(font "Arial" ))
+		(text "cmd[3..0]" (rect 21 123 84 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
 	)
 	(port
 		(pt 232 32)
 		(output)
-		(text "status[4..0]" (rect 0 0 84 12)(font "Arial" ))
-		(text "status[4..0]" (rect 127 27 211 39)(font "Arial" ))
+		(text "status[3..0]" (rect 0 0 84 12)(font "Arial" ))
+		(text "status[3..0]" (rect 127 27 211 39)(font "Arial" ))
 		(line (pt 232 32)(pt 216 32)(line_width 3))
 	)
 	(port
@@ -86,7 +86,33 @@ applicable agreement for further details.
 		(text "dout[31..0]" (rect 134 43 211 55)(font "Arial" ))
 		(line (pt 232 48)(pt 216 48)(line_width 3))
 	)
+	(parameter
+		"CMD_RUN"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CMD_ACK"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"IDLE"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"RUNNING"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"COMPLETE"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 216 144)(line_width 1))
 	)
+	(annotation_block (parameter)(rect 248 -64 348 16))
 )

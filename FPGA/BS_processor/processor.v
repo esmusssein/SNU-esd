@@ -8,60 +8,99 @@ module processor(
 	input [31:0] const1,
 	input [31:0] const2,
 	input [31:0] const3,
-	input req,
+	input [3:0] cmd,
 	 
-	output [4:0] status,
+	output [3:0] status,
 	output [31:0] dout
 );
 
-	wire [31:0] fd1;
-	wire [31:0] fd2;
-	wire [31:0] acc_dout;
-	reg [31:0] acc_dina;
-	reg [31:0] acc_dinb;
+	parameter CMD_RUN = 1;
+	parameter CMD_ACK = 2;
 
-	assign status = 4'b0000;
-	assign fd1 = 32'b00111111100111100000010000011001;  // 1.2345
-	assign fd2 = 32'b01000110010000001110010000000000;  // 12345
-	assign dout = acc_dinb;
+	parameter IDLE = 0;
+	parameter RUNNING = 1;
+	parameter COMPLETE = 2;
 	
-	integer cnt_clk;
-	
+	reg [3:0] state;
+	reg [3:0] nxt_state;
+	reg [31:0] s_constK;
+	reg [31:0] s_const1;
+	reg [31:0] s_const2;
+	reg [31:0] s_const3;
+
+	/**
+	 *
+	 * @update state
+	 */
 	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
-			cnt_clk <= 0;
+			state <= IDLE;
 		end else begin
-			if (cnt_clk < 10000) begin
-				cnt_clk <= cnt_clk + 1;
-			end else begin
-				cnt_clk <= cnt_clk;
-			end
+			state <= nxt_state;
 		end
 	end
 	
+	/**
+	 * 
+	 * @compute nxt_state
+	 */
+	always @(*) begin
+		case (state)
+		IDLE: begin
+			if (cmd == CMD_RUN) begin
+				nxt_state = RUNNING;
+			end else begin
+				nxt_state = IDLE;
+			end
+		end
+		RUNNING: begin
+			// TODO: How this know the computation ends?
+			nxt_state = nxt_state;
+		end
+		COMPLETE: begin
+			if (cmd == CMD_ACK) begin
+				nxt_state = IDLE;
+			end else begin
+				nxt_state = nxt_state;
+			end
+		end
+		default: begin
+			nxt_state = IDLE;
+		end
+		endcase
+	end
+	
+	/**
+	 *
+	 * @update s_constK
+	 * @update s_const1
+	 * @update s_const2
+	 * @update s_const3
+	 */
 	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
-			acc_dina <= fd1;
-			acc_dinb <= 32'd0;
+			s_constK <= 32'd0;
+			s_const1 <= 32'd0;
+			s_const2 <= 32'd0;
+			s_const3 <= 32'd0;
 		end else begin
-			if (cnt_clk == 1) begin
-				acc_dina <= fd2;
-				acc_dinb <= 32'd0;
-			end else if (cnt_clk < 16) begin
-				acc_dina <= fd2;
-				acc_dinb <= acc_dout;
-			end else begin
-				acc_dina <= acc_dina;
-				acc_dinb <= acc_dinb;
+			case (state)
+			IDLE: begin
+				s_constK <= constK;
+				s_const1 <= const1;
+				s_const2 <= const2;
+				s_const3 <= const3;
 			end
+			default: begin
+				s_constK <= s_constK;
+				s_const1 <= s_const1;
+				s_const2 <= s_const2;
+				s_const3 <= s_const3;
+			end
+			endcase
 		end
 	end
 	
-	altfp_add accumulator(
-		.clock(clk),
-		.dataa(acc_dina),
-		.datab(acc_dinb),
-		.result(acc_dout)
-	);
+	assign dout = s_const3;
 	 
 endmodule
