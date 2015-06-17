@@ -31,12 +31,17 @@ module host_itf (
 	output [31:0] constK,
 	output [31:0] const1,
 	output [31:0] const2,
-	output [31:0] const3
+	output [31:0] const3,
+	output [3:0] proc_cmd
 );
 	
 	reg [15:0] x8800_0000, x8800_0002, x8800_0004, x8800_0006, x8800_0008, x8800_000A, x8800_000C, x8800_000E;
 	
 	assign host_sel = 1'b1;
+	assign constK = {x8800_0002, x8800_0000};
+	assign const1 = {x8800_0006, x8800_0004};
+	assign const2 = {x8800_000A, x8800_0008};
+	assign const3 = {x8800_000E, x8800_000C};
 	
    /**
 	 *
@@ -142,12 +147,12 @@ module host_itf (
 			else                 cnt_segcon <= cnt_segcon+1'b1;
 			
 			case (cnt_segcon)
-				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(x8800_000C[11:8]), 1'b0}; end
-				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(x8800_000C[15:12]), 1'b0}; end
-				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(x8800_000E[3:0]), 1'b0}; end
-				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(x8800_000E[7:4]), 1'b0}; end
-				3'd4:   begin SEG_COM <= 6'b111101; SEG_DATA <= {conv_int(x8800_000E[11:8]), 1'b0}; end
-				3'd5:   begin SEG_COM <= 6'b111110; SEG_DATA <= {conv_int(x8800_000E[15:12]), 1'b0}; end
+				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(proc_dout[11:8]), 1'b0}; end
+				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(proc_dout[15:12]), 1'b0}; end
+				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(proc_dout[19:16]), 1'b0}; end
+				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(proc_dout[23:20]), 1'b0}; end
+				3'd4:   begin SEG_COM <= 6'b111101; SEG_DATA <= {conv_int(proc_dout[27:24]), 1'b0}; end
+				3'd5:   begin SEG_COM <= 6'b111110; SEG_DATA <= {conv_int(proc_dout[31:28]), 1'b0}; end
 				default begin SEG_COM <= 6'b111111; SEG_DATA <= 8'b00000000; end
 			endcase
 		end

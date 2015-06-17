@@ -101,6 +101,6 @@ module processor(
 		end
 	end
 	
-	assign dout = s_const3;
+	assign dout = s_const2;
 	 
 endmodule

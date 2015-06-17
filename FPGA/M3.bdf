@@ -1204,9 +1204,9 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 464 464 648 552))
 )
 (symbol
-	(rect 432 -64 696 256)
+	(rect 432 -64 696 288)
 	(text "host_itf" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst9" (rect 8 304 31 316)(font "Arial" ))
+	(text "inst10" (rect 8 336 37 348)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -1410,13 +1410,20 @@ applicable agreement for further details.
 		(text "const3[31..0]" (rect 151 283 215 295)(font "Arial" ))
 		(line (pt 264 288)(pt 248 288)(line_width 3))
 	)
+	(port
+		(pt 264 304)
+		(output)
+		(text "proc_cmd[3..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "proc_cmd[3..0]" (rect 144 299 218 311)(font "Arial" ))
+		(line (pt 264 304)(pt 248 304)(line_width 3))
+	)
 	(parameter
 		"CLK_CNT_FOR_ONE_SEC"
 		"49999999"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 248 304))
+		(rectangle (rect 16 16 248 336))
 	)
 	(annotation_block (parameter)(rect 696 -96 968 -64))
 )
@@ -1903,5 +1910,17 @@ applicable agreement for further details.
 	(text "constK[31..0]" (rect 392 352 458 364)(font "Arial" ))
 	(pt 440 368)
 	(pt 392 368)
+	(bus)
+)
+(connector
+	(text "PROC_CMD[3..0]" (rect 706 224 794 236)(font "Arial" ))
+	(pt 696 240)
+	(pt 816 240)
+	(bus)
+)
+(connector
+	(text "PROC_CMD[3..0]" (rect 392 416 480 428)(font "Arial" ))
+	(pt 440 432)
+	(pt 392 432)
 	(bus)
 )
