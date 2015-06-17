@@ -139,12 +139,12 @@ module host_itf (
 			else                 cnt_segcon <= cnt_segcon+1'b1;
 			
 			case (cnt_segcon)
-				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(proc_dout[3:0]), 1'b0}; end
-				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(proc_dout[7:4]), 1'b0}; end
-				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(proc_dout[11:8]), 1'b0}; end
-				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(proc_dout[15:12]), 1'b0}; end
-				3'd4:   begin SEG_COM <= 6'b111101; SEG_DATA <= {conv_int(proc_dout[19:16]), 1'b0}; end
-				3'd5:   begin SEG_COM <= 6'b111110; SEG_DATA <= {conv_int(proc_dout[23:20]), 1'b0}; end
+				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(proc_dout[11:8]), 1'b0}; end
+				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(proc_dout[15:12]), 1'b0}; end
+				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(proc_dout[19:16]), 1'b0}; end
+				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(proc_dout[23:20]), 1'b0}; end
+				3'd4:   begin SEG_COM <= 6'b111101; SEG_DATA <= {conv_int(proc_dout[27:24]), 1'b0}; end
+				3'd5:   begin SEG_COM <= 6'b111110; SEG_DATA <= {conv_int(proc_dout[31:28]), 1'b0}; end
 				default begin SEG_COM <= 6'b111111; SEG_DATA <= 8'b00000000; end
 			endcase
 		end

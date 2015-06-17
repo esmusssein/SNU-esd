@@ -29,7 +29,7 @@ module processor(
 			cnt_clk <= 0;
 			acc_dinb <= 32'd0;
 		end else begin
-			if (cnt_clk < 12) begin
+			if (cnt_clk < 28) begin
 				cnt_clk <= cnt_clk + 1;
 				acc_dinb <= acc_dout;
 			end else begin

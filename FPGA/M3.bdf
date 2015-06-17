@@ -1296,7 +1296,7 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 696 -96 968 -64))
 )
 (symbol
-	(rect 440 232 672 392)
+	(rect 440 240 672 400)
 	(text "processor" (rect 5 0 53 12)(font "Arial" ))
 	(text "inst6" (rect 8 144 31 156)(font "Arial" ))
 	(port
@@ -1782,24 +1782,24 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "FPGA_CLK" (rect 394 248 450 260)(font "Arial" ))
-	(pt 440 264)
-	(pt 384 264)
-)
-(connector
-	(text "host_nreset" (rect 394 264 451 276)(font "Arial" ))
-	(pt 440 280)
-	(pt 384 280)
-)
-(connector
 	(text "PROC_DOUT[31..0]" (rect 346 128 446 140)(font "Arial" ))
 	(pt 432 144)
 	(pt 336 144)
 	(bus)
 )
 (connector
-	(text "PROC_DOUT[31..0]" (rect 672 264 772 276)(font "Arial" ))
-	(pt 672 280)
-	(pt 720 280)
+	(text "FPGA_CLK" (rect 394 256 450 268)(font "Arial" ))
+	(pt 440 272)
+	(pt 384 272)
+)
+(connector
+	(text "host_nreset" (rect 394 272 451 284)(font "Arial" ))
+	(pt 440 288)
+	(pt 384 288)
+)
+(connector
+	(text "PROC_DOUT[31..0]" (rect 672 272 772 284)(font "Arial" ))
+	(pt 672 288)
+	(pt 720 288)
 	(bus)
 )
