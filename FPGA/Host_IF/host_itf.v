@@ -1,67 +1,49 @@
 /**
  * A module that manipulate signals from M1 to M3.
- *
- * @input clk
- * @input nRESET
- * @input FPGA_nRST
- * @input HOST_nOE
- * @input HOST_nCS
- * @input HOST_ADD
- * @input HDI
- * @input HDO
- * @input DIP_D
- * @input PUSH_RD
- * @input PUSH_SW
- * @input clk_1k
- * @input clk_3k
- * @input sw
- * @output CLCD_RS
- * @output CLCD_RW
- * @output CLCD_E
- * @output CLCD_DQ
- * @output LED_D
- * @output SEG_COM
- * @output SEG_DATA
- * @output DOT_SCAN
- * @output DOT_DATA
- * @output Piezo
- * @output PUSH_LD
- * @output host_sel
  */
 module host_itf (
-	clk, nRESET, FPGA_nRST, HOST_nOE, HOST_nWE, HOST_nCS, HOST_ADD, HDI, HDO,
-	CLCD_RS, CLCD_RW, CLCD_E, CLCD_DQ, LED_D, SEG_COM, SEG_DATA, DOT_SCAN, DOT_DATA,
-	Piezo, DIP_D, PUSH_RD, PUSH_LD, PUSH_SW,
-	clk_3k, host_sel, sw, clk_1k,INT);
+   input clk,
+   input nRESET,
+   input FPGA_nRST,
+	input HOST_nOE,
+	input HOST_nWE,
+	input HOST_nCS,
+	input [20:0] HOST_ADD,
+	input [15:0] HDI,
+	input [15:0] DIP_D,
+	input [3:0] PUSH_RD,
+	input [3:0] PUSH_SW,
+	input [31:0] proc_dout,
 	
-	input clk, nRESET, FPGA_nRST, HOST_nOE, HOST_nWE, HOST_nCS;
-	input [20:0] HOST_ADD;
-	input [15:0] HDI;
-	input [15:0] DIP_D;
-	input  [3:0] PUSH_RD;
-	input  [3:0] PUSH_SW;
-	input clk_3k, clk_1k, sw;
-	
-	output reg [15:0] HDO;
-	output CLCD_RS, CLCD_RW, CLCD_E;
-	output [7:0] CLCD_DQ;
-	output [7:0] LED_D;
-	output reg [5:0] SEG_COM;
-	output reg [7:0] SEG_DATA;
-	output [9:0] DOT_SCAN;
-	output [6:0] DOT_DATA;
-	output Piezo;
-	output [3:0] PUSH_LD;
-	output host_sel;
-	output INT;
-
-	/***************************************
-	 * Common part.
-	 **************************************/
+	output reg [15:0] HDO,
+	output CLCD_RS,
+	output CLCD_RW,
+	output CLCD_E,
+	output [7:0] CLCD_DQ,
+	output [7:0] LED_D,
+	output reg [5:0] SEG_COM,
+	output reg [7:0] SEG_DATA,
+	output [9:0] DOT_SCAN,
+	output [6:0] DOT_DATA,
+	output Piezo,
+	output [3:0] PUSH_LD,
+	output host_sel,
+	output [31:0] constK,
+	output [31:0] const1,
+	output [31:0] const2,
+	output [31:0] const3,
+	output [3:0] proc_cmd
+);
 	
 	reg [15:0] x8800_0000, x8800_0002, x8800_0004, x8800_0006, x8800_0008, x8800_000A, x8800_000C, x8800_000E;
-
-	/**
+	
+	assign host_sel = 1'b1;
+	assign constK = {x8800_0002, x8800_0000};
+	assign const1 = {x8800_0006, x8800_0004};
+	assign const2 = {x8800_000A, x8800_0008};
+	assign const3 = {x8800_000E, x8800_000C};
+	
+   /**
 	 *
 	 * @update x8800_xxxx
 	 */
@@ -108,9 +90,6 @@ module host_itf (
 			end
 		end
 	end
-	
-	assign host_sel = 1'b1;
-	
 	
 	/**************************************
 	 * 7 segment part.
@@ -168,12 +147,12 @@ module host_itf (
 			else                 cnt_segcon <= cnt_segcon+1'b1;
 			
 			case (cnt_segcon)
-				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(x8800_0000[3:0]), 1'b0}; end
-				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(x8800_0000[7:4]), 1'b0}; end
-				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(x8800_0000[11:8]), 1'b0}; end
-				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(x8800_0000[15:12]), 1'b0}; end
-				3'd4:   begin SEG_COM <= 6'b111101; SEG_DATA <= {conv_int(x8800_0002[3:0]), 1'b0}; end
-				3'd5:   begin SEG_COM <= 6'b111110; SEG_DATA <= {conv_int(x8800_0002[7:4]), 1'b0}; end
+				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(proc_dout[11:8]), 1'b0}; end
+				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(proc_dout[15:12]), 1'b0}; end
+				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(proc_dout[19:16]), 1'b0}; end
+				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(proc_dout[23:20]), 1'b0}; end
+				3'd4:   begin SEG_COM <= 6'b111101; SEG_DATA <= {conv_int(proc_dout[27:24]), 1'b0}; end
+				3'd5:   begin SEG_COM <= 6'b111110; SEG_DATA <= {conv_int(proc_dout[31:28]), 1'b0}; end
 				default begin SEG_COM <= 6'b111111; SEG_DATA <= 8'b00000000; end
 			endcase
 		end

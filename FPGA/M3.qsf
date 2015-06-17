@@ -234,6 +234,11 @@ set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS R
 set_global_assignment -name RESERVE_ASDO_AFTER_CONFIGURATION "AS INPUT TRI-STATED"
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
+set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL OFF
+set_global_assignment -name VERILOG_FILE BS_Processor/processor.v
 set_global_assignment -name BDF_FILE M3.bdf
 set_global_assignment -name VERILOG_FILE FPGA_IF/led.v
 set_global_assignment -name VERILOG_FILE FPGA_IF/led_pwm_gen.v
@@ -246,11 +251,7 @@ set_global_assignment -name VERILOG_FILE FPGA_IF/logic_out.v
 set_global_assignment -name VERILOG_FILE FPGA_IF/CLK_div_gen.v
 set_global_assignment -name VERILOG_FILE FPGA_IF/data_CONT.v
 set_global_assignment -name VERILOG_FILE Host_IF/host_io.v
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name VERILOG_FILE Host_IF/host_itf.v
-set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
-set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL OFF
 set_global_assignment -name SDC_FILE M3.sdc
-set_global_assignment -name QIP_FILE altfp_mult.qip
+set_global_assignment -name VERILOG_FILE BS_processor/processor.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
