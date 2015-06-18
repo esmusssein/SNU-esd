@@ -10,24 +10,15 @@ module host_itf (
 	input HOST_nCS,
 	input [20:0] HOST_ADD,
 	input [15:0] HDI,
-	input [15:0] DIP_D,
-	input [3:0] PUSH_RD,
-	input [3:0] PUSH_SW,
-	input [31:0] proc_dout,
+	input [3:0] proc_status,
+	input [31:0] proc_acc_dout,
+	input [31:0] proc_pow_acc_dout,
 	
 	output reg [15:0] HDO,
-	output CLCD_RS,
-	output CLCD_RW,
-	output CLCD_E,
-	output [7:0] CLCD_DQ,
-	output [7:0] LED_D,
 	output reg [5:0] SEG_COM,
 	output reg [7:0] SEG_DATA,
-	output [9:0] DOT_SCAN,
-	output [6:0] DOT_DATA,
-	output Piezo,
-	output [3:0] PUSH_LD,
 	output host_sel,
+	output [31:0] niter,
 	output [31:0] constK,
 	output [31:0] const1,
 	output [31:0] const2,
@@ -43,6 +34,8 @@ module host_itf (
 	reg [15:0] x8800_000A;
 	reg [15:0] x8800_000C;
 	reg [15:0] x8800_000E;
+	reg [15:0] x8800_0010;
+	reg [15:0] x8800_0012;
 	reg [15:0] x8800_1000;
 	
 	assign host_sel = 1'b1;
@@ -50,6 +43,7 @@ module host_itf (
 	assign const1 = {x8800_0006, x8800_0004};
 	assign const2 = {x8800_000A, x8800_0008};
 	assign const3 = {x8800_000E, x8800_000C};
+	assign niter = 32'd1000000000;	// To testing.
 	assign proc_cmd = x8800_1000[3:0];
 	
    /**
@@ -66,6 +60,8 @@ module host_itf (
 			x8800_000A <= 16'd0;
 			x8800_000C <= 16'd0;
 			x8800_000E <= 16'd0;
+			x8800_0010 <= 16'd0;
+			x8800_0012 <= 16'd0;
 			x8800_1000 <= 16'd0;
 		end else begin
 			if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1) begin
@@ -78,6 +74,8 @@ module host_itf (
 					20'h0000A: x8800_000A <= HDI;
 					20'h0000C: x8800_000C <= HDI;
 					20'h0000E: x8800_000E <= HDI;
+					20'h00010: x8800_0010 <= HDI;
+					20'h00012: x8800_0012 <= HDI;
 					20'h01000: x8800_1000 <= HDI;
 				endcase
 			end
@@ -158,12 +156,12 @@ module host_itf (
 			else                 cnt_segcon <= cnt_segcon+1'b1;
 			
 			case (cnt_segcon)
-				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(proc_dout[11:8]), 1'b0}; end
-				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(proc_dout[15:12]), 1'b0}; end
-				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(proc_dout[19:16]), 1'b0}; end
-				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(proc_dout[23:20]), 1'b0}; end
-				3'd4:   begin SEG_COM <= 6'b111101; SEG_DATA <= {conv_int(proc_dout[27:24]), 1'b0}; end
-				3'd5:   begin SEG_COM <= 6'b111110; SEG_DATA <= {conv_int(proc_dout[31:28]), 1'b0}; end
+				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(proc_acc_dout[11:8]), 1'b0}; end
+				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(proc_acc_dout[15:12]), 1'b0}; end
+				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(proc_acc_dout[19:16]), 1'b0}; end
+				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(proc_acc_dout[23:20]), 1'b0}; end
+				3'd4:   begin SEG_COM <= 6'b111101; SEG_DATA <= {conv_int(proc_acc_dout[27:24]), 1'b0}; end
+				3'd5:   begin SEG_COM <= 6'b111110; SEG_DATA <= {conv_int(proc_acc_dout[31:28]), 1'b0}; end
 				default begin SEG_COM <= 6'b111111; SEG_DATA <= 8'b00000000; end
 			endcase
 		end

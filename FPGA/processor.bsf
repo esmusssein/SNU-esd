@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 296 176)
+	(rect 16 16 296 208)
 	(text "processor" (rect 5 0 68 12)(font "Arial" ))
-	(text "inst" (rect 8 144 36 156)(font "Arial" ))
+	(text "inst" (rect 8 176 36 188)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -40,37 +40,44 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "constK[31..0]" (rect 0 0 92 12)(font "Arial" ))
-		(text "constK[31..0]" (rect 21 59 113 71)(font "Arial" ))
+		(text "niter[31..0]" (rect 0 0 84 12)(font "Arial" ))
+		(text "niter[31..0]" (rect 21 59 105 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
 		(pt 0 80)
 		(input)
-		(text "const1[31..0]" (rect 0 0 92 12)(font "Arial" ))
-		(text "const1[31..0]" (rect 21 75 113 87)(font "Arial" ))
+		(text "constK[31..0]" (rect 0 0 92 12)(font "Arial" ))
+		(text "constK[31..0]" (rect 21 75 113 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
 		(pt 0 96)
 		(input)
-		(text "const2[31..0]" (rect 0 0 92 12)(font "Arial" ))
-		(text "const2[31..0]" (rect 21 91 113 103)(font "Arial" ))
+		(text "const1[31..0]" (rect 0 0 92 12)(font "Arial" ))
+		(text "const1[31..0]" (rect 21 91 113 103)(font "Arial" ))
 		(line (pt 0 96)(pt 16 96)(line_width 3))
 	)
 	(port
 		(pt 0 112)
 		(input)
-		(text "const3[31..0]" (rect 0 0 92 12)(font "Arial" ))
-		(text "const3[31..0]" (rect 21 107 113 119)(font "Arial" ))
+		(text "const2[31..0]" (rect 0 0 92 12)(font "Arial" ))
+		(text "const2[31..0]" (rect 21 107 113 119)(font "Arial" ))
 		(line (pt 0 112)(pt 16 112)(line_width 3))
 	)
 	(port
 		(pt 0 128)
 		(input)
-		(text "cmd[3..0]" (rect 0 0 63 12)(font "Arial" ))
-		(text "cmd[3..0]" (rect 21 123 84 135)(font "Arial" ))
+		(text "const3[31..0]" (rect 0 0 92 12)(font "Arial" ))
+		(text "const3[31..0]" (rect 21 123 113 135)(font "Arial" ))
 		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "cmd[3..0]" (rect 0 0 63 12)(font "Arial" ))
+		(text "cmd[3..0]" (rect 21 139 84 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
 	)
 	(port
 		(pt 280 32)
@@ -103,8 +110,23 @@ applicable agreement for further details.
 		"2"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"IDLE"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"RUNNING"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"COMPLETE"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 264 144)(line_width 1))
+		(rectangle (rect 16 16 264 176)(line_width 1))
 	)
 	(annotation_block (parameter)(rect 296 -64 396 16))
 )

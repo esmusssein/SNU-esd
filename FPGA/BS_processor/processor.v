@@ -24,6 +24,7 @@
 module processor(
 	input clk,
 	input nreset,
+	input [31:0] niter,
 	input [31:0] constK,
 	input [31:0] const1,
 	input [31:0] const2,
@@ -48,6 +49,7 @@ module processor(
 	
 	reg [3:0] state;
 	reg [3:0] nxt_state;
+	reg [31:0] s_niter;
 	reg [31:0] s_constK;
 	reg [31:0] s_const1;
 	reg [31:0] s_const2;
@@ -80,9 +82,6 @@ module processor(
 	wire [63:0] fx_conv_din;
 	wire [31:0] fx_conv_dout;
 	
-	// For testing.
-	integer niteration = 2;
-	
 	assign status = state;
 	assign clk_en = 1'b1;
 	// Connect input and output of each modules.
@@ -94,7 +93,7 @@ module processor(
 	assign const3_mult_conv_din = const3_mult_dout;
 	assign pow_din = const3_mult_dout;
 	assign pow_conv_din = pow_dout;
-	assign fx_conv_din = (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niteration + 4) ? acc : pow_acc;
+	assign fx_conv_din = (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niter + 4) ? acc : pow_acc;
 	
 	/**
 	 *
@@ -123,7 +122,7 @@ module processor(
 		end
 		RUNNING: begin
 			// TODO: How this know the computation ends?
-			if (cnt_clk == 32'd1000) begin
+			if (cnt_clk == LATENCY_POW_CONV_DOUT + niter + 8) begin
 				nxt_state = COMPLETE;
 			end else begin
 				nxt_state = state;
@@ -145,6 +144,7 @@ module processor(
 	
 	/**
 	 *
+	 * @update niter
 	 * @update s_constK
 	 * @update s_const1
 	 * @update s_const2
@@ -152,6 +152,7 @@ module processor(
 	 */
 	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
+			s_niter <= 32'd0;
 			s_constK <= 32'd0;
 			s_const1 <= 32'd0;
 			s_const2 <= 32'd0;
@@ -159,12 +160,14 @@ module processor(
 		end else begin
 			case (state)
 			IDLE: begin
+				s_niter <= niter;
 				s_constK <= constK;
 				s_const1 <= const1;
 				s_const2 <= const2;
 				s_const3 <= const3;
 			end
 			default: begin
+				s_niter <= s_niter;
 				s_constK <= s_constK;
 				s_const1 <= s_const1;
 				s_const2 <= s_const2;
@@ -208,7 +211,7 @@ module processor(
 		end else begin
 			case (state)
 				RUNNING: begin
-					if (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niteration + 8) begin
+					if (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niter + 8) begin
 						acc_dout <= fx_conv_dout;
 						pow_acc_dout <= 32'd0;
 					end else begin
@@ -234,13 +237,14 @@ module processor(
 		end else begin
 			case (state)
 				RUNNING: begin
-					if (cnt_clk == 32'd0) begin
+					pseudo_grn <= 32'b10111111100000000000000000000000;
+					/*if (cnt_clk == 32'd0) begin
 						pseudo_grn <= 32'b10111111100000000000000000000000;		// This represents -1 in form of IEEE float.
 					end else if (cnt_clk == 32'd1) begin
-						pseudo_grn <= 32'b11000000010000000000000000000000;		// This represents -3 in form of IEEE float.
+						pseudo_grn <= 32'b10111111100000000000000000000000;		// This represents -3 in form of IEEE float.
 					end else begin
-						pseudo_grn <= 32'b11000000000000000000000000000000;		// This represents -2 in form of IEEE float.
-					end
+						pseudo_grn <= 32'b10111111100000000000000000000000;		// This represents -2 in form of IEEE float.
+					end*/
 				end
 				default: begin
 					pseudo_grn <= pseudo_grn;
@@ -259,7 +263,7 @@ module processor(
 		end else begin
 			case (state)
 				RUNNING: begin
-					if (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niteration) begin
+					if (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niter) begin
 						acc <= acc + const3_mult_conv_dout;
 					end else begin
 						acc <= acc;
@@ -285,7 +289,7 @@ module processor(
 		end else begin
 			case (state)
 				RUNNING: begin
-					if (cnt_clk <= LATENCY_POW_CONV_DOUT + niteration) begin
+					if (cnt_clk <= LATENCY_POW_CONV_DOUT + niter) begin
 						pow_acc <= pow_acc + pow_conv_dout;
 					end else begin
 						pow_acc <= pow_acc;
