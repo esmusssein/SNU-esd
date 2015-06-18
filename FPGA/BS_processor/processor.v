@@ -1,5 +1,25 @@
 /**
  * A processor to compute Black-Scholes algorithm.
+ *
+ * Explanation of each constants:
+ *
+ *	- constK: K
+ * - const1: S*exp((r-0.5*sigma^2)*T)
+ *	- const2: sigma*sqrt(T)
+ *	- const3: exp(-r*T)
+ *
+ * Constants above should be given from the M1 module.
+ *
+ *
+ * Commands:
+ *
+ *	- RUN: When the processor is in IDLE state, command this to process algorithm.
+ * - ACK: When the processor is in COMPLETE state, command this to be in IDLE to be ready for next computation.
+ *
+ * Processing Overview
+ *
+ * TODO
+ *
  */
 module processor(
 	input clk,
@@ -17,9 +37,12 @@ module processor(
 	parameter CMD_RUN = 1;
 	parameter CMD_ACK = 2;
 
-	parameter IDLE = 0;
-	parameter RUNNING = 1;
-	parameter COMPLETE = 2;
+	// Available states.
+	localparam IDLE = 0;
+	localparam RUNNING = 1;
+	localparam COMPLETE = 2;
+	// Latency of each final outputs.
+	localparam LATENCY_ACC = 46;
 	
 	reg [3:0] state;
 	reg [3:0] nxt_state;
@@ -27,11 +50,9 @@ module processor(
 	reg [31:0] s_const1;
 	reg [31:0] s_const2;
 	reg [31:0] s_const3;
-	// Final result values.
-	reg [31:0] sum;
-	reg [31:0] pow_sum;
-	// For testing.
 	reg [31:0] cnt_clk;
+	// An accumulate register of const3_mult_dout_conv values.
+	reg [64:0] acc;
 	// To test computing Black-Scholes model process except for Gaussian Random Number Generator.
 	reg [31:0] pseudo_grn;
 	
@@ -61,9 +82,9 @@ module processor(
 	assign k_sub_din = const1_mult_dout;
 	assign const3_mult_din = k_sub_dout[31] ? 32'd0 : k_sub_dout;
 	assign const3_mult_conv_din = const3_mult_dout;
-	assign fx_conv_din = const3_mult_conv_dout;
+	assign fx_conv_din = acc;
 	// Assign final processor value.
-	assign dout = sum;
+	assign dout = fx_conv_dout;
 	
 	/**
 	 *
@@ -92,7 +113,7 @@ module processor(
 		end
 		RUNNING: begin
 			// TODO: How this know the computation ends?
-			if (cnt_clk == 32'd52) begin
+			if (cnt_clk == 32'd1000) begin
 				nxt_state = COMPLETE;
 			end else begin
 				nxt_state = state;
@@ -190,25 +211,25 @@ module processor(
 	
 	/**
 	 *
-	 * @update sum, pow_sum
+	 * @update acc
 	 */
 	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
-			sum <= 32'd0;
-			pow_sum <= 32'd0;
+			acc <= 64'd0;
 		end else begin
 			case (state)
 				RUNNING: begin
-					sum <= fx_conv_dout;
-					pow_sum <= 32'd0;
+					if (cnt_clk <= LATENCY_ACC + 1) begin
+						acc <= acc + const3_mult_conv_dout;
+					end else begin
+						acc <= acc;
+					end
 				end
 				COMPLETE: begin
-					sum <= sum;
-					pow_sum <= pow_sum;
+					acc <= acc;
 				end
 				default: begin
-					sum <= 32'd0;
-					pow_sum <= 32'd0;
+					acc <= 64'd0;
 				end
 			endcase
 		end
@@ -271,6 +292,7 @@ module processor(
 	// A module that converts a floating point number to a fixed point number.
 	// Output fixed number: custom 44-bit fraction 20-bit
 	// Latency: 6 clock cycle.
+	// Supports pipelining.
 	fp_fx_conv const3_mult_conv(
 		.aclr(~nreset),
 		.clk_en(clk_en),
@@ -282,6 +304,7 @@ module processor(
 	// A module that converts a fixed point number to a floating point number.
 	// Input fixed number: custom 44-bit fraction 20-bit
 	// Latency: 6 clock cycle.
+	// Supports pipelining.
 	fx_fp_conv fx_fp_conv(
 		.aclr(~nreset),
 		.clk_en(clk_en),
