@@ -41,8 +41,9 @@ module processor(
 	localparam IDLE = 0;
 	localparam RUNNING = 1;
 	localparam COMPLETE = 2;
-	// Latency of each final outputs.
-	localparam LATENCY_ACC = 46;
+	// Latency of each final fixed point number outputs.
+	localparam LATENCY_CONST3_MULT_CONV_DOUT = 45;
+	localparam LATENCY_POW_CONV_DOUT = 50;
 	
 	reg [3:0] state;
 	reg [3:0] nxt_state;
@@ -51,8 +52,9 @@ module processor(
 	reg [31:0] s_const2;
 	reg [31:0] s_const3;
 	reg [31:0] cnt_clk;
-	// An accumulate register of const3_mult_dout_conv values.
-	reg [64:0] acc;
+	// Each is an accumulate register of const3_mult_conv_dout values and pow_conv_dout values repectively.
+	reg [63:0] acc;
+	reg [63:0] pow_acc;
 	// To test computing Black-Scholes model process except for Gaussian Random Number Generator.
 	reg [31:0] pseudo_grn;
 	
@@ -70,8 +72,15 @@ module processor(
 	wire [31:0] const3_mult_dout;
 	wire [31:0] const3_mult_conv_din;
 	wire [63:0] const3_mult_conv_dout;
+	wire [31:0] pow_din;
+	wire [31:0] pow_dout;
+	wire [31:0] pow_conv_din;
+	wire [63:0] pow_conv_dout;
 	wire [63:0] fx_conv_din;
 	wire [31:0] fx_conv_dout;
+	
+	// For testing.
+	integer niteration = 1;
 	
 	assign status = state;
 	assign clk_en = 1'b1;
@@ -82,7 +91,9 @@ module processor(
 	assign k_sub_din = const1_mult_dout;
 	assign const3_mult_din = k_sub_dout[31] ? 32'd0 : k_sub_dout;
 	assign const3_mult_conv_din = const3_mult_dout;
-	assign fx_conv_din = acc;
+	assign pow_din = const3_mult_dout;
+	assign pow_conv_din = pow_dout;
+	assign fx_conv_din = pow_acc;
 	// Assign final processor value.
 	assign dout = fx_conv_dout;
 	
@@ -198,6 +209,8 @@ module processor(
 				RUNNING: begin
 					if (cnt_clk == 32'd0) begin
 						pseudo_grn <= 32'b10111111100000000000000000000000;		// This represents -1 in form of IEEE float.
+					end else if (cnt_clk == 32'd1) begin
+						pseudo_grn <= 32'b11000000010000000000000000000000;		// This represents -3 in form of IEEE float.
 					end else begin
 						pseudo_grn <= 32'b11000000000000000000000000000000;		// This represents -2 in form of IEEE float.
 					end
@@ -219,7 +232,7 @@ module processor(
 		end else begin
 			case (state)
 				RUNNING: begin
-					if (cnt_clk <= LATENCY_ACC + 1) begin
+					if (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niteration) begin
 						acc <= acc + const3_mult_conv_dout;
 					end else begin
 						acc <= acc;
@@ -230,6 +243,32 @@ module processor(
 				end
 				default: begin
 					acc <= 64'd0;
+				end
+			endcase
+		end
+	end
+	
+	/**
+	 *
+	 * @update pow_acc
+	 */
+	always @(posedge clk or negedge nreset) begin
+		if (nreset == 1'b0) begin
+			pow_acc <= 64'd0;
+		end else begin
+			case (state)
+				RUNNING: begin
+					if (cnt_clk <= LATENCY_POW_CONV_DOUT + niteration) begin
+						pow_acc <= pow_acc + pow_conv_dout;
+					end else begin
+						pow_acc <= pow_acc;
+					end
+				end
+				COMPLETE: begin
+					pow_acc<= pow_acc;
+				end
+				default: begin
+					pow_acc <= 64'd0;
 				end
 			endcase
 		end
@@ -301,6 +340,29 @@ module processor(
 		.result(const3_mult_conv_dout)
 	);
 	
+	// Latency: 5 clock cycle.
+	// Supports pipelining.
+	fp_mult pow(
+		.aclr(~nreset),
+		.clk_en(clk_en),
+		.clock(clk),
+		.dataa(pow_din),
+		.datab(pow_din),
+		.result(pow_dout)
+	);
+	
+	// A module that converts a floating point number to a fixed point number.
+	// Output fixed number: custom 44-bit fraction 20-bit
+	// Latency: 6 clock cycle.
+	// Supports pipelining.
+	fp_fx_conv pow_conv(
+		.aclr(~nreset),
+		.clk_en(clk_en),
+		.clock(clk),
+		.dataa(pow_conv_din),
+		.result(pow_conv_dout)
+	);
+	
 	// A module that converts a fixed point number to a floating point number.
 	// Input fixed number: custom 44-bit fraction 20-bit
 	// Latency: 6 clock cycle.
@@ -312,16 +374,5 @@ module processor(
 		.dataa(fx_conv_din),
 		.result(fx_conv_dout)
 	);
-	
-	// Latency: 5 clock cycle.
-	// Supports pipelining.
-	/*fp_mult pow(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.dataa(pow_din),
-		.datab(pow_din),
-		.result(pow_dout)
-	);*/
 	 
 endmodule
