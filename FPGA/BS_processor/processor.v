@@ -27,35 +27,46 @@ module processor(
 	reg [31:0] s_const1;
 	reg [31:0] s_const2;
 	reg [31:0] s_const3;
+	// Final result values.
+	reg [31:0] sum;
+	reg [31:0] pow_sum;
+	// For testing.
+	reg [31:0] cnt_clk;
+	// To test computing Black-Scholes model process except for Gaussian Random Number Generator.
+	reg [31:0] pseudo_grn;
 	
 	wire clk_en;
-	// To test computing Black-Scholes model process except for Gaussian Random Number Generator.
-	wire [31:0] pseudo_grn;
-	// Inputs of each modules in this processor.
+	// Input and output of each modules in this processor.
 	wire [31:0] const2_mult_din;
-	wire [31:0] exp_din;
-	wire [31:0] const1_mult_din;
-	wire [31:0] k_sub_din;
-	wire [31:0] const3_mult_din;
-	// Result outputs of each modules in this processor.
 	wire [31:0] const2_mult_dout;
+	wire [31:0] exp_din;
 	wire [31:0] exp_dout;
+	wire [31:0] const1_mult_din;
 	wire [31:0] const1_mult_dout;
+	wire [31:0] k_sub_din;
 	wire [31:0] k_sub_dout;
+	wire [31:0] const3_mult_din;
 	wire [31:0] const3_mult_dout;
+	wire [31:0] acc_din;
+	wire [31:0] acc_dout;
+	wire [31:0] pow_din;
+	wire [31:0] pow_dout;
+	wire [31:0] pow_acc_din;
+	wire [31:0] pow_acc_dout;
 	
 	assign status = state;
 	assign clk_en = 1'b1;
-	// This value represents -1 in IEEE float.
-	assign pseudo_grn = 32'b10111111100000000000000000000000;
 	// Connect input and output of each modules.
 	assign const2_mult_din = pseudo_grn;
 	assign exp_din = const2_mult_dout;
 	assign const1_mult_din = exp_dout;
 	assign k_sub_din = const1_mult_dout;
 	assign const3_mult_din = k_sub_dout[31] ? 32'd0 : k_sub_dout;
+	assign acc_din = const3_mult_dout;
+	assign pow_din = const3_mult_dout;
+	assign pow_acc_din = pow_dout;
 	// Assign final processor value.
-	assign dout = const3_mult_dout;
+	assign dout = sum;
 	
 	/**
 	 *
@@ -84,13 +95,18 @@ module processor(
 		end
 		RUNNING: begin
 			// TODO: How this know the computation ends?
-			nxt_state = nxt_state;
+			if (cnt_clk == 32'd48) begin
+				nxt_state = COMPLETE;
+			end else begin
+				nxt_state = state;
+			end
 		end
 		COMPLETE: begin
+			nxt_state = state;
 			if (cmd == CMD_ACK) begin
 				nxt_state = IDLE;
 			end else begin
-				nxt_state = nxt_state;
+				nxt_state = state;
 			end
 		end
 		default: begin
@@ -126,6 +142,77 @@ module processor(
 				s_const2 <= s_const2;
 				s_const3 <= s_const3;
 			end
+			endcase
+		end
+	end
+	
+	/**
+	 *
+	 * @update cnt_clk
+	 */
+	always @(posedge clk or negedge nreset) begin
+		if (nreset == 1'b0) begin
+			cnt_clk <= 32'd0;
+		end else begin
+			case (state)
+				RUNNING: begin
+					cnt_clk <= cnt_clk + 32'd1;
+				end
+				IDLE: begin
+					cnt_clk <= 32'd0;
+				end
+				default: begin
+					cnt_clk <= cnt_clk;
+				end
+			endcase
+		end
+	end
+	
+	/**
+	 *
+	 * @update pseudo_grn
+	 */
+	always @(posedge clk or negedge nreset) begin
+		if (nreset == 1'b0) begin
+			pseudo_grn <= 32'd0;
+		end else begin
+			case (state)
+				RUNNING: begin
+					if (cnt_clk == 32'd0) begin
+						pseudo_grn <= 32'b10111111100000000000000000000000;		// This represents -1 in form of IEEE float.
+					end else begin
+						pseudo_grn <= 32'd0;		// This represents -0 in form of IEEE float.
+					end
+				end
+				default: begin
+					pseudo_grn <= pseudo_grn;
+				end
+			endcase
+		end
+	end
+	
+	/**
+	 *
+	 * @update sum, pow_sum
+	 */
+	always @(posedge clk or negedge nreset) begin
+		if (nreset == 1'b0) begin
+			sum <= 32'd0;
+			pow_sum <= 32'd0;
+		end else begin
+			case (state)
+				RUNNING: begin
+					sum <= acc_dout;
+					pow_sum <= pow_acc_dout;
+				end
+				COMPLETE: begin
+					sum <= sum;
+					pow_sum <= pow_sum;
+				end
+				default: begin
+					sum <= 32'd0;
+					pow_sum <= 32'd0;
+				end
 			endcase
 		end
 	end
@@ -182,6 +269,39 @@ module processor(
 		.dataa(s_const3),
 		.datab(const3_mult_din),
 		.result(const3_mult_dout)
+	);
+	
+	// Latency: 7 clock cycle.
+	// Supports pipelining.
+	fp_add acc(
+		.aclr(~nreset),
+		.clk_en(clk_en),
+		.clock(clk),
+		.dataa(sum),
+		.datab(acc_din),
+		.result(acc_dout)
+	);
+	
+	// Latency: 5 clock cycle.
+	// Supports pipelining.
+	fp_mult pow(
+		.aclr(~nreset),
+		.clk_en(clk_en),
+		.clock(clk),
+		.dataa(pow_din),
+		.datab(pow_din),
+		.result(pow_dout)
+	);
+	
+	// Latency: 7 clock cycle.
+	// Supports pipelining.
+	fp_add pow_acc(
+		.aclr(~nreset),
+		.clk_en(clk_en),
+		.clock(clk),
+		.dataa(pow_sum),
+		.datab(pow_acc_din),
+		.result(pow_acc_dout)
 	);
 	 
 endmodule
