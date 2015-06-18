@@ -20,7 +20,7 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 248 176)
+	(rect 16 16 296 176)
 	(text "processor" (rect 5 0 68 12)(font "Arial" ))
 	(text "inst" (rect 8 144 36 156)(font "Arial" ))
 	(port
@@ -73,18 +73,25 @@ applicable agreement for further details.
 		(line (pt 0 128)(pt 16 128)(line_width 3))
 	)
 	(port
-		(pt 232 32)
+		(pt 280 32)
 		(output)
 		(text "status[3..0]" (rect 0 0 84 12)(font "Arial" ))
-		(text "status[3..0]" (rect 127 27 211 39)(font "Arial" ))
-		(line (pt 232 32)(pt 216 32)(line_width 3))
+		(text "status[3..0]" (rect 175 27 259 39)(font "Arial" ))
+		(line (pt 280 32)(pt 264 32)(line_width 3))
 	)
 	(port
-		(pt 232 48)
+		(pt 280 48)
 		(output)
-		(text "dout[31..0]" (rect 0 0 77 12)(font "Arial" ))
-		(text "dout[31..0]" (rect 134 43 211 55)(font "Arial" ))
-		(line (pt 232 48)(pt 216 48)(line_width 3))
+		(text "acc_dout[31..0]" (rect 0 0 106 12)(font "Arial" ))
+		(text "acc_dout[31..0]" (rect 153 43 259 55)(font "Arial" ))
+		(line (pt 280 48)(pt 264 48)(line_width 3))
+	)
+	(port
+		(pt 280 64)
+		(output)
+		(text "pow_acc_dout[31..0]" (rect 0 0 134 12)(font "Arial" ))
+		(text "pow_acc_dout[31..0]" (rect 125 59 259 71)(font "Arial" ))
+		(line (pt 280 64)(pt 264 64)(line_width 3))
 	)
 	(parameter
 		"CMD_RUN"
@@ -96,23 +103,8 @@ applicable agreement for further details.
 		"2"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"IDLE"
-		"0"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"RUNNING"
-		"1"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"COMPLETE"
-		"2"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 216 144)(line_width 1))
+		(rectangle (rect 16 16 264 144)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 248 -64 348 16))
+	(annotation_block (parameter)(rect 296 -64 396 16))
 )

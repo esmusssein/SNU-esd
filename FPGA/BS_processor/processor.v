@@ -31,16 +31,17 @@ module processor(
 	input [3:0] cmd,
 	 
 	output [3:0] status,
-	output [31:0] dout
+	output reg [31:0] acc_dout,
+	output reg [31:0] pow_acc_dout
 );
 
 	parameter CMD_RUN = 1;
 	parameter CMD_ACK = 2;
 
 	// Available states.
-	localparam IDLE = 0;
-	localparam RUNNING = 1;
-	localparam COMPLETE = 2;
+	parameter IDLE = 0;
+	parameter RUNNING = 1;
+	parameter COMPLETE = 2;
 	// Latency of each final fixed point number outputs.
 	localparam LATENCY_CONST3_MULT_CONV_DOUT = 45;
 	localparam LATENCY_POW_CONV_DOUT = 50;
@@ -80,7 +81,7 @@ module processor(
 	wire [31:0] fx_conv_dout;
 	
 	// For testing.
-	integer niteration = 1;
+	integer niteration = 2;
 	
 	assign status = state;
 	assign clk_en = 1'b1;
@@ -93,9 +94,7 @@ module processor(
 	assign const3_mult_conv_din = const3_mult_dout;
 	assign pow_din = const3_mult_dout;
 	assign pow_conv_din = pow_dout;
-	assign fx_conv_din = pow_acc;
-	// Assign final processor value.
-	assign dout = fx_conv_dout;
+	assign fx_conv_din = (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niteration + 4) ? acc : pow_acc;
 	
 	/**
 	 *
@@ -192,6 +191,34 @@ module processor(
 				end
 				default: begin
 					cnt_clk <= cnt_clk;
+				end
+			endcase
+		end
+	end
+	
+	/**
+	 *
+	 * @update acc_dout
+	 * @update pow_acc_dout
+	 */
+	always @(posedge clk or negedge nreset) begin
+		if (nreset == 1'b0) begin
+			acc_dout <= 32'd0;
+			pow_acc_dout <= 32'd0;
+		end else begin
+			case (state)
+				RUNNING: begin
+					if (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niteration + 8) begin
+						acc_dout <= fx_conv_dout;
+						pow_acc_dout <= 32'd0;
+					end else begin
+						acc_dout <= acc_dout;
+						pow_acc_dout <= fx_conv_dout;
+					end
+				end
+				default: begin
+					acc_dout <= acc_dout;
+					pow_acc_dout <= pow_acc_dout;
 				end
 			endcase
 		end
