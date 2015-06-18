@@ -47,12 +47,10 @@ module processor(
 	wire [31:0] k_sub_dout;
 	wire [31:0] const3_mult_din;
 	wire [31:0] const3_mult_dout;
-	wire [31:0] acc_din;
-	wire [31:0] acc_dout;
-	wire [31:0] pow_din;
-	wire [31:0] pow_dout;
-	wire [31:0] pow_acc_din;
-	wire [31:0] pow_acc_dout;
+	wire [31:0] const3_mult_conv_din;
+	wire [63:0] const3_mult_conv_dout;
+	wire [63:0] fx_conv_din;
+	wire [31:0] fx_conv_dout;
 	
 	assign status = state;
 	assign clk_en = 1'b1;
@@ -62,9 +60,8 @@ module processor(
 	assign const1_mult_din = exp_dout;
 	assign k_sub_din = const1_mult_dout;
 	assign const3_mult_din = k_sub_dout[31] ? 32'd0 : k_sub_dout;
-	assign acc_din = const3_mult_dout;
-	assign pow_din = const3_mult_dout;
-	assign pow_acc_din = pow_dout;
+	assign const3_mult_conv_din = const3_mult_dout;
+	assign fx_conv_din = const3_mult_conv_dout;
 	// Assign final processor value.
 	assign dout = sum;
 	
@@ -95,7 +92,7 @@ module processor(
 		end
 		RUNNING: begin
 			// TODO: How this know the computation ends?
-			if (cnt_clk == 32'd48) begin
+			if (cnt_clk == 32'd52) begin
 				nxt_state = COMPLETE;
 			end else begin
 				nxt_state = state;
@@ -181,7 +178,7 @@ module processor(
 					if (cnt_clk == 32'd0) begin
 						pseudo_grn <= 32'b10111111100000000000000000000000;		// This represents -1 in form of IEEE float.
 					end else begin
-						pseudo_grn <= 32'd0;		// This represents -0 in form of IEEE float.
+						pseudo_grn <= 32'b11000000000000000000000000000000;		// This represents -2 in form of IEEE float.
 					end
 				end
 				default: begin
@@ -202,8 +199,8 @@ module processor(
 		end else begin
 			case (state)
 				RUNNING: begin
-					sum <= acc_dout;
-					pow_sum <= pow_acc_dout;
+					sum <= fx_conv_dout;
+					pow_sum <= 32'd0;
 				end
 				COMPLETE: begin
 					sum <= sum;
@@ -271,37 +268,37 @@ module processor(
 		.result(const3_mult_dout)
 	);
 	
-	// Latency: 7 clock cycle.
-	// Supports pipelining.
-	fp_add acc(
+	// A module that converts a floating point number to a fixed point number.
+	// Output fixed number: custom 44-bit fraction 20-bit
+	// Latency: 6 clock cycle.
+	fp_fx_conv const3_mult_conv(
 		.aclr(~nreset),
 		.clk_en(clk_en),
 		.clock(clk),
-		.dataa(sum),
-		.datab(acc_din),
-		.result(acc_dout)
+		.dataa(const3_mult_conv_din),
+		.result(const3_mult_conv_dout)
+	);
+	
+	// A module that converts a fixed point number to a floating point number.
+	// Input fixed number: custom 44-bit fraction 20-bit
+	// Latency: 6 clock cycle.
+	fx_fp_conv fx_fp_conv(
+		.aclr(~nreset),
+		.clk_en(clk_en),
+		.clock(clk),
+		.dataa(fx_conv_din),
+		.result(fx_conv_dout)
 	);
 	
 	// Latency: 5 clock cycle.
 	// Supports pipelining.
-	fp_mult pow(
+	/*fp_mult pow(
 		.aclr(~nreset),
 		.clk_en(clk_en),
 		.clock(clk),
 		.dataa(pow_din),
 		.datab(pow_din),
 		.result(pow_dout)
-	);
-	
-	// Latency: 7 clock cycle.
-	// Supports pipelining.
-	fp_add pow_acc(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.dataa(pow_sum),
-		.datab(pow_acc_din),
-		.result(pow_acc_dout)
-	);
+	);*/
 	 
 endmodule
