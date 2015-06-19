@@ -1,0 +1,1 @@
+cmd_/home/younha/LinuxDriver/blackscholes.ko := arm-none-eabi-ld -EL -r  -T /android/linux-2.6.35-hanback/scripts/module-common.lds --build-id -o /home/younha/LinuxDriver/blackscholes.ko /home/younha/LinuxDriver/blackscholes.o /home/younha/LinuxDriver/blackscholes.mod.o
