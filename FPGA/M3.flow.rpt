@@ -1,5 +1,5 @@
 Flow report for M3
-Wed Jun 17 13:47:13 2015
+Thu Jun 18 21:50:01 2015
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -38,21 +38,21 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Wed Jun 17 13:47:12 2015    ;
+; Flow Status                        ; Successful - Thu Jun 18 21:50:00 2015    ;
 ; Quartus II Version                 ; 11.0 Build 157 04/27/2011 SJ Web Edition ;
 ; Revision Name                      ; M3                                       ;
 ; Top-level Entity Name              ; M3                                       ;
 ; Family                             ; Cyclone II                               ;
 ; Device                             ; EP2C8F256C8                              ;
 ; Timing Models                      ; Final                                    ;
-; Total logic elements               ; 1,111 / 8,256 ( 13 % )                   ;
-;     Total combinational functions  ; 1,050 / 8,256 ( 13 % )                   ;
-;     Dedicated logic registers      ; 115 / 8,256 ( 1 % )                      ;
-; Total registers                    ; 115                                      ;
+; Total logic elements               ; 7,546 / 8,256 ( 91 % )                   ;
+;     Total combinational functions  ; 6,970 / 8,256 ( 84 % )                   ;
+;     Dedicated logic registers      ; 3,955 / 8,256 ( 48 % )                   ;
+; Total registers                    ; 3955                                     ;
 ; Total pins                         ; 179 / 182 ( 98 % )                       ;
 ; Total virtual pins                 ; 0                                        ;
-; Total memory bits                  ; 0 / 165,888 ( 0 % )                      ;
-; Embedded Multiplier 9-bit elements ; 0 / 36 ( 0 % )                           ;
+; Total memory bits                  ; 428 / 165,888 ( < 1 % )                  ;
+; Embedded Multiplier 9-bit elements ; 31 / 36 ( 86 % )                         ;
 ; Total PLLs                         ; 0 / 2 ( 0 % )                            ;
 +------------------------------------+------------------------------------------+
 
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/17/2015 13:46:57 ;
+; Start date & time ; 06/18/2015 21:48:11 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; M3                  ;
 +-------------------+---------------------+
@@ -73,9 +73,30 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 233916159102965.143451641707816       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 233916159102965.143463169110156       ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; ALTFP_EXP                             ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; ALTFP_COMPARE                         ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; ALTFP_ADD_SUB                         ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; ALTFP_MULT                            ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; ALTFP_ADD_SUB                         ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; ALTFP_CONVERT                         ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; ALTFP_CONVERT                         ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --            ; --          ; --             ;
+; MISC_FILE                           ; BS_processor/fp_exp_bb.v              ; --            ; --          ; --             ;
+; MISC_FILE                           ; BS_processor/fp_comp_bb.v             ; --            ; --          ; --             ;
+; MISC_FILE                           ; BS_processor/fp_sub_bb.v              ; --            ; --          ; --             ;
+; MISC_FILE                           ; BS_processor/fp_mult_bb.v             ; --            ; --          ; --             ;
+; MISC_FILE                           ; BS_processor/fp_add_bb.v              ; --            ; --          ; --             ;
+; MISC_FILE                           ; BS_processor/fp_fx_conv_bb.v          ; --            ; --          ; --             ;
+; MISC_FILE                           ; BS_processor/fx_fp_conv_bb.v          ; --            ; --          ; --             ;
 ; PARTITION_COLOR                     ; 16764057                              ; --            ; --          ; Top            ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top            ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; --          ; Top            ;
@@ -91,11 +112,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:06     ; 1.0                     ; 283 MB              ; 00:00:07                           ;
-; Fitter                    ; 00:00:05     ; 1.0                     ; 312 MB              ; 00:00:06                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 252 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 244 MB              ; 00:00:02                           ;
-; Total                     ; 00:00:14     ; --                      ; --                  ; 00:00:16                           ;
+; Analysis & Synthesis      ; 00:00:50     ; 1.0                     ; 355 MB              ; 00:00:48                           ;
+; Fitter                    ; 00:00:52     ; 1.0                     ; 379 MB              ; 00:00:52                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 267 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 293 MB              ; 00:00:03                           ;
+; Total                     ; 00:01:47     ; --                      ; --                  ; 00:01:44                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
