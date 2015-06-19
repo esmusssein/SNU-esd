@@ -3,10 +3,10 @@
  *
  * Explanation of each constants:
  *
- *	- constK: K
- * - const1: S*exp((r-0.5*sigma^2)*T)
- *	- const2: sigma*sqrt(T)
- *	- const3: exp(-r*T)
+ *	- constK: K in fixed point number integer 28-bit / fraction 28-bit
+ * - const1: S*exp((r-0.5*sigma^2)*T) in fixed point number integer 28-bit / fraction 28-bit
+ *	- const2: sigma*sqrt(T) in fixed point number integer 28-bit / fraction 28-bit
+ *	- const3: exp(-r*T) in fixed point number integer 28-bit / fraction 28-bit
  *
  * Constants above should be given from the M1 module.
  *
@@ -15,6 +15,11 @@
  *
  *	- RUN: When the processor is in IDLE state, command this to process algorithm.
  * - ACK: When the processor is in COMPLETE state, command this to be in IDLE to be ready for next computation.
+ *
+ * Results:
+ *
+ * - acc_dout: Sum of present values in fixed point number integer 40-bit / fraction 24-bit.
+ * - pow_acc_dout: Sum of power of 2 to each present values in fixed point number integer 40-bit / fraction 24-bit
  *
  * Processing Overview
  *
@@ -25,15 +30,15 @@ module processor(
 	input clk,
 	input nreset,
 	input [31:0] niter,
-	input [31:0] constK,
-	input [31:0] const1,
-	input [31:0] const2,
-	input [31:0] const3,
+	input [55:0] constK,
+	input [55:0] const1,
+	input [55:0] const2,
+	input [55:0] const3,
 	input [3:0] cmd,
 	 
 	output [3:0] status,
-	output reg [31:0] acc_dout,
-	output reg [31:0] pow_acc_dout
+	output reg [63:0] acc_dout,
+	output reg [63:0] pow_acc_dout
 );
 
 	parameter CMD_RUN = 1;
@@ -50,10 +55,10 @@ module processor(
 	reg [3:0] state;
 	reg [3:0] nxt_state;
 	reg [31:0] s_niter;
-	reg [31:0] s_constK;
-	reg [31:0] s_const1;
-	reg [31:0] s_const2;
-	reg [31:0] s_const3;
+	reg [55:0] s_constK;
+	reg [55:0] s_const1;
+	reg [55:0] s_const2;
+	reg [55:0] s_const3;
 	reg [31:0] cnt_clk;
 	// Each is an accumulate register of const3_mult_conv_dout values and pow_conv_dout values repectively.
 	reg [63:0] acc;
@@ -307,7 +312,7 @@ module processor(
 	
 	// Latency: 5 clock cycle.
 	// Supports pipelining.
-	fp_mult const2_mult(
+	/*fp_mult const2_mult(
 		.aclr(~nreset),
 		.clk_en(clk_en),
 		.clock(clk),
@@ -404,6 +409,6 @@ module processor(
 		.clock(clk),
 		.dataa(fx_conv_din),
 		.result(fx_conv_dout)
-	);
-	 
+	);*/
+
 endmodule
