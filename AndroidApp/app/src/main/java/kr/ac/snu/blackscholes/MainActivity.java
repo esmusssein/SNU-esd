@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 
     private static final byte RUN = 0x01;
     private static final byte ACK = 0x02;
-    // Represents S*exp(r - 0.5*sigma^2)*T.
+    // Represents S*exp((r - 0.5*sigma^2)*T).
     private static final String DEP_CONST_1 = "dep1";
     // Represents sigma*sqrt(T).
     private static final String DEP_CONST_2 = "dep2";
@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
         }
         addMessageToMessageLayout("Succeess");
         addMessageToMessageLayout("Command the device to compute...");
-//        result = commandDevice(RUN);
+        result = commandDevice(RUN);
         if (result != 0) {
             addMessageToMessageLayout("An error occurred at commandDevice(). Exit.");
             return;
@@ -113,7 +113,7 @@ public class MainActivity extends Activity {
 
         mConstants.put(DEP_CONST_1, (float)(S*Math.exp((r - 0.5*Math.pow(sigma, 2))*T)));
         mConstants.put(DEP_CONST_2, (float)(sigma*Math.sqrt(T)));
-        mConstants.put(DEP_CONST_3, (float)(Math.exp(-r * T)));
+        mConstants.put(DEP_CONST_3, (float)(Math.exp(-r*T)));
 
         addMessageToMessageLayout("Dependent constant1: " + mConstants.get(DEP_CONST_1));
         addMessageToMessageLayout("Dependent constant2: " + mConstants.get(DEP_CONST_2));
