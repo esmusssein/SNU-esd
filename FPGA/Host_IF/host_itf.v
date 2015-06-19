@@ -43,7 +43,7 @@ module host_itf (
 	assign const1 = {x8800_0006, x8800_0004};
 	assign const2 = {x8800_000A, x8800_0008};
 	assign const3 = {x8800_000E, x8800_000C};
-	assign niter = 32'd1000000000;	// To testing.
+	assign niter = 32'd10000000;	// To testing.
 	assign proc_cmd = x8800_1000[3:0];
 	
    /**
@@ -105,11 +105,13 @@ module host_itf (
 	 **************************************/
 	
 	parameter CLK_CNT_FOR_ONE_SEC = 50000000 - 1;
+	parameter CLK_CNT_FOR_HALF_MILLISEC = 25000 - 1;
 	
 	// 1kHz clock for 7 segment.
 	reg seg_clk;
 	reg [2:0] cnt_segcon;
 	integer my_clk_cnt;
+	integer my_clk_cnt2;
 	
 	/**
 	 *
@@ -129,15 +131,19 @@ module host_itf (
 	
 	/**
 	 *
-	 * @update seg_clk
+	 * @update my_clk_cnt2
+	 *	@update seg_clk;
 	 */
 	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
+			my_clk_cnt2 <= 0;
 			seg_clk <= 0;
 		end else begin
-			if ((my_clk_cnt + 1) % 25000 == 0) begin
+			if (my_clk_cnt2 == CLK_CNT_FOR_HALF_MILLISEC) begin
+				my_clk_cnt2 <= 0;
 				seg_clk <= ~seg_clk;
 			end else begin
+				my_clk_cnt2 <= my_clk_cnt2 + 1;
 				seg_clk <= seg_clk;
 			end
 		end
