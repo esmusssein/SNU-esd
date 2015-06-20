@@ -4,7 +4,7 @@
 // MODULE: ALTMULT_ADD 
 
 // ============================================================
-// File Name: mult_45_35.v
+// File Name: mult_20_18.v
 // Megafunction Name(s):
 // 			ALTMULT_ADD
 //
@@ -31,7 +31,7 @@
 //Altera or its authorized distributors.  Please refer to the 
 //applicable agreement for further details.
 
-module mult_45_35 (
+module mult_20_18 (
 	aclr0,
 	clock0,
 	dataa_0,
@@ -40,16 +40,16 @@ module mult_45_35 (
 
 	input	  aclr0;
 	input	  clock0;
-	input	[44:0]  dataa_0;
-	input	[34:0]  datab_0;
-	output	[79:0]  result;
+	input	[19:0]  dataa_0;
+	input	[17:0]  datab_0;
+	output	[37:0]  result;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
 	tri0	  aclr0;
 	tri1	  clock0;
-	tri0	[44:0]  dataa_0;
-	tri0	[34:0]  datab_0;
+	tri0	[19:0]  dataa_0;
+	tri0	[17:0]  datab_0;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_on
 `endif
@@ -102,8 +102,8 @@ endmodule
 // Retrieval info: PRIVATE: HAS_MAC STRING "0"
 // Retrieval info: PRIVATE: HAS_SAT_ROUND STRING "0"
 // Retrieval info: PRIVATE: IMPL_STYLE_DEDICATED NUMERIC "0"
-// Retrieval info: PRIVATE: IMPL_STYLE_DEFAULT NUMERIC "1"
-// Retrieval info: PRIVATE: IMPL_STYLE_LCELL NUMERIC "0"
+// Retrieval info: PRIVATE: IMPL_STYLE_DEFAULT NUMERIC "0"
+// Retrieval info: PRIVATE: IMPL_STYLE_LCELL NUMERIC "1"
 // Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone II"
 // Retrieval info: PRIVATE: MULT01_ROUND_ACLR_SRC NUMERIC "0"
 // Retrieval info: PRIVATE: MULT01_ROUND_CLK_SRC NUMERIC "0"
@@ -149,9 +149,9 @@ endmodule
 // Retrieval info: PRIVATE: Q_ACLR_SRC_MULT0 NUMERIC "0"
 // Retrieval info: PRIVATE: Q_CLK_SRC_MULT0 NUMERIC "0"
 // Retrieval info: PRIVATE: REG_OUT NUMERIC "0"
-// Retrieval info: PRIVATE: RNFORMAT STRING "80"
+// Retrieval info: PRIVATE: RNFORMAT STRING "38"
 // Retrieval info: PRIVATE: RQFORMAT STRING "Q1.15"
-// Retrieval info: PRIVATE: RTS_WIDTH STRING "80"
+// Retrieval info: PRIVATE: RTS_WIDTH STRING "38"
 // Retrieval info: PRIVATE: SAME_CONFIG NUMERIC "1"
 // Retrieval info: PRIVATE: SAME_CONTROL_SRC_A0 NUMERIC "1"
 // Retrieval info: PRIVATE: SAME_CONTROL_SRC_B0 NUMERIC "1"
@@ -177,13 +177,13 @@ endmodule
 // Retrieval info: PRIVATE: SRCA0 STRING "Multiplier input"
 // Retrieval info: PRIVATE: SRCB0 STRING "Multiplier input"
 // Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
-// Retrieval info: PRIVATE: WIDTHA STRING "45"
-// Retrieval info: PRIVATE: WIDTHB STRING "35"
+// Retrieval info: PRIVATE: WIDTHA STRING "20"
+// Retrieval info: PRIVATE: WIDTHB STRING "18"
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ADDNSUB_MULTIPLIER_PIPELINE_ACLR1 STRING "ACLR0"
 // Retrieval info: CONSTANT: ADDNSUB_MULTIPLIER_PIPELINE_REGISTER1 STRING "CLOCK0"
 // Retrieval info: CONSTANT: ADDNSUB_MULTIPLIER_REGISTER1 STRING "UNREGISTERED"
-// Retrieval info: CONSTANT: DEDICATED_MULTIPLIER_CIRCUITRY STRING "AUTO"
+// Retrieval info: CONSTANT: DEDICATED_MULTIPLIER_CIRCUITRY STRING "NO"
 // Retrieval info: CONSTANT: INPUT_REGISTER_A0 STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: INPUT_REGISTER_B0 STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: INPUT_SOURCE_A0 STRING "DATAA"
@@ -206,23 +206,23 @@ endmodule
 // Retrieval info: CONSTANT: SIGNED_PIPELINE_REGISTER_B STRING "CLOCK0"
 // Retrieval info: CONSTANT: SIGNED_REGISTER_A STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: SIGNED_REGISTER_B STRING "UNREGISTERED"
-// Retrieval info: CONSTANT: WIDTH_A NUMERIC "45"
-// Retrieval info: CONSTANT: WIDTH_B NUMERIC "35"
-// Retrieval info: CONSTANT: WIDTH_RESULT NUMERIC "80"
+// Retrieval info: CONSTANT: WIDTH_A NUMERIC "20"
+// Retrieval info: CONSTANT: WIDTH_B NUMERIC "18"
+// Retrieval info: CONSTANT: WIDTH_RESULT NUMERIC "38"
 // Retrieval info: USED_PORT: aclr0 0 0 0 0 INPUT GND "aclr0"
 // Retrieval info: USED_PORT: clock0 0 0 0 0 INPUT VCC "clock0"
-// Retrieval info: USED_PORT: dataa_0 0 0 45 0 INPUT GND "dataa_0[44..0]"
-// Retrieval info: USED_PORT: datab_0 0 0 35 0 INPUT GND "datab_0[34..0]"
-// Retrieval info: USED_PORT: result 0 0 80 0 OUTPUT GND "result[79..0]"
+// Retrieval info: USED_PORT: dataa_0 0 0 20 0 INPUT GND "dataa_0[19..0]"
+// Retrieval info: USED_PORT: datab_0 0 0 18 0 INPUT GND "datab_0[17..0]"
+// Retrieval info: USED_PORT: result 0 0 38 0 OUTPUT GND "result[37..0]"
 // Retrieval info: CONNECT: @aclr0 0 0 0 0 aclr0 0 0 0 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock0 0 0 0 0
-// Retrieval info: CONNECT: @dataa 0 0 45 0 dataa_0 0 0 45 0
-// Retrieval info: CONNECT: @datab 0 0 35 0 datab_0 0 0 35 0
-// Retrieval info: CONNECT: result 0 0 80 0 @result 0 0 80 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_45_35.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_45_35.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_45_35.cmp FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_45_35.bsf FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_45_35_inst.v FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_45_35_bb.v TRUE
+// Retrieval info: CONNECT: @dataa 0 0 20 0 dataa_0 0 0 20 0
+// Retrieval info: CONNECT: @datab 0 0 18 0 datab_0 0 0 18 0
+// Retrieval info: CONNECT: result 0 0 38 0 @result 0 0 38 0
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18.inc FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18.cmp FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18.bsf FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18_inst.v FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18_bb.v TRUE
 // Retrieval info: LIB_FILE: altera_mf

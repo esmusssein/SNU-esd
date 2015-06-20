@@ -3,9 +3,9 @@
  *
  * Explanation of each constants:
  *
- *	- constK: K in range(0~100), as fixed point number integer 8-bit / fraction 12-bit
- * - const1: S*exp((r-0.5*sigma^2)*T) in range(0.6737947, 2202646.5), as fixed point number integer 23-bit / fraction 12-bit
- *	- const2: sigma*sqrt(T) in range (0, 3.1622777), as fixed point number integer 3-bit / fraction 12-bit
+ *	- constK: K in range(0~100), as fixed point number integer 8-bit / fraction 15-bit
+ * - const1: S*exp((r-0.5*sigma^2)*T) in range(0.6737947, 2202646.5), as fixed point number integer 23-bit / fraction 15-bit
+ *	- const2: sigma*sqrt(T) in range (0, 3.1622777), as fixed point number integer 3-bit / fraction 15-bit
  *
  * Constants above should be given from the M1 module.
  *
@@ -16,8 +16,8 @@
  *
  * Results:
  *
- * - acc_dout: Sum of present values in fixed point number integer 40-bit / fraction 12-bit.
- * - pow_acc_dout: Sum of power of 2 to each present values in fixed point number integer 40-bit / fraction 12-bit
+ * - acc_dout: Sum of present values in fixed point number integer 40-bit / fraction 15-bit.
+ * - pow_acc_dout: Sum of power of 2 to each present values in fixed point number integer 40-bit / fraction 15-bit
  *
  * Processing Overview
  *
@@ -52,38 +52,49 @@ module processor(
 	reg [3:0] state;
 	reg [3:0] nxt_state;
 	reg [31:0] s_niter;
-	reg [63:0] s_constK;			// (3, 12)
-	reg [63:0] s_const1;			// (23, 12)
-	reg [63:0] s_const2;			// (3, 12)
+	reg [63:0] s_constK;			// (8, 15)
+	reg [63:0] s_const1;			// (23, 15)
+	reg [63:0] s_const2;			// (3, 15)
 	reg [31:0] cnt_clk;
-	reg [63:0] sum;				// (40, 12)
-	reg [63:0] pow_sum;			// (40, 12)
+	reg [63:0] sum;				// (40, 15)
+	reg [63:0] pow_sum;			// (40, 15)
 	// To test computing Black-Scholes model process except for Gaussian Random Number Generator.
 	reg [31:0] pseudo_grn;					// (17, 15)
 	
 	// Input and output of each modules.
 	wire [19:0] const2_mult_din;			// (5, 15)
-	wire [34:0] const2_mult_dout;			// (8, 27)
+	wire [37:0] const2_mult_dout;			// (8, 30)
+	wire [3:0] delay_2_cycle_din;
+	wire [3:0] delay_2_cycle_dout;
 	wire [7:0] special_exp_lut_din;		// (6, 2)
 	wire [39:0] special_exp_lut_dout;	// (9, 31)
 	wire [39:0] mult_for_exp_dina;		// (9, 31)
-	wire [7:0] mult_for_exp_dinb;			// (2, 6)
-	wire [47:0] mult_for_exp_dout;		// (11, 37)
-	wire [44:0] const1_mult_din;			// (8, 37)
-	wire [79:0] const1_mult_dout;			// (31, 49)
-	wire [19:0] sub_from_k_din;			// (8, 12)
-	wire [19:0] sub_from_k_dout;			// (8, 12)
+	wire [16:0] mult_for_exp_dinb;		// (2, 15)
+	wire [56:0] mult_for_exp_dout;		// (11, 46)
+	wire [56:0] const1_mult_din;			// (11, 46)
+	wire [94:0] const1_mult_dout;			// (34, 61)
+	wire [22:0] sub_from_k_din;			// (8, 15)
+	wire [22:0] sub_from_k_dout;			// (8, 15)
 	
 	assign status = state;
-	// Do fixed point correction each relative connects.
-	assign const2_mult_din = pseudo_grn[19:0];					// (17, 15) to (5, 15).
-	assign special_exp_lut_din = const2_mult_dout[32:25];		// Lookup for (6, 2) of const2_mult_dout (8, 27).
-	assign mult_for_exp_dina = special_exp_lut_dout;			// (9, 31)
-	assign mult_for_exp_dinb = {2'b01, 2'b00, const2_mult_dout[24:21]};		// (2, 6)
-	assign const1_mult_din = mult_for_exp_dout[44:0];			// (8, 37)
-	assign sub_from_k_din = const1_mult_dout[56:37];			// (8, 12)
+	// Multiply const2 and grn.
+	assign const2_mult_din = pseudo_grn[19:0];
+	// Demux from integer part of const2_mult_dout. If < -19 outputs 2, else if < 5 outputs 1, else outputs 0.
+	assign delay_2_cycle_din = ($signed(const2_mult_dout[34:27]) < -19) ? 4'd2 : ($signed(const2_mult_dout[34:27]) < 5) ? 4'd1: 4'd0;
+	// For testing. Below works!
+	//assign delay_2_cycle_din = $signed(6'b010000) < -18 ? 4'd2 : $signed(6'b010000) < 5 ? 4'd1: 4'd0;
+	// Lookup an exponential lut specialized for this application by (6, 2) of const2_mult_dout.
+	assign special_exp_lut_din = const2_mult_dout[35:28];
+	// Mutiply the result of exp lut and (1 + rest of bits of const2_mult_dout) to get appromixation of exp.
+	assign mult_for_exp_dina = special_exp_lut_dout;
+	assign mult_for_exp_dinb = {2'b01, 2'b00, const2_mult_dout[27:13]};
+	// Multiply const1 and exp(const2*grn).
+	assign const1_mult_din = mult_for_exp_dout[56:0];
+	// Determine an operand to subtract to constK. If it is expected too small by the Demux above, set 0. Else if it is too large or larger than K, set K.
+	assign sub_from_k_din = (delay_2_cycle_dout == 4'd2) ? 0 : (delay_2_cycle_dout == 4'd0 || s_constK[22:0] < const1_mult_dout[94:61]) ? s_constK[22:0] : const1_mult_dout[68:46];
 	// For testing.
-	assign sum_dout = sub_from_k_din;		// (8, 12)
+	//assign sum_dout = {const2_mult_dout[37:15], delay_2_cycle_dout};
+	assign sum_dout = const2_mult_dout[37:15];
 	
 	/**
 	 *
@@ -186,8 +197,9 @@ module processor(
 		end else begin
 			case (state)
 			RUNNING: begin
-				pseudo_grn <= 32'b11111111111111111_000000000000000;	// This represents -1 in form of 17/15 fixed point number.
-				//pseudo_grn <= 32'b00000000000001010_000100000000000;	// This represents 10.0625 in form of 17/15 fixed point number.
+				//pseudo_grn <= 32'b1111_1111_1111_1110_0000_0000_0000_0000;  // (17, 15)
+				pseudo_grn <= 32'b0000_0000_0000_0000_1000_0000_0000_0000;  // (17, 15)
+				//pseudo_grn <= 32'b00000000000000000_000100000000000;
 			end
 			endcase
 		end
@@ -239,23 +251,32 @@ module processor(
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	mult_20_15 const2_mult(
+	mult_20_18 const2_mult(
 		.aclr0(~nreset),
 		.clock0(clk),
 		.dataa_0(const2_mult_din),
-		.datab_0(s_const2[14:0]),
+		.datab_0(s_const2[17:0]),
 		.result(const2_mult_dout)
 	);
 	
+	// Latency 2 clock cycle.
+	// Supports pipelining.
+	/*delay_2_cycle mdelay_2_cycle(
+		.nreset(nreset),
+		.clock(clk),
+		.din(delay_2_cycle_din),
+		.dout(delay_2_cycle_dout)
+	);
+		
 	// Latency 0 clock cycle.
-	special_exp_lut mspecial_exp_lut (
+	special_exp_lut mspecial_exp_lut(
 		.din(special_exp_lut_din),
 		.dout(special_exp_lut_dout)
 	);
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	mult_40_8 mult_for_exp(
+	mult_40_17 mult_for_exp(
 		.aclr0(~nreset),
 		.clock0(clk),
 		.dataa_0(mult_for_exp_dina),
@@ -265,23 +286,23 @@ module processor(
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	mult_45_35 const1_mult(
+	mult_57_38 const1_mult(
 		.aclr0(~nreset),
 		.clock0(clk),
 		.dataa_0(const1_mult_din),
-		.datab_0(s_const1[34:0]),
+		.datab_0(s_const1[37:0]),
 		.result(const1_mult_dout)
 	);
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	sub_19_19 sub_from_k(
+	sub_23_23 sub_from_k(
 		.nreset(nreset),
 		.clk(clk),
-		.dina(s_constK[19:0]),
+		.dina(s_constK[22:0]),
 		.dinb(sub_from_k_din),
 		.dout(sub_from_k_dout)
-	);
+	);*/
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
@@ -295,18 +316,43 @@ module processor(
 	
 endmodule
 
-module sub_19_19(
+module delay_2_cycle(
+	input nreset,
+	input clock,
+	input [3:0] din,
+	
+	output [3:0] dout
+);
+
+	reg [3:0] delay1;
+	reg [3:0] delay2;
+	
+	assign dout = delay2;
+
+	always @(posedge clock or negedge nreset) begin
+		if (nreset == 1'b0) begin
+			delay1 <= 4'd0;
+			delay2 <= 4'd0;
+		end else begin
+			delay1 <= din;
+			delay2 <= delay1;
+		end
+	end
+
+endmodule
+
+module sub_23_23(
 	input nreset,
 	input clk,
-	input [18:0] dina,
-	input [18:0] dinb,
+	input [22:0] dina,
+	input [22:0] dinb,
 	
-	output reg [18:0] dout
+	output reg [22:0] dout
 );
 
 	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
-			dout <= 18'd0;
+			dout <= 22'd0;
 		end else begin
 			dout <= dina - dinb;
 		end
@@ -314,6 +360,11 @@ module sub_19_19(
 
 endmodule
 
+/**
+ * A module to provide lookup table of exponential (6,2) fixed point number.
+ * Give (9, 31) fixed point number as the result.
+ * Ignore if the input >= 5 or <= 18.
+ */
 module special_exp_lut(
 	input [7:0] din,
 	output [39:0] dout

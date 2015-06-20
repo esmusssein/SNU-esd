@@ -1,10 +1,10 @@
-// megafunction wizard: %ALTMULT_ADD%VBB%
+// megafunction wizard: %ALTMULT_ADD%
 // GENERATION: STANDARD
 // VERSION: WM1.0
 // MODULE: ALTMULT_ADD 
 
 // ============================================================
-// File Name: mult_20_15.v
+// File Name: mult_20_18.v
 // Megafunction Name(s):
 // 			ALTMULT_ADD
 //
@@ -16,6 +16,7 @@
 //
 // 11.0 Build 157 04/27/2011 SJ Web Edition
 // ************************************************************
+
 
 //Copyright (C) 1991-2011 Altera Corporation
 //Your use of Altera Corporation's design tools, logic functions 
@@ -31,7 +32,11 @@
 //Altera or its authorized distributors.  Please refer to the 
 //applicable agreement for further details.
 
-module mult_20_15 (
+
+// synopsys translate_off
+`timescale 1 ps / 1 ps
+// synopsys translate_on
+module mult_20_18 (
 	aclr0,
 	clock0,
 	dataa_0,
@@ -41,18 +46,106 @@ module mult_20_15 (
 	input	  aclr0;
 	input	  clock0;
 	input	[19:0]  dataa_0;
-	input	[14:0]  datab_0;
-	output	[34:0]  result;
+	input	[17:0]  datab_0;
+	output	[37:0]  result;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
 	tri0	  aclr0;
 	tri1	  clock0;
 	tri0	[19:0]  dataa_0;
-	tri0	[14:0]  datab_0;
+	tri0	[17:0]  datab_0;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_on
 `endif
+
+	wire [37:0] sub_wire0;
+	wire [37:0] result = sub_wire0[37:0];
+
+	altmult_add	ALTMULT_ADD_component (
+				.aclr0 (aclr0),
+				.clock0 (clock0),
+				.datab (datab_0),
+				.dataa (dataa_0),
+				.result (sub_wire0),
+				.accum_sload (1'b0),
+				.aclr1 (1'b0),
+				.aclr2 (1'b0),
+				.aclr3 (1'b0),
+				.addnsub1 (1'b1),
+				.addnsub1_round (1'b0),
+				.addnsub3 (1'b1),
+				.addnsub3_round (1'b0),
+				.chainin (1'b0),
+				.chainout_round (1'b0),
+				.chainout_sat_overflow (),
+				.chainout_saturate (1'b0),
+				.clock1 (1'b1),
+				.clock2 (1'b1),
+				.clock3 (1'b1),
+				.coefsel0 ({3{1'b0}}),
+				.coefsel1 ({3{1'b0}}),
+				.coefsel2 ({3{1'b0}}),
+				.coefsel3 ({3{1'b0}}),
+				.datac ({22{1'b0}}),
+				.ena0 (1'b1),
+				.ena1 (1'b1),
+				.ena2 (1'b1),
+				.ena3 (1'b1),
+				.mult01_round (1'b0),
+				.mult01_saturation (1'b0),
+				.mult0_is_saturated (),
+				.mult1_is_saturated (),
+				.mult23_round (1'b0),
+				.mult23_saturation (1'b0),
+				.mult2_is_saturated (),
+				.mult3_is_saturated (),
+				.output_round (1'b0),
+				.output_saturate (1'b0),
+				.overflow (),
+				.rotate (1'b0),
+				.scanina ({20{1'b0}}),
+				.scaninb ({18{1'b0}}),
+				.scanouta (),
+				.scanoutb (),
+				.shift_right (1'b0),
+				.signa (1'b0),
+				.signb (1'b0),
+				.sourcea (1'b0),
+				.sourceb (1'b0),
+				.zero_chainout (1'b0),
+				.zero_loopback (1'b0));
+	defparam
+		ALTMULT_ADD_component.addnsub_multiplier_pipeline_aclr1 = "ACLR0",
+		ALTMULT_ADD_component.addnsub_multiplier_pipeline_register1 = "CLOCK0",
+		ALTMULT_ADD_component.addnsub_multiplier_register1 = "UNREGISTERED",
+		ALTMULT_ADD_component.dedicated_multiplier_circuitry = "NO",
+		ALTMULT_ADD_component.input_register_a0 = "UNREGISTERED",
+		ALTMULT_ADD_component.input_register_b0 = "UNREGISTERED",
+		ALTMULT_ADD_component.input_source_a0 = "DATAA",
+		ALTMULT_ADD_component.input_source_b0 = "DATAB",
+		ALTMULT_ADD_component.intended_device_family = "Cyclone II",
+		ALTMULT_ADD_component.lpm_type = "altmult_add",
+		ALTMULT_ADD_component.multiplier1_direction = "ADD",
+		ALTMULT_ADD_component.multiplier_aclr0 = "ACLR0",
+		ALTMULT_ADD_component.multiplier_register0 = "CLOCK0",
+		ALTMULT_ADD_component.number_of_multipliers = 1,
+		ALTMULT_ADD_component.output_register = "UNREGISTERED",
+		ALTMULT_ADD_component.port_addnsub1 = "PORT_UNUSED",
+		ALTMULT_ADD_component.port_signa = "PORT_UNUSED",
+		ALTMULT_ADD_component.port_signb = "PORT_UNUSED",
+		ALTMULT_ADD_component.representation_a = "SIGNED",
+		ALTMULT_ADD_component.representation_b = "SIGNED",
+		ALTMULT_ADD_component.signed_pipeline_aclr_a = "ACLR0",
+		ALTMULT_ADD_component.signed_pipeline_aclr_b = "ACLR0",
+		ALTMULT_ADD_component.signed_pipeline_register_a = "CLOCK0",
+		ALTMULT_ADD_component.signed_pipeline_register_b = "CLOCK0",
+		ALTMULT_ADD_component.signed_register_a = "UNREGISTERED",
+		ALTMULT_ADD_component.signed_register_b = "UNREGISTERED",
+		ALTMULT_ADD_component.width_a = 20,
+		ALTMULT_ADD_component.width_b = 18,
+		ALTMULT_ADD_component.width_result = 38;
+
 
 endmodule
 
@@ -149,9 +242,9 @@ endmodule
 // Retrieval info: PRIVATE: Q_ACLR_SRC_MULT0 NUMERIC "0"
 // Retrieval info: PRIVATE: Q_CLK_SRC_MULT0 NUMERIC "0"
 // Retrieval info: PRIVATE: REG_OUT NUMERIC "0"
-// Retrieval info: PRIVATE: RNFORMAT STRING "35"
+// Retrieval info: PRIVATE: RNFORMAT STRING "38"
 // Retrieval info: PRIVATE: RQFORMAT STRING "Q1.15"
-// Retrieval info: PRIVATE: RTS_WIDTH STRING "35"
+// Retrieval info: PRIVATE: RTS_WIDTH STRING "38"
 // Retrieval info: PRIVATE: SAME_CONFIG NUMERIC "1"
 // Retrieval info: PRIVATE: SAME_CONTROL_SRC_A0 NUMERIC "1"
 // Retrieval info: PRIVATE: SAME_CONTROL_SRC_B0 NUMERIC "1"
@@ -178,7 +271,7 @@ endmodule
 // Retrieval info: PRIVATE: SRCB0 STRING "Multiplier input"
 // Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 // Retrieval info: PRIVATE: WIDTHA STRING "20"
-// Retrieval info: PRIVATE: WIDTHB STRING "15"
+// Retrieval info: PRIVATE: WIDTHB STRING "18"
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ADDNSUB_MULTIPLIER_PIPELINE_ACLR1 STRING "ACLR0"
 // Retrieval info: CONSTANT: ADDNSUB_MULTIPLIER_PIPELINE_REGISTER1 STRING "CLOCK0"
@@ -207,22 +300,22 @@ endmodule
 // Retrieval info: CONSTANT: SIGNED_REGISTER_A STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: SIGNED_REGISTER_B STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: WIDTH_A NUMERIC "20"
-// Retrieval info: CONSTANT: WIDTH_B NUMERIC "15"
-// Retrieval info: CONSTANT: WIDTH_RESULT NUMERIC "35"
+// Retrieval info: CONSTANT: WIDTH_B NUMERIC "18"
+// Retrieval info: CONSTANT: WIDTH_RESULT NUMERIC "38"
 // Retrieval info: USED_PORT: aclr0 0 0 0 0 INPUT GND "aclr0"
 // Retrieval info: USED_PORT: clock0 0 0 0 0 INPUT VCC "clock0"
 // Retrieval info: USED_PORT: dataa_0 0 0 20 0 INPUT GND "dataa_0[19..0]"
-// Retrieval info: USED_PORT: datab_0 0 0 15 0 INPUT GND "datab_0[14..0]"
-// Retrieval info: USED_PORT: result 0 0 35 0 OUTPUT GND "result[34..0]"
+// Retrieval info: USED_PORT: datab_0 0 0 18 0 INPUT GND "datab_0[17..0]"
+// Retrieval info: USED_PORT: result 0 0 38 0 OUTPUT GND "result[37..0]"
 // Retrieval info: CONNECT: @aclr0 0 0 0 0 aclr0 0 0 0 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock0 0 0 0 0
 // Retrieval info: CONNECT: @dataa 0 0 20 0 dataa_0 0 0 20 0
-// Retrieval info: CONNECT: @datab 0 0 15 0 datab_0 0 0 15 0
-// Retrieval info: CONNECT: result 0 0 35 0 @result 0 0 35 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15.cmp FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15.bsf FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15_inst.v FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15_bb.v TRUE
+// Retrieval info: CONNECT: @datab 0 0 18 0 datab_0 0 0 18 0
+// Retrieval info: CONNECT: result 0 0 38 0 @result 0 0 38 0
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18.inc FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18.cmp FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18.bsf FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18_inst.v FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_18_bb.v TRUE
 // Retrieval info: LIB_FILE: altera_mf
