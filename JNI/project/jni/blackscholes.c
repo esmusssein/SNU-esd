@@ -2,7 +2,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-static const char *dev_name = "/dev/blackscholes";
+#define DEV_NAME "/dev/blackscholes"
+#define FIX12_OFFSET 12
+#define DOUBLE_TO_FIX12(x) ((long)((x) * (1 << FIX12_OFFSET)))
+#define FIX12_TO_DOUBLE(x) (((double)(x)) / (1 << FIX12_OFFSET))
+
+typedef long fix12;
 
 /**
  * Sets constants that will be used in computation into device before it starts
@@ -11,22 +16,22 @@ static const char *dev_name = "/dev/blackscholes";
  * @param K
  * @param const1 A pre-computed value of S*exp((r-0.5*sigma^2)*T).
  * @param const2 A pre-computed value of sigma*sqrt(T).
- * @param const3 A pre-computed value of exp(-r*T).
  * @return 0 if it succeeded.
  */
 jint
 Java_kr_ac_snu_blackscholes_MainActivity_setConstantsIntoDevice(JNIEnv *env,
-    jobject thiz, jfloat K, jfloat const1, jfloat const2, jfloat const3)
+    jobject thiz, jdouble K, jdouble const1, jdouble const2)
 {
 	int fd;
-	fd = open(dev_name, O_WRONLY);
+	fd = open(DEV_NAME, O_WRONLY);
 	if (fd < 0)
         return -1;
-    // TODO: there is a case that failed?
-    write(fd, &K, 4);
-    write(fd, &const1, 4);
-    write(fd, &const2, 4);
-    write(fd, &const3, 4);
+    fix12 fix12_K = DOUBLE_TO_FIX12(K);
+    fix12 fix12_const1 = DOUBLE_TO_FIX12(const1);
+    fix12 fix12_const2 = DOUBLE_TO_FIX12(const2);
+    write(fd, &fix12_K, 8);
+    write(fd, &fix12_const1, 8);
+    write(fd, &fix12_const2, 8);
 	close(fd);
 	return 0;
 }
@@ -43,7 +48,7 @@ Java_kr_ac_snu_blackscholes_MainActivity_commandDevice(JNIEnv *env,
 {
     int fd;
     int result;
-    fd = open(dev_name, O_WRONLY);
+    fd = open(DEV_NAME, O_WRONLY);
     if (fd < 0)
         return -1;
     result = lseek(fd, 0x1000, SEEK_SET);

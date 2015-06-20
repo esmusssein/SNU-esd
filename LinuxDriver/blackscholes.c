@@ -66,7 +66,7 @@ drv_write(struct file *file, const char __user *buf, size_t lbuf, loff_t *ppos)
     int i;
 
     // printk(KERN_INFO"drv_write(): lbuf: %d\n", lbuf);
-    // printk(KERN_INFO"drv_write(): buf: %x, *ppos %d\n", *(unsigned int *)buf, (unsigned int)*ppos);
+    printk(KERN_INFO"drv_write(): buf: %x, *ppos %d\n", *(unsigned int *)buf, (unsigned int)*ppos);
     // printk(KERN_INFO"drv_write(): buf[0]: %x\n", *(unsigned char *)buf);
     // printk(KERN_INFO"drv_write(): buf[1]: %x\n", *(unsigned char *)(buf+1));
     // printk(KERN_INFO"drv_write(): buf[2]: %x\n", *(unsigned char *)(buf+2));

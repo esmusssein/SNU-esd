@@ -30,10 +30,10 @@ public class MainActivity extends Activity {
     private EditText mEditTextIterateNumber;
     private LinearLayout mMessageLayout;
 
-    private HashMap<String, Float> mConstants = new HashMap<>();
+    private HashMap<String, Double> mConstants = new HashMap<>();
     private int mIterateNumber;
 
-    public native int setConstantsIntoDevice(float K, float const1, float const2, float const3);
+    public native int setConstantsIntoDevice(double K, double const1, double const2);
     public native int commandDevice(byte command);
 
     @Override
@@ -67,8 +67,7 @@ public class MainActivity extends Activity {
         result = setConstantsIntoDevice(
             mConstants.get("K"),
             mConstants.get(DEP_CONST_1),
-            mConstants.get(DEP_CONST_2),
-            mConstants.get(DEP_CONST_3)
+            mConstants.get(DEP_CONST_2)
         );
         if (result != 0) {
             addMessageToMessageLayout("An error occurred at setConstantsIntoDevice(). Exit.");
@@ -92,11 +91,11 @@ public class MainActivity extends Activity {
     }
 
     private void setIndependentConstants() {
-        mConstants.put("S", Float.valueOf(mEditTextConstantS.getText().toString()));
-        mConstants.put("K", Float.valueOf(mEditTextConstantK.getText().toString()));
-        mConstants.put("r", Float.valueOf(mEditTextConstantR.getText().toString()));
-        mConstants.put("sigma", Float.valueOf(mEditTextConstantSigma.getText().toString()));
-        mConstants.put("T", Float.valueOf(mEditTextConstantT.getText().toString()));
+        mConstants.put("S", Double.valueOf(mEditTextConstantS.getText().toString()));
+        mConstants.put("K", Double.valueOf(mEditTextConstantK.getText().toString()));
+        mConstants.put("r", Double.valueOf(mEditTextConstantR.getText().toString()));
+        mConstants.put("sigma", Double.valueOf(mEditTextConstantSigma.getText().toString()));
+        mConstants.put("T", Double.valueOf(mEditTextConstantT.getText().toString()));
 
         addMessageToMessageLayout("S: " + mConstants.get("S"));
         addMessageToMessageLayout("K: " + mConstants.get("K"));
@@ -106,14 +105,14 @@ public class MainActivity extends Activity {
     }
 
     private void setDependentConstants() {
-        float S = mConstants.get("S");
-        float r = mConstants.get("r");
-        float sigma = mConstants.get("sigma");
-        float T = mConstants.get("T");
+        double S = mConstants.get("S");
+        double r = mConstants.get("r");
+        double sigma = mConstants.get("sigma");
+        double T = mConstants.get("T");
 
-        mConstants.put(DEP_CONST_1, (float)(S*Math.exp((r - 0.5*Math.pow(sigma, 2))*T)));
-        mConstants.put(DEP_CONST_2, (float)(sigma*Math.sqrt(T)));
-        mConstants.put(DEP_CONST_3, (float)(Math.exp(-r*T)));
+        mConstants.put(DEP_CONST_1, S*Math.exp((r - 0.5*Math.pow(sigma, 2))*T));
+        mConstants.put(DEP_CONST_2, sigma*Math.sqrt(T));
+        mConstants.put(DEP_CONST_3, Math.exp(-r*T));
 
         addMessageToMessageLayout("Dependent constant1: " + mConstants.get(DEP_CONST_1));
         addMessageToMessageLayout("Dependent constant2: " + mConstants.get(DEP_CONST_2));

@@ -1,24 +1,22 @@
 #include <stdio.h>
 
-typedef int fix16;
+typedef long fix12;
 
-#define FRACT_OFFSET 14
-#define FLOAT2FIXED(x) ((int)((x) * (1 << FRACT_OFFSET)))
-#define FIXED2FLOAT(x) (((float)(x)) / (1 << FRACT_OFFSET))
+#define FIX12_OFFSET 12
+#define DOUBLE_TO_FIX12(x) ((long)((x) * (1 << FIX12_OFFSET)))
+#define FIX12_TO_DOUBLE(x) (((double)(x)) / (1 << FIX12_OFFSET))
 
-char gbuf[sizeof(float)];
-
-char *float2bytes(float f) {
-    memcpy(gbuf, &f, sizeof(float));
-    return gbuf;
+char *double2bytes(double f, char *buf) {
+    memcpy(buf, &f, sizeof(double));
+    return buf;
 }
 
 int main() {
-    char buf[sizeof(float)];
+    char buf[sizeof(double)];
     // Test.
-    float fp = 3.1622777;
-    fix16 fx = FLOAT2FIXED(fp);
-    printf("fp %x fx %x fxconv %x\n", *(int *)float2bytes(fp), fx, *(int *)float2bytes(FIXED2FLOAT(fx)));
+    double orig = 50.0;
+    fix12 fx = DOUBLE_TO_FIX12(orig);
+    printf("orig %16x, fix12 %16x, converted orig %16x\n", *(long *)double2bytes(orig, buf), fx, *(long *)double2bytes(FIX12_TO_DOUBLE(fx), buf));
 
     return 0;
 }
