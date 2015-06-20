@@ -1367,7 +1367,7 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 264 144))
 	)
-	(annotation_block (parameter)(rect 704 168 888 256))
+	(annotation_block (parameter)(rect 744 168 928 256))
 )
 (connector
 	(text "FPGA_nCS" (rect 104 -96 160 -84)(font "Arial" ))
