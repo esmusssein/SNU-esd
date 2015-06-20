@@ -1,5 +1,5 @@
 Flow report for M3
-Sat Jun 20 22:24:38 2015
+Sat Jun 20 22:32:31 2015
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Sat Jun 20 22:24:38 2015    ;
+; Flow Status                        ; Successful - Sat Jun 20 22:32:31 2015    ;
 ; Quartus II Version                 ; 11.0 Build 157 04/27/2011 SJ Web Edition ;
 ; Revision Name                      ; M3                                       ;
 ; Top-level Entity Name              ; M3                                       ;
 ; Family                             ; Cyclone II                               ;
 ; Device                             ; EP2C8F256C8                              ;
 ; Timing Models                      ; Final                                    ;
-; Total logic elements               ; 5,275 / 8,256 ( 64 % )                   ;
-;     Total combinational functions  ; 5,148 / 8,256 ( 62 % )                   ;
-;     Dedicated logic registers      ; 419 / 8,256 ( 5 % )                      ;
-; Total registers                    ; 419                                      ;
+; Total logic elements               ; 5,974 / 8,256 ( 72 % )                   ;
+;     Total combinational functions  ; 5,859 / 8,256 ( 71 % )                   ;
+;     Dedicated logic registers      ; 420 / 8,256 ( 5 % )                      ;
+; Total registers                    ; 420                                      ;
 ; Total pins                         ; 179 / 182 ( 98 % )                       ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 0 / 165,888 ( 0 % )                      ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/20/2015 22:23:39 ;
+; Start date & time ; 06/20/2015 22:31:22 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; M3                  ;
 +-------------------+---------------------+
@@ -73,12 +73,14 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 233916159102965.143480661907564       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 233916159102965.143480708207408       ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --             ;
 ; IP_TOOL_NAME                        ; ALTMULT_ADD                           ; --            ; --          ; --             ;
 ; IP_TOOL_NAME                        ; ALTMULT_ADD                           ; --            ; --          ; --             ;
 ; IP_TOOL_NAME                        ; ALTMULT_ADD                           ; --            ; --          ; --             ;
+; IP_TOOL_NAME                        ; ALTMULT_ADD                           ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
 ; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
 ; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
 ; IP_TOOL_VERSION                     ; 11.0                                  ; --            ; --          ; --             ;
@@ -87,6 +89,7 @@ applicable agreement for further details.
 ; MISC_FILE                           ; BS_processor/mult_20_18_bb.v          ; --            ; --          ; --             ;
 ; MISC_FILE                           ; BS_processor/mult_40_17_bb.v          ; --            ; --          ; --             ;
 ; MISC_FILE                           ; BS_processor/mult_57_38_bb.v          ; --            ; --          ; --             ;
+; MISC_FILE                           ; BS_processor/mult_23_23_bb.v          ; --            ; --          ; --             ;
 ; PARTITION_COLOR                     ; 16764057                              ; --            ; --          ; Top            ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top            ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; --          ; Top            ;
@@ -102,12 +105,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:25     ; 1.0                     ; 319 MB              ; 00:00:25                           ;
-; Fitter                    ; 00:00:26     ; 1.0                     ; 340 MB              ; 00:00:26                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 259 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 278 MB              ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 250 MB              ; 00:00:02                           ;
-; Total                     ; 00:00:56     ; --                      ; --                  ; 00:00:56                           ;
+; Analysis & Synthesis      ; 00:00:28     ; 1.0                     ; 325 MB              ; 00:00:28                           ;
+; Fitter                    ; 00:00:32     ; 1.0                     ; 349 MB              ; 00:00:32                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 260 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 280 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 257 MB              ; 00:00:03                           ;
+; Total                     ; 00:01:06     ; --                      ; --                  ; 00:01:06                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -75,14 +75,14 @@ module processor(
 	wire [94:0] const1_mult_dout;			// (34, 61)
 	wire [22:0] sub_from_k_din;			// (8, 15)
 	wire [22:0] sub_from_k_dout;			// (8, 15)
+	wire [22:0] pow_din;						// (8, 15)
+	wire [45:0] pow_dout;					// (16, 30)
 	
 	assign status = state;
 	// Multiply const2 and grn.
 	assign const2_mult_din = pseudo_grn[19:0];
 	// Demux from integer part of const2_mult_dout. If < -19 outputs 2, else if < 5 outputs 1, else outputs 0.
 	assign delay_2_cycle_din = ($signed(const2_mult_dout[34:27]) < -19) ? 4'd2 : ($signed(const2_mult_dout[34:27]) < 5) ? 4'd1: 4'd0;
-	// For testing. Below works!
-	//assign delay_2_cycle_din = $signed(6'b010000) < -18 ? 4'd2 : $signed(6'b010000) < 5 ? 4'd1: 4'd0;
 	// Lookup an exponential lut specialized for this application by (6, 2) of const2_mult_dout.
 	assign special_exp_lut_din = const2_mult_dout[35:28];
 	// Mutiply the result of exp lut and (1 + rest of bits of const2_mult_dout) to get appromixation of exp.
@@ -92,9 +92,10 @@ module processor(
 	assign const1_mult_din = mult_for_exp_dout[56:0];
 	// Determine an operand to subtract to constK. If it is expected too small by the Demux above, set 0. Else if it is too large or larger than K, set K.
 	assign sub_from_k_din = (delay_2_cycle_dout == 4'd2) ? 0 : (delay_2_cycle_dout == 4'd0 || $signed(s_constK[22:0]) < $signed(const1_mult_dout[94:46])) ? s_constK[22:0] : const1_mult_dout[68:46];
+	assign pow_din = sub_from_k_din;
 	// For testing.
 	//assign sum_dout = {const2_mult_dout[37:15], delay_2_cycle_dout};
-	assign sum_dout = {sub_from_k_dout};
+	assign sum_dout = pow_dout[45:15];
 	
 	/**
 	 *
@@ -306,13 +307,13 @@ module processor(
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	/*mult_20_20 pow(
+	mult_23_23 pow(
 		.aclr0(~nreset),
 		.clock0(clk),
 		.dataa_0(pow_din),
 		.datab_0(pow_din),
 		.result(pow_dout)
-	);*/
+	);
 	
 endmodule
 
