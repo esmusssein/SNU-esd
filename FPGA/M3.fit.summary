@@ -1,14 +1,14 @@
-Fitter Status : Successful - Sun Jun 21 03:00:24 2015
+Fitter Status : Successful - Sun Jun 21 03:49:26 2015
 Quartus II Version : 11.0 Build 157 04/27/2011 SJ Web Edition
 Revision Name : M3
 Top-level Entity Name : M3
 Family : Cyclone II
 Device : EP2C8F256C8
 Timing Models : Final
-Total logic elements : 5,361 / 8,256 ( 65 % )
-    Total combinational functions : 5,307 / 8,256 ( 64 % )
-    Dedicated logic registers : 237 / 8,256 ( 3 % )
-Total registers : 237
+Total logic elements : 5,438 / 8,256 ( 66 % )
+    Total combinational functions : 5,354 / 8,256 ( 65 % )
+    Dedicated logic registers : 302 / 8,256 ( 4 % )
+Total registers : 302
 Total pins : 179 / 182 ( 98 % )
 Total virtual pins : 0
 Total memory bits : 0 / 165,888 ( 0 % )

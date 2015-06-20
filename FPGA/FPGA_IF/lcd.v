@@ -1,4 +1,4 @@
-module lcd_demo (clk, rst, cnt_1, cnt_10, sec_1, sec_10, min_1, min_10, hour_1, hour_10, lcd_e, lcd_rs, lcd_rw, lcd_data);
+module lcd_demo (clk, rst, cnt_1, cnt_10, sec_1, sec_10, min_1, min_10, hour_1, hour_10, lcd_e, lcd_rs, lcd_rw, lcd_data, SRAM_DATA);
 	parameter CNT_MAX = 4;
 	localparam CNT_CLK_HALF = CNT_MAX-1;
 	parameter LCD_CHAR = 16;
@@ -14,6 +14,8 @@ module lcd_demo (clk, rst, cnt_1, cnt_10, sec_1, sec_10, min_1, min_10, hour_1, 
 		
 	input clk, rst;
 	input [7:0] cnt_1, cnt_10, sec_1, sec_10, min_1, min_10, hour_1, hour_10;
+	
+	input [15:0] SRAM_DATA;
 	
 	output reg lcd_e, lcd_rs;
 	output lcd_rw;
@@ -42,12 +44,12 @@ module lcd_demo (clk, rst, cnt_1, cnt_10, sec_1, sec_10, min_1, min_10, hour_1, 
 	assign reg_lcd_data1[8]  = "1";
 	assign reg_lcd_data1[9]  = "4";
 	assign reg_lcd_data1[10] = " ";
-	assign reg_lcd_data1[11] = "S";
-	assign reg_lcd_data1[12] = "P";
-	assign reg_lcd_data1[13] = "R";
-	assign reg_lcd_data1[14] = "I";
-	assign reg_lcd_data1[15] = "N";
-	assign reg_lcd_data1[16] = "G";
+	assign reg_lcd_data1[11] = " ";
+	assign reg_lcd_data1[12] = " ";
+	assign reg_lcd_data1[13] = " ";
+	assign reg_lcd_data1[14] = " ";
+	assign reg_lcd_data1[15] = SRAM_DATA[15:8];
+	assign reg_lcd_data1[16] = SRAM_DATA[7:0];
 	
 	assign reg_lcd_data2[0]  = 8'b11000000;
 	assign reg_lcd_data2[1]  = "T";

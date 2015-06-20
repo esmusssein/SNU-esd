@@ -145,14 +145,14 @@ module host_itf (
 
 			if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1 && HOST_ADD[20:0] == 1'b1) begin
 
-				SRAM_DATA 	<= 16'bzzzz_zzzz_zzzz_zzzz ;
-
 				if (SRAM_nCS == 0 && SRAM_nWE == 0 && SRAM_nOE == 1) begin
-
+					
+					SRAM_DATA 	<= 16'bzzzz_zzzz_zzzz_zzzz ;
+					
 					if (cnt == 2**15) begin
-						SRAM_nCS <= 1 ;
+						SRAM_nCS <= 0 ;
 						SRAM_nWE <= 1 ;
-						SRAM_nOE <= 1 ;
+						SRAM_nOE <= 0 ;
 						/* 
 							host_selection <= 1;
 						*/
@@ -162,9 +162,15 @@ module host_itf (
 						SRAM_ADDR <= HOST_ADD[17:0];
 								
 					end
-						
+				
 					cnt = cnt + 1;
+					
+				end else if (SRAM_nCS == 0 && SRAM_nWE == 1 && SRAM_nOE == 0) begin
+				
+					SRAM_ADDR <= HOST_ADD[17:0];
+				
 				end
+				
 			end
 		end
 	end

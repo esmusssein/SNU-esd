@@ -135,43 +135,43 @@ set_location_assignment PIN_J15 -to XM0OEN
 set_location_assignment PIN_H16 -to XM0WEN
 set_location_assignment PIN_H15 -to XnRESET
 set_location_assignment PIN_R7 -to nFPGA_RESET
-set_location_assignment PIN_C1 -to SRAM_ADDR[0] -disable
-set_location_assignment PIN_D1 -to SRAM_ADDR[1] -disable
-set_location_assignment PIN_D3 -to SRAM_ADDR[2] -disable
-set_location_assignment PIN_D5 -to SRAM_ADDR[3] -disable
-set_location_assignment PIN_E1 -to SRAM_ADDR[4] -disable
-set_location_assignment PIN_M2 -to SRAM_ADDR[5] -disable
-set_location_assignment PIN_M4 -to SRAM_ADDR[6] -disable
-set_location_assignment PIN_N2 -to SRAM_ADDR[7] -disable
-set_location_assignment PIN_N4 -to SRAM_ADDR[8] -disable
-set_location_assignment PIN_P2 -to SRAM_ADDR[9] -disable
-set_location_assignment PIN_P3 -to SRAM_ADDR[10] -disable
-set_location_assignment PIN_P1 -to SRAM_ADDR[11] -disable
-set_location_assignment PIN_N3 -to SRAM_ADDR[12] -disable
-set_location_assignment PIN_N1 -to SRAM_ADDR[13] -disable
-set_location_assignment PIN_M3 -to SRAM_ADDR[14] -disable
-set_location_assignment PIN_D4 -to SRAM_ADDR[15] -disable
-set_location_assignment PIN_D2 -to SRAM_ADDR[16] -disable
-set_location_assignment PIN_C2 -to SRAM_ADDR[17] -disable
-set_location_assignment PIN_E4 -to SRAM_DATA[0] -disable
-set_location_assignment PIN_E5 -to SRAM_DATA[1] -disable
-set_location_assignment PIN_F5 -to SRAM_DATA[2] -disable
-set_location_assignment PIN_H6 -to SRAM_DATA[3] -disable
-set_location_assignment PIN_J6 -to SRAM_DATA[4] -disable
-set_location_assignment PIN_K2 -to SRAM_DATA[5] -disable
-set_location_assignment PIN_K5 -to SRAM_DATA[6] -disable
-set_location_assignment PIN_L2 -to SRAM_DATA[7] -disable
-set_location_assignment PIN_M1 -to SRAM_DATA[8] -disable
-set_location_assignment PIN_L3 -to SRAM_DATA[9] -disable
-set_location_assignment PIN_L1 -to SRAM_DATA[10] -disable
-set_location_assignment PIN_K4 -to SRAM_DATA[11] -disable
-set_location_assignment PIN_K1 -to SRAM_DATA[12] -disable
-set_location_assignment PIN_J4 -to SRAM_DATA[13] -disable
-set_location_assignment PIN_G4 -to SRAM_DATA[14] -disable
-set_location_assignment PIN_F3 -to SRAM_DATA[15] -disable
-set_location_assignment PIN_E3 -to SRAM_nOE -disable
-set_location_assignment PIN_L4 -to SRAM_nWE -disable
-set_location_assignment PIN_E2 -to SRAM_nCS -disable
+set_location_assignment PIN_C1 -to SRAM_ADDR[0]
+set_location_assignment PIN_D1 -to SRAM_ADDR[1]
+set_location_assignment PIN_D3 -to SRAM_ADDR[2]
+set_location_assignment PIN_D5 -to SRAM_ADDR[3]
+set_location_assignment PIN_E1 -to SRAM_ADDR[4]
+set_location_assignment PIN_M2 -to SRAM_ADDR[5]
+set_location_assignment PIN_M4 -to SRAM_ADDR[6]
+set_location_assignment PIN_N2 -to SRAM_ADDR[7]
+set_location_assignment PIN_N4 -to SRAM_ADDR[8]
+set_location_assignment PIN_P2 -to SRAM_ADDR[9]
+set_location_assignment PIN_P3 -to SRAM_ADDR[10]
+set_location_assignment PIN_P1 -to SRAM_ADDR[11]
+set_location_assignment PIN_N3 -to SRAM_ADDR[12]
+set_location_assignment PIN_N1 -to SRAM_ADDR[13]
+set_location_assignment PIN_M3 -to SRAM_ADDR[14]
+set_location_assignment PIN_D4 -to SRAM_ADDR[15]
+set_location_assignment PIN_D2 -to SRAM_ADDR[16]
+set_location_assignment PIN_C2 -to SRAM_ADDR[17]
+set_location_assignment PIN_E4 -to SRAM_DATA[0]
+set_location_assignment PIN_E5 -to SRAM_DATA[1]
+set_location_assignment PIN_F5 -to SRAM_DATA[2]
+set_location_assignment PIN_H6 -to SRAM_DATA[3]
+set_location_assignment PIN_J6 -to SRAM_DATA[4]
+set_location_assignment PIN_K2 -to SRAM_DATA[5]
+set_location_assignment PIN_K5 -to SRAM_DATA[6]
+set_location_assignment PIN_L2 -to SRAM_DATA[7]
+set_location_assignment PIN_M1 -to SRAM_DATA[8]
+set_location_assignment PIN_L3 -to SRAM_DATA[9]
+set_location_assignment PIN_L1 -to SRAM_DATA[10]
+set_location_assignment PIN_K4 -to SRAM_DATA[11]
+set_location_assignment PIN_K1 -to SRAM_DATA[12]
+set_location_assignment PIN_J4 -to SRAM_DATA[13]
+set_location_assignment PIN_G4 -to SRAM_DATA[14]
+set_location_assignment PIN_F3 -to SRAM_DATA[15]
+set_location_assignment PIN_E3 -to SRAM_nOE
+set_location_assignment PIN_L4 -to SRAM_nWE
+set_location_assignment PIN_E2 -to SRAM_nCS
 set_location_assignment PIN_T14 -to CPLD_0
 set_location_assignment PIN_R14 -to CPLD_1 -disable
 set_location_assignment PIN_J16 -to CPLD_8 -disable
