@@ -252,6 +252,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -128 16 -72 32))
 )
 (pin
 	(input)
@@ -1208,12 +1209,12 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 264 144))
 	)
-	(annotation_block (parameter)(rect 704 168 888 256))
+	(annotation_block (parameter)(rect 624 240 808 328))
 )
 (symbol
 	(rect 408 -24 728 200)
 	(text "host_itf" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst1" (rect 8 208 31 220)(font "Arial" ))
+	(text "inst2" (rect 8 208 31 220)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -1355,6 +1356,11 @@ applicable agreement for further details.
 		(line (pt 320 160)(pt 304 160)(line_width 3))
 	)
 	(parameter
+		"PROC_STATUS_COMPLETE"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
 		"CLK_CNT_FOR_ONE_SEC"
 		"49999999"
 		""
@@ -1367,7 +1373,7 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 304 208))
 	)
-	(annotation_block (parameter)(rect 728 -72 1040 -24))
+	(annotation_block (parameter)(rect 728 -80 1040 -24))
 )
 (connector
 	(text "FPGA_nCS" (rect 104 -96 160 -84)(font "Arial" ))

@@ -164,6 +164,11 @@ applicable agreement for further details.
 		(line (pt 320 160)(pt 304 160)(line_width 3))
 	)
 	(parameter
+		"PROC_STATUS_COMPLETE"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
 		"CLK_CNT_FOR_ONE_SEC"
 		"49999999"
 		""
