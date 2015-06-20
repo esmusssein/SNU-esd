@@ -55,7 +55,7 @@ module host_itf (
 	assign constK = {x8800_0006, x8800_0004, x8800_0002, x8800_0000};
 	assign const1 = {x8800_000E, x8800_000C, x8800_000A, x8800_0008};
 	assign const2 = {x8800_0016, x8800_0014, x8800_0012, x8800_0010};
-	assign niter = 32'd10000000;	// To testing.
+	assign niter = {x8800_0020, x8800_0018};
 	assign proc_cmd = x8800_1000[3:0];
 	
    /**
@@ -90,7 +90,7 @@ module host_itf (
 			x8800_002E <= 16'd0;
 			x8800_1000 <= 16'd0;
 		end else begin
-			if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1) begin
+			if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1 && HOST_ADD[20:0] == 1'b0) begin
 				case (HOST_ADD[19:0])
 					20'h00000: x8800_0000 <= HDI;
 					20'h00002: x8800_0002 <= HDI;
@@ -118,6 +118,17 @@ module host_itf (
 					20'h0002E: x8800_002E <= HDI;
 					20'h01000: x8800_1000 <= HDI;
 				endcase
+			end
+		end
+	end
+	
+	/**
+	 * TODO: set SRAM control signal.
+	 */
+	always @(posedge clk or negedge nRESET) begin
+		if (nRESET == 1'b0) begin
+		end else begin
+			if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1 && HOST_ADD[20:0] == 1'b1) begin
 			end
 		end
 	end
