@@ -2,7 +2,7 @@ module xis (
 	input		[7:0] data_in,
 	output 	[31:0] data_out2
 );
-	reg [31:0] data_out;
+	reg [31:0] data_out = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 	
 	assign data_out2 = data_out;
 	
@@ -33,7 +33,7 @@ module yis (
 	input		[7:0] data_in,
 	output 	[31:0] data_out2
 );
-	reg [31:0] data_out;
+	reg [31:0] data_out = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
 	
 	assign data_out2 = data_out;
 	

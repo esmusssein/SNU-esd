@@ -1,5 +1,5 @@
 Analysis & Synthesis report for M3
-Sat Jun 20 17:55:32 2015
+Sat Jun 20 18:19:29 2015
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -19,9 +19,8 @@ Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
  11. General Register Statistics
  12. Parameter Settings for User Entity Instance: host_itf:inst3
  13. Parameter Settings for User Entity Instance: processor:inst2
- 14. Parameter Settings for Inferred Entity Instance: host_itf:inst3|lpm_divide:Mod0
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -47,15 +46,15 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 20 17:55:32 2015    ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 20 18:19:29 2015    ;
 ; Quartus II Version                 ; 11.0 Build 157 04/27/2011 SJ Web Edition ;
 ; Revision Name                      ; M3                                       ;
 ; Top-level Entity Name              ; M3                                       ;
 ; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 978                                      ;
-;     Total combinational functions  ; 971                                      ;
-;     Dedicated logic registers      ; 50                                       ;
-; Total registers                    ; 50                                       ;
+; Total logic elements               ; 3                                        ;
+;     Total combinational functions  ; 1                                        ;
+;     Dedicated logic registers      ; 2                                        ;
+; Total registers                    ; 2                                        ;
 ; Total pins                         ; 179                                      ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 0                                        ;
@@ -168,63 +167,46 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; FPGA_IF/data_CONT.v              ; yes             ; User Verilog HDL File              ; C:/Users/Administrator/Desktop/SNU_ESD/FPGA/FPGA_IF/data_CONT.v      ;
 ; Host_IF/host_io.v                ; yes             ; User Verilog HDL File              ; C:/Users/Administrator/Desktop/SNU_ESD/FPGA/Host_IF/host_io.v        ;
 ; Host_IF/host_itf.v               ; yes             ; User Verilog HDL File              ; C:/Users/Administrator/Desktop/SNU_ESD/FPGA/Host_IF/host_itf.v       ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/lpm_divide.tdf        ;
-; abs_divider.inc                  ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/abs_divider.inc       ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/sign_div_unsign.inc   ;
-; aglobal110.inc                   ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/aglobal110.inc        ;
-; db/lpm_divide_slo.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/Administrator/Desktop/SNU_ESD/FPGA/db/lpm_divide_slo.tdf    ;
-; db/abs_divider_6dg.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/Administrator/Desktop/SNU_ESD/FPGA/db/abs_divider_6dg.tdf   ;
-; db/alt_u_div_o5f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/Administrator/Desktop/SNU_ESD/FPGA/db/alt_u_div_o5f.tdf     ;
-; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/Administrator/Desktop/SNU_ESD/FPGA/db/add_sub_lkc.tdf       ;
-; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/Administrator/Desktop/SNU_ESD/FPGA/db/add_sub_mkc.tdf       ;
-; db/lpm_abs_2s9.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/Administrator/Desktop/SNU_ESD/FPGA/db/lpm_abs_2s9.tdf       ;
-; db/lpm_abs_0s9.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/Administrator/Desktop/SNU_ESD/FPGA/db/lpm_abs_0s9.tdf       ;
 +----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                          ;
-+---------------------------------------------+------------------------+
-; Resource                                    ; Usage                  ;
-+---------------------------------------------+------------------------+
-; Estimated Total logic elements              ; 978                    ;
-;                                             ;                        ;
-; Total combinational functions               ; 971                    ;
-; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 270                    ;
-;     -- 3 input functions                    ; 312                    ;
-;     -- <=2 input functions                  ; 389                    ;
-;                                             ;                        ;
-; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 645                    ;
-;     -- arithmetic mode                      ; 326                    ;
-;                                             ;                        ;
-; Total registers                             ; 50                     ;
-;     -- Dedicated logic registers            ; 50                     ;
-;     -- I/O registers                        ; 0                      ;
-;                                             ;                        ;
-; I/O pins                                    ; 179                    ;
-; Maximum fan-out node                        ; host_itf:inst3|Add0~62 ;
-; Maximum fan-out                             ; 54                     ;
-; Total fan-out                               ; 2930                   ;
-; Average fan-out                             ; 2.44                   ;
-+---------------------------------------------+------------------------+
++-------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                             ;
++---------------------------------------------+---------------------------+
+; Resource                                    ; Usage                     ;
++---------------------------------------------+---------------------------+
+; Estimated Total logic elements              ; 3                         ;
+;                                             ;                           ;
+; Total combinational functions               ; 1                         ;
+; Logic element usage by number of LUT inputs ;                           ;
+;     -- 4 input functions                    ; 0                         ;
+;     -- 3 input functions                    ; 1                         ;
+;     -- <=2 input functions                  ; 0                         ;
+;                                             ;                           ;
+; Logic elements by mode                      ;                           ;
+;     -- normal mode                          ; 1                         ;
+;     -- arithmetic mode                      ; 0                         ;
+;                                             ;                           ;
+; Total registers                             ; 2                         ;
+;     -- Dedicated logic registers            ; 2                         ;
+;     -- I/O registers                        ; 0                         ;
+;                                             ;                           ;
+; I/O pins                                    ; 179                       ;
+; Maximum fan-out node                        ; host_io:inst|Hdata[15]~16 ;
+; Maximum fan-out                             ; 16                        ;
+; Total fan-out                               ; 23                        ;
+; Average fan-out                             ; 0.13                      ;
++---------------------------------------------+---------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                   ;
-+------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Library Name ;
-+------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
-; |M3                                      ; 971 (0)           ; 50 (0)       ; 0           ; 0            ; 0       ; 0         ; 179  ; 0            ; |M3                                                                                                             ;              ;
-;    |host_io:inst|                        ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_io:inst                                                                                                ;              ;
-;    |host_itf:inst3|                      ; 970 (90)          ; 48 (48)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst3                                                                                              ;              ;
-;       |lpm_divide:Mod0|                  ; 880 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst3|lpm_divide:Mod0                                                                              ;              ;
-;          |lpm_divide_slo:auto_generated| ; 880 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst3|lpm_divide:Mod0|lpm_divide_slo:auto_generated                                                ;              ;
-;             |abs_divider_6dg:divider|    ; 880 (21)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst3|lpm_divide:Mod0|lpm_divide_slo:auto_generated|abs_divider_6dg:divider                        ;              ;
-;                |alt_u_div_o5f:divider|   ; 827 (827)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst3|lpm_divide:Mod0|lpm_divide_slo:auto_generated|abs_divider_6dg:divider|alt_u_div_o5f:divider  ;              ;
-;                |lpm_abs_0s9:my_abs_num|  ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst3|lpm_divide:Mod0|lpm_divide_slo:auto_generated|abs_divider_6dg:divider|lpm_abs_0s9:my_abs_num ;              ;
-+------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |M3                        ; 1 (0)             ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 179  ; 0            ; |M3                 ;              ;
+;    |host_io:inst|          ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_io:inst    ;              ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -240,39 +222,53 @@ Encoding Type:  One-Hot
 +----------------+------------+----------------+---------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; host_itf:inst3|HDO[0..15]              ; Stuck at GND due to stuck port data_in ;
-; host_itf:inst3|SEG_DATA[0]             ; Stuck at GND due to stuck port data_in ;
-; processor:inst2|acc_dout[8..31]        ; Stuck at GND due to stuck port data_in ;
-; host_itf:inst3|SEG_DATA[1]             ; Stuck at GND due to stuck port data_in ;
-; processor:inst2|state~6                ; Lost fanout                            ;
-; processor:inst2|state~7                ; Lost fanout                            ;
-; host_itf:inst3|x8800_1000[0..3]        ; Lost fanout                            ;
-; processor:inst2|cnt_clk[0..31]         ; Lost fanout                            ;
-; host_io:inst|Hdi[0..3]                 ; Lost fanout                            ;
-; processor:inst2|state.RUNNING          ; Lost fanout                            ;
-; processor:inst2|state.COMPLETE         ; Lost fanout                            ;
-; processor:inst2|state.IDLE             ; Lost fanout                            ;
-; Total Number of Removed Registers = 87 ;                                        ;
-+----------------------------------------+----------------------------------------+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; host_itf:inst3|HDO[0..15]               ; Stuck at GND due to stuck port data_in ;
+; host_itf:inst3|SEG_DATA[0]              ; Stuck at GND due to stuck port data_in ;
+; host_itf:inst3|SEG_COM[0..5]            ; Lost fanout                            ;
+; host_itf:inst3|SEG_DATA[1..7]           ; Lost fanout                            ;
+; processor:inst2|acc_dout[8..31]         ; Lost fanout                            ;
+; host_itf:inst3|my_clk_cnt[0..31]        ; Lost fanout                            ;
+; host_itf:inst3|cnt_segcon[0]            ; Lost fanout                            ;
+; host_itf:inst3|seg_clk                  ; Lost fanout                            ;
+; host_itf:inst3|cnt_segcon[1,2]          ; Lost fanout                            ;
+; processor:inst2|state~6                 ; Lost fanout                            ;
+; processor:inst2|state~7                 ; Lost fanout                            ;
+; host_itf:inst3|x8800_1000[0..3]         ; Lost fanout                            ;
+; processor:inst2|cnt_clk[0..31]          ; Lost fanout                            ;
+; host_io:inst|Hdi[0..3]                  ; Lost fanout                            ;
+; processor:inst2|state.RUNNING           ; Lost fanout                            ;
+; processor:inst2|state.COMPLETE          ; Lost fanout                            ;
+; processor:inst2|state.IDLE              ; Lost fanout                            ;
+; Total Number of Removed Registers = 135 ;                                        ;
++-----------------------------------------+----------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                       ;
-+------------------------------+---------------------------+----------------------------------------+
-; Register name                ; Reason for Removal        ; Registers Removed due to This Register ;
-+------------------------------+---------------------------+----------------------------------------+
-; processor:inst2|acc_dout[31] ; Stuck at GND              ; host_itf:inst3|SEG_DATA[1]             ;
-;                              ; due to stuck port data_in ;                                        ;
-; host_itf:inst3|x8800_1000[3] ; Lost Fanouts              ; host_io:inst|Hdi[3]                    ;
-; host_itf:inst3|x8800_1000[2] ; Lost Fanouts              ; host_io:inst|Hdi[2]                    ;
-; host_itf:inst3|x8800_1000[1] ; Lost Fanouts              ; host_io:inst|Hdi[1]                    ;
-; host_itf:inst3|x8800_1000[0] ; Lost Fanouts              ; host_io:inst|Hdi[0]                    ;
-+------------------------------+---------------------------+----------------------------------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                            ;
++------------------------------+---------------------------+-------------------------------------------------------------+
+; Register name                ; Reason for Removal        ; Registers Removed due to This Register                      ;
++------------------------------+---------------------------+-------------------------------------------------------------+
+; host_itf:inst3|SEG_DATA[7]   ; Lost Fanouts              ; processor:inst2|acc_dout[27], processor:inst2|acc_dout[23], ;
+;                              ;                           ; processor:inst2|acc_dout[22], processor:inst2|acc_dout[19], ;
+;                              ;                           ; processor:inst2|acc_dout[18], processor:inst2|acc_dout[17], ;
+;                              ;                           ; processor:inst2|acc_dout[15], processor:inst2|acc_dout[14], ;
+;                              ;                           ; processor:inst2|acc_dout[13], processor:inst2|acc_dout[12], ;
+;                              ;                           ; processor:inst2|acc_dout[11], processor:inst2|acc_dout[10], ;
+;                              ;                           ; processor:inst2|acc_dout[9], processor:inst2|acc_dout[8]    ;
+; host_itf:inst3|SEG_COM[5]    ; Lost Fanouts              ; host_itf:inst3|cnt_segcon[0], host_itf:inst3|cnt_segcon[2], ;
+;                              ;                           ; host_itf:inst3|cnt_segcon[1]                                ;
+; host_itf:inst3|SEG_DATA[0]   ; Stuck at GND              ; host_itf:inst3|seg_clk                                      ;
+;                              ; due to stuck port data_in ;                                                             ;
+; host_itf:inst3|x8800_1000[3] ; Lost Fanouts              ; host_io:inst|Hdi[3]                                         ;
+; host_itf:inst3|x8800_1000[2] ; Lost Fanouts              ; host_io:inst|Hdi[2]                                         ;
+; host_itf:inst3|x8800_1000[1] ; Lost Fanouts              ; host_io:inst|Hdi[1]                                         ;
+; host_itf:inst3|x8800_1000[0] ; Lost Fanouts              ; host_io:inst|Hdi[0]                                         ;
++------------------------------+---------------------------+-------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -280,12 +276,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 50    ;
+; Total registers                              ; 2     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 45    ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 3     ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -314,35 +310,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: host_itf:inst3|lpm_divide:Mod0 ;
-+------------------------+----------------+---------------------------------------+
-; Parameter Name         ; Value          ; Type                                  ;
-+------------------------+----------------+---------------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                               ;
-; LPM_WIDTHD             ; 16             ; Untyped                               ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                               ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                               ;
-; LPM_PIPELINE           ; 0              ; Untyped                               ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                               ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                               ;
-; CBXI_PARAMETER         ; lpm_divide_slo ; Untyped                               ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                               ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                               ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                            ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                          ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                          ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                        ;
-+------------------------+----------------+---------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -352,7 +325,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 11.0 Build 157 04/27/2011 SJ Web Edition
-    Info: Processing started: Sat Jun 20 17:55:22 2015
+    Info: Processing started: Sat Jun 20 18:19:27 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off M3 -c M3
 Warning: Parallel compilation is not licensed and has been disabled
 Info: Found 1 design units, including 1 entities, in source file fpga_if/ziggurat.v
@@ -460,18 +433,17 @@ Info: Found 14 design units, including 14 entities, in source file bs_processor/
     Info: Found entity 13: fx_fp_conv_altfp_convert_u5o
     Info: Found entity 14: fx_fp_conv
 Info: Found 1 design units, including 1 entities, in source file fpga_if/lsfr.v
-    Info: Found entity 1: lsfr
+    Info: Found entity 1: LSFR
 Info: Found 1 design units, including 1 entities, in source file bs_processor/multi_1818.v
     Info: Found entity 1: multi_1818
 Info: Found 2 design units, including 2 entities, in source file fpga_if/xiyi.v
     Info: Found entity 1: xis
     Info: Found entity 2: yis
-Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(52): created implicit net for "state_out"
-Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(62): created implicit net for "i"
-Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(88): created implicit net for "x_case1_square"
-Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(89): created implicit net for "x_case1_square_div2"
-Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(90): created implicit net for "x_case1_sq_div2_minus"
-Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(186): created implicit net for "xi_temp"
+Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(63): created implicit net for "i"
+Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(89): created implicit net for "x_case1_square"
+Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(90): created implicit net for "x_case1_square_div2"
+Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(91): created implicit net for "x_case1_sq_div2_minus"
+Warning (10236): Verilog HDL Implicit Net warning at Ziggurat.v(191): created implicit net for "xi_temp"
 Info: Elaborating entity "M3" for the top level hierarchy
 Warning: Pin "piezo" is missing source
 Warning: Pin "SRAM_nOE" is missing source
@@ -534,29 +506,6 @@ Info (10264): Verilog HDL Case Statement information at processor.v(188): all ca
 Info (10264): Verilog HDL Case Statement information at processor.v(264): all case item expressions in this case statement are onehot
 Info (10264): Verilog HDL Case Statement information at processor.v(290): all case item expressions in this case statement are onehot
 Warning (10030): Net "fx_conv_dout" at processor.v(83) has no driver or initial value, using a default initial value '0'
-Info: Inferred 1 megafunctions from design logic
-    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "host_itf:inst3|Mod0"
-Info: Elaborated megafunction instantiation "host_itf:inst3|lpm_divide:Mod0"
-Info: Instantiated megafunction "host_itf:inst3|lpm_divide:Mod0" with the following parameter:
-    Info: Parameter "LPM_WIDTHN" = "32"
-    Info: Parameter "LPM_WIDTHD" = "16"
-    Info: Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info: Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info: Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_slo.tdf
-    Info: Found entity 1: lpm_divide_slo
-Info: Found 1 design units, including 1 entities, in source file db/abs_divider_6dg.tdf
-    Info: Found entity 1: abs_divider_6dg
-Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_o5f.tdf
-    Info: Found entity 1: alt_u_div_o5f
-Info: Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
-    Info: Found entity 1: add_sub_lkc
-Info: Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
-    Info: Found entity 1: add_sub_mkc
-Info: Found 1 design units, including 1 entities, in source file db/lpm_abs_2s9.tdf
-    Info: Found entity 1: lpm_abs_2s9
-Info: Found 1 design units, including 1 entities, in source file db/lpm_abs_0s9.tdf
-    Info: Found entity 1: lpm_abs_0s9
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "lcd_e" is stuck at GND
     Warning (13410): Pin "lcd_rs" is stuck at GND
@@ -602,6 +551,18 @@ Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "led[2]" is stuck at GND
     Warning (13410): Pin "led[1]" is stuck at GND
     Warning (13410): Pin "led[0]" is stuck at GND
+    Warning (13410): Pin "seg_com[5]" is stuck at GND
+    Warning (13410): Pin "seg_com[4]" is stuck at GND
+    Warning (13410): Pin "seg_com[3]" is stuck at GND
+    Warning (13410): Pin "seg_com[2]" is stuck at GND
+    Warning (13410): Pin "seg_com[1]" is stuck at GND
+    Warning (13410): Pin "seg_com[0]" is stuck at GND
+    Warning (13410): Pin "seg_disp[7]" is stuck at GND
+    Warning (13410): Pin "seg_disp[6]" is stuck at GND
+    Warning (13410): Pin "seg_disp[5]" is stuck at GND
+    Warning (13410): Pin "seg_disp[4]" is stuck at GND
+    Warning (13410): Pin "seg_disp[3]" is stuck at GND
+    Warning (13410): Pin "seg_disp[2]" is stuck at GND
     Warning (13410): Pin "seg_disp[1]" is stuck at GND
     Warning (13410): Pin "seg_disp[0]" is stuck at GND
     Warning (13410): Pin "SRAM_ADDR[17]" is stuck at GND
@@ -638,7 +599,80 @@ Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "SRAM_DATA[2]" is stuck at GND
     Warning (13410): Pin "SRAM_DATA[1]" is stuck at GND
     Warning (13410): Pin "SRAM_DATA[0]" is stuck at GND
-Info: 45 registers lost all their fanouts during netlist optimizations. The first 45 are displayed below.
+Info: 118 registers lost all their fanouts during netlist optimizations. The first 118 are displayed below.
+    Info: Register "host_itf:inst3|SEG_COM[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_COM[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_COM[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_COM[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_COM[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_COM[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_DATA[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_DATA[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_DATA[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_DATA[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_DATA[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_DATA[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|SEG_DATA[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[31]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[30]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[29]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[28]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[27]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[26]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[25]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[24]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[23]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[22]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[21]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[20]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[19]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[18]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[17]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[16]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[15]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[14]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[13]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[12]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[10]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:inst2|acc_dout[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[31]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[30]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[29]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[28]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[27]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[26]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[25]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[24]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[23]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[22]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[21]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[20]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[19]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[18]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[17]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[16]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[15]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[14]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[13]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[12]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[10]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|my_clk_cnt[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|cnt_segcon[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|seg_clk" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|cnt_segcon[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "host_itf:inst3|cnt_segcon[1]" lost all its fanouts during netlist optimizations.
     Info: Register "processor:inst2|state~6" lost all its fanouts during netlist optimizations.
     Info: Register "processor:inst2|state~7" lost all its fanouts during netlist optimizations.
     Info: Register "host_itf:inst3|x8800_1000[3]" lost all its fanouts during netlist optimizations.
@@ -685,7 +719,7 @@ Info: 45 registers lost all their fanouts during netlist optimizations. The firs
     Info: Register "processor:inst2|state.COMPLETE" lost all its fanouts during netlist optimizations.
     Info: Register "processor:inst2|state.IDLE" lost all its fanouts during netlist optimizations.
 Info: Generating hard_block partition "hard_block:auto_generated_inst"
-Warning: Design contains 67 input pin(s) that do not drive logic
+Warning: Design contains 68 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "nFPGA_RESET"
     Warning (15610): No output dependent on input pin "XM0_ADDR[20]"
     Warning (15610): No output dependent on input pin "M_nRESET"
@@ -732,6 +766,7 @@ Warning: Design contains 67 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "sel_button[2]"
     Warning (15610): No output dependent on input pin "sel_button[1]"
     Warning (15610): No output dependent on input pin "sel_button[0]"
+    Warning (15610): No output dependent on input pin "XnRESET"
     Warning (15610): No output dependent on input pin "XM0WEN"
     Warning (15610): No output dependent on input pin "XM0_ADDR[19]"
     Warning (15610): No output dependent on input pin "XM0_ADDR[18]"
@@ -753,15 +788,15 @@ Warning: Design contains 67 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "XM0_ADDR[2]"
     Warning (15610): No output dependent on input pin "XM0_ADDR[1]"
     Warning (15610): No output dependent on input pin "XM0_ADDR[0]"
-Info: Implemented 1178 device resources after synthesis - the final resource count might be different
+Info: Implemented 182 device resources after synthesis - the final resource count might be different
     Info: Implemented 71 input pins
     Info: Implemented 92 output pins
     Info: Implemented 16 bidirectional pins
-    Info: Implemented 999 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 209 warnings
-    Info: Peak virtual memory: 290 megabytes
-    Info: Processing ended: Sat Jun 20 17:55:32 2015
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Implemented 3 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 221 warnings
+    Info: Peak virtual memory: 280 megabytes
+    Info: Processing ended: Sat Jun 20 18:19:29 2015
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 

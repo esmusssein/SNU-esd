@@ -1,8 +1,8 @@
-module lsfr(
+module LSFR(
 	input					clk,
 	input					nreset,
 	
-	output	[19:0]	data_out
+	output  [19:0]	data_out
 	
 );
 	
@@ -10,16 +10,16 @@ module lsfr(
 	parameter RUNNING = 1;
 	parameter COMPLETE = 2;
 	
-	reg [1:0] state;
-	reg [1:0] nxt_state;
+	//reg [1:0] state;
+	//reg [1:0] nxt_state;
 	
 	wire feedback; 
-	reg [19:0] data;
+	reg [19:0] data = 20'b0000_0000_0000_0000_0000;
 	
 	assign feedback = ~(data[6] ^ data[19]);
-	assign data_out = data;
+	assign data_out = data[19:0];
 	
-	always@(posedge clk, negedge nreset ) begin
+	always @(posedge clk, negedge nreset ) begin
 		if(!nreset)begin
 			data <= 20'b0000_0000_0001_0000_0001;
 		end
