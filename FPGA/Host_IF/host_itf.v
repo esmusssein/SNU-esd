@@ -185,5 +185,6 @@ module host_itf (
 			endcase
 		end
 	endfunction
+
 endmodule
 

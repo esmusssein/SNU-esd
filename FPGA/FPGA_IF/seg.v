@@ -126,9 +126,9 @@ module seg_test (clk, nreset, seg_com, seg_disp, cnt_1, cnt_10, sec_1, sec_10, m
 			else                 cnt_segcon <= cnt_segcon+1'b1;
 			
 			case (cnt_segcon)
-				3'd0:   begin seg_com <= 6'b011111; seg_disp <= {conv_int(sec_a), 1'b1}; end
-				3'd1:   begin seg_com <= 6'b101111; seg_disp <= {conv_int(sec_b), 1'b0}; end
-				3'd2:   begin seg_com <= 6'b110111; seg_disp <= {conv_int(sec_c), 1'b1}; end
+				3'd0:   begin seg_com <= 6'b011111; seg_disp <= {conv_int(complete_bit), 1'b1}; end
+				3'd1:   begin seg_com <= 6'b101111; seg_disp <= {conv_int(invalid_bit), 1'b0}; end
+				3'd2:   begin seg_com <= 6'b110111; seg_disp <= {conv_int(int_out), 1'b1}; end
 				3'd3:   begin seg_com <= 6'b111011; seg_disp <= {conv_int(sec_d), 1'b0}; end
 				3'd4:   begin seg_com <= 6'b111101; seg_disp <= {conv_int(sec_e), 1'b1}; end
 				3'd5:   begin seg_com <= 6'b111110; seg_disp <= {conv_int(sec_f), 1'b0}; end
@@ -175,4 +175,18 @@ module seg_test (clk, nreset, seg_com, seg_disp, cnt_1, cnt_10, sec_1, sec_10, m
 			endcase
 		end
 	endfunction
+	wire invalid_bit;
+	wire complete_bit;
+	wire [1:0] int_out;
+	wire [31:0] ziggurat_out;
+	
+	assign int_out = ziggurat_out[16:15];
+	Ziggurat z0(
+		.clk(clk),
+		.nreset(nreset),
+
+		.g_randnum_out(ziggurat_out),
+		.invalid_bit_out(invalid_bit),
+		.complete_bit_out(complete_bit)
+	);
 endmodule

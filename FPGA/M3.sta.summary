@@ -3,23 +3,15 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Setup 'FPGA_CLK'
-Slack : -91.154
-TNS   : -1918.603
+Slack : -95.759
+TNS   : -95.759
 
 Type  : Hold 'FPGA_CLK'
 Slack : 0.499
 TNS   : 0.000
 
-Type  : Recovery 'FPGA_CLK'
-Slack : 5.471
-TNS   : 0.000
-
-Type  : Removal 'FPGA_CLK'
-Slack : 2.683
-TNS   : 0.000
-
 Type  : Minimum Pulse Width 'FPGA_CLK'
-Slack : 1.933
+Slack : 3.758
 TNS   : 0.000
 
 ------------------------------------------------------------

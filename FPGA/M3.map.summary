@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Thu Jun 18 20:39:01 2015
+Analysis & Synthesis Status : Successful - Sat Jun 20 17:55:32 2015
 Quartus II Version : 11.0 Build 157 04/27/2011 SJ Web Edition
 Revision Name : M3
 Top-level Entity Name : M3
 Family : Cyclone II
-Total logic elements : 8,699
-    Total combinational functions : 7,805
-    Dedicated logic registers : 4,025
-Total registers : 4025
+Total logic elements : 978
+    Total combinational functions : 971
+    Dedicated logic registers : 50
+Total registers : 50
 Total pins : 179
 Total virtual pins : 0
-Total memory bits : 428
-Embedded Multiplier 9-bit elements : 31
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0

@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C8F256) Path("D:/esd/SNU_ESD/FPGA/") File("M3.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C8F256) Path("C:/Users/Administrator/Desktop/SNU_ESD/FPGA/") File("M3.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

@@ -304,7 +304,7 @@ module processor(
 			endcase
 		end
 	end
-	
+	/*
 	// Latency: 5 clock cycle.
 	// Supports pipelining.
 	fp_mult const2_mult(
@@ -404,6 +404,6 @@ module processor(
 		.clock(clk),
 		.dataa(fx_conv_din),
 		.result(fx_conv_dout)
-	);
+	);*/
 	 
 endmodule

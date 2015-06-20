@@ -1,0 +1,34 @@
+module x (
+	input		[14:0] data_in,
+	output 	[31:0] data_out2
+);
+	reg [31:0] data_out;
+	assign data_out2 = data_out;
+	always@(*)begin
+		case(data_in)
+			15'h0001 : data_out <= 2;  15'h0002 : data_out <= 3;  15'h0003 : data_out <= 4;  15'h0004 : data_out <= 5;  15'h0005 : data_out <= 6;  15'h0006 : data_out <= 7;  15'h0007 : data_out <= 8;  15'h0008 : data_out <= 9;  15'h0009 : data_out <= 10;  15'h000A : data_out <= 11;  15'h000B : data_out <= 12;  15'h000C : data_out <= 13;  15'h000D : data_out <= 14;  15'h000E : data_out <= 15;  15'h000F : data_out <= 16;  
+			15'h0011 : data_out <= 2;  15'h0012 : data_out <= 3;  15'h0013 : data_out <= 4;  15'h0014 : data_out <= 5;  15'h0015 : data_out <= 6;  15'h0016 : data_out <= 7;  15'h0017 : data_out <= 8;  15'h0018 : data_out <= 9;  15'h0019 : data_out <= 10;  15'h001A : data_out <= 11;  15'h001B : data_out <= 12;  15'h001C : data_out <= 13;  15'h001D : data_out <= 14;  15'h001E : data_out <= 15;  15'h001F : data_out <= 16;  
+			15'h0021 : data_out <= 2;  15'h0022 : data_out <= 3;  15'h0023 : data_out <= 4;  15'h0024 : data_out <= 5;  15'h0025 : data_out <= 6;  15'h0026 : data_out <= 7;  15'h0027 : data_out <= 8;  15'h0028 : data_out <= 9;  15'h0029 : data_out <= 10;  15'h002A : data_out <= 11;  15'h002B : data_out <= 12;  15'h002C : data_out <= 13;  15'h002D : data_out <= 14;  15'h002E : data_out <= 15;  15'h002F : data_out <= 16;  
+			15'h0031 : data_out <= 2;  15'h0032 : data_out <= 3;  15'h0033 : data_out <= 4;  15'h0034 : data_out <= 5;  15'h0035 : data_out <= 6;  15'h0036 : data_out <= 7;  15'h0037 : data_out <= 8;  15'h0038 : data_out <= 9;  15'h0039 : data_out <= 10;  15'h003A : data_out <= 11;  15'h003B : data_out <= 12;  15'h003C : data_out <= 13;  15'h003D : data_out <= 14;  15'h003E : data_out <= 15;  15'h003F : data_out <= 16;  
+			15'h0041 : data_out <= 2;  15'h0042 : data_out <= 3;  15'h0043 : data_out <= 4;  15'h0044 : data_out <= 5;  15'h0045 : data_out <= 6;  15'h0046 : data_out <= 7;  15'h0047 : data_out <= 8;  15'h0048 : data_out <= 9;  15'h0049 : data_out <= 10;  15'h004A : data_out <= 11;  15'h004B : data_out <= 12;  15'h004C : data_out <= 13;  15'h004D : data_out <= 14;  15'h004E : data_out <= 15;  15'h004F : data_out <= 16;  
+			15'h0051 : data_out <= 2;  15'h0052 : data_out <= 3;  15'h0053 : data_out <= 4;  15'h0054 : data_out <= 5;  15'h0055 : data_out <= 6;  15'h0056 : data_out <= 7;  15'h0057 : data_out <= 8;  15'h0058 : data_out <= 9;  15'h0059 : data_out <= 10;  15'h005A : data_out <= 11;  15'h005B : data_out <= 12;  15'h005C : data_out <= 13;  15'h005D : data_out <= 14;  15'h005E : data_out <= 15;  15'h005F : data_out <= 16;  
+			15'h0061 : data_out <= 2;  15'h0062 : data_out <= 3;  15'h0063 : data_out <= 4;  15'h0064 : data_out <= 5;  15'h0065 : data_out <= 6;  15'h0066 : data_out <= 7;  15'h0067 : data_out <= 8;  15'h0068 : data_out <= 9;  15'h0069 : data_out <= 10;  15'h006A : data_out <= 11;  15'h006B : data_out <= 12;  15'h006C : data_out <= 13;  15'h006D : data_out <= 14;  15'h006E : data_out <= 15;  15'h006F : data_out <= 16;  
+			15'h0071 : data_out <= 2;  15'h0072 : data_out <= 3;  15'h0073 : data_out <= 4;  15'h0074 : data_out <= 5;  15'h0075 : data_out <= 6;  15'h0076 : data_out <= 7;  15'h0077 : data_out <= 8;  15'h0078 : data_out <= 9;  15'h0079 : data_out <= 10;  15'h007A : data_out <= 11;  15'h007B : data_out <= 12;  15'h007C : data_out <= 13;  15'h007D : data_out <= 14;  15'h007E : data_out <= 15;  15'h007F : data_out <= 16;  
+			15'h0081 : data_out <= 2;  15'h0082 : data_out <= 3;  15'h0083 : data_out <= 4;  15'h0084 : data_out <= 5;  15'h0085 : data_out <= 6;  15'h0086 : data_out <= 7;  15'h0087 : data_out <= 8;  15'h0088 : data_out <= 9;  15'h0089 : data_out <= 10;  15'h008A : data_out <= 11;  15'h008B : data_out <= 12;  15'h008C : data_out <= 13;  15'h008D : data_out <= 14;  15'h008E : data_out <= 15;  15'h008F : data_out <= 16;  
+			15'h0091 : data_out <= 2;  15'h0092 : data_out <= 3;  15'h0093 : data_out <= 4;  15'h0094 : data_out <= 5;  15'h0095 : data_out <= 6;  15'h0096 : data_out <= 7;  15'h0097 : data_out <= 8;  15'h0098 : data_out <= 9;  15'h0099 : data_out <= 10;  15'h009A : data_out <= 11;  15'h009B : data_out <= 12;  15'h009C : data_out <= 13;  15'h009D : data_out <= 14;  15'h009E : data_out <= 15;  15'h009F : data_out <= 16;  
+			15'h00A1 : data_out <= 2;  15'h00A2 : data_out <= 3;  15'h00A3 : data_out <= 4;  15'h00A4 : data_out <= 5;  15'h00A5 : data_out <= 6;  15'h00A6 : data_out <= 7;  15'h00A7 : data_out <= 8;  15'h00A8 : data_out <= 9;  15'h00A9 : data_out <= 10;  15'h00AA : data_out <= 11;  15'h00AB : data_out <= 12;  15'h00AC : data_out <= 13;  15'h00AD : data_out <= 14;  15'h00AE : data_out <= 15;  15'h00AF : data_out <= 16;  
+			15'h00B1 : data_out <= 2;  15'h00B2 : data_out <= 3;  15'h00B3 : data_out <= 4;  15'h00B4 : data_out <= 5;  15'h00B5 : data_out <= 6;  15'h00B6 : data_out <= 7;  15'h00B7 : data_out <= 8;  15'h00B8 : data_out <= 9;  15'h00B9 : data_out <= 10;  15'h00BA : data_out <= 11;  15'h00BB : data_out <= 12;  15'h00BC : data_out <= 13;  15'h00BD : data_out <= 14;  15'h00BE : data_out <= 15;  15'h00BF : data_out <= 16;  
+			15'h00C1 : data_out <= 2;  15'h00C2 : data_out <= 3;  15'h00C3 : data_out <= 4;  15'h00C4 : data_out <= 5;  15'h00C5 : data_out <= 6;  15'h00C6 : data_out <= 7;  15'h00C7 : data_out <= 8;  15'h00C8 : data_out <= 9;  15'h00C9 : data_out <= 10;  15'h00CA : data_out <= 11;  15'h00CB : data_out <= 12;  15'h00CC : data_out <= 13;  15'h00CD : data_out <= 14;  15'h00CE : data_out <= 15;  15'h00CF : data_out <= 16;  
+			15'h00D1 : data_out <= 2;  15'h00D2 : data_out <= 3;  15'h00D3 : data_out <= 4;  15'h00D4 : data_out <= 5;  15'h00D5 : data_out <= 6;  15'h00D6 : data_out <= 7;  15'h00D7 : data_out <= 8;  15'h00D8 : data_out <= 9;  15'h00D9 : data_out <= 10;  15'h00DA : data_out <= 11;  15'h00DB : data_out <= 12;  15'h00DC : data_out <= 13;  15'h00DD : data_out <= 14;  15'h00DE : data_out <= 15;  15'h00DF : data_out <= 16;  
+			15'h00E1 : data_out <= 2;  15'h00E2 : data_out <= 3;  15'h00E3 : data_out <= 4;  15'h00E4 : data_out <= 5;  15'h00E5 : data_out <= 6;  15'h00E6 : data_out <= 7;  15'h00E7 : data_out <= 8;  15'h00E8 : data_out <= 9;  15'h00E9 : data_out <= 10;  15'h00EA : data_out <= 11;  15'h00EB : data_out <= 12;  15'h00EC : data_out <= 13;  15'h00ED : data_out <= 14;  15'h00EE : data_out <= 15;  15'h00EF : data_out <= 16;  
+			15'h00F1 : data_out <= 2;  15'h00F2 : data_out <= 3;  15'h00F3 : data_out <= 4;  15'h00F4 : data_out <= 5;  15'h00F5 : data_out <= 6;  15'h00F6 : data_out <= 7;  15'h00F7 : data_out <= 8;  15'h00F8 : data_out <= 9;  15'h00F9 : data_out <= 10;  15'h00FA : data_out <= 11;  15'h00FB : data_out <= 12;  15'h00FC : data_out <= 13;  15'h00FD : data_out <= 14;  15'h00FE : data_out <= 15;  15'h00FF : data_out <= 16;  
+			
+			default: data_out <= 0;
+		endcase
+	end
+endmodule
+
+module y (
+);
+endmodule
+

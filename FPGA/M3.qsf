@@ -238,6 +238,7 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
 set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL OFF
+set_global_assignment -name VERILOG_FILE FPGA_IF/Ziggurat.v
 set_global_assignment -name VERILOG_FILE BS_Processor/processor.v
 set_global_assignment -name BDF_FILE M3.bdf
 set_global_assignment -name VERILOG_FILE FPGA_IF/led.v
@@ -261,4 +262,7 @@ set_global_assignment -name QIP_FILE BS_processor/fp_mult.qip
 set_global_assignment -name QIP_FILE BS_processor/fp_add.qip
 set_global_assignment -name QIP_FILE BS_processor/fp_fx_conv.qip
 set_global_assignment -name QIP_FILE BS_processor/fx_fp_conv.qip
+set_global_assignment -name VERILOG_FILE FPGA_IF/LSFR.v
+set_global_assignment -name QIP_FILE BS_processor/multi_1818.qip
+set_global_assignment -name VERILOG_FILE FPGA_IF/xiyi.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
