@@ -3,9 +3,9 @@
  *
  * Explanation of each constants:
  *
- *	- constK: K in fixed point number integer 8-bit / fraction 12-bit
- * - const1: S*exp((r-0.5*sigma^2)*T) in fixed point number integer 23-bit / fraction 12-bit
- *	- const2: sigma*sqrt(T) in fixed point number integer 3-bit / fraction 12-bit
+ *	- constK: K in range(0~100), as fixed point number integer 8-bit / fraction 12-bit
+ * - const1: S*exp((r-0.5*sigma^2)*T) in range(0.6737947, 2202646.5), as fixed point number integer 23-bit / fraction 12-bit
+ *	- const2: sigma*sqrt(T) in range (0, 3.1622777), as fixed point number integer 3-bit / fraction 12-bit
  *
  * Constants above should be given from the M1 module.
  *
@@ -28,14 +28,14 @@ module processor(
 	input clk,
 	input nreset,
 	input [31:0] niter,
-	input [19:0] constK,
-	input [34:0] const1,
-	input [14:0] const2,
+	input [63:0] constK,
+	input [63:0] const1,
+	input [63:0] const2,
 	input [3:0] cmd,
-	 
+
 	output [3:0] status,
-	output reg [51:0] acc_dout,
-	output reg [51:0] pow_acc_dout
+	output [63:0] sum_dout,
+	output [63:0] pow_sum_dout
 );
 
 	parameter CMD_RUN = 1;
@@ -52,44 +52,32 @@ module processor(
 	reg [3:0] state;
 	reg [3:0] nxt_state;
 	reg [31:0] s_niter;
-	reg [19:0] s_constK;
-	reg [34:0] s_const1;
-	reg [14:0] s_const2;
+	reg [63:0] s_constK;
+	reg [63:0] s_const1;
+	reg [63:0] s_const2;
 	reg [31:0] cnt_clk;
-	reg [51:0] sum;
-	reg [51:0] pow_sum;
+	reg [63:0] sum;
+	reg [63:0] pow_sum;
 	// To test computing Black-Scholes model process except for Gaussian Random Number Generator.
 	reg [31:0] pseudo_grn;
 	
 	// Input and output of each modules.
 	wire [28:0] const2_mult_din;
-	wire [44:0] const2_mult_dout;
-	wire [7:0] special_exp_lut_din;
-	wire [20:0] special_exp_lut_dout;
-	wire [20:0] mult_for_exp_21_din;
-	wire [13:0] mult_for_exp_14_din;
-	wire [34:0] mult_for_exp_dout;
-	wire [34:0] sub_from_k_din;
-	wire [34:0] sub_from_k_dout;
-	sub_19_35 sub_from_k(
-		.nreset(~nreset),
-		.clk(clk),
-		.dina(s_constk),
-		.dinb(sub_from_k_din),
-		.dout(sub_from_k_dout)
-	);
-	
-	// Latency 1 clock cycle.
-	// Supports pipelining.
-	mult_20_20 pow(
-		.aclr0(~nreset),
-		.clock0(clk),
-		.dataa_0(pow_din),
-		.datab_0(pow_din),
-		.result(pow_dout)
-	);
+	wire [43:0] const2_mult_dout;
+	/*wire [7:0] special_exp_lut_din;
+	wire [39:0] special_exp_lut_dout;
+	wire [39:0] mult_for_exp_40_din;
+	wire [32:0] mult_for_exp_33_din;
+	wire [72:0] mult_for_exp_dout;
+	wire [72:0] sub_from_k_din;
+	wire [72:0] sub_from_k_dout;*/
 	
 	assign status = state;
+	// Interconnect each input and output of modules.
+	assign const2_mult_din = s_constK[28:0];
+	// For testing.
+	assign sum_dout = s_const2;
+	
 	
 	/**
 	 *
@@ -148,9 +136,9 @@ module processor(
 	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
 			s_niter <= 32'd0;
-			s_constK <= 20'd0;
-			s_const1 <= 35'd0;
-			s_const2 <= 15'd0;
+			s_constK <= 63'd0;
+			s_const1 <= 63'd0;
+			s_const2 <= 63'd0;
 		end else begin
 			case (state)
 			IDLE: begin
@@ -202,7 +190,7 @@ module processor(
 	 *
 	 * @update sum
 	 */
-	always @(posedge clk or negedge nreset) begin
+	/*always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
 			sum <= 52'd0;
 		end else begin
@@ -224,7 +212,7 @@ module processor(
 	 *
 	 * @update pow_sum
 	 */
-	always @(posedge clk or negedge nreset) begin
+	/*always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
 			pow_sum <= 52'd0;
 		end else begin
@@ -240,20 +228,20 @@ module processor(
 			end
 			endcase
 		end
-	end
+	end*/
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	mult_29_15 const2_mult(
+	/*mult_29_15 const2_mult(
 		.aclr0(~nreset),
 		.clock0(clk),
 		.dataa_0(const2_mult_din),
 		.datab_0(s_const2),
 		.result(const2_mult_dout)
-	);
+	);*/
 	
 	// Latency 0 clock cycle.
-	special_exp_lut(
+	/*special_exp_lut special_exp_lut (
 		.din(special_exp_lut_din),
 		.dout(special_exp_lut_dout)
 	);
@@ -270,7 +258,17 @@ module processor(
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	sub_19_35 sub_from_k(
+	mult_54_39 const1_mult(
+		.aclr0(~nreset),
+		.clock0(clk),
+		.dataa_0(const1_mult_din),
+		.datab_0(s_const1),
+		.result(const1_mult_dout)
+	);
+	
+	// Latency 1 clock cycle.
+	// Supports pipelining.
+	sub_19_19 sub_from_k(
 		.nreset(~nreset),
 		.clk(clk),
 		.dina(s_constk),
@@ -286,24 +284,24 @@ module processor(
 		.dataa_0(pow_din),
 		.datab_0(pow_din),
 		.result(pow_dout)
-	);
+	);*/
 	
 endmodule
 
-module sub_19_35(
+module sub_19_19(
 	input nreset,
 	input clk,
 	input [18:0] dina,
-	input [34:0] dinb,
+	input [18:0] dinb,
 	
-	output reg [34:0] dout
+	output reg [19:0] dout
 );
 
 	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
-			dout <= 34'd0;
+			dout <= 18'd0;
 		end else begin
-			dout <= {dina, 16'd0} - dinb;
+			dout <= dina - dinb;
 		end
 	end
 
