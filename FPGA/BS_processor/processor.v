@@ -94,7 +94,7 @@ module processor(
 	assign sub_from_k_din = (delay_2_cycle_dout == 4'd2) ? 0 : (delay_2_cycle_dout == 4'd0 || s_constK[22:0] < const1_mult_dout[94:61]) ? s_constK[22:0] : const1_mult_dout[68:46];
 	// For testing.
 	//assign sum_dout = {const2_mult_dout[37:15], delay_2_cycle_dout};
-	assign sum_dout = const2_mult_dout[37:15];
+	assign sum_dout = mult_for_exp_dout[56:31];
 	
 	/**
 	 *
