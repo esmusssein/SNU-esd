@@ -69,8 +69,10 @@ module processor(
 	wire [39:0] mult_for_exp_dina;		// (9, 31)
 	wire [7:0] mult_for_exp_dinb;			// (2, 6)
 	wire [47:0] mult_for_exp_dout;		// (11, 37)
-	/*wire [72:0] sub_from_k_din;
-	wire [72:0] sub_from_k_dout;*/
+	wire [44:0] const1_mult_din;			// (8, 37)
+	wire [79:0] const1_mult_dout;			// (31, 49)
+	wire [19:0] sub_from_k_din;			// (8, 12)
+	wire [19:0] sub_from_k_dout;			// (8, 12)
 	
 	assign status = state;
 	// Do fixed point correction each relative connects.
@@ -78,8 +80,10 @@ module processor(
 	assign special_exp_lut_din = const2_mult_dout[32:25];		// Lookup for (6, 2) of const2_mult_dout (8, 27).
 	assign mult_for_exp_dina = special_exp_lut_dout;			// (9, 31)
 	assign mult_for_exp_dinb = {2'b01, 2'b00, const2_mult_dout[24:21]};		// (2, 6)
+	assign const1_mult_din = mult_for_exp_dout[44:0];			// (8, 37)
+	assign sub_from_k_din = const1_mult_dout[56:37];			// (8, 12)
 	// For testing.
-	assign sum_dout = mult_for_exp_dout[47:25];
+	assign sum_dout = sub_from_k_din;		// (8, 12)
 	
 	/**
 	 *
@@ -261,27 +265,27 @@ module processor(
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	/*mult_54_39 const1_mult(
+	mult_45_35 const1_mult(
 		.aclr0(~nreset),
 		.clock0(clk),
 		.dataa_0(const1_mult_din),
-		.datab_0(s_const1),
+		.datab_0(s_const1[34:0]),
 		.result(const1_mult_dout)
 	);
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
 	sub_19_19 sub_from_k(
-		.nreset(~nreset),
+		.nreset(nreset),
 		.clk(clk),
-		.dina(s_constk),
+		.dina(s_constK[19:0]),
 		.dinb(sub_from_k_din),
 		.dout(sub_from_k_dout)
 	);
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	mult_20_20 pow(
+	/*mult_20_20 pow(
 		.aclr0(~nreset),
 		.clock0(clk),
 		.dataa_0(pow_din),
@@ -289,6 +293,25 @@ module processor(
 		.result(pow_dout)
 	);*/
 	
+endmodule
+
+module sub_19_19(
+	input nreset,
+	input clk,
+	input [18:0] dina,
+	input [18:0] dinb,
+	
+	output reg [18:0] dout
+);
+
+	always @(posedge clk or negedge nreset) begin
+		if (nreset == 1'b0) begin
+			dout <= 18'd0;
+		end else begin
+			dout <= dina - dinb;
+		end
+	end
+
 endmodule
 
 module special_exp_lut(
@@ -327,23 +350,4 @@ module special_exp_lut(
 		endcase
 	end
 	
-endmodule
-
-module sub_19_19(
-	input nreset,
-	input clk,
-	input [18:0] dina,
-	input [18:0] dinb,
-	
-	output reg [19:0] dout
-);
-
-	always @(posedge clk or negedge nreset) begin
-		if (nreset == 1'b0) begin
-			dout <= 18'd0;
-		end else begin
-			dout <= dina - dinb;
-		end
-	end
-
 endmodule
