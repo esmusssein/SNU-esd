@@ -4,7 +4,7 @@
 // MODULE: ALTMULT_ADD 
 
 // ============================================================
-// File Name: mult_20_20.v
+// File Name: mult_40_8.v
 // Megafunction Name(s):
 // 			ALTMULT_ADD
 //
@@ -31,7 +31,7 @@
 //Altera or its authorized distributors.  Please refer to the 
 //applicable agreement for further details.
 
-module mult_20_20 (
+module mult_40_8 (
 	aclr0,
 	clock0,
 	dataa_0,
@@ -40,16 +40,16 @@ module mult_20_20 (
 
 	input	  aclr0;
 	input	  clock0;
-	input	[19:0]  dataa_0;
-	input	[19:0]  datab_0;
-	output	[39:0]  result;
+	input	[39:0]  dataa_0;
+	input	[7:0]  datab_0;
+	output	[47:0]  result;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
 	tri0	  aclr0;
 	tri1	  clock0;
-	tri0	[19:0]  dataa_0;
-	tri0	[19:0]  datab_0;
+	tri0	[39:0]  dataa_0;
+	tri0	[7:0]  datab_0;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_on
 `endif
@@ -149,9 +149,9 @@ endmodule
 // Retrieval info: PRIVATE: Q_ACLR_SRC_MULT0 NUMERIC "0"
 // Retrieval info: PRIVATE: Q_CLK_SRC_MULT0 NUMERIC "0"
 // Retrieval info: PRIVATE: REG_OUT NUMERIC "0"
-// Retrieval info: PRIVATE: RNFORMAT STRING "40"
+// Retrieval info: PRIVATE: RNFORMAT STRING "48"
 // Retrieval info: PRIVATE: RQFORMAT STRING "Q1.15"
-// Retrieval info: PRIVATE: RTS_WIDTH STRING "40"
+// Retrieval info: PRIVATE: RTS_WIDTH STRING "48"
 // Retrieval info: PRIVATE: SAME_CONFIG NUMERIC "1"
 // Retrieval info: PRIVATE: SAME_CONTROL_SRC_A0 NUMERIC "1"
 // Retrieval info: PRIVATE: SAME_CONTROL_SRC_B0 NUMERIC "1"
@@ -167,7 +167,7 @@ endmodule
 // Retrieval info: PRIVATE: SIGNA_PIPE_CLK_SRC NUMERIC "0"
 // Retrieval info: PRIVATE: SIGNA_PIPE_REG STRING "1"
 // Retrieval info: PRIVATE: SIGNA_REG STRING "0"
-// Retrieval info: PRIVATE: SIGNB STRING "SIGNED"
+// Retrieval info: PRIVATE: SIGNB STRING "UNSIGNED"
 // Retrieval info: PRIVATE: SIGNB_ACLR_SRC NUMERIC "0"
 // Retrieval info: PRIVATE: SIGNB_CLK_SRC NUMERIC "0"
 // Retrieval info: PRIVATE: SIGNB_PIPE_ACLR_SRC NUMERIC "0"
@@ -177,8 +177,8 @@ endmodule
 // Retrieval info: PRIVATE: SRCA0 STRING "Multiplier input"
 // Retrieval info: PRIVATE: SRCB0 STRING "Multiplier input"
 // Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
-// Retrieval info: PRIVATE: WIDTHA STRING "20"
-// Retrieval info: PRIVATE: WIDTHB STRING "20"
+// Retrieval info: PRIVATE: WIDTHA STRING "40"
+// Retrieval info: PRIVATE: WIDTHB STRING "8"
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ADDNSUB_MULTIPLIER_PIPELINE_ACLR1 STRING "ACLR0"
 // Retrieval info: CONSTANT: ADDNSUB_MULTIPLIER_PIPELINE_REGISTER1 STRING "CLOCK0"
@@ -199,30 +199,30 @@ endmodule
 // Retrieval info: CONSTANT: PORT_SIGNA STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: PORT_SIGNB STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: REPRESENTATION_A STRING "SIGNED"
-// Retrieval info: CONSTANT: REPRESENTATION_B STRING "SIGNED"
+// Retrieval info: CONSTANT: REPRESENTATION_B STRING "UNSIGNED"
 // Retrieval info: CONSTANT: SIGNED_PIPELINE_ACLR_A STRING "ACLR0"
 // Retrieval info: CONSTANT: SIGNED_PIPELINE_ACLR_B STRING "ACLR0"
 // Retrieval info: CONSTANT: SIGNED_PIPELINE_REGISTER_A STRING "CLOCK0"
 // Retrieval info: CONSTANT: SIGNED_PIPELINE_REGISTER_B STRING "CLOCK0"
 // Retrieval info: CONSTANT: SIGNED_REGISTER_A STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: SIGNED_REGISTER_B STRING "UNREGISTERED"
-// Retrieval info: CONSTANT: WIDTH_A NUMERIC "20"
-// Retrieval info: CONSTANT: WIDTH_B NUMERIC "20"
-// Retrieval info: CONSTANT: WIDTH_RESULT NUMERIC "40"
+// Retrieval info: CONSTANT: WIDTH_A NUMERIC "40"
+// Retrieval info: CONSTANT: WIDTH_B NUMERIC "8"
+// Retrieval info: CONSTANT: WIDTH_RESULT NUMERIC "48"
 // Retrieval info: USED_PORT: aclr0 0 0 0 0 INPUT GND "aclr0"
 // Retrieval info: USED_PORT: clock0 0 0 0 0 INPUT VCC "clock0"
-// Retrieval info: USED_PORT: dataa_0 0 0 20 0 INPUT GND "dataa_0[19..0]"
-// Retrieval info: USED_PORT: datab_0 0 0 20 0 INPUT GND "datab_0[19..0]"
-// Retrieval info: USED_PORT: result 0 0 40 0 OUTPUT GND "result[39..0]"
+// Retrieval info: USED_PORT: dataa_0 0 0 40 0 INPUT GND "dataa_0[39..0]"
+// Retrieval info: USED_PORT: datab_0 0 0 8 0 INPUT GND "datab_0[7..0]"
+// Retrieval info: USED_PORT: result 0 0 48 0 OUTPUT GND "result[47..0]"
 // Retrieval info: CONNECT: @aclr0 0 0 0 0 aclr0 0 0 0 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock0 0 0 0 0
-// Retrieval info: CONNECT: @dataa 0 0 20 0 dataa_0 0 0 20 0
-// Retrieval info: CONNECT: @datab 0 0 20 0 datab_0 0 0 20 0
-// Retrieval info: CONNECT: result 0 0 40 0 @result 0 0 40 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20.cmp FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20.bsf FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20_inst.v FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20_bb.v TRUE
+// Retrieval info: CONNECT: @dataa 0 0 40 0 dataa_0 0 0 40 0
+// Retrieval info: CONNECT: @datab 0 0 8 0 datab_0 0 0 8 0
+// Retrieval info: CONNECT: result 0 0 48 0 @result 0 0 48 0
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_40_8.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_40_8.inc FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_40_8.cmp FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_40_8.bsf FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_40_8_inst.v FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_40_8_bb.v TRUE
 // Retrieval info: LIB_FILE: altera_mf

@@ -4,7 +4,7 @@
 // MODULE: ALTMULT_ADD 
 
 // ============================================================
-// File Name: mult_20_20.v
+// File Name: mult_20_15.v
 // Megafunction Name(s):
 // 			ALTMULT_ADD
 //
@@ -36,7 +36,7 @@
 // synopsys translate_off
 `timescale 1 ps / 1 ps
 // synopsys translate_on
-module mult_20_20 (
+module mult_20_15 (
 	aclr0,
 	clock0,
 	dataa_0,
@@ -46,21 +46,21 @@ module mult_20_20 (
 	input	  aclr0;
 	input	  clock0;
 	input	[19:0]  dataa_0;
-	input	[19:0]  datab_0;
-	output	[39:0]  result;
+	input	[14:0]  datab_0;
+	output	[34:0]  result;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
 	tri0	  aclr0;
 	tri1	  clock0;
 	tri0	[19:0]  dataa_0;
-	tri0	[19:0]  datab_0;
+	tri0	[14:0]  datab_0;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_on
 `endif
 
-	wire [39:0] sub_wire0;
-	wire [39:0] result = sub_wire0[39:0];
+	wire [34:0] sub_wire0;
+	wire [34:0] result = sub_wire0[34:0];
 
 	altmult_add	ALTMULT_ADD_component (
 				.aclr0 (aclr0),
@@ -105,7 +105,7 @@ module mult_20_20 (
 				.overflow (),
 				.rotate (1'b0),
 				.scanina ({20{1'b0}}),
-				.scaninb ({20{1'b0}}),
+				.scaninb ({15{1'b0}}),
 				.scanouta (),
 				.scanoutb (),
 				.shift_right (1'b0),
@@ -143,8 +143,8 @@ module mult_20_20 (
 		ALTMULT_ADD_component.signed_register_a = "UNREGISTERED",
 		ALTMULT_ADD_component.signed_register_b = "UNREGISTERED",
 		ALTMULT_ADD_component.width_a = 20,
-		ALTMULT_ADD_component.width_b = 20,
-		ALTMULT_ADD_component.width_result = 40;
+		ALTMULT_ADD_component.width_b = 15,
+		ALTMULT_ADD_component.width_result = 35;
 
 
 endmodule
@@ -242,9 +242,9 @@ endmodule
 // Retrieval info: PRIVATE: Q_ACLR_SRC_MULT0 NUMERIC "0"
 // Retrieval info: PRIVATE: Q_CLK_SRC_MULT0 NUMERIC "0"
 // Retrieval info: PRIVATE: REG_OUT NUMERIC "0"
-// Retrieval info: PRIVATE: RNFORMAT STRING "40"
+// Retrieval info: PRIVATE: RNFORMAT STRING "35"
 // Retrieval info: PRIVATE: RQFORMAT STRING "Q1.15"
-// Retrieval info: PRIVATE: RTS_WIDTH STRING "40"
+// Retrieval info: PRIVATE: RTS_WIDTH STRING "35"
 // Retrieval info: PRIVATE: SAME_CONFIG NUMERIC "1"
 // Retrieval info: PRIVATE: SAME_CONTROL_SRC_A0 NUMERIC "1"
 // Retrieval info: PRIVATE: SAME_CONTROL_SRC_B0 NUMERIC "1"
@@ -271,7 +271,7 @@ endmodule
 // Retrieval info: PRIVATE: SRCB0 STRING "Multiplier input"
 // Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 // Retrieval info: PRIVATE: WIDTHA STRING "20"
-// Retrieval info: PRIVATE: WIDTHB STRING "20"
+// Retrieval info: PRIVATE: WIDTHB STRING "15"
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ADDNSUB_MULTIPLIER_PIPELINE_ACLR1 STRING "ACLR0"
 // Retrieval info: CONSTANT: ADDNSUB_MULTIPLIER_PIPELINE_REGISTER1 STRING "CLOCK0"
@@ -300,22 +300,22 @@ endmodule
 // Retrieval info: CONSTANT: SIGNED_REGISTER_A STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: SIGNED_REGISTER_B STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: WIDTH_A NUMERIC "20"
-// Retrieval info: CONSTANT: WIDTH_B NUMERIC "20"
-// Retrieval info: CONSTANT: WIDTH_RESULT NUMERIC "40"
+// Retrieval info: CONSTANT: WIDTH_B NUMERIC "15"
+// Retrieval info: CONSTANT: WIDTH_RESULT NUMERIC "35"
 // Retrieval info: USED_PORT: aclr0 0 0 0 0 INPUT GND "aclr0"
 // Retrieval info: USED_PORT: clock0 0 0 0 0 INPUT VCC "clock0"
 // Retrieval info: USED_PORT: dataa_0 0 0 20 0 INPUT GND "dataa_0[19..0]"
-// Retrieval info: USED_PORT: datab_0 0 0 20 0 INPUT GND "datab_0[19..0]"
-// Retrieval info: USED_PORT: result 0 0 40 0 OUTPUT GND "result[39..0]"
+// Retrieval info: USED_PORT: datab_0 0 0 15 0 INPUT GND "datab_0[14..0]"
+// Retrieval info: USED_PORT: result 0 0 35 0 OUTPUT GND "result[34..0]"
 // Retrieval info: CONNECT: @aclr0 0 0 0 0 aclr0 0 0 0 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock0 0 0 0 0
 // Retrieval info: CONNECT: @dataa 0 0 20 0 dataa_0 0 0 20 0
-// Retrieval info: CONNECT: @datab 0 0 20 0 datab_0 0 0 20 0
-// Retrieval info: CONNECT: result 0 0 40 0 @result 0 0 40 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20.cmp FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20.bsf FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20_inst.v FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_20_bb.v TRUE
+// Retrieval info: CONNECT: @datab 0 0 15 0 datab_0 0 0 15 0
+// Retrieval info: CONNECT: result 0 0 35 0 @result 0 0 35 0
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15.inc FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15.cmp FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15.bsf FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15_inst.v FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL mult_20_15_bb.v TRUE
 // Retrieval info: LIB_FILE: altera_mf
