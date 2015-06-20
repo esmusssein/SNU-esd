@@ -92,7 +92,7 @@ module processor(
 	assign const1_mult_din = mult_for_exp_dout[56:0];
 	// Determine an operand to subtract to constK. If it is expected too small by the Demux above, set 0. Else if it is too large or larger than K, set K.
 	assign sub_from_k_din = (delay_2_cycle_dout == 4'd2) ? 0 : (delay_2_cycle_dout == 4'd0 || $signed(s_constK[22:0]) < $signed(const1_mult_dout[94:46])) ? s_constK[22:0] : const1_mult_dout[68:46];
-	assign pow_din = sub_from_k_din;
+	assign pow_din = sub_from_k_dout;
 	// For testing.
 	//assign sum_dout = {const2_mult_dout[37:15], delay_2_cycle_dout};
 	assign sum_dout = pow_dout[45:15];
