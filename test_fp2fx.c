@@ -12,9 +12,9 @@ float const1 = 58.18241639;
 float const2 = 0.433012701;
 
 int main() {
-    float seed = -2;
-    float orig = pow(K-const1*exp(const2*seed), 2);
-//    float orig = K-const1*exp(const2*seed);
+    float seed = -1;
+//    float orig = pow(K-const1*exp(const2*seed), 2);
+    float orig = (K-const1*exp(const2*seed));
 //    float orig = const1*exp(const2*seed);
 //    float orig = exp(const2*seed);
 //    float orig = const2*seed;
