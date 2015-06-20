@@ -1,22 +1,31 @@
 #include <stdio.h>
+#include <math.h>
 
-typedef long fix12;
+typedef long fixed;
 
-#define FIX12_OFFSET 12
-#define DOUBLE_TO_FIX12(x) ((long)((x) * (1 << FIX12_OFFSET)))
-#define FIX12_TO_DOUBLE(x) (((double)(x)) / (1 << FIX12_OFFSET))
+#define FIXED_OFFSET 15
+#define DOUBLE_TO_FIXED(x) ((long)((x) * (1 << FIXED_OFFSET)))
+#define FIXED_TO_DOUBLE(x) (((double)(x)) / (1 << FIXED_OFFSET))
 
-char *double2bytes(double f, char *buf) {
-    memcpy(buf, &f, sizeof(double));
-    return buf;
-}
+float K = 50.0;
+float const1 = 58.18241639;
+float const2 = 0.433012701;
 
 int main() {
-    char buf[sizeof(double)];
-    // Test.
-    double orig = 50.0;
-    fix12 fx = DOUBLE_TO_FIX12(orig);
-    printf("orig %16x, fix12 %16x, converted orig %16x\n", *(long *)double2bytes(orig, buf), fx, *(long *)double2bytes(FIX12_TO_DOUBLE(fx), buf));
+    float seed = -2;
+    float orig = pow(K-const1*exp(const2*seed), 2);
+//    float orig = K-const1*exp(const2*seed);
+//    float orig = const1*exp(const2*seed);
+//    float orig = exp(const2*seed);
+//    float orig = const2*seed;
+//    float orig = seed;
+    fixed conv = DOUBLE_TO_FIXED((double)orig);
+    float convconv = FIXED_TO_DOUBLE((double)conv);
+
+    printf("seed %f, orig %f\n", seed, orig);
+    printf("orig %x\n", *(long *)&orig);
+    printf("conv %x\n", *(long *)&conv);
+    printf("convconv %x\n", *(long *)&convconv);
 
     return 0;
 }
