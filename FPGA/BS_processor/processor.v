@@ -91,10 +91,10 @@ module processor(
 	// Multiply const1 and exp(const2*grn).
 	assign const1_mult_din = mult_for_exp_dout[56:0];
 	// Determine an operand to subtract to constK. If it is expected too small by the Demux above, set 0. Else if it is too large or larger than K, set K.
-	assign sub_from_k_din = (delay_2_cycle_dout == 4'd2) ? 0 : (delay_2_cycle_dout == 4'd0 || s_constK[22:0] < const1_mult_dout[94:61]) ? s_constK[22:0] : const1_mult_dout[68:46];
+	assign sub_from_k_din = (delay_2_cycle_dout == 4'd2) ? 0 : (delay_2_cycle_dout == 4'd0 || $signed(s_constK[22:0]) < $signed(const1_mult_dout[94:46])) ? s_constK[22:0] : const1_mult_dout[68:46];
 	// For testing.
 	//assign sum_dout = {const2_mult_dout[37:15], delay_2_cycle_dout};
-	assign sum_dout = const1_mult_dout[94:46];
+	assign sum_dout = {sub_from_k_dout};
 	
 	/**
 	 *
@@ -197,9 +197,9 @@ module processor(
 		end else begin
 			case (state)
 			RUNNING: begin
-				//pseudo_grn <= 32'b1111_1111_1111_1110_0000_0000_0000_0000;  // (17, 15)
-				pseudo_grn <= 32'b0000_0000_0000_0000_1000_0000_0000_0000;  // (17, 15)
-				//pseudo_grn <= 32'b00000000000000000_000100000000000;
+				//pseudo_grn <= 32'b1111_1111_1111_1111_1000_0000_0000_0000;  // (17, 15)
+				//pseudo_grn <= 32'b0000_0000_0000_0000_1000_0000_0000_0000;  // (17, 15)
+				pseudo_grn <= 32'b1111_1111_1111_1110_0000_0000_0000_0000;
 			end
 			endcase
 		end
@@ -296,13 +296,13 @@ module processor(
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	/*sub_23_23 sub_from_k(
+	sub_23_23 sub_from_k(
 		.nreset(nreset),
 		.clk(clk),
 		.dina(s_constK[22:0]),
 		.dinb(sub_from_k_din),
 		.dout(sub_from_k_dout)
-	);*/
+	);
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
