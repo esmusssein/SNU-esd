@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
     private HashMap<String, Double> mConstants = new HashMap<>();
     private int mIterateNumber;
 
-    public native int setConstantsIntoDevice(double K, double const1, double const2);
+    public native int setConstantsIntoDevice(double K, double const1, double const2, int niter);
     public native int commandDevice(byte command);
     public native int setupLutIntoDevice();
 
@@ -52,7 +52,13 @@ public class MainActivity extends Activity {
         mEditTextIterateNumber = (EditText)findViewById(R.id.edit_text_M);
         mMessageLayout = (LinearLayout)findViewById(R.id.message_layout);
         // Set LUT for comutation into the device.
-        setupLutIntoDevice();
+        addMessageToMessageLayout("Set LUT for computation into the device...");
+        int result = setupLutIntoDevice();
+        if (result < 0) {
+            addMessageToMessageLayout("An error occurred at setLutIntoDevice().");
+            return;
+        }
+        addMessageToMessageLayout("Success");
     }
 
     public void onComputeButtonClick(View v) {
@@ -70,7 +76,8 @@ public class MainActivity extends Activity {
         result = setConstantsIntoDevice(
             mConstants.get("K"),
             mConstants.get(DEP_CONST_1),
-            mConstants.get(DEP_CONST_2)
+            mConstants.get(DEP_CONST_2),
+            Integer.valueOf(mEditTextIterateNumber.getText().toString())
         );
         if (result != 0) {
             addMessageToMessageLayout("An error occurred at setConstantsIntoDevice(). Exit.");
@@ -83,7 +90,6 @@ public class MainActivity extends Activity {
             addMessageToMessageLayout("An error occurred at commandDevice(). Exit.");
             return;
         }
-        addMessageToMessageLayout("Set LUT for computation into the device...");
 //        result = setupLutIntoDevice();
 //        if (result != 0) {
 //            addMessageToMessageLayout("An error occurred at setupLutIntoDevice(). Exit.");

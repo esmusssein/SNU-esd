@@ -57,6 +57,7 @@ Java_kr_ac_snu_blackscholes_MainActivity_setupLutIntoDevice(JNIEnv *env,
         short lut1_data = ((short)((data) * (1 << 13)));
         write(fd, &lut1_data, 2);
     }
+    close(fd);
     return 0;
 }
 
