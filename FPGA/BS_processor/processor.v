@@ -74,10 +74,9 @@ module processor(
 	
 	assign status = state;
 	// Interconnect each input and output of modules.
-	assign const2_mult_din = s_constK[28:0];
+	assign const2_mult_din = pseudo_grn[31:3];		// Let 17+15 to 17+12
 	// For testing.
-	assign sum_dout = s_const2;
-	
+	assign sum_dout = const2_mult_dout[43:12];
 	
 	/**
 	 *
@@ -180,7 +179,8 @@ module processor(
 		end else begin
 			case (state)
 			RUNNING: begin
-				pseudo_grn <= 32'b11111111111111111_000000000000000;	// This represents -1 in form of 17/15 fixed point number.
+				//pseudo_grn <= 32'b11111111111111111_000000000000000;	// This represents -1 in form of 17/15 fixed point number.
+				pseudo_grn <= 32'b00000000000001010_110000000000000;	// This represents 10.75 in form of 17/15 fixed point number.
 			end
 			endcase
 		end
@@ -232,13 +232,13 @@ module processor(
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	/*mult_29_15 const2_mult(
+	mult_29_15 const2_mult(
 		.aclr0(~nreset),
 		.clock0(clk),
 		.dataa_0(const2_mult_din),
-		.datab_0(s_const2),
+		.datab_0(s_const2[14:0]),
 		.result(const2_mult_dout)
-	);*/
+	);
 	
 	// Latency 0 clock cycle.
 	/*special_exp_lut special_exp_lut (
