@@ -35,6 +35,7 @@ public class MainActivity extends Activity {
 
     public native int setConstantsIntoDevice(double K, double const1, double const2);
     public native int commandDevice(byte command);
+    public native int setupLutIntoDevice();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,8 @@ public class MainActivity extends Activity {
         mEditTextConstantT = (EditText)findViewById(R.id.edit_text_T);
         mEditTextIterateNumber = (EditText)findViewById(R.id.edit_text_M);
         mMessageLayout = (LinearLayout)findViewById(R.id.message_layout);
+        // Set LUT for comutation into the device.
+        setupLutIntoDevice();
     }
 
     public void onComputeButtonClick(View v) {
@@ -80,6 +83,12 @@ public class MainActivity extends Activity {
             addMessageToMessageLayout("An error occurred at commandDevice(). Exit.");
             return;
         }
+        addMessageToMessageLayout("Set LUT for computation into the device...");
+//        result = setupLutIntoDevice();
+//        if (result != 0) {
+//            addMessageToMessageLayout("An error occurred at setupLutIntoDevice(). Exit.");
+//            return;
+//        }
         // TODO: Confirm the device is running.
     }
 
