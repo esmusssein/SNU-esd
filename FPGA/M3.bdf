@@ -796,7 +796,7 @@ applicable agreement for further details.
 	(annotation_block (location)(rect 144 240 200 256))
 )
 (symbol
-	(rect 472 -200 640 -72)
+	(rect 472 -208 640 -80)
 	(text "host_io" (rect 5 0 40 12)(font "Arial" ))
 	(text "inst" (rect 8 112 25 124)(font "Arial" ))
 	(port
@@ -1379,44 +1379,6 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 728 -56 1000 -24))
 )
 (connector
-	(text "HDO[15..0]" (rect 376 -120 432 -108)(font "Arial" ))
-	(pt 368 -104)
-	(pt 472 -104)
-	(bus)
-)
-(connector
-	(text "FPGA_CLK" (rect 376 -184 432 -172)(font "Arial" ))
-	(pt 472 -168)
-	(pt 368 -168)
-)
-(connector
-	(text "FPGA_nCS" (rect 376 -168 432 -156)(font "Arial" ))
-	(pt 472 -152)
-	(pt 368 -152)
-)
-(connector
-	(text "XM0OEN" (rect 376 -152 419 -140)(font "Arial" ))
-	(pt 472 -136)
-	(pt 368 -136)
-)
-(connector
-	(text "XM0WEN" (rect 376 -136 422 -124)(font "Arial" ))
-	(pt 472 -120)
-	(pt 368 -120)
-)
-(connector
-	(text "HDI[15..0]" (rect 648 -184 699 -172)(font "Arial" ))
-	(pt 640 -168)
-	(pt 736 -168)
-	(bus)
-)
-(connector
-	(text "XM0DATA[15..0]" (rect 648 -168 728 -156)(font "Arial" ))
-	(pt 640 -152)
-	(pt 736 -152)
-	(bus)
-)
-(connector
 	(text "FPGA_nCS" (rect 104 -96 160 -84)(font "Arial" ))
 	(pt 96 -80)
 	(pt 168 -80)
@@ -1790,5 +1752,43 @@ applicable agreement for further details.
 	(text "proc_pow_acc_dout[31..0]" (rect 704 304 832 316)(font "Arial" ))
 	(pt 704 320)
 	(pt 776 320)
+	(bus)
+)
+(connector
+	(text "HDO[15..0]" (rect 376 -128 432 -116)(font "Arial" ))
+	(pt 368 -112)
+	(pt 472 -112)
+	(bus)
+)
+(connector
+	(text "FPGA_CLK" (rect 376 -192 432 -180)(font "Arial" ))
+	(pt 472 -176)
+	(pt 368 -176)
+)
+(connector
+	(text "FPGA_nCS" (rect 376 -176 432 -164)(font "Arial" ))
+	(pt 472 -160)
+	(pt 368 -160)
+)
+(connector
+	(text "XM0OEN" (rect 376 -160 419 -148)(font "Arial" ))
+	(pt 472 -144)
+	(pt 368 -144)
+)
+(connector
+	(text "XM0WEN" (rect 376 -144 422 -132)(font "Arial" ))
+	(pt 472 -128)
+	(pt 368 -128)
+)
+(connector
+	(text "HDI[15..0]" (rect 648 -192 699 -180)(font "Arial" ))
+	(pt 640 -176)
+	(pt 736 -176)
+	(bus)
+)
+(connector
+	(text "XM0DATA[15..0]" (rect 648 -176 728 -164)(font "Arial" ))
+	(pt 640 -160)
+	(pt 736 -160)
 	(bus)
 )

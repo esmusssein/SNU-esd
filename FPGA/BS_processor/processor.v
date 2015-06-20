@@ -3,18 +3,21 @@
  *
  * Explanation of each constants:
  *
- *	- constK: K
- * - const1: S*exp((r-0.5*sigma^2)*T)
- *	- const2: sigma*sqrt(T)
- *	- const3: exp(-r*T)
+ *	- constK: K in fixed point number integer 8-bit / fraction 12-bit
+ * - const1: S*exp((r-0.5*sigma^2)*T) in fixed point number integer 23-bit / fraction 12-bit
+ *	- const2: sigma*sqrt(T) in fixed point number integer 3-bit / fraction 12-bit
  *
  * Constants above should be given from the M1 module.
- *
  *
  * Commands:
  *
  *	- RUN: When the processor is in IDLE state, command this to process algorithm.
  * - ACK: When the processor is in COMPLETE state, command this to be in IDLE to be ready for next computation.
+ *
+ * Results:
+ *
+ * - acc_dout: Sum of present values in fixed point number integer 40-bit / fraction 12-bit.
+ * - pow_acc_dout: Sum of power of 2 to each present values in fixed point number integer 40-bit / fraction 12-bit
  *
  * Processing Overview
  *
@@ -25,15 +28,14 @@ module processor(
 	input clk,
 	input nreset,
 	input [31:0] niter,
-	input [31:0] constK,
-	input [31:0] const1,
-	input [31:0] const2,
-	input [31:0] const3,
+	input [19:0] constK,
+	input [34:0] const1,
+	input [14:0] const2,
 	input [3:0] cmd,
 	 
 	output [3:0] status,
-	output reg [31:0] acc_dout,
-	output reg [31:0] pow_acc_dout
+	output reg [51:0] acc_dout,
+	output reg [51:0] pow_acc_dout
 );
 
 	parameter CMD_RUN = 1;
@@ -50,50 +52,44 @@ module processor(
 	reg [3:0] state;
 	reg [3:0] nxt_state;
 	reg [31:0] s_niter;
-	reg [31:0] s_constK;
-	reg [31:0] s_const1;
-	reg [31:0] s_const2;
-	reg [31:0] s_const3;
+	reg [19:0] s_constK;
+	reg [34:0] s_const1;
+	reg [14:0] s_const2;
 	reg [31:0] cnt_clk;
-	// Each is an accumulate register of const3_mult_conv_dout values and pow_conv_dout values repectively.
-	reg [63:0] acc;
-	reg [63:0] pow_acc;
+	reg [51:0] sum;
+	reg [51:0] pow_sum;
 	// To test computing Black-Scholes model process except for Gaussian Random Number Generator.
 	reg [31:0] pseudo_grn;
 	
-	wire clk_en;
-	// Input and output of each modules in this processor.
-	wire [31:0] const2_mult_din;
-	wire [31:0] const2_mult_dout;
-	wire [31:0] exp_din;
-	wire [31:0] exp_dout;
-	wire [31:0] const1_mult_din;
-	wire [31:0] const1_mult_dout;
-	wire [31:0] k_sub_din;
-	wire [31:0] k_sub_dout;
-	wire [31:0] const3_mult_din;
-	wire [31:0] const3_mult_dout;
-	wire [31:0] const3_mult_conv_din;
-	wire [63:0] const3_mult_conv_dout;
-	wire [31:0] pow_din;
-	wire [31:0] pow_dout;
-	wire [31:0] pow_conv_din;
-	wire [63:0] pow_conv_dout;
-	wire [63:0] fx_conv_din;
-	wire [31:0] fx_conv_dout;
+	// Input and output of each modules.
+	wire [28:0] const2_mult_din;
+	wire [44:0] const2_mult_dout;
+	wire [7:0] special_exp_lut_din;
+	wire [20:0] special_exp_lut_dout;
+	wire [20:0] mult_for_exp_21_din;
+	wire [13:0] mult_for_exp_14_din;
+	wire [34:0] mult_for_exp_dout;
+	wire [34:0] sub_from_k_din;
+	wire [34:0] sub_from_k_dout;
+	sub_19_35 sub_from_k(
+		.nreset(~nreset),
+		.clk(clk),
+		.dina(s_constk),
+		.dinb(sub_from_k_din),
+		.dout(sub_from_k_dout)
+	);
+	
+	// Latency 1 clock cycle.
+	// Supports pipelining.
+	mult_20_20 pow(
+		.aclr0(~nreset),
+		.clock0(clk),
+		.dataa_0(pow_din),
+		.datab_0(pow_din),
+		.result(pow_dout)
+	);
 	
 	assign status = state;
-	assign clk_en = 1'b1;
-	// Connect input and output of each modules.
-	assign const2_mult_din = pseudo_grn;
-	assign exp_din = const2_mult_dout;
-	assign const1_mult_din = exp_dout;
-	assign k_sub_din = const1_mult_dout;
-	assign const3_mult_din = k_sub_dout[31] ? 32'd0 : k_sub_dout;
-	assign const3_mult_conv_din = const3_mult_dout;
-	assign pow_din = const3_mult_dout;
-	assign pow_conv_din = pow_dout;
-	assign fx_conv_din = (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niter + 4) ? acc : pow_acc;
 	
 	/**
 	 *
@@ -148,15 +144,13 @@ module processor(
 	 * @update s_constK
 	 * @update s_const1
 	 * @update s_const2
-	 * @update s_const3
 	 */
 	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
 			s_niter <= 32'd0;
-			s_constK <= 32'd0;
-			s_const1 <= 32'd0;
-			s_const2 <= 32'd0;
-			s_const3 <= 32'd0;
+			s_constK <= 20'd0;
+			s_const1 <= 35'd0;
+			s_const2 <= 15'd0;
 		end else begin
 			case (state)
 			IDLE: begin
@@ -164,14 +158,6 @@ module processor(
 				s_constK <= constK;
 				s_const1 <= const1;
 				s_const2 <= const2;
-				s_const3 <= const3;
-			end
-			default: begin
-				s_niter <= s_niter;
-				s_constK <= s_constK;
-				s_const1 <= s_const1;
-				s_const2 <= s_const2;
-				s_const3 <= s_const3;
 			end
 			endcase
 		end
@@ -192,37 +178,6 @@ module processor(
 				IDLE: begin
 					cnt_clk <= 32'd0;
 				end
-				default: begin
-					cnt_clk <= cnt_clk;
-				end
-			endcase
-		end
-	end
-	
-	/**
-	 *
-	 * @update acc_dout
-	 * @update pow_acc_dout
-	 */
-	always @(posedge clk or negedge nreset) begin
-		if (nreset == 1'b0) begin
-			acc_dout <= 32'd0;
-			pow_acc_dout <= 32'd0;
-		end else begin
-			case (state)
-				RUNNING: begin
-					if (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niter + 8) begin
-						acc_dout <= fx_conv_dout;
-						pow_acc_dout <= 32'd0;
-					end else begin
-						acc_dout <= acc_dout;
-						pow_acc_dout <= fx_conv_dout;
-					end
-				end
-				default: begin
-					acc_dout <= acc_dout;
-					pow_acc_dout <= pow_acc_dout;
-				end
 			endcase
 		end
 	end
@@ -236,174 +191,120 @@ module processor(
 			pseudo_grn <= 32'd0;
 		end else begin
 			case (state)
-				RUNNING: begin
-					pseudo_grn <= 32'b10111111100000000000000000000000;
-					/*if (cnt_clk == 32'd0) begin
-						pseudo_grn <= 32'b10111111100000000000000000000000;		// This represents -1 in form of IEEE float.
-					end else if (cnt_clk == 32'd1) begin
-						pseudo_grn <= 32'b10111111100000000000000000000000;		// This represents -3 in form of IEEE float.
-					end else begin
-						pseudo_grn <= 32'b10111111100000000000000000000000;		// This represents -2 in form of IEEE float.
-					end*/
-				end
-				default: begin
-					pseudo_grn <= pseudo_grn;
-				end
+			RUNNING: begin
+				pseudo_grn <= 32'b11111111111111111_000000000000000;	// This represents -1 in form of 17/15 fixed point number.
+			end
 			endcase
 		end
 	end
 	
 	/**
 	 *
-	 * @update acc
+	 * @update sum
 	 */
 	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
-			acc <= 64'd0;
+			sum <= 52'd0;
 		end else begin
 			case (state)
-				RUNNING: begin
-					if (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niter) begin
-						acc <= acc + const3_mult_conv_dout;
-					end else begin
-						acc <= acc;
-					end
+			IDLE: begin
+				sum <= 52'd0;
+			end
+			RUNNING: begin
+				// TODO
+				if (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niter) begin
+					sum <= sum + const3_mult_conv_dout;
 				end
-				COMPLETE: begin
-					acc <= acc;
-				end
-				default: begin
-					acc <= 64'd0;
-				end
+			end
 			endcase
 		end
 	end
 	
 	/**
 	 *
-	 * @update pow_acc
+	 * @update pow_sum
 	 */
 	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
-			pow_acc <= 64'd0;
+			pow_sum <= 52'd0;
 		end else begin
 			case (state)
-				RUNNING: begin
-					if (cnt_clk <= LATENCY_POW_CONV_DOUT + niter) begin
-						pow_acc <= pow_acc + pow_conv_dout;
-					end else begin
-						pow_acc <= pow_acc;
-					end
+			IDLE: begin
+				pow_sum <= 52'd0;
+			end
+			RUNNING: begin
+				// TODO
+				if (cnt_clk <= LATENCY_POW_CONV_DOUT + niter) begin
+					pow_sum <= pow_sum + pow_conv_dout;
 				end
-				COMPLETE: begin
-					pow_acc<= pow_acc;
-				end
-				default: begin
-					pow_acc <= 64'd0;
-				end
+			end
 			endcase
 		end
 	end
 	
-	// Latency: 5 clock cycle.
+	// Latency 1 clock cycle.
 	// Supports pipelining.
-	fp_mult const2_mult(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.dataa(s_const2),
-		.datab(const2_mult_din),
+	mult_29_15 const2_mult(
+		.aclr0(~nreset),
+		.clock0(clk),
+		.dataa_0(const2_mult_din),
+		.datab_0(s_const2),
 		.result(const2_mult_dout)
 	);
 	
-	// Latency: 17 clock cycle.
-	// Supports pipelining.
-	fp_exp exp(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.data(exp_din),
-		.result(exp_dout)
+	// Latency 0 clock cycle.
+	special_exp_lut(
+		.din(special_exp_lut_din),
+		.dout(special_exp_lut_dout)
 	);
 	
-	// Latency: 5 clock cycle.
+	// Latency 1 clock cycle.
 	// Supports pipelining.
-	fp_mult const1_mult(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.dataa(s_const1),
-		.datab(const1_mult_din),
-		.result(const1_mult_dout)
+	mult_40_33 mult_for_exp(
+		.aclr0(~nreset),
+		.clock0(clk),
+		.dataa_0(mult_for_exp_40_din),
+		.datab_0(mult_for_exp_33_din),
+		.result(mult_for_exp_dout)
 	);
 	
-	// Latency: 7 clock cycle.
+	// Latency 1 clock cycle.
 	// Supports pipelining.
-	fp_sub k_sub(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.dataa(s_constK),
-		.datab(k_sub_din),
-		.result(k_sub_dout)
+	sub_19_35 sub_from_k(
+		.nreset(~nreset),
+		.clk(clk),
+		.dina(s_constk),
+		.dinb(sub_from_k_din),
+		.dout(sub_from_k_dout)
 	);
 	
-	// Latency: 5 clock cycle.
+	// Latency 1 clock cycle.
 	// Supports pipelining.
-	fp_mult const3_mult(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.dataa(s_const3),
-		.datab(const3_mult_din),
-		.result(const3_mult_dout)
-	);
-	
-	// A module that converts a floating point number to a fixed point number.
-	// Output fixed number: custom 44-bit fraction 20-bit
-	// Latency: 6 clock cycle.
-	// Supports pipelining.
-	fp_fx_conv const3_mult_conv(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.dataa(const3_mult_conv_din),
-		.result(const3_mult_conv_dout)
-	);
-	
-	// Latency: 5 clock cycle.
-	// Supports pipelining.
-	fp_mult pow(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.dataa(pow_din),
-		.datab(pow_din),
+	mult_20_20 pow(
+		.aclr0(~nreset),
+		.clock0(clk),
+		.dataa_0(pow_din),
+		.datab_0(pow_din),
 		.result(pow_dout)
 	);
 	
-	// A module that converts a floating point number to a fixed point number.
-	// Output fixed number: custom 44-bit fraction 20-bit
-	// Latency: 6 clock cycle.
-	// Supports pipelining.
-	fp_fx_conv pow_conv(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.dataa(pow_conv_din),
-		.result(pow_conv_dout)
-	);
+endmodule
+
+module sub_19_35(
+	input nreset,
+	input clk,
+	input [18:0] dina,
+	input [34:0] dinb,
 	
-	// A module that converts a fixed point number to a floating point number.
-	// Input fixed number: custom 44-bit fraction 20-bit
-	// Latency: 6 clock cycle.
-	// Supports pipelining.
-	fx_fp_conv fx_fp_conv(
-		.aclr(~nreset),
-		.clk_en(clk_en),
-		.clock(clk),
-		.dataa(fx_conv_din),
-		.result(fx_conv_dout)
-	);
-	 
+	output reg [34:0] dout
+);
+
+	always @(posedge clk or negedge nreset) begin
+		if (nreset == 1'b0) begin
+			dout <= 34'd0;
+		end else begin
+			dout <= {dina, 16'd0} - dinb;
+		end
+	end
+
 endmodule
