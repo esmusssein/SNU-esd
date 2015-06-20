@@ -1,5 +1,5 @@
 Analysis & Synthesis report for M3
-Sat Jun 20 21:26:38 2015
+Sat Jun 20 21:40:17 2015
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -20,14 +20,23 @@ Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
  13. Source assignments for processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_o8f1:left_mult|dffpipe_63c:pre_result
  14. Source assignments for processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_ihf1:right_mult|dffpipe_f3c:pre_result
- 15. Parameter Settings for User Entity Instance: host_itf:inst2
- 16. Parameter Settings for User Entity Instance: processor:inst3
- 17. Parameter Settings for User Entity Instance: processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component
- 18. Parameter Settings for User Entity Instance: processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_o8f1:left_mult|alt_mac_mult:mac_mult2
- 19. altmult_add Parameter Settings by Entity Instance
- 20. Port Connectivity Checks: "processor:inst3|mult_20_18:const2_mult"
- 21. Elapsed Time Per Partition
- 22. Analysis & Synthesis Messages
+ 15. Source assignments for processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|dffpipe_g3c:pre_result
+ 16. Source assignments for processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult|dffpipe_e3c:pre_result
+ 17. Source assignments for processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|dffpipe_g3c:pre_result
+ 18. Source assignments for processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_jhf1:right_mult|dffpipe_e3c:pre_result
+ 19. Parameter Settings for User Entity Instance: host_itf:inst2
+ 20. Parameter Settings for User Entity Instance: processor:inst3
+ 21. Parameter Settings for User Entity Instance: processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component
+ 22. Parameter Settings for User Entity Instance: processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_o8f1:left_mult|alt_mac_mult:mac_mult2
+ 23. Parameter Settings for User Entity Instance: processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component
+ 24. Parameter Settings for User Entity Instance: processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2
+ 25. Parameter Settings for User Entity Instance: processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54
+ 26. altmult_add Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "processor:inst3|mult_40_17:mult_for_exp"
+ 28. Port Connectivity Checks: "processor:inst3|delay_2_cycle:mdelay_2_cycle"
+ 29. Port Connectivity Checks: "processor:inst3|mult_20_18:const2_mult"
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
 
 
 
@@ -53,7 +62,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 20 21:26:38 2015    ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 20 21:40:17 2015    ;
 ; Quartus II Version                 ; 11.0 Build 157 04/27/2011 SJ Web Edition ;
 ; Revision Name                      ; M3                                       ;
 ; Top-level Entity Name              ; M3                                       ;
@@ -175,6 +184,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Host_IF/host_io.v                ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/Host_IF/host_io.v                                  ;
 ; Host_IF/host_itf.v               ; yes             ; User Verilog HDL File              ; D:/esd/SNU_ESD/FPGA/Host_IF/host_itf.v                                 ;
 ; BS_processor/mult_20_18.v        ; yes             ; User Wizard-Generated File         ; D:/esd/SNU_ESD/FPGA/BS_processor/mult_20_18.v                          ;
+; BS_processor/mult_40_17.v        ; yes             ; User Wizard-Generated File         ; D:/esd/SNU_ESD/FPGA/BS_processor/mult_40_17.v                          ;
 ; altmult_add.tdf                  ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/altmult_add.tdf         ;
 ; aglobal110.inc                   ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/aglobal110.inc          ;
 ; stratix_mac_mult.inc             ; yes             ; Megafunction                       ; c:/altera/11.0/quartus/libraries/megafunctions/stratix_mac_mult.inc    ;
@@ -213,6 +223,22 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; db/mult_7gp.tdf                  ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/mult_7gp.tdf                                    ;
 ; db/mac_out_4421.tdf              ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/mac_out_4421.tdf                                ;
 ; db/dffpipe_f3c.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/dffpipe_f3c.tdf                                 ;
+; db/mult_add_fqq2.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/mult_add_fqq2.tdf                               ;
+; db/ded_mult_i281.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/ded_mult_i281.tdf                               ;
+; db/ded_mult_8af1.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/ded_mult_8af1.tdf                               ;
+; db/ded_mult_p8f1.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/ded_mult_p8f1.tdf                               ;
+; db/add_sub_5ch.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/add_sub_5ch.tdf                                 ;
+; db/mac_out_6421.tdf              ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/mac_out_6421.tdf                                ;
+; db/dffpipe_g3c.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/dffpipe_g3c.tdf                                 ;
+; db/ded_mult_jhf1.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/ded_mult_jhf1.tdf                               ;
+; db/mac_mult_jk31.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/mac_mult_jk31.tdf                               ;
+; db/mult_5gp.tdf                  ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/mult_5gp.tdf                                    ;
+; db/mac_out_5421.tdf              ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/mac_out_5421.tdf                                ;
+; db/dffpipe_e3c.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/dffpipe_e3c.tdf                                 ;
+; db/ded_mult_bhf1.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/ded_mult_bhf1.tdf                               ;
+; db/ded_mult_sff1.tdf             ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/ded_mult_sff1.tdf                               ;
+; db/add_sub_3lf.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/add_sub_3lf.tdf                                 ;
+; db/add_sub_c1h.tdf               ; yes             ; Auto-Generated Megafunction        ; D:/esd/SNU_ESD/FPGA/db/add_sub_c1h.tdf                                 ;
 +----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------+
 
 
@@ -342,6 +368,42 @@ Encoding Type:  One-Hot
 +---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 ; AUTO_SHIFT_REGISTER_RECOGNITION ; OFF   ; -    ; -                                                                                                                                                   ;
 +---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|dffpipe_g3c:pre_result ;
++---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value ; From ; To                                                                                                                                                                          ;
++---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; AUTO_SHIFT_REGISTER_RECOGNITION ; OFF   ; -    ; -                                                                                                                                                                           ;
++---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult|dffpipe_e3c:pre_result ;
++---------------------------------+-------+------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value ; From ; To                                                                                                                                                                           ;
++---------------------------------+-------+------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; AUTO_SHIFT_REGISTER_RECOGNITION ; OFF   ; -    ; -                                                                                                                                                                            ;
++---------------------------------+-------+------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|dffpipe_g3c:pre_result ;
++---------------------------------+-------+------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value ; From ; To                                                                                                                                                                           ;
++---------------------------------+-------+------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; AUTO_SHIFT_REGISTER_RECOGNITION ; OFF   ; -    ; -                                                                                                                                                                            ;
++---------------------------------+-------+------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_jhf1:right_mult|dffpipe_e3c:pre_result ;
++---------------------------------+-------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value ; From ; To                                                                                                                                                                            ;
++---------------------------------+-------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; AUTO_SHIFT_REGISTER_RECOGNITION ; OFF   ; -    ; -                                                                                                                                                                             ;
++---------------------------------+-------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------+
@@ -639,23 +701,372 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; altmult_add Parameter Settings by Entity Instance                                                                ;
-+---------------------------------------+--------------------------------------------------------------------------+
-; Name                                  ; Value                                                                    ;
-+---------------------------------------+--------------------------------------------------------------------------+
-; Number of entity instances            ; 1                                                                        ;
-; Entity Instance                       ; processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                                                       ;
-;     -- NUMBER_OF_MULTIPLIERS          ; 1                                                                        ;
-;     -- port_signa                     ; PORT_UNUSED                                                              ;
-;     -- port_signb                     ; PORT_UNUSED                                                              ;
-;     -- REPRESENTATION_A               ; SIGNED                                                                   ;
-;     -- REPRESENTATION_B               ; SIGNED                                                                   ;
-;     -- WIDTH_A                        ; 20                                                                       ;
-;     -- WIDTH_B                        ; 18                                                                       ;
-;     -- WIDTH_RESULT                   ; 38                                                                       ;
-+---------------------------------------+--------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component ;
++---------------------------------------+-------------------+------------------------------------------------------------+
+; Parameter Name                        ; Value             ; Type                                                       ;
++---------------------------------------+-------------------+------------------------------------------------------------+
+; AUTO_CARRY_CHAINS                     ; ON                ; AUTO_CARRY                                                 ;
+; IGNORE_CARRY_BUFFERS                  ; OFF               ; IGNORE_CARRY                                               ;
+; AUTO_CASCADE_CHAINS                   ; ON                ; AUTO_CASCADE                                               ;
+; IGNORE_CASCADE_BUFFERS                ; OFF               ; IGNORE_CASCADE                                             ;
+; ACCUM_DIRECTION                       ; ADD               ; Untyped                                                    ;
+; ACCUM_SLOAD_ACLR                      ; ACLR3             ; Untyped                                                    ;
+; ACCUM_SLOAD_PIPELINE_ACLR             ; ACLR3             ; Untyped                                                    ;
+; ACCUM_SLOAD_PIPELINE_REGISTER         ; CLOCK0            ; Untyped                                                    ;
+; ACCUM_SLOAD_REGISTER                  ; CLOCK0            ; Untyped                                                    ;
+; ACCUMULATOR                           ; NO                ; Untyped                                                    ;
+; ADDER1_ROUNDING                       ; NO                ; Untyped                                                    ;
+; ADDER3_ROUNDING                       ; NO                ; Untyped                                                    ;
+; ADDNSUB1_ROUND_ACLR                   ; ACLR3             ; Untyped                                                    ;
+; ADDNSUB1_ROUND_PIPELINE_ACLR          ; ACLR3             ; Untyped                                                    ;
+; ADDNSUB1_ROUND_PIPELINE_REGISTER      ; CLOCK0            ; Untyped                                                    ;
+; ADDNSUB1_ROUND_REGISTER               ; CLOCK0            ; Untyped                                                    ;
+; ADDNSUB3_ROUND_ACLR                   ; ACLR3             ; Untyped                                                    ;
+; ADDNSUB3_ROUND_PIPELINE_ACLR          ; ACLR3             ; Untyped                                                    ;
+; ADDNSUB3_ROUND_PIPELINE_REGISTER      ; CLOCK0            ; Untyped                                                    ;
+; ADDNSUB3_ROUND_REGISTER               ; CLOCK0            ; Untyped                                                    ;
+; ADDNSUB_MULTIPLIER_ACLR1              ; ACLR3             ; Untyped                                                    ;
+; ADDNSUB_MULTIPLIER_ACLR3              ; ACLR3             ; Untyped                                                    ;
+; ADDNSUB_MULTIPLIER_PIPELINE_ACLR1     ; ACLR0             ; Untyped                                                    ;
+; ADDNSUB_MULTIPLIER_PIPELINE_ACLR3     ; ACLR3             ; Untyped                                                    ;
+; ADDNSUB_MULTIPLIER_PIPELINE_REGISTER1 ; CLOCK0            ; Untyped                                                    ;
+; ADDNSUB_MULTIPLIER_PIPELINE_REGISTER3 ; CLOCK0            ; Untyped                                                    ;
+; ADDNSUB_MULTIPLIER_REGISTER1          ; UNREGISTERED      ; Untyped                                                    ;
+; ADDNSUB_MULTIPLIER_REGISTER3          ; CLOCK0            ; Untyped                                                    ;
+; CHAINOUT_ACLR                         ; ACLR3             ; Untyped                                                    ;
+; CHAINOUT_ADDER                        ; NO                ; Untyped                                                    ;
+; CHAINOUT_REGISTER                     ; CLOCK0            ; Untyped                                                    ;
+; CHAINOUT_ROUND_ACLR                   ; ACLR3             ; Untyped                                                    ;
+; CHAINOUT_ROUND_OUTPUT_ACLR            ; ACLR3             ; Untyped                                                    ;
+; CHAINOUT_ROUND_OUTPUT_REGISTER        ; CLOCK0            ; Untyped                                                    ;
+; CHAINOUT_ROUND_PIPELINE_ACLR          ; ACLR3             ; Untyped                                                    ;
+; CHAINOUT_ROUND_PIPELINE_REGISTER      ; CLOCK0            ; Untyped                                                    ;
+; CHAINOUT_ROUND_REGISTER               ; CLOCK0            ; Untyped                                                    ;
+; CHAINOUT_ROUNDING                     ; NO                ; Untyped                                                    ;
+; CHAINOUT_SATURATE_ACLR                ; ACLR3             ; Untyped                                                    ;
+; CHAINOUT_SATURATE_OUTPUT_ACLR         ; ACLR3             ; Untyped                                                    ;
+; CHAINOUT_SATURATE_OUTPUT_REGISTER     ; CLOCK0            ; Untyped                                                    ;
+; CHAINOUT_SATURATE_PIPELINE_ACLR       ; ACLR3             ; Untyped                                                    ;
+; CHAINOUT_SATURATE_PIPELINE_REGISTER   ; CLOCK0            ; Untyped                                                    ;
+; CHAINOUT_SATURATE_REGISTER            ; CLOCK0            ; Untyped                                                    ;
+; CHAINOUT_SATURATION                   ; NO                ; Untyped                                                    ;
+; DEDICATED_MULTIPLIER_CIRCUITRY        ; NO                ; Untyped                                                    ;
+; DSP_BLOCK_BALANCING                   ; AUTO              ; Untyped                                                    ;
+; EXTRA_LATENCY                         ; 0                 ; Untyped                                                    ;
+; INPUT_ACLR_A0                         ; ACLR3             ; Untyped                                                    ;
+; INPUT_ACLR_A1                         ; ACLR3             ; Untyped                                                    ;
+; INPUT_ACLR_A2                         ; ACLR3             ; Untyped                                                    ;
+; INPUT_ACLR_A3                         ; ACLR3             ; Untyped                                                    ;
+; INPUT_ACLR_B0                         ; ACLR3             ; Untyped                                                    ;
+; INPUT_ACLR_B1                         ; ACLR3             ; Untyped                                                    ;
+; INPUT_ACLR_B2                         ; ACLR3             ; Untyped                                                    ;
+; INPUT_ACLR_B3                         ; ACLR3             ; Untyped                                                    ;
+; INPUT_REGISTER_A0                     ; UNREGISTERED      ; Untyped                                                    ;
+; INPUT_REGISTER_A1                     ; CLOCK0            ; Untyped                                                    ;
+; INPUT_REGISTER_A2                     ; CLOCK0            ; Untyped                                                    ;
+; INPUT_REGISTER_A3                     ; CLOCK0            ; Untyped                                                    ;
+; INPUT_REGISTER_B0                     ; UNREGISTERED      ; Untyped                                                    ;
+; INPUT_REGISTER_B1                     ; CLOCK0            ; Untyped                                                    ;
+; INPUT_REGISTER_B2                     ; CLOCK0            ; Untyped                                                    ;
+; INPUT_REGISTER_B3                     ; CLOCK0            ; Untyped                                                    ;
+; INPUT_SOURCE_A0                       ; DATAA             ; Untyped                                                    ;
+; INPUT_SOURCE_A1                       ; DATAA             ; Untyped                                                    ;
+; INPUT_SOURCE_A2                       ; DATAA             ; Untyped                                                    ;
+; INPUT_SOURCE_A3                       ; DATAA             ; Untyped                                                    ;
+; INPUT_SOURCE_B0                       ; DATAB             ; Untyped                                                    ;
+; INPUT_SOURCE_B1                       ; DATAB             ; Untyped                                                    ;
+; INPUT_SOURCE_B2                       ; DATAB             ; Untyped                                                    ;
+; INPUT_SOURCE_B3                       ; DATAB             ; Untyped                                                    ;
+; MULT01_ROUND_ACLR                     ; ACLR3             ; Untyped                                                    ;
+; MULT01_ROUND_REGISTER                 ; CLOCK0            ; Untyped                                                    ;
+; MULT01_SATURATION_ACLR                ; ACLR2             ; Untyped                                                    ;
+; MULT01_SATURATION_REGISTER            ; CLOCK0            ; Untyped                                                    ;
+; MULT23_ROUND_ACLR                     ; ACLR3             ; Untyped                                                    ;
+; MULT23_ROUND_REGISTER                 ; CLOCK0            ; Untyped                                                    ;
+; MULT23_SATURATION_ACLR                ; ACLR3             ; Untyped                                                    ;
+; MULT23_SATURATION_REGISTER            ; CLOCK0            ; Untyped                                                    ;
+; MULTIPLIER01_ROUNDING                 ; NO                ; Untyped                                                    ;
+; MULTIPLIER01_SATURATION               ; NO                ; Untyped                                                    ;
+; MULTIPLIER1_DIRECTION                 ; ADD               ; Untyped                                                    ;
+; MULTIPLIER23_ROUNDING                 ; NO                ; Untyped                                                    ;
+; MULTIPLIER23_SATURATION               ; NO                ; Untyped                                                    ;
+; MULTIPLIER3_DIRECTION                 ; ADD               ; Untyped                                                    ;
+; MULTIPLIER_ACLR0                      ; ACLR0             ; Untyped                                                    ;
+; MULTIPLIER_ACLR1                      ; ACLR3             ; Untyped                                                    ;
+; MULTIPLIER_ACLR2                      ; ACLR3             ; Untyped                                                    ;
+; MULTIPLIER_ACLR3                      ; ACLR3             ; Untyped                                                    ;
+; MULTIPLIER_REGISTER0                  ; CLOCK0            ; Untyped                                                    ;
+; MULTIPLIER_REGISTER1                  ; CLOCK0            ; Untyped                                                    ;
+; MULTIPLIER_REGISTER2                  ; CLOCK0            ; Untyped                                                    ;
+; MULTIPLIER_REGISTER3                  ; CLOCK0            ; Untyped                                                    ;
+; NUMBER_OF_MULTIPLIERS                 ; 1                 ; Signed Integer                                             ;
+; OUTPUT_ACLR                           ; ACLR3             ; Untyped                                                    ;
+; OUTPUT_REGISTER                       ; UNREGISTERED      ; Untyped                                                    ;
+; OUTPUT_ROUND_ACLR                     ; ACLR3             ; Untyped                                                    ;
+; OUTPUT_ROUND_PIPELINE_ACLR            ; ACLR3             ; Untyped                                                    ;
+; OUTPUT_ROUND_PIPELINE_REGISTER        ; CLOCK0            ; Untyped                                                    ;
+; OUTPUT_ROUND_REGISTER                 ; CLOCK0            ; Untyped                                                    ;
+; OUTPUT_ROUND_TYPE                     ; NEAREST_INTEGER   ; Untyped                                                    ;
+; OUTPUT_ROUNDING                       ; NO                ; Untyped                                                    ;
+; OUTPUT_SATURATE_ACLR                  ; ACLR3             ; Untyped                                                    ;
+; OUTPUT_SATURATE_PIPELINE_ACLR         ; ACLR3             ; Untyped                                                    ;
+; OUTPUT_SATURATE_PIPELINE_REGISTER     ; CLOCK0            ; Untyped                                                    ;
+; OUTPUT_SATURATE_REGISTER              ; CLOCK0            ; Untyped                                                    ;
+; OUTPUT_SATURATE_TYPE                  ; ASYMMETRIC        ; Untyped                                                    ;
+; OUTPUT_SATURATION                     ; NO                ; Untyped                                                    ;
+; port_addnsub1                         ; PORT_UNUSED       ; Untyped                                                    ;
+; port_addnsub3                         ; PORT_CONNECTIVITY ; Untyped                                                    ;
+; PORT_CHAINOUT_SAT_IS_OVERFLOW         ; PORT_UNUSED       ; Untyped                                                    ;
+; PORT_MULT0_IS_SATURATED               ; UNUSED            ; Untyped                                                    ;
+; PORT_MULT1_IS_SATURATED               ; UNUSED            ; Untyped                                                    ;
+; PORT_MULT2_IS_SATURATED               ; UNUSED            ; Untyped                                                    ;
+; PORT_MULT3_IS_SATURATED               ; UNUSED            ; Untyped                                                    ;
+; PORT_OUTPUT_IS_OVERFLOW               ; PORT_UNUSED       ; Untyped                                                    ;
+; port_signa                            ; PORT_UNUSED       ; Untyped                                                    ;
+; port_signb                            ; PORT_UNUSED       ; Untyped                                                    ;
+; REPRESENTATION_A                      ; SIGNED            ; Untyped                                                    ;
+; REPRESENTATION_B                      ; SIGNED            ; Untyped                                                    ;
+; ROTATE_ACLR                           ; ACLR3             ; Untyped                                                    ;
+; ROTATE_OUTPUT_ACLR                    ; ACLR3             ; Untyped                                                    ;
+; ROTATE_OUTPUT_REGISTER                ; CLOCK0            ; Untyped                                                    ;
+; ROTATE_PIPELINE_ACLR                  ; ACLR3             ; Untyped                                                    ;
+; ROTATE_PIPELINE_REGISTER              ; CLOCK0            ; Untyped                                                    ;
+; ROTATE_REGISTER                       ; CLOCK0            ; Untyped                                                    ;
+; WIDTH_MSB                             ; 17                ; Untyped                                                    ;
+; WIDTH_SATURATE_SIGN                   ; 1                 ; Untyped                                                    ;
+; SCANOUTA_ACLR                         ; ACLR3             ; Untyped                                                    ;
+; SCANOUTA_REGISTER                     ; UNREGISTERED      ; Untyped                                                    ;
+; SHIFT_MODE                            ; NO                ; Untyped                                                    ;
+; SHIFT_RIGHT_ACLR                      ; ACLR3             ; Untyped                                                    ;
+; SHIFT_RIGHT_OUTPUT_ACLR               ; ACLR3             ; Untyped                                                    ;
+; SHIFT_RIGHT_OUTPUT_REGISTER           ; CLOCK0            ; Untyped                                                    ;
+; SHIFT_RIGHT_PIPELINE_ACLR             ; ACLR3             ; Untyped                                                    ;
+; SHIFT_RIGHT_PIPELINE_REGISTER         ; CLOCK0            ; Untyped                                                    ;
+; SHIFT_RIGHT_REGISTER                  ; CLOCK0            ; Untyped                                                    ;
+; SIGNED_ACLR_A                         ; ACLR3             ; Untyped                                                    ;
+; SIGNED_ACLR_B                         ; ACLR3             ; Untyped                                                    ;
+; SIGNED_PIPELINE_ACLR_A                ; ACLR0             ; Untyped                                                    ;
+; SIGNED_PIPELINE_ACLR_B                ; ACLR0             ; Untyped                                                    ;
+; SIGNED_PIPELINE_REGISTER_A            ; CLOCK0            ; Untyped                                                    ;
+; SIGNED_PIPELINE_REGISTER_B            ; CLOCK0            ; Untyped                                                    ;
+; SIGNED_REGISTER_A                     ; UNREGISTERED      ; Untyped                                                    ;
+; SIGNED_REGISTER_B                     ; UNREGISTERED      ; Untyped                                                    ;
+; WIDTH_A                               ; 40                ; Signed Integer                                             ;
+; WIDTH_B                               ; 17                ; Signed Integer                                             ;
+; WIDTH_CHAININ                         ; 1                 ; Untyped                                                    ;
+; WIDTH_RESULT                          ; 57                ; Signed Integer                                             ;
+; ZERO_CHAINOUT_OUTPUT_ACLR             ; ACLR3             ; Untyped                                                    ;
+; ZERO_CHAINOUT_OUTPUT_REGISTER         ; CLOCK0            ; Untyped                                                    ;
+; ZERO_LOOPBACK_ACLR                    ; ACLR3             ; Untyped                                                    ;
+; ZERO_LOOPBACK_OUTPUT_ACLR             ; ACLR3             ; Untyped                                                    ;
+; ZERO_LOOPBACK_OUTPUT_REGISTER         ; CLOCK0            ; Untyped                                                    ;
+; ZERO_LOOPBACK_PIPELINE_ACLR           ; ACLR3             ; Untyped                                                    ;
+; ZERO_LOOPBACK_PIPELINE_REGISTER       ; CLOCK0            ; Untyped                                                    ;
+; ZERO_LOOPBACK_REGISTER                ; CLOCK0            ; Untyped                                                    ;
+; CBXI_PARAMETER                        ; mult_add_fqq2     ; Untyped                                                    ;
+; DEVICE_FAMILY                         ; Cyclone II        ; Untyped                                                    ;
+; WIDTH_C                               ; 22                ; Untyped                                                    ;
+; LOADCONST_VALUE                       ; 64                ; Untyped                                                    ;
+; PREADDER_MODE                         ; SIMPLE            ; Untyped                                                    ;
+; PREADDER_DIRECTION_0                  ; ADD               ; Untyped                                                    ;
+; PREADDER_DIRECTION_1                  ; ADD               ; Untyped                                                    ;
+; PREADDER_DIRECTION_2                  ; ADD               ; Untyped                                                    ;
+; PREADDER_DIRECTION_3                  ; ADD               ; Untyped                                                    ;
+; INPUT_REGISTER_C0                     ; CLOCK0            ; Untyped                                                    ;
+; INPUT_ACLR_C0                         ; ACLR0             ; Untyped                                                    ;
+; COEFSEL0_REGISTER                     ; CLOCK0            ; Untyped                                                    ;
+; COEFSEL1_REGISTER                     ; CLOCK0            ; Untyped                                                    ;
+; COEFSEL2_REGISTER                     ; CLOCK0            ; Untyped                                                    ;
+; COEFSEL3_REGISTER                     ; CLOCK0            ; Untyped                                                    ;
+; COEFSEL0_ACLR                         ; ACLR0             ; Untyped                                                    ;
+; COEFSEL1_ACLR                         ; ACLR0             ; Untyped                                                    ;
+; COEFSEL2_ACLR                         ; ACLR0             ; Untyped                                                    ;
+; COEFSEL3_ACLR                         ; ACLR0             ; Untyped                                                    ;
+; SYSTOLIC_DELAY1                       ; CLOCK0            ; Untyped                                                    ;
+; SYSTOLIC_DELAY3                       ; CLOCK0            ; Untyped                                                    ;
+; SYSTOLIC_ACLR1                        ; ACLR0             ; Untyped                                                    ;
+; SYSTOLIC_ACLR3                        ; ACLR0             ; Untyped                                                    ;
+; COEF0_0                               ; 0                 ; Untyped                                                    ;
+; COEF0_1                               ; 0                 ; Untyped                                                    ;
+; COEF0_2                               ; 0                 ; Untyped                                                    ;
+; COEF0_3                               ; 0                 ; Untyped                                                    ;
+; COEF0_4                               ; 0                 ; Untyped                                                    ;
+; COEF0_5                               ; 0                 ; Untyped                                                    ;
+; COEF0_6                               ; 0                 ; Untyped                                                    ;
+; COEF0_7                               ; 0                 ; Untyped                                                    ;
+; COEF1_0                               ; 0                 ; Untyped                                                    ;
+; COEF1_1                               ; 0                 ; Untyped                                                    ;
+; COEF1_2                               ; 0                 ; Untyped                                                    ;
+; COEF1_3                               ; 0                 ; Untyped                                                    ;
+; COEF1_4                               ; 0                 ; Untyped                                                    ;
+; COEF1_5                               ; 0                 ; Untyped                                                    ;
+; COEF1_6                               ; 0                 ; Untyped                                                    ;
+; COEF1_7                               ; 0                 ; Untyped                                                    ;
+; COEF2_0                               ; 0                 ; Untyped                                                    ;
+; COEF2_1                               ; 0                 ; Untyped                                                    ;
+; COEF2_2                               ; 0                 ; Untyped                                                    ;
+; COEF2_3                               ; 0                 ; Untyped                                                    ;
+; COEF2_4                               ; 0                 ; Untyped                                                    ;
+; COEF2_5                               ; 0                 ; Untyped                                                    ;
+; COEF2_6                               ; 0                 ; Untyped                                                    ;
+; COEF2_7                               ; 0                 ; Untyped                                                    ;
+; COEF3_0                               ; 0                 ; Untyped                                                    ;
+; COEF3_1                               ; 0                 ; Untyped                                                    ;
+; COEF3_2                               ; 0                 ; Untyped                                                    ;
+; COEF3_3                               ; 0                 ; Untyped                                                    ;
+; COEF3_4                               ; 0                 ; Untyped                                                    ;
+; COEF3_5                               ; 0                 ; Untyped                                                    ;
+; COEF3_6                               ; 0                 ; Untyped                                                    ;
+; COEF3_7                               ; 0                 ; Untyped                                                    ;
+; WIDTH_COEF                            ; 18                ; Untyped                                                    ;
++---------------------------------------+-------------------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2 ;
++------------------------------+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name               ; Value   ; Type                                                                                                                                                                                                      ;
++------------------------------+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LPM_WIDTHS                   ; 1       ; Untyped                                                                                                                                                                                                   ;
+; DATAA_WIDTH                  ; 2       ; Untyped                                                                                                                                                                                                   ;
+; DATAB_WIDTH                  ; 17      ; Untyped                                                                                                                                                                                                   ;
+; DATAA_CLOCK                  ; NONE    ; Untyped                                                                                                                                                                                                   ;
+; DATAB_CLOCK                  ; NONE    ; Untyped                                                                                                                                                                                                   ;
+; SIGNA_CLOCK                  ; NONE    ; Untyped                                                                                                                                                                                                   ;
+; SIGNB_CLOCK                  ; NONE    ; Untyped                                                                                                                                                                                                   ;
+; OUTPUT_CLOCK                 ; NONE    ; Untyped                                                                                                                                                                                                   ;
+; DATAA_CLEAR                  ; NONE    ; Untyped                                                                                                                                                                                                   ;
+; DATAB_CLEAR                  ; NONE    ; Untyped                                                                                                                                                                                                   ;
+; SIGNA_CLEAR                  ; NONE    ; Untyped                                                                                                                                                                                                   ;
+; SIGNB_CLEAR                  ; NONE    ; Untyped                                                                                                                                                                                                   ;
+; OUTPUT_CLEAR                 ; NONE    ; Untyped                                                                                                                                                                                                   ;
+; ROUND_CLOCK                  ; none    ; Untyped                                                                                                                                                                                                   ;
+; ROUND_CLEAR                  ; none    ; Untyped                                                                                                                                                                                                   ;
+; SATURATE_CLOCK               ; none    ; Untyped                                                                                                                                                                                                   ;
+; SATURATE_CLEAR               ; none    ; Untyped                                                                                                                                                                                                   ;
+; BYPASS_MULTIPLIER            ; NO      ; Untyped                                                                                                                                                                                                   ;
+; DYNAMIC_SCAN_CHAIN_SUPPORTED ; NO      ; Untyped                                                                                                                                                                                                   ;
+; USING_ROUNDING               ; NO      ; Untyped                                                                                                                                                                                                   ;
+; USING_SATURATION             ; NO      ; Untyped                                                                                                                                                                                                   ;
+; EXTRA_OUTPUT_CLOCK           ; none    ; Untyped                                                                                                                                                                                                   ;
+; EXTRA_SIGNA_CLOCK            ; none    ; Untyped                                                                                                                                                                                                   ;
+; EXTRA_SIGNB_CLOCK            ; none    ; Untyped                                                                                                                                                                                                   ;
+; EXTRA_OUTPUT_CLEAR           ; none    ; Untyped                                                                                                                                                                                                   ;
+; EXTRA_SIGNA_CLEAR            ; none    ; Untyped                                                                                                                                                                                                   ;
+; EXTRA_SIGNB_CLEAR            ; none    ; Untyped                                                                                                                                                                                                   ;
+; MULT_PIPELINE                ; 0       ; Untyped                                                                                                                                                                                                   ;
+; MULT_CLOCK                   ; none    ; Untyped                                                                                                                                                                                                   ;
+; MULT_CLEAR                   ; none    ; Untyped                                                                                                                                                                                                   ;
+; MULT_REPRESENTATION_A        ; SIGNED  ; Untyped                                                                                                                                                                                                   ;
+; MULT_REPRESENTATION_B        ; SIGNED  ; Untyped                                                                                                                                                                                                   ;
+; MULT_INPUT_A_IS_CONSTANT     ; NO      ; Untyped                                                                                                                                                                                                   ;
+; MULT_INPUT_B_IS_CONSTANT     ; NO      ; Untyped                                                                                                                                                                                                   ;
+; MULT_INPUT_A_FIXED_VALUE     ; Bx      ; Untyped                                                                                                                                                                                                   ;
+; MULT_INPUT_B_FIXED_VALUE     ; Bx      ; Untyped                                                                                                                                                                                                   ;
+; MULT_MAXIMIZE_SPEED          ; 5       ; Untyped                                                                                                                                                                                                   ;
+; CBXI_PARAMETER               ; NOTHING ; Untyped                                                                                                                                                                                                   ;
++------------------------------+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54 ;
++------------------------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name               ; Value    ; Type                                                                                                                                                                                                       ;
++------------------------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LPM_WIDTHS                   ; 1        ; Untyped                                                                                                                                                                                                    ;
+; DATAA_WIDTH                  ; 2        ; Untyped                                                                                                                                                                                                    ;
+; DATAB_WIDTH                  ; 17       ; Untyped                                                                                                                                                                                                    ;
+; DATAA_CLOCK                  ; NONE     ; Untyped                                                                                                                                                                                                    ;
+; DATAB_CLOCK                  ; NONE     ; Untyped                                                                                                                                                                                                    ;
+; SIGNA_CLOCK                  ; NONE     ; Untyped                                                                                                                                                                                                    ;
+; SIGNB_CLOCK                  ; NONE     ; Untyped                                                                                                                                                                                                    ;
+; OUTPUT_CLOCK                 ; NONE     ; Untyped                                                                                                                                                                                                    ;
+; DATAA_CLEAR                  ; NONE     ; Untyped                                                                                                                                                                                                    ;
+; DATAB_CLEAR                  ; NONE     ; Untyped                                                                                                                                                                                                    ;
+; SIGNA_CLEAR                  ; NONE     ; Untyped                                                                                                                                                                                                    ;
+; SIGNB_CLEAR                  ; NONE     ; Untyped                                                                                                                                                                                                    ;
+; OUTPUT_CLEAR                 ; NONE     ; Untyped                                                                                                                                                                                                    ;
+; ROUND_CLOCK                  ; none     ; Untyped                                                                                                                                                                                                    ;
+; ROUND_CLEAR                  ; none     ; Untyped                                                                                                                                                                                                    ;
+; SATURATE_CLOCK               ; none     ; Untyped                                                                                                                                                                                                    ;
+; SATURATE_CLEAR               ; none     ; Untyped                                                                                                                                                                                                    ;
+; BYPASS_MULTIPLIER            ; NO       ; Untyped                                                                                                                                                                                                    ;
+; DYNAMIC_SCAN_CHAIN_SUPPORTED ; NO       ; Untyped                                                                                                                                                                                                    ;
+; USING_ROUNDING               ; NO       ; Untyped                                                                                                                                                                                                    ;
+; USING_SATURATION             ; NO       ; Untyped                                                                                                                                                                                                    ;
+; EXTRA_OUTPUT_CLOCK           ; none     ; Untyped                                                                                                                                                                                                    ;
+; EXTRA_SIGNA_CLOCK            ; none     ; Untyped                                                                                                                                                                                                    ;
+; EXTRA_SIGNB_CLOCK            ; none     ; Untyped                                                                                                                                                                                                    ;
+; EXTRA_OUTPUT_CLEAR           ; none     ; Untyped                                                                                                                                                                                                    ;
+; EXTRA_SIGNA_CLEAR            ; none     ; Untyped                                                                                                                                                                                                    ;
+; EXTRA_SIGNB_CLEAR            ; none     ; Untyped                                                                                                                                                                                                    ;
+; MULT_PIPELINE                ; 0        ; Untyped                                                                                                                                                                                                    ;
+; MULT_CLOCK                   ; none     ; Untyped                                                                                                                                                                                                    ;
+; MULT_CLEAR                   ; none     ; Untyped                                                                                                                                                                                                    ;
+; MULT_REPRESENTATION_A        ; UNSIGNED ; Untyped                                                                                                                                                                                                    ;
+; MULT_REPRESENTATION_B        ; SIGNED   ; Untyped                                                                                                                                                                                                    ;
+; MULT_INPUT_A_IS_CONSTANT     ; NO       ; Untyped                                                                                                                                                                                                    ;
+; MULT_INPUT_B_IS_CONSTANT     ; NO       ; Untyped                                                                                                                                                                                                    ;
+; MULT_INPUT_A_FIXED_VALUE     ; Bx       ; Untyped                                                                                                                                                                                                    ;
+; MULT_INPUT_B_FIXED_VALUE     ; Bx       ; Untyped                                                                                                                                                                                                    ;
+; MULT_MAXIMIZE_SPEED          ; 5        ; Untyped                                                                                                                                                                                                    ;
+; CBXI_PARAMETER               ; NOTHING  ; Untyped                                                                                                                                                                                                    ;
++------------------------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; altmult_add Parameter Settings by Entity Instance                                                                 ;
++---------------------------------------+---------------------------------------------------------------------------+
+; Name                                  ; Value                                                                     ;
++---------------------------------------+---------------------------------------------------------------------------+
+; Number of entity instances            ; 2                                                                         ;
+; Entity Instance                       ; processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                                                        ;
+;     -- NUMBER_OF_MULTIPLIERS          ; 1                                                                         ;
+;     -- port_signa                     ; PORT_UNUSED                                                               ;
+;     -- port_signb                     ; PORT_UNUSED                                                               ;
+;     -- REPRESENTATION_A               ; SIGNED                                                                    ;
+;     -- REPRESENTATION_B               ; SIGNED                                                                    ;
+;     -- WIDTH_A                        ; 20                                                                        ;
+;     -- WIDTH_B                        ; 18                                                                        ;
+;     -- WIDTH_RESULT                   ; 38                                                                        ;
+; Entity Instance                       ; processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; NO                                                                        ;
+;     -- NUMBER_OF_MULTIPLIERS          ; 1                                                                         ;
+;     -- port_signa                     ; PORT_UNUSED                                                               ;
+;     -- port_signb                     ; PORT_UNUSED                                                               ;
+;     -- REPRESENTATION_A               ; SIGNED                                                                    ;
+;     -- REPRESENTATION_B               ; SIGNED                                                                    ;
+;     -- WIDTH_A                        ; 40                                                                        ;
+;     -- WIDTH_B                        ; 17                                                                        ;
+;     -- WIDTH_RESULT                   ; 57                                                                        ;
++---------------------------------------+---------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:inst3|mult_40_17:mult_for_exp"                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; datab_0[14..13] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; datab_0[16]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; datab_0[15]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; result          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:inst3|delay_2_cycle:mdelay_2_cycle"                                            ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; din[3..2] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; dout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
@@ -682,7 +1093,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 11.0 Build 157 04/27/2011 SJ Web Edition
-    Info: Processing started: Sat Jun 20 21:26:30 2015
+    Info: Processing started: Sat Jun 20 21:40:07 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off M3 -c M3
 Warning: Parallel compilation is not licensed and has been disabled
 Warning (10090): Verilog HDL syntax warning at processor.v(230): extra block comment delimiter characters /* within block comment
@@ -719,6 +1130,8 @@ Info: Found 1 design units, including 1 entities, in source file host_if/host_it
     Info: Found entity 1: host_itf
 Info: Found 1 design units, including 1 entities, in source file bs_processor/mult_20_18.v
     Info: Found entity 1: mult_20_18
+Info: Found 1 design units, including 1 entities, in source file bs_processor/mult_40_17.v
+    Info: Found entity 1: mult_40_17
 Info: Elaborating entity "M3" for the top level hierarchy
 Warning: Pin "piezo" is missing source
 Warning: Pin "SRAM_nOE" is missing source
@@ -770,17 +1183,9 @@ Info: Elaborating entity "host_io" for hierarchy "host_io:inst"
 Info: Elaborating entity "processor" for hierarchy "processor:inst3"
 Warning (10036): Verilog HDL or VHDL warning at processor.v(54): object "s_niter" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at processor.v(56): object "s_const1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at processor.v(67): object "delay_2_cycle_din" assigned a value but never read
-Warning (10858): Verilog HDL warning at processor.v(68): object delay_2_cycle_dout used but never assigned
-Warning (10036): Verilog HDL or VHDL warning at processor.v(69): object "special_exp_lut_din" assigned a value but never read
-Warning (10858): Verilog HDL warning at processor.v(70): object special_exp_lut_dout used but never assigned
-Warning (10036): Verilog HDL or VHDL warning at processor.v(71): object "mult_for_exp_dina" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at processor.v(72): object "mult_for_exp_dinb" assigned a value but never read
-Warning (10858): Verilog HDL warning at processor.v(73): object mult_for_exp_dout used but never assigned
 Warning (10036): Verilog HDL or VHDL warning at processor.v(74): object "const1_mult_din" assigned a value but never read
 Warning (10858): Verilog HDL warning at processor.v(75): object const1_mult_dout used but never assigned
 Warning (10036): Verilog HDL or VHDL warning at processor.v(76): object "sub_from_k_din" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at processor.v(90): truncated value with size 19 to match size of target (17)
 Warning (10230): Verilog HDL assignment warning at processor.v(94): truncated value with size 32 to match size of target (23)
 Info (10264): Verilog HDL Case Statement information at processor.v(179): all case item expressions in this case statement are onehot
 Warning (10034): Output port "pow_sum_dout" at processor.v(39) has no driver
@@ -893,6 +1298,165 @@ Warning: Variable or input pin "clk" is defined but never used
 Info: Found 1 design units, including 1 entities, in source file db/dffpipe_f3c.tdf
     Info: Found entity 1: dffpipe_f3c
 Info: Elaborating entity "dffpipe_f3c" for hierarchy "processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_ihf1:right_mult|dffpipe_f3c:pre_result"
+Info: Elaborating entity "delay_2_cycle" for hierarchy "processor:inst3|delay_2_cycle:mdelay_2_cycle"
+Info: Elaborating entity "special_exp_lut" for hierarchy "processor:inst3|special_exp_lut:mspecial_exp_lut"
+Info: Elaborating entity "mult_40_17" for hierarchy "processor:inst3|mult_40_17:mult_for_exp"
+Info: Elaborating entity "altmult_add" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component"
+Info: Instantiated megafunction "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component" with the following parameter:
+    Info: Parameter "addnsub_multiplier_pipeline_aclr1" = "ACLR0"
+    Info: Parameter "addnsub_multiplier_pipeline_register1" = "CLOCK0"
+    Info: Parameter "addnsub_multiplier_register1" = "UNREGISTERED"
+    Info: Parameter "dedicated_multiplier_circuitry" = "NO"
+    Info: Parameter "input_register_a0" = "UNREGISTERED"
+    Info: Parameter "input_register_b0" = "UNREGISTERED"
+    Info: Parameter "input_source_a0" = "DATAA"
+    Info: Parameter "input_source_b0" = "DATAB"
+    Info: Parameter "intended_device_family" = "Cyclone II"
+    Info: Parameter "lpm_type" = "altmult_add"
+    Info: Parameter "multiplier1_direction" = "ADD"
+    Info: Parameter "multiplier_aclr0" = "ACLR0"
+    Info: Parameter "multiplier_register0" = "CLOCK0"
+    Info: Parameter "number_of_multipliers" = "1"
+    Info: Parameter "output_register" = "UNREGISTERED"
+    Info: Parameter "port_addnsub1" = "PORT_UNUSED"
+    Info: Parameter "port_signa" = "PORT_UNUSED"
+    Info: Parameter "port_signb" = "PORT_UNUSED"
+    Info: Parameter "representation_a" = "SIGNED"
+    Info: Parameter "representation_b" = "SIGNED"
+    Info: Parameter "signed_pipeline_aclr_a" = "ACLR0"
+    Info: Parameter "signed_pipeline_aclr_b" = "ACLR0"
+    Info: Parameter "signed_pipeline_register_a" = "CLOCK0"
+    Info: Parameter "signed_pipeline_register_b" = "CLOCK0"
+    Info: Parameter "signed_register_a" = "UNREGISTERED"
+    Info: Parameter "signed_register_b" = "UNREGISTERED"
+    Info: Parameter "width_a" = "40"
+    Info: Parameter "width_b" = "17"
+    Info: Parameter "width_result" = "57"
+Info: Found 1 design units, including 1 entities, in source file db/mult_add_fqq2.tdf
+    Info: Found entity 1: mult_add_fqq2
+Info: Elaborating entity "mult_add_fqq2" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated"
+Info: Found 1 design units, including 1 entities, in source file db/ded_mult_i281.tdf
+    Info: Found entity 1: ded_mult_i281
+Info: Elaborating entity "ded_mult_i281" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1"
+Info: Found 1 design units, including 1 entities, in source file db/ded_mult_8af1.tdf
+    Info: Found entity 1: ded_mult_8af1
+Info: Elaborating entity "ded_mult_8af1" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult"
+Info: Found 1 design units, including 1 entities, in source file db/ded_mult_p8f1.tdf
+    Info: Found entity 1: ded_mult_p8f1
+Info: Elaborating entity "ded_mult_p8f1" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult"
+Warning: Variable or input pin "aclr" is defined but never used
+Warning: Variable or input pin "clock" is defined but never used
+Warning: Variable or input pin "ena" is defined but never used
+Info: Elaborating entity "alt_mac_mult" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2"
+Info: Instantiated megafunction "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2" with the following parameter:
+    Info: Parameter "DATAA_CLEAR" = "NONE"
+    Info: Parameter "DATAA_CLOCK" = "NONE"
+    Info: Parameter "DATAA_WIDTH" = "2"
+    Info: Parameter "DATAB_CLEAR" = "NONE"
+    Info: Parameter "DATAB_CLOCK" = "NONE"
+    Info: Parameter "DATAB_WIDTH" = "17"
+    Info: Parameter "MULT_REPRESENTATION_A" = "SIGNED"
+    Info: Parameter "MULT_REPRESENTATION_B" = "SIGNED"
+    Info: Parameter "OUTPUT_CLEAR" = "NONE"
+    Info: Parameter "OUTPUT_CLOCK" = "NONE"
+    Info: Parameter "OUTPUT_WIDTH" = "19"
+    Info: Parameter "SIGNA_CLEAR" = "NONE"
+    Info: Parameter "SIGNA_CLOCK" = "NONE"
+    Info: Parameter "SIGNB_CLEAR" = "NONE"
+    Info: Parameter "SIGNB_CLOCK" = "NONE"
+Info: Elaborating entity "lpm_mult" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2"
+Info: Elaborating entity "multcore" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2"
+Info: Elaborating entity "mul_lfrg" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mul_lfrg:mul_lfrg_first_mod"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mul_lfrg:mul_lfrg_first_mod", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2"
+Info: Elaborating entity "mpar_add" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mpar_add:padder"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2"
+Info: Elaborating entity "lpm_add_sub" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2"
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_5ch.tdf
+    Info: Found entity 1: add_sub_5ch
+Info: Elaborating entity "add_sub_5ch" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_5ch:auto_generated"
+Info: Elaborating entity "altshift" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|altshift:external_latency_ffs"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|altshift:external_latency_ffs", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2"
+Info: Found 1 design units, including 1 entities, in source file db/mac_out_6421.tdf
+    Info: Found entity 1: mac_out_6421
+Info: Elaborating entity "mac_out_6421" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|mac_out_6421:mac_out3"
+Warning: Variable or input pin "clk" is defined but never used
+Info: Found 1 design units, including 1 entities, in source file db/dffpipe_g3c.tdf
+    Info: Found entity 1: dffpipe_g3c
+Info: Elaborating entity "dffpipe_g3c" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|dffpipe_g3c:pre_result"
+Info: Found 1 design units, including 1 entities, in source file db/ded_mult_jhf1.tdf
+    Info: Found entity 1: ded_mult_jhf1
+Info: Elaborating entity "ded_mult_jhf1" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult"
+Warning: Variable or input pin "aclr" is defined but never used
+Warning: Variable or input pin "clock" is defined but never used
+Warning: Variable or input pin "ena" is defined but never used
+Info: Found 1 design units, including 1 entities, in source file db/mac_mult_jk31.tdf
+    Info: Found entity 1: mac_mult_jk31
+Info: Elaborating entity "mac_mult_jk31" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult|mac_mult_jk31:mac_mult4"
+Warning: Variable or input pin "clk" is defined but never used
+Info: Found 1 design units, including 1 entities, in source file db/mult_5gp.tdf
+    Info: Found entity 1: mult_5gp
+Info: Elaborating entity "mult_5gp" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult|mac_mult_jk31:mac_mult4|mult_5gp:mult6"
+Info: Found 1 design units, including 1 entities, in source file db/mac_out_5421.tdf
+    Info: Found entity 1: mac_out_5421
+Info: Elaborating entity "mac_out_5421" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult|mac_out_5421:mac_out5"
+Warning: Variable or input pin "clk" is defined but never used
+Info: Found 1 design units, including 1 entities, in source file db/dffpipe_e3c.tdf
+    Info: Found entity 1: dffpipe_e3c
+Info: Elaborating entity "dffpipe_e3c" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult|dffpipe_e3c:pre_result"
+Info: Found 1 design units, including 1 entities, in source file db/ded_mult_bhf1.tdf
+    Info: Found entity 1: ded_mult_bhf1
+Info: Elaborating entity "ded_mult_bhf1" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult"
+Info: Found 1 design units, including 1 entities, in source file db/ded_mult_sff1.tdf
+    Info: Found entity 1: ded_mult_sff1
+Info: Elaborating entity "ded_mult_sff1" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult"
+Warning: Variable or input pin "aclr" is defined but never used
+Warning: Variable or input pin "clock" is defined but never used
+Warning: Variable or input pin "ena" is defined but never used
+Info: Elaborating entity "alt_mac_mult" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54"
+Info: Instantiated megafunction "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54" with the following parameter:
+    Info: Parameter "DATAA_CLEAR" = "NONE"
+    Info: Parameter "DATAA_CLOCK" = "NONE"
+    Info: Parameter "DATAA_WIDTH" = "2"
+    Info: Parameter "DATAB_CLEAR" = "NONE"
+    Info: Parameter "DATAB_CLOCK" = "NONE"
+    Info: Parameter "DATAB_WIDTH" = "17"
+    Info: Parameter "MULT_REPRESENTATION_A" = "UNSIGNED"
+    Info: Parameter "MULT_REPRESENTATION_B" = "SIGNED"
+    Info: Parameter "OUTPUT_CLEAR" = "NONE"
+    Info: Parameter "OUTPUT_CLOCK" = "NONE"
+    Info: Parameter "OUTPUT_WIDTH" = "19"
+    Info: Parameter "SIGNA_CLEAR" = "NONE"
+    Info: Parameter "SIGNA_CLOCK" = "NONE"
+    Info: Parameter "SIGNB_CLEAR" = "NONE"
+    Info: Parameter "SIGNB_CLOCK" = "NONE"
+Info: Elaborating entity "lpm_mult" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54"
+Info: Elaborating entity "multcore" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54"
+Info: Elaborating entity "mul_lfrg" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mul_lfrg:mul_lfrg_last_mod"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mul_lfrg:mul_lfrg_last_mod", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54"
+Info: Elaborating entity "mpar_add" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mpar_add:padder"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54"
+Info: Elaborating entity "lpm_add_sub" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mpar_add:padder|lpm_add_sub:booth_adder_right"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mpar_add:padder|lpm_add_sub:booth_adder_right", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54"
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_3lf.tdf
+    Info: Found entity 1: add_sub_3lf
+Info: Elaborating entity "add_sub_3lf" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mpar_add:padder|lpm_add_sub:booth_adder_right|add_sub_3lf:auto_generated"
+Info: Elaborating entity "lpm_add_sub" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54"
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_c1h.tdf
+    Info: Found entity 1: add_sub_c1h
+Info: Elaborating entity "add_sub_c1h" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_c1h:auto_generated"
+Info: Elaborating entity "mul_lfrg" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mul_lfrg:$00035"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mul_lfrg:$00035", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54"
+Info: Elaborating entity "mul_lfrg" for hierarchy "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mul_lfrg:$00037"
+Info: Elaborated megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult|multcore:mult_core|mul_lfrg:$00037", which is child of megafunction instantiation "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54"
 Info: Ignored 548 buffer(s)
     Info: Ignored 18 CARRY_SUM buffer(s)
     Info: Ignored 530 SOFT buffer(s)
@@ -1051,10 +1615,10 @@ Info: Implemented 861 device resources after synthesis - the final resource coun
     Info: Implemented 92 output pins
     Info: Implemented 16 bidirectional pins
     Info: Implemented 682 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 196 warnings
-    Info: Peak virtual memory: 294 megabytes
-    Info: Processing ended: Sat Jun 20 21:26:38 2015
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:08
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 200 warnings
+    Info: Peak virtual memory: 303 megabytes
+    Info: Processing ended: Sat Jun 20 21:40:17 2015
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:10
 
 

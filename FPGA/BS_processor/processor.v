@@ -87,7 +87,7 @@ module processor(
 	assign special_exp_lut_din = const2_mult_dout[35:28];
 	// Mutiply the result of exp lut and (1 + rest of bits of const2_mult_dout) to get appromixation of exp.
 	assign mult_for_exp_dina = special_exp_lut_dout;
-	assign mult_for_exp_dinb = {2'b01, 2'b00, const2_mult_dout[27:13]};
+	assign mult_for_exp_dinb = {2'b01, 2'b00, const2_mult_dout[27:15]};
 	// Multiply const1 and exp(const2*grn).
 	assign const1_mult_din = mult_for_exp_dout[56:0];
 	// Determine an operand to subtract to constK. If it is expected too small by the Demux above, set 0. Else if it is too large or larger than K, set K.
@@ -261,7 +261,7 @@ module processor(
 	
 	// Latency 2 clock cycle.
 	// Supports pipelining.
-	/*delay_2_cycle mdelay_2_cycle(
+	delay_2_cycle mdelay_2_cycle(
 		.nreset(nreset),
 		.clock(clk),
 		.din(delay_2_cycle_din),
@@ -286,7 +286,7 @@ module processor(
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	mult_57_38 const1_mult(
+	/*mult_57_38 const1_mult(
 		.aclr0(~nreset),
 		.clock0(clk),
 		.dataa_0(const1_mult_din),

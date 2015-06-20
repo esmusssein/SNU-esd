@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II"
 -- VERSION "Version 11.0 Build 157 04/27/2011 SJ Web Edition"
 
--- DATE "06/20/2015 21:26:47"
+-- DATE "06/20/2015 21:40:26"
 
 -- 
 -- Device: Altera EP2C8F256C8 Package FBGA256
@@ -1031,6 +1031,12 @@ SIGNAL \inst2|WideOr20~0_combout\ : std_logic;
 SIGNAL \inst2|WideOr27~0_combout\ : std_logic;
 SIGNAL \inst2|Mux6~1_combout\ : std_logic;
 SIGNAL \inst2|Mux6~2_combout\ : std_logic;
+SIGNAL \XM0_ADDR~combout\ : std_logic_vector(20 DOWNTO 0);
+SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le10a\ : std_logic_vector(19 DOWNTO 0);
+SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le12a\ : std_logic_vector(19 DOWNTO 0);
+SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le14a\ : std_logic_vector(19 DOWNTO 0);
+SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le16a\ : std_logic_vector(19 DOWNTO 0);
+SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le18a\ : std_logic_vector(19 DOWNTO 0);
 SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|external_mult_registers\ : std_logic_vector(37 DOWNTO 0);
 SIGNAL \inst3|cnt_clk\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \inst3|s_const2\ : std_logic_vector(63 DOWNTO 0);
@@ -1039,7 +1045,6 @@ SIGNAL \inst2|SEG_COM\ : std_logic_vector(5 DOWNTO 0);
 SIGNAL \inst2|cnt_segcon\ : std_logic_vector(2 DOWNTO 0);
 SIGNAL \inst2|x8800_0010\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \inst2|x8800_1000\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \XM0_ADDR~combout\ : std_logic_vector(20 DOWNTO 0);
 SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le11a\ : std_logic_vector(19 DOWNTO 0);
 SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le13a\ : std_logic_vector(19 DOWNTO 0);
 SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le15a\ : std_logic_vector(19 DOWNTO 0);
@@ -1049,11 +1054,6 @@ SIGNAL \inst3|pseudo_grn\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \inst2|SEG_DATA\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \inst2|my_clk_cnt2\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \inst2|x8800_0012\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le10a\ : std_logic_vector(19 DOWNTO 0);
-SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le12a\ : std_logic_vector(19 DOWNTO 0);
-SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le14a\ : std_logic_vector(19 DOWNTO 0);
-SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le16a\ : std_logic_vector(19 DOWNTO 0);
-SIGNAL \inst3|const2_mult|ALTMULT_ADD_component|auto_generated|ded_mult1|right_mult|mac_mult4|mult6|le18a\ : std_logic_vector(19 DOWNTO 0);
 SIGNAL XM0DATA : std_logic_vector(15 DOWNTO 0);
 SIGNAL \inst3|ALT_INV_state.IDLE~regout\ : std_logic;
 SIGNAL \ALT_INV_CPLD_0~combout\ : std_logic;
