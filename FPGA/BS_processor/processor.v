@@ -46,8 +46,12 @@ module processor(
 	parameter RUNNING = 1;
 	parameter COMPLETE = 2;
 	// Latency of each final fixed point number outputs.
-	localparam LATENCY_SUM_DOUT = 4;
-	localparam LATENCY_POW_SUM_DOUT = 5;
+	// When using pseudo_grn.
+	//localparam LATENCY_SUM_DOUT = 4;
+	//localparam LATENCY_POW_SUM_DOUT = 5;
+	// When using box_muller_dout.
+	localparam LATENCY_SUM_DOUT = 6;
+	localparam LATENCY_POW_SUM_DOUT = 7;
 	
 	reg [3:0] state;
 	reg [3:0] nxt_state;
@@ -59,9 +63,10 @@ module processor(
 	reg [63:0] sum;				// (40, 15)
 	reg [63:0] pow_sum;			// (40, 15)
 	// To test computing Black-Scholes model process except for Gaussian Random Number Generator.
-	reg [31:0] pseudo_grn;					// (17, 15)
+	//reg [31:0] pseudo_grn;					// (17, 15)
 	
 	// Input and output of each modules.
+	wire [31:0] box_muller_dout;			// (17, 15)
 	wire [19:0] const2_mult_din;			// (5, 15)
 	wire [37:0] const2_mult_dout;			// (8, 30)
 	wire [3:0] delay_2_cycle_din;
@@ -80,7 +85,7 @@ module processor(
 	
 	assign status = state;
 	// Multiply const2 and grn.
-	assign const2_mult_din = pseudo_grn[19:0];
+	assign const2_mult_din = box_muller_dout[19:0];
 	// Demux from integer part of const2_mult_dout. If < -19 outputs 2, else if < 5 outputs 1, else outputs 0.
 	assign delay_2_cycle_din = ($signed(const2_mult_dout[34:27]) < -19) ? 4'd2 : ($signed(const2_mult_dout[34:27]) < 5) ? 4'd1: 4'd0;
 	// Lookup an exponential lut specialized for this application by (6, 2) of const2_mult_dout.
@@ -122,7 +127,6 @@ module processor(
 			end
 		end
 		RUNNING: begin
-			// TODO: How this know the computation ends?
 			if (cnt_clk == LATENCY_POW_SUM_DOUT + s_niter + 10) begin
 				nxt_state = COMPLETE;
 			end else begin
@@ -191,7 +195,7 @@ module processor(
 	 *
 	 * @update pseudo_grn
 	 */
-	always @(posedge clk or negedge nreset) begin
+	/*always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
 			pseudo_grn <= 32'd0;
 		end else begin
@@ -202,7 +206,7 @@ module processor(
 			end
 			endcase
 		end
-	end
+	end*/
 	
 	/**
 	 *
@@ -217,7 +221,7 @@ module processor(
 				sum <= 52'd0;
 			end
 			RUNNING: begin
-				if (cnt_clk <= LATENCY_SUM_DOUT + s_niter) begin
+				if (cnt_clk > LATENCY_SUM_DOUT && cnt_clk <= LATENCY_SUM_DOUT + s_niter) begin
 					sum <= sum + sub_from_k_dout;
 				end
 			end
@@ -238,13 +242,21 @@ module processor(
 				pow_sum <= 52'd0;
 			end
 			RUNNING: begin
-				if (cnt_clk <= LATENCY_POW_SUM_DOUT + s_niter) begin
+				if (cnt_clk > LATENCY_POW_SUM_DOUT && cnt_clk <= LATENCY_POW_SUM_DOUT + s_niter) begin
 					pow_sum <= pow_sum + pow_dout[45:15];
 				end
 			end
 			endcase
 		end
 	end
+	
+	// Latency 2 clock cycle.
+	// Supports pipelining.
+	BoxMuller box_muller(
+		.clk(clk),
+		.nreset(nreset),
+		.g_randnum_out(box_muller_dout)
+	);
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
@@ -283,7 +295,7 @@ module processor(
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
-	mult_57_38 const1_mult(
+	mult_57_38_dsp const1_mult(
 		.aclr0(~nreset),
 		.clock0(clk),
 		.dataa_0(const1_mult_din),
