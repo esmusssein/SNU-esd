@@ -6,8 +6,8 @@ module BoxMuller(
 	);
 	
 	wire [19:0] uniform_randnum;
-	wire [11:0] u0;  //for sqrt(-2log(u0))
-	wire [9:0] u1;  //for cos(2*pi*u1)
+	wire [13:0] u0;  //for sqrt(-2log(u0))
+	wire [9:0]  u1;  //for cos(2*pi*u1)
 	wire [15:0]	rare_sqrt_minus_log_x;
 	wire [16:0] sqrt_minus_log_x;   //sign(1)+int(3)+fraction(13)
 	
@@ -16,7 +16,7 @@ module BoxMuller(
 	wire [16:0] cosx;               //int(4)+fraction(13)
 	wire [33:0] rare_result;        
   
-	assign u0 = {uniform_randnum[3:2],uniform_randnum[8:7],uniform_randnum[15:14],uniform_randnum[18:17],uniform_randnum[2:1],uniform_randnum[12:11]};
+	assign u0 = {uniform_randnum[3:2],uniform_randnum[8:7],uniform_randnum[15:14],uniform_randnum[18:17],uniform_randnum[2:1],uniform_randnum[12:11],uniform_randnum[0],uniform_randnum[15]};
 	assign u1 = {uniform_randnum[6:5],uniform_randnum[2:1],uniform_randnum[17:16],uniform_randnum[12:11],uniform_randnum[19:18]};
 	
 
@@ -32,14 +32,14 @@ module BoxMuller(
 		.data_out(uniform_randnum)
 	);
 	//????? 1+13?? ????
-	 cosin cos0(
-		.data_in(u1),
-		.cos_x_out(rare_cosx)
-	);
-	
+
 	sqrt_log sl0(
 		.data_in(u0),
 		.data_out(rare_sqrt_minus_log_x)
+	);
+	cosin cos0(
+		.data_in(u1),
+		.cos_x_out(rare_cosx)
 	);
   //17(1+3+13)x17(1+3+13)
 	mult_17_17 sigh_mult(

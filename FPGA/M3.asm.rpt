@@ -1,5 +1,5 @@
 Assembler report for M3
-Sun Jun 21 15:07:30 2015
+Sun Jun 21 15:46:22 2015
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Jun 21 15:07:30 2015 ;
+; Assembler Status      ; Successful - Sun Jun 21 15:46:22 2015 ;
 ; Revision Name         ; M3                                    ;
 ; Top-level Entity Name ; M3                                    ;
 ; Family                ; Cyclone II                            ;
@@ -95,7 +95,7 @@ applicable agreement for further details.
 +----------------+-------------------------------------+
 ; Device         ; EP2C8F256C8                         ;
 ; JTAG usercode  ; 0xFFFFFFFF                          ;
-; Checksum       ; 0x0058B6AF                          ;
+; Checksum       ; 0x006597B8                          ;
 +----------------+-------------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+---------------------------------+
 ; Device             ; EPCS4                           ;
 ; JTAG usercode      ; 0x00000000                      ;
-; Checksum           ; 0x069855E9                      ;
+; Checksum           ; 0x06907E79                      ;
 ; Compression Ratio  ; 1                               ;
 +--------------------+---------------------------------+
 
@@ -117,13 +117,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 11.0 Build 157 04/27/2011 SJ Web Edition
-    Info: Processing started: Sun Jun 21 15:07:29 2015
+    Info: Processing started: Sun Jun 21 15:46:21 2015
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off M3 -c M3
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 262 megabytes
-    Info: Processing ended: Sun Jun 21 15:07:30 2015
+    Info: Peak virtual memory: 264 megabytes
+    Info: Processing ended: Sun Jun 21 15:46:22 2015
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
