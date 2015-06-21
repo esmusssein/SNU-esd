@@ -52,13 +52,14 @@ public class MainActivity extends Activity {
         mEditTextIterateNumber = (EditText)findViewById(R.id.edit_text_M);
         mMessageLayout = (LinearLayout)findViewById(R.id.message_layout);
         // Set LUT for comutation into the device.
-        addMessageToMessageLayout("Set LUT for computation into the device...");
-        int result = setupLutIntoDevice();
-        if (result < 0) {
-            addMessageToMessageLayout("An error occurred at setLutIntoDevice().");
-            return;
-        }
-        addMessageToMessageLayout("Success");
+        // DEPRECATED.
+//        addMessageToMessageLayout("Set LUT for computation into the device...");
+//        int result = setupLutIntoDevice();
+//        if (result < 0) {
+//            addMessageToMessageLayout("An error occurred at setLutIntoDevice().");
+//            return;
+//        }
+//        addMessageToMessageLayout("Success");
     }
 
     public void onComputeButtonClick(View v) {
