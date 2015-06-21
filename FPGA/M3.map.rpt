@@ -1,5 +1,5 @@
 Analysis & Synthesis report for M3
-Sun Jun 21 14:03:58 2015
+Sun Jun 21 15:06:48 2015
 Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
 
 
@@ -66,11 +66,10 @@ Quartus II Version 11.0 Build 157 04/27/2011 SJ Web Edition
  58. Port Connectivity Checks: "processor:inst3|delay_2_cycle:mdelay_2_cycle"
  59. Port Connectivity Checks: "processor:inst3|mult_20_18:const2_mult"
  60. Port Connectivity Checks: "processor:inst3|BoxMuller:box_muller|mult_17_17:sigh_mult"
- 61. Port Connectivity Checks: "processor:inst3|BoxMuller:box_muller|cosin:cos0"
- 62. Port Connectivity Checks: "processor:inst3|BoxMuller:box_muller|LSFR:lsfr0"
- 63. Port Connectivity Checks: "processor:inst3|BoxMuller:box_muller"
- 64. Elapsed Time Per Partition
- 65. Analysis & Synthesis Messages
+ 61. Port Connectivity Checks: "processor:inst3|BoxMuller:box_muller|LSFR:lsfr0"
+ 62. Port Connectivity Checks: "processor:inst3|BoxMuller:box_muller"
+ 63. Elapsed Time Per Partition
+ 64. Analysis & Synthesis Messages
 
 
 
@@ -96,13 +95,13 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jun 21 14:03:58 2015    ;
+; Analysis & Synthesis Status        ; Successful - Sun Jun 21 15:06:48 2015    ;
 ; Quartus II Version                 ; 11.0 Build 157 04/27/2011 SJ Web Edition ;
 ; Revision Name                      ; M3                                       ;
 ; Top-level Entity Name              ; M3                                       ;
 ; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 6,498                                    ;
-;     Total combinational functions  ; 6,109                                    ;
+; Total logic elements               ; 7,464                                    ;
+;     Total combinational functions  ; 7,075                                    ;
 ;     Dedicated logic registers      ; 825                                      ;
 ; Total registers                    ; 825                                      ;
 ; Total pins                         ; 179                                      ;
@@ -334,34 +333,34 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary           ;
-+---------------------------------------------+---------+
-; Resource                                    ; Usage   ;
-+---------------------------------------------+---------+
-; Estimated Total logic elements              ; 6,498   ;
-;                                             ;         ;
-; Total combinational functions               ; 6109    ;
-; Logic element usage by number of LUT inputs ;         ;
-;     -- 4 input functions                    ; 3495    ;
-;     -- 3 input functions                    ; 1994    ;
-;     -- <=2 input functions                  ; 620     ;
-;                                             ;         ;
-; Logic elements by mode                      ;         ;
-;     -- normal mode                          ; 4116    ;
-;     -- arithmetic mode                      ; 1993    ;
-;                                             ;         ;
-; Total registers                             ; 825     ;
-;     -- Dedicated logic registers            ; 825     ;
-;     -- I/O registers                        ; 0       ;
-;                                             ;         ;
-; I/O pins                                    ; 179     ;
-; Embedded Multiplier 9-bit elements          ; 32      ;
-; Maximum fan-out node                        ; XnRESET ;
-; Maximum fan-out                             ; 807     ;
-; Total fan-out                               ; 24320   ;
-; Average fan-out                             ; 3.40    ;
-+---------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                            ;
++---------------------------------------------+----------------------------------------------------------+
+; Resource                                    ; Usage                                                    ;
++---------------------------------------------+----------------------------------------------------------+
+; Estimated Total logic elements              ; 7,464                                                    ;
+;                                             ;                                                          ;
+; Total combinational functions               ; 7075                                                     ;
+; Logic element usage by number of LUT inputs ;                                                          ;
+;     -- 4 input functions                    ; 4432                                                     ;
+;     -- 3 input functions                    ; 2023                                                     ;
+;     -- <=2 input functions                  ; 620                                                      ;
+;                                             ;                                                          ;
+; Logic elements by mode                      ;                                                          ;
+;     -- normal mode                          ; 5082                                                     ;
+;     -- arithmetic mode                      ; 1993                                                     ;
+;                                             ;                                                          ;
+; Total registers                             ; 825                                                      ;
+;     -- Dedicated logic registers            ; 825                                                      ;
+;     -- I/O registers                        ; 0                                                        ;
+;                                             ;                                                          ;
+; I/O pins                                    ; 179                                                      ;
+; Embedded Multiplier 9-bit elements          ; 32                                                       ;
+; Maximum fan-out node                        ; processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[12] ;
+; Maximum fan-out                             ; 892                                                      ;
+; Total fan-out                               ; 28157                                                    ;
+; Average fan-out                             ; 3.47                                                     ;
++---------------------------------------------+----------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -369,13 +368,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                          ; Library Name ;
 +---------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |M3                                                                 ; 6109 (1)          ; 825 (0)      ; 0           ; 32           ; 0       ; 16        ; 179  ; 0            ; |M3                                                                                                                                                                                                                                                                                                          ;              ;
+; |M3                                                                 ; 7075 (1)          ; 825 (0)      ; 0           ; 32           ; 0       ; 16        ; 179  ; 0            ; |M3                                                                                                                                                                                                                                                                                                          ;              ;
 ;    |host_io:inst|                                                   ; 1 (1)             ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_io:inst                                                                                                                                                                                                                                                                                             ;              ;
 ;    |host_itf:inst2|                                                 ; 286 (286)         ; 308 (308)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|host_itf:inst2                                                                                                                                                                                                                                                                                           ;              ;
-;    |processor:inst3|                                                ; 5821 (601)        ; 499 (274)    ; 0           ; 32           ; 0       ; 16        ; 0    ; 0            ; |M3|processor:inst3                                                                                                                                                                                                                                                                                          ;              ;
-;       |BoxMuller:box_muller|                                        ; 2346 (0)          ; 40 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|BoxMuller:box_muller                                                                                                                                                                                                                                                                     ;              ;
+;    |processor:inst3|                                                ; 6787 (602)        ; 499 (274)    ; 0           ; 32           ; 0       ; 16        ; 0    ; 0            ; |M3|processor:inst3                                                                                                                                                                                                                                                                                          ;              ;
+;       |BoxMuller:box_muller|                                        ; 3314 (0)          ; 40 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|BoxMuller:box_muller                                                                                                                                                                                                                                                                     ;              ;
 ;          |LSFR:lsfr0|                                               ; 5 (5)             ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|BoxMuller:box_muller|LSFR:lsfr0                                                                                                                                                                                                                                                          ;              ;
-;          |cosin:cos0|                                               ; 306 (306)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|BoxMuller:box_muller|cosin:cos0                                                                                                                                                                                                                                                          ;              ;
+;          |cosin:cos0|                                               ; 1274 (1274)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|BoxMuller:box_muller|cosin:cos0                                                                                                                                                                                                                                                          ;              ;
 ;          |mult_17_17:sigh_mult|                                     ; 354 (0)           ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|BoxMuller:box_muller|mult_17_17:sigh_mult                                                                                                                                                                                                                                                ;              ;
 ;             |altmult_add:ALTMULT_ADD_component|                     ; 354 (0)           ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|BoxMuller:box_muller|mult_17_17:sigh_mult|altmult_add:ALTMULT_ADD_component                                                                                                                                                                                                              ;              ;
 ;                |mult_add_eqq2:auto_generated|                       ; 354 (0)           ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|BoxMuller:box_muller|mult_17_17:sigh_mult|altmult_add:ALTMULT_ADD_component|mult_add_eqq2:auto_generated                                                                                                                                                                                 ;              ;
@@ -385,13 +384,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                      |mac_out_mg21:mac_out3|                        ; 34 (34)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|BoxMuller:box_muller|mult_17_17:sigh_mult|altmult_add:ALTMULT_ADD_component|mult_add_eqq2:auto_generated|ded_mult_m281:ded_mult1|mac_out_mg21:mac_out3                                                                                                                                   ;              ;
 ;          |sqrt_log:sl0|                                             ; 1681 (1681)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|BoxMuller:box_muller|sqrt_log:sl0                                                                                                                                                                                                                                                        ;              ;
 ;       |delay_2_cycle:mdelay_2_cycle|                                ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|delay_2_cycle:mdelay_2_cycle                                                                                                                                                                                                                                                             ;              ;
-;       |mult_20_18:const2_mult|                                      ; 482 (0)           ; 21 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult                                                                                                                                                                                                                                                                   ;              ;
-;          |altmult_add:ALTMULT_ADD_component|                        ; 482 (0)           ; 21 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component                                                                                                                                                                                                                                 ;              ;
-;             |mult_add_dqq2:auto_generated|                          ; 482 (0)           ; 21 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated                                                                                                                                                                                                    ;              ;
-;                |ded_mult_h281:ded_mult1|                            ; 482 (18)          ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1                                                                                                                                                                            ;              ;
-;                   |ded_mult_ihf1:right_mult|                        ; 411 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_ihf1:right_mult                                                                                                                                                   ;              ;
-;                      |mac_mult_lk31:mac_mult4|                      ; 411 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_ihf1:right_mult|mac_mult_lk31:mac_mult4                                                                                                                           ;              ;
-;                         |mult_7gp:mult6|                            ; 411 (411)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_ihf1:right_mult|mac_mult_lk31:mac_mult4|mult_7gp:mult6                                                                                                            ;              ;
+;       |mult_20_18:const2_mult|                                      ; 483 (0)           ; 21 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult                                                                                                                                                                                                                                                                   ;              ;
+;          |altmult_add:ALTMULT_ADD_component|                        ; 483 (0)           ; 21 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component                                                                                                                                                                                                                                 ;              ;
+;             |mult_add_dqq2:auto_generated|                          ; 483 (0)           ; 21 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated                                                                                                                                                                                                    ;              ;
+;                |ded_mult_h281:ded_mult1|                            ; 483 (18)          ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1                                                                                                                                                                            ;              ;
+;                   |ded_mult_ihf1:right_mult|                        ; 412 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_ihf1:right_mult                                                                                                                                                   ;              ;
+;                      |mac_mult_lk31:mac_mult4|                      ; 412 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_ihf1:right_mult|mac_mult_lk31:mac_mult4                                                                                                                           ;              ;
+;                         |mult_7gp:mult6|                            ; 412 (412)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_ihf1:right_mult|mac_mult_lk31:mac_mult4|mult_7gp:mult6                                                                                                            ;              ;
 ;                   |ded_mult_o8f1:left_mult|                         ; 53 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_o8f1:left_mult                                                                                                                                                    ;              ;
 ;                      |alt_mac_mult:mac_mult2|                       ; 53 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_o8f1:left_mult|alt_mac_mult:mac_mult2                                                                                                                             ;              ;
 ;                         |lpm_mult:mult|                             ; 53 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_o8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult                                                                                                               ;              ;
@@ -401,17 +400,17 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                                     |add_sub_7ch:auto_generated|    ; 18 (18)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_o8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_7ch:auto_generated                            ;              ;
 ;                               |mul_lfrg:$00030|                     ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_o8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mul_lfrg:$00030                                                                            ;              ;
 ;                               |mul_lfrg:mul_lfrg_first_mod|         ; 34 (34)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_20_18:const2_mult|altmult_add:ALTMULT_ADD_component|mult_add_dqq2:auto_generated|ded_mult_h281:ded_mult1|ded_mult_o8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mul_lfrg:mul_lfrg_first_mod                                                                ;              ;
-;       |mult_23_23:pow|                                              ; 768 (0)           ; 31 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow                                                                                                                                                                                                                                                                           ;              ;
-;          |altmult_add:ALTMULT_ADD_component|                        ; 768 (0)           ; 31 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component                                                                                                                                                                                                                                         ;              ;
-;             |mult_add_bqq2:auto_generated|                          ; 768 (0)           ; 31 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated                                                                                                                                                                                                            ;              ;
-;                |ded_mult_g281:ded_mult1|                            ; 768 (28)          ; 31 (31)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1                                                                                                                                                                                    ;              ;
-;                   |ded_mult_mhf1:right_mult|                        ; 569 (23)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult                                                                                                                                                           ;              ;
+;       |mult_23_23:pow|                                              ; 773 (0)           ; 31 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow                                                                                                                                                                                                                                                                           ;              ;
+;          |altmult_add:ALTMULT_ADD_component|                        ; 773 (0)           ; 31 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component                                                                                                                                                                                                                                         ;              ;
+;             |mult_add_bqq2:auto_generated|                          ; 773 (0)           ; 31 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated                                                                                                                                                                                                            ;              ;
+;                |ded_mult_g281:ded_mult1|                            ; 773 (28)          ; 31 (31)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1                                                                                                                                                                                    ;              ;
+;                   |ded_mult_mhf1:right_mult|                        ; 574 (23)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult                                                                                                                                                           ;              ;
 ;                      |ded_mult_2gf1:left_mult|                      ; 121 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult|ded_mult_2gf1:left_mult                                                                                                                                   ;              ;
 ;                         |mac_mult_ui31:mac_mult42|                  ; 121 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult|ded_mult_2gf1:left_mult|mac_mult_ui31:mac_mult42                                                                                                          ;              ;
 ;                            |mult_gep:mult44|                        ; 121 (121)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult|ded_mult_2gf1:left_mult|mac_mult_ui31:mac_mult42|mult_gep:mult44                                                                                          ;              ;
-;                      |ded_mult_nof1:right_mult|                     ; 425 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult|ded_mult_nof1:right_mult                                                                                                                                  ;              ;
-;                         |mac_mult_or31:mac_mult62|                  ; 425 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult|ded_mult_nof1:right_mult|mac_mult_or31:mac_mult62                                                                                                         ;              ;
-;                            |mult_fqm:mult45|                        ; 425 (425)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult|ded_mult_nof1:right_mult|mac_mult_or31:mac_mult62|mult_fqm:mult45                                                                                         ;              ;
+;                      |ded_mult_nof1:right_mult|                     ; 430 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult|ded_mult_nof1:right_mult                                                                                                                                  ;              ;
+;                         |mac_mult_or31:mac_mult62|                  ; 430 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult|ded_mult_nof1:right_mult|mac_mult_or31:mac_mult62                                                                                                         ;              ;
+;                            |mult_fqm:mult45|                        ; 430 (430)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult|ded_mult_nof1:right_mult|mac_mult_or31:mac_mult62|mult_fqm:mult45                                                                                         ;              ;
 ;                   |ded_mult_q8f1:left_mult|                         ; 171 (10)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_q8f1:left_mult                                                                                                                                                            ;              ;
 ;                      |ded_mult_1gf1:right_mult|                     ; 124 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_q8f1:left_mult|ded_mult_1gf1:right_mult                                                                                                                                   ;              ;
 ;                         |mac_mult_ti31:mac_mult22|                  ; 124 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_q8f1:left_mult|ded_mult_1gf1:right_mult|mac_mult_ti31:mac_mult22                                                                                                          ;              ;
@@ -419,10 +418,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                      |ded_mult_97f1:left_mult|                      ; 37 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_q8f1:left_mult|ded_mult_97f1:left_mult                                                                                                                                    ;              ;
 ;                         |mac_mult_2a31:mac_mult2|                   ; 37 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_q8f1:left_mult|ded_mult_97f1:left_mult|mac_mult_2a31:mac_mult2                                                                                                            ;              ;
 ;                            |mult_lcp:mult4|                         ; 37 (37)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_q8f1:left_mult|ded_mult_97f1:left_mult|mac_mult_2a31:mac_mult2|mult_lcp:mult4                                                                                             ;              ;
-;       |mult_40_17:mult_for_exp|                                     ; 884 (0)           ; 57 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp                                                                                                                                                                                                                                                                  ;              ;
-;          |altmult_add:ALTMULT_ADD_component|                        ; 884 (0)           ; 57 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component                                                                                                                                                                                                                                ;              ;
-;             |mult_add_fqq2:auto_generated|                          ; 884 (0)           ; 57 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated                                                                                                                                                                                                   ;              ;
-;                |ded_mult_i281:ded_mult1|                            ; 884 (37)          ; 57 (57)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1                                                                                                                                                                           ;              ;
+;       |mult_40_17:mult_for_exp|                                     ; 883 (0)           ; 57 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp                                                                                                                                                                                                                                                                  ;              ;
+;          |altmult_add:ALTMULT_ADD_component|                        ; 883 (0)           ; 57 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component                                                                                                                                                                                                                                ;              ;
+;             |mult_add_fqq2:auto_generated|                          ; 883 (0)           ; 57 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated                                                                                                                                                                                                   ;              ;
+;                |ded_mult_i281:ded_mult1|                            ; 883 (37)          ; 57 (57)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1                                                                                                                                                                           ;              ;
 ;                   |ded_mult_8af1:left_mult|                         ; 398 (18)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult                                                                                                                                                   ;              ;
 ;                      |ded_mult_jhf1:right_mult|                     ; 367 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult                                                                                                                          ;              ;
 ;                         |mac_mult_jk31:mac_mult4|                   ; 367 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult|mac_mult_jk31:mac_mult4                                                                                                  ;              ;
@@ -433,10 +432,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                               |multcore:mult_core|                  ; 13 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core                                                                   ;              ;
 ;                                  |mul_lfrg:$00030|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mul_lfrg:$00030                                                   ;              ;
 ;                                  |mul_lfrg:mul_lfrg_first_mod|      ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_p8f1:left_mult|alt_mac_mult:mac_mult2|lpm_mult:mult|multcore:mult_core|mul_lfrg:mul_lfrg_first_mod                                       ;              ;
-;                   |ded_mult_bhf1:right_mult|                        ; 449 (19)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult                                                                                                                                                  ;              ;
-;                      |ded_mult_jhf1:right_mult|                     ; 383 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_jhf1:right_mult                                                                                                                         ;              ;
-;                         |mac_mult_jk31:mac_mult4|                   ; 383 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_jhf1:right_mult|mac_mult_jk31:mac_mult4                                                                                                 ;              ;
-;                            |mult_5gp:mult6|                         ; 383 (383)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_jhf1:right_mult|mac_mult_jk31:mac_mult4|mult_5gp:mult6                                                                                  ;              ;
+;                   |ded_mult_bhf1:right_mult|                        ; 448 (19)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult                                                                                                                                                  ;              ;
+;                      |ded_mult_jhf1:right_mult|                     ; 382 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_jhf1:right_mult                                                                                                                         ;              ;
+;                         |mac_mult_jk31:mac_mult4|                   ; 382 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_jhf1:right_mult|mac_mult_jk31:mac_mult4                                                                                                 ;              ;
+;                            |mult_5gp:mult6|                         ; 382 (382)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_jhf1:right_mult|mac_mult_jk31:mac_mult4|mult_5gp:mult6                                                                                  ;              ;
 ;                      |ded_mult_sff1:left_mult|                      ; 47 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult                                                                                                                          ;              ;
 ;                         |alt_mac_mult:mac_mult54|                   ; 47 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54                                                                                                  ;              ;
 ;                            |lpm_mult:mult|                          ; 47 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_bhf1:right_mult|ded_mult_sff1:left_mult|alt_mac_mult:mac_mult54|lpm_mult:mult                                                                                    ;              ;
@@ -482,7 +481,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                         |ded_mult_c3g1:right_mult|                  ; 19 (19)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |M3|processor:inst3|mult_57_38_dsp:const1_mult|altmult_add:ALTMULT_ADD_component|mult_add_o1r2:auto_generated|ded_mult_dd81:ded_mult1|ded_mult_asf1:right_mult|ded_mult_8sf1:right_mult|ded_mult_c3g1:right_mult                                                                                             ;              ;
 ;                            |ded_mult_b3g1:right_mult|               ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |M3|processor:inst3|mult_57_38_dsp:const1_mult|altmult_add:ALTMULT_ADD_component|mult_add_o1r2:auto_generated|ded_mult_dd81:ded_mult1|ded_mult_asf1:right_mult|ded_mult_8sf1:right_mult|ded_mult_c3g1:right_mult|ded_mult_b3g1:right_mult                                                                    ;              ;
 ;                            |ded_mult_j1g1:left_mult|                ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |M3|processor:inst3|mult_57_38_dsp:const1_mult|altmult_add:ALTMULT_ADD_component|mult_add_o1r2:auto_generated|ded_mult_dd81:ded_mult1|ded_mult_asf1:right_mult|ded_mult_8sf1:right_mult|ded_mult_c3g1:right_mult|ded_mult_j1g1:left_mult                                                                     ;              ;
-;       |special_exp_lut:mspecial_exp_lut|                            ; 298 (298)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|special_exp_lut:mspecial_exp_lut                                                                                                                                                                                                                                                         ;              ;
+;       |special_exp_lut:mspecial_exp_lut|                            ; 290 (290)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|special_exp_lut:mspecial_exp_lut                                                                                                                                                                                                                                                         ;              ;
 ;       |sub_23_23:sub_from_k|                                        ; 23 (23)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |M3|processor:inst3|sub_23_23:sub_from_k                                                                                                                                                                                                                                                                     ;              ;
 +---------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -548,23 +547,24 @@ Encoding Type:  One-Hot
 ; processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|x[12] ; processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|Mux16 ; yes                    ;
 ; processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|x[13] ; processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|Mux16 ; yes                    ;
 ; processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|x[14] ; processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|Mux16 ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[14]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[13]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[12]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[10]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[11]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[9]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[7]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[8]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[6]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[5]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[4]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[15]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[14]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[13]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[12]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[10]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[11]   ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[9]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[7]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[8]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[6]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[5]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[4]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
 ; processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|x[0]  ; processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|Mux16 ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[3]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[2]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[1]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[0]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux15   ; yes                    ;
-; Number of user-specified and inferred latches = 31      ;                                                         ;                        ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[3]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[2]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[1]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; processor:inst3|BoxMuller:box_muller|cosin:cos0|x[0]    ; processor:inst3|BoxMuller:box_muller|cosin:cos0|Mux16   ; yes                    ;
+; Number of user-specified and inferred latches = 32      ;                                                         ;                        ;
 +---------------------------------------------------------+---------------------------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
@@ -629,7 +629,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |M3|host_itf:inst2|SEG_DATA[7]         ;                            ;
 ; 10:1               ; 14 bits   ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; |M3|host_itf:inst2|HDO[10]             ;                            ;
 ; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; |M3|host_itf:inst2|HDO[0]              ;                            ;
-; 3:1                ; 23 bits   ; 46 LEs        ; 46 LEs               ; 0 LEs                  ; |M3|processor:inst3|sub_from_k_din[14] ;                            ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 46 LEs               ; 0 LEs                  ; |M3|processor:inst3|sub_from_k_din[11] ;                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------+----------------------------+
 
 
@@ -2277,24 +2277,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "processor:inst3|BoxMuller:box_muller|cosin:cos0"                                                                                                                                       ;
-+-----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                                                                                                                           ;
-+-----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; data_in   ; Input  ; Warning  ; Input port expression (10 bits) is wider than the input port (8 bits) it drives.  The 2 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; cos_x_out ; Output ; Warning  ; Output or bidir port (15 bits) is smaller than the port expression (16 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND.           ;
-+-----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +---------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "processor:inst3|BoxMuller:box_muller|LSFR:lsfr0"                                               ;
 +-----------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port            ; Type   ; Severity ; Details                                                                             ;
 +-----------------+--------+----------+-------------------------------------------------------------------------------------+
 ; data_out[10..9] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; data_out[5..4]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; data_out[13]    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; data_out[4]     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; data_out[0]     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +-----------------+--------+----------+-------------------------------------------------------------------------------------+
 
@@ -2313,7 +2303,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:40     ;
+; Top            ; 00:00:49     ;
 +----------------+--------------+
 
 
@@ -2323,7 +2313,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 11.0 Build 157 04/27/2011 SJ Web Edition
-    Info: Processing started: Sun Jun 21 14:03:08 2015
+    Info: Processing started: Sun Jun 21 15:05:52 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off M3 -c M3
 Warning: Parallel compilation is not licensed and has been disabled
 Info: Found 1 design units, including 1 entities, in source file bs_processor/lsfr.v
@@ -2421,8 +2411,6 @@ Info (10264): Verilog HDL Case Statement information at processor.v(240): all ca
 Info: Elaborating entity "BoxMuller" for hierarchy "processor:inst3|BoxMuller:box_muller"
 Info: Elaborating entity "LSFR" for hierarchy "processor:inst3|BoxMuller:box_muller|LSFR:lsfr0"
 Info: Elaborating entity "cosin" for hierarchy "processor:inst3|BoxMuller:box_muller|cosin:cos0"
-Warning (10230): Verilog HDL assignment warning at lookuptable.v(8): truncated value with size 32 to match size of target (15)
-Warning (10199): Verilog HDL Case Statement warning at lookuptable.v(12): case item expression never matches the case expression
 Warning (10270): Verilog HDL Case Statement warning at lookuptable.v(11): incomplete case statement has no default case item
 Warning (10240): Verilog HDL Always Construct warning at lookuptable.v(11): inferring latch(es) for variable "x", which holds its previous value in one or more paths through the always construct
 Info (10041): Inferred latch for "x[0]" at lookuptable.v(11)
@@ -2440,8 +2428,8 @@ Info (10041): Inferred latch for "x[11]" at lookuptable.v(11)
 Info (10041): Inferred latch for "x[12]" at lookuptable.v(11)
 Info (10041): Inferred latch for "x[13]" at lookuptable.v(11)
 Info (10041): Inferred latch for "x[14]" at lookuptable.v(11)
+Info (10041): Inferred latch for "x[15]" at lookuptable.v(11)
 Info: Elaborating entity "sqrt_log" for hierarchy "processor:inst3|BoxMuller:box_muller|sqrt_log:sl0"
-Warning (10230): Verilog HDL assignment warning at lookuptable.v(21): truncated value with size 32 to match size of target (16)
 Warning (10270): Verilog HDL Case Statement warning at lookuptable.v(26): incomplete case statement has no default case item
 Warning (10240): Verilog HDL Always Construct warning at lookuptable.v(26): inferring latch(es) for variable "x", which holds its previous value in one or more paths through the always construct
 Info (10041): Inferred latch for "x[0]" at lookuptable.v(26)
@@ -3032,12 +3020,9 @@ Warning: Variable or input pin "clk" is defined but never used
 Info: Found 1 design units, including 1 entities, in source file db/mult_fqm.tdf
     Info: Found entity 1: mult_fqm
 Info: Elaborating entity "mult_fqm" for hierarchy "processor:inst3|mult_23_23:pow|altmult_add:ALTMULT_ADD_component|mult_add_bqq2:auto_generated|ded_mult_g281:ded_mult1|ded_mult_mhf1:right_mult|ded_mult_nof1:right_mult|mac_mult_or31:mac_mult62|mult_fqm:mult45"
-Warning: Net is missing source, defaulting to GND
-    Warning (12110): Net "processor:inst3|BoxMuller:box_muller|cosx[15]" is missing source, defaulting to GND
 Info: Ignored 3135 buffer(s)
     Info: Ignored 88 CARRY_SUM buffer(s)
     Info: Ignored 3047 SOFT buffer(s)
-Warning: 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning: Latch processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|x[7] has unsafe behavior
     Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[18]
 Warning: Latch processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|x[3] has unsafe behavior
@@ -3068,28 +3053,30 @@ Warning: Latch processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|x[13] has unsaf
     Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[3]
 Warning: Latch processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|x[14] has unsafe behavior
     Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[3]
+Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[6]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[14] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[2]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[6]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[13] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[2]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[5]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[12] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[17]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[5]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[10] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[2]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[6]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[11] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[2]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[5]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[9] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[17]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[6]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[7] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[16]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[6]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[8] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[19]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[5]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[6] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[16]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[6]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[5] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[1]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[6]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[4] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[2]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[19]
 Warning: Latch processor:inst3|BoxMuller:box_muller|sqrt_log:sl0|x[0] has unsafe behavior
     Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[3]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[3] has unsafe behavior
@@ -3097,7 +3084,7 @@ Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[3] has unsafe b
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[2] has unsafe behavior
     Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[16]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[1] has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[11]
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[6]
 Warning: Latch processor:inst3|BoxMuller:box_muller|cosin:cos0|x[0] has unsafe behavior
     Warning: Ports D and ENA on the latch are fed by the same signal processor:inst3|BoxMuller:box_muller|LSFR:lsfr0|data[19]
 Info: Registers with preset signals will power-up high
@@ -3201,7 +3188,6 @@ Info: Found the following redundant logic cells in design
     Info (17048): Logic cell "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult|mac_mult_jk31:mac_mult4|mult_5gp:mult6|le10a[19]"
     Info (17048): Logic cell "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult|mac_mult_jk31:mac_mult4|mult_5gp:mult6|le17a[19]"
     Info (17048): Logic cell "processor:inst3|mult_40_17:mult_for_exp|altmult_add:ALTMULT_ADD_component|mult_add_fqq2:auto_generated|ded_mult_i281:ded_mult1|ded_mult_8af1:left_mult|ded_mult_jhf1:right_mult|mac_mult_jk31:mac_mult4|mult_5gp:mult6|le8a[18]"
-    Info (17048): Logic cell "processor:inst3|BoxMuller:box_muller|mult_17_17:sigh_mult|altmult_add:ALTMULT_ADD_component|mult_add_eqq2:auto_generated|ded_mult_m281:ded_mult1|mac_mult_4641:mac_mult2|mult_2gp:mult4|le6a[15]"
 Info: Generating hard_block partition "hard_block:auto_generated_inst"
 Warning: Design contains 45 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "nFPGA_RESET"
@@ -3249,16 +3235,16 @@ Warning: Design contains 45 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "sel_button[2]"
     Warning (15610): No output dependent on input pin "sel_button[1]"
     Warning (15610): No output dependent on input pin "sel_button[0]"
-Info: Implemented 6710 device resources after synthesis - the final resource count might be different
+Info: Implemented 7676 device resources after synthesis - the final resource count might be different
     Info: Implemented 71 input pins
     Info: Implemented 92 output pins
     Info: Implemented 16 bidirectional pins
-    Info: Implemented 6499 logic cells
+    Info: Implemented 7465 logic cells
     Info: Implemented 32 DSP elements
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 301 warnings
-    Info: Peak virtual memory: 332 megabytes
-    Info: Processing ended: Sun Jun 21 14:03:58 2015
-    Info: Elapsed time: 00:00:50
-    Info: Total CPU time (on all processors): 00:00:50
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 297 warnings
+    Info: Peak virtual memory: 330 megabytes
+    Info: Processing ended: Sun Jun 21 15:06:48 2015
+    Info: Elapsed time: 00:00:56
+    Info: Total CPU time (on all processors): 00:00:55
 
 

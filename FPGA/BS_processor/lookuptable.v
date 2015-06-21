@@ -1,9 +1,9 @@
 module cosin (
-	input	[7:0] data_in,
-	output [14:0] cos_x_out
+	input	[9:0] data_in,
+	output [15:0] cos_x_out
 );
 
-	reg [31:0] x = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+	reg [15:0] x;
 	
 	assign cos_x_out = x;
 	
@@ -18,7 +18,7 @@ module sqrt_log (
 	input	[11:0] data_in,
 	output [15:0] data_out
 );
-	reg [15:0] x = 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+	reg [15:0] x;
 	
 	assign data_out = x;
 	

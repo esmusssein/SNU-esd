@@ -86,8 +86,8 @@ module processor(
 	assign status = state;
 	// Multiply const2 and grn.
 	assign const2_mult_din = box_muller_dout[19:0];
-	// Demux from integer part of const2_mult_dout. If < -19 outputs 2, else if < 5 outputs 1, else outputs 0.
-	assign delay_2_cycle_din = ($signed(const2_mult_dout[34:27]) < -19) ? 4'd2 : ($signed(const2_mult_dout[34:27]) < 5) ? 4'd1: 4'd0;
+	// Demux from integer part of const2_mult_dout. If < -18 outputs 2, else if < 5 outputs 1, else outputs 0.
+	assign delay_2_cycle_din = ($signed(const2_mult_dout[34:27]) < -18) ? 4'd2 : ($signed(const2_mult_dout[34:27]) < 5) ? 4'd1: 4'd0;
 	// Lookup an exponential lut specialized for this application by (6, 2) of const2_mult_dout.
 	assign special_exp_lut_din = const2_mult_dout[35:28];
 	// Mutiply the result of exp lut and (1 + rest of bits of const2_mult_dout) to get appromixation of exp.
