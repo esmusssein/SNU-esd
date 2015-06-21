@@ -73,6 +73,7 @@ module host_itf (
 	assign const2 = {x8800_0016, x8800_0014, x8800_0012, x8800_0010};
 	assign niter = {x8800_001A, x8800_0018};
 	assign proc_cmd = (proc_status == PROC_STATUS_COMPLETE) ? PROC_CMD_ACK : x8800_1000[3:0];
+	//assign proc_cmd = x8800_1000[3:0];
 	
    /**
 	 *

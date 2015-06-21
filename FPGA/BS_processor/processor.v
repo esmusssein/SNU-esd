@@ -122,7 +122,6 @@ module processor(
 			end
 		end
 		RUNNING: begin
-			// TODO: How this know the computation ends?
 			if (cnt_clk == LATENCY_POW_SUM_DOUT + s_niter + 10) begin
 				nxt_state = COMPLETE;
 			end else begin
@@ -217,7 +216,7 @@ module processor(
 				sum <= 52'd0;
 			end
 			RUNNING: begin
-				if (cnt_clk <= LATENCY_SUM_DOUT + s_niter) begin
+				if (cnt_clk > LATENCY_SUM_DOUT && cnt_clk <= LATENCY_SUM_DOUT + s_niter) begin
 					sum <= sum + sub_from_k_dout;
 				end
 			end
@@ -238,7 +237,7 @@ module processor(
 				pow_sum <= 52'd0;
 			end
 			RUNNING: begin
-				if (cnt_clk <= LATENCY_POW_SUM_DOUT + s_niter) begin
+				if (cnt_clk > LATENCY_POW_SUM_DOUT && cnt_clk <= LATENCY_POW_SUM_DOUT + s_niter) begin
 					pow_sum <= pow_sum + pow_dout[45:15];
 				end
 			end
