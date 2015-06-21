@@ -72,12 +72,12 @@ module host_itf (
 	assign const1 = {x8800_000E, x8800_000C, x8800_000A, x8800_0008};
 	assign const2 = {x8800_0016, x8800_0014, x8800_0012, x8800_0010};
 	assign niter = {x8800_001A, x8800_0018};
-	assign proc_cmd = (proc_status == PROC_STATUS_COMPLETE) ? PROC_CMD_ACK : x8800_1000[3:0];
+	assign proc_cmd = x8800_1000[3:0];
 	//assign proc_cmd = x8800_1000[3:0];
 	
    /**
 	 *
-	 * @update x8800_xxxx
+	 * @update x8800_0xxx
 	 */
 	always @(posedge clk or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
@@ -107,9 +107,7 @@ module host_itf (
 			x8800_002E <= 16'd0;*/
 			x8800_1000 <= 16'd0;
 		end else begin
-			if (proc_status == PROC_STATUS_COMPLETE) begin
-				x8800_1000 <= PROC_STATUS_IDLE;
-			end else if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1 && HOST_ADD[20] == 1'b0) begin
+			if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1 && HOST_ADD[20] == 1'b0) begin
 				case (HOST_ADD[19:0])
 					20'h00000: x8800_0000 <= HDI;
 					20'h00002: x8800_0002 <= HDI;
@@ -151,6 +149,9 @@ module host_itf (
 		end else begin
 			if (HOST_nCS == 1'b0 && HOST_nOE == 1'b0) begin
 				case (HOST_ADD[19:0])
+					// Dedicate for representing device status.
+					20'h02000: HDO <= proc_status;
+					// Dedicate for results.
 					20'h03000: HDO <= x8800_3000;
 					20'h03002: HDO <= x8800_3002;
 					20'h03004: HDO <= x8800_3004;
@@ -193,18 +194,7 @@ module host_itf (
 			endcase
 		end
 	end
-	
-	/**
-	 * TODO: set SRAM control signal.
-	 */
-	always @(posedge clk or negedge nRESET) begin
-		if (nRESET == 1'b0) begin
-		end else begin
-			if (HOST_nCS == 1'b0 && HOST_nWE == 1'b0 && HOST_nOE == 1'b1 && HOST_ADD[20] == 1'b1) begin
-			end
-		end
-	end
-	
+
 	/**************************************
 	 * 7 segment part.
 	 **************************************/
@@ -267,7 +257,7 @@ module host_itf (
 			else                 cnt_segcon <= cnt_segcon+1'b1;
 			
 			case (cnt_segcon)
-				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(x8800_3000[3:0]), 1'b0}; end
+				3'd0:   begin SEG_COM <= 6'b011111; SEG_DATA <= {conv_int(proc_status[3:0]), 1'b0}; end
 				3'd1:   begin SEG_COM <= 6'b101111; SEG_DATA <= {conv_int(x8800_3000[7:4]), 1'b0}; end
 				3'd2:   begin SEG_COM <= 6'b110111; SEG_DATA <= {conv_int(x8800_3000[11:8]), 1'b0}; end
 				3'd3:   begin SEG_COM <= 6'b111011; SEG_DATA <= {conv_int(x8800_3000[15:12]), 1'b0}; end

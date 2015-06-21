@@ -163,6 +163,23 @@ applicable agreement for further details.
 		(text "proc_cmd[3..0]" (rect 200 155 299 167)(font "Arial" ))
 		(line (pt 320 160)(pt 304 160)(line_width 3))
 	)
+	(port
+		(pt 320 176)
+		(output)
+		(text "INT" (rect 0 0 21 12)(font "Arial" ))
+		(text "INT" (rect 278 171 299 183)(font "Arial" ))
+		(line (pt 320 176)(pt 304 176)(line_width 1))
+	)
+	(parameter
+		"PROC_CMD_ACK"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"PROC_STATUS_IDLE"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"PROC_STATUS_COMPLETE"
 		"2"
