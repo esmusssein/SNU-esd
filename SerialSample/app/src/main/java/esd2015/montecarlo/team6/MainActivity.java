@@ -1,6 +1,7 @@
 package esd2015.montecarlo.team6;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -240,44 +241,53 @@ public class MainActivity extends Activity {
             try {
                 if (msg.what == COMM_RECV) {
                     String tmp = msg.getData().getString("getdata");
-                    OutputLogWindows("recieve: " + tmp.replaceAll("\\|", " "));
+                    OutputLogWindows("receive: " + tmp.replaceAll("\\|", " "));
 
                     // Parsing an input string.
                     String inputdata[] = tmp.split("\\|");
 
-                    double S = Double.parseDouble(inputdata[0]);
-                    double K = Double.parseDouble(inputdata[1]);
-                    double r = Double.parseDouble(inputdata[2]);
-                    double sigma = Double.parseDouble(inputdata[3]);
-                    double T = Double.parseDouble(inputdata[4]);
-                    int M = (int)Math.pow(10.0, Double.parseDouble(inputdata[5]));
+                    final double S = Double.parseDouble(inputdata[0]);
+                    final double K = Double.parseDouble(inputdata[1]);
+                    final double r = Double.parseDouble(inputdata[2]);
+                    final double sigma = Double.parseDouble(inputdata[3]);
+                    final double T = Double.parseDouble(inputdata[4]);
+                    final int M = (int)Math.pow(10.0, Double.parseDouble(inputdata[5]));
 
-                    double const1 = S*Math.exp((r - 0.5 * Math.pow(sigma, 2)) * T);
-                    double const2 = sigma*Math.sqrt(T);
-                    double const3 = Math.exp(-r*T);
+                    final double const1 = S*Math.exp((r - 0.5*Math.pow(sigma, 2))*T);
+                    final double const2 = sigma*Math.sqrt(T);
+                    final double const3 = Math.exp(-r*T);
 
                     setConstantsIntoDevice(K, const1, const2, M);
                     commandDevice((byte) 0x01);
-                    while (true) {
-                        if (readDeviceStatus() == (byte)0x02) {
-                            double presentValueSum = readSumResultFromDevice() * const3;
-                            double presentValuePowSum = readPowSumResultFromDevice() * Math.pow(const3, 2);
-                            double presentValueMean = presentValueSum/M;
-                            double presentValueStd = Math.sqrt(presentValuePowSum/M - Math.pow(presentValueMean, 2));
-                            double intValue = 1.96*presentValueStd/Math.sqrt(M);
-                            double putValue = presentValueMean;
+                    new AsyncTask<Void, Void, String> () {
 
-                            commandDevice((byte) 0x02);
-                            m_comm.send("" + putValue + "|" + (putValue-intValue) + "|" + (putValue+intValue) + "!");
-                            return;
+                        @Override
+                        public String doInBackground(Void...params) {
+                            while (true) {
+                                if (readDeviceStatus() == (byte)0x02) {
+                                    double presentValueSum = readSumResultFromDevice() * const3;
+                                    double presentValuePowSum = readPowSumResultFromDevice() * Math.pow(const3, 2);
+                                    double presentValueMean = presentValueSum/M;
+                                    double presentValueStd = Math.sqrt(presentValuePowSum/M - Math.pow(presentValueMean, 2));
+                                    double intValue = 1.96*presentValueStd/Math.sqrt(M);
+                                    double putValue = presentValueMean;
+
+                                    commandDevice((byte) 0x02);
+                                    return "" + putValue + "|" + (putValue-intValue) + "|" + (putValue+intValue) + "!";
+                                }
+                            }
                         }
-                    }
+
+                        @Override
+                        public void onPostExecute(String result) {
+                            m_comm.send(result);
+                        }
+                    }.execute();
                 }
             } catch (Exception e) {
                 OutputLogWindows(e.getMessage());
                 e.printStackTrace();
             }
-            return;
         }
     }
 }

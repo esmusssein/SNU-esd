@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="esd2012.sample.serial.test">
+    package="esd2015.montecarlo.team6.test">
 
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="10" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="esd2012.sample.serial"
+                     android:targetPackage="esd2015.montecarlo.team6"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for esd2012.sample.serial"/>
+                     android:label="Tests for esd2015.montecarlo.team6"/>
 </manifest>
