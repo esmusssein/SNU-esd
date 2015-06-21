@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "kr.ac.snu.blackscholes"
+        applicationId "esd2015.montecarlo.team6"
         minSdkVersion 10
         targetSdkVersion 22
         versionCode 1

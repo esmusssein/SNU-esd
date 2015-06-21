@@ -21,7 +21,7 @@ typedef long long fixed;
  * @return 0 if it succeeded.
  */
 jint
-Java_kr_ac_snu_blackscholes_MainActivity_setConstantsIntoDevice(JNIEnv *env,
+Java_esd2015_montecarlo_team6_MainActivity_setConstantsIntoDevice(JNIEnv *env,
     jobject thiz, jdouble K, jdouble const1, jdouble const2, jint niter)
 {
 	int fd;
@@ -40,7 +40,7 @@ Java_kr_ac_snu_blackscholes_MainActivity_setConstantsIntoDevice(JNIEnv *env,
 }
 
 jdouble
-Java_kr_ac_snu_blackscholes_MainActivity_readSumResultFromDevice(JNIEnv *env,
+Java_esd2015_montecarlo_team6_MainActivity_readSumResultFromDevice(JNIEnv *env,
     jobject o)
 {
     int result;
@@ -58,7 +58,7 @@ Java_kr_ac_snu_blackscholes_MainActivity_readSumResultFromDevice(JNIEnv *env,
 }
 
 jdouble
-Java_kr_ac_snu_blackscholes_MainActivity_readPowSumResultFromDevice(JNIEnv *env,
+Java_esd2015_montecarlo_team6_MainActivity_readPowSumResultFromDevice(JNIEnv *env,
     jobject o)
 {
     int result;
@@ -75,7 +75,7 @@ Java_kr_ac_snu_blackscholes_MainActivity_readPowSumResultFromDevice(JNIEnv *env,
     return (double)FIXED_TO_DOUBLE(orig);
 }
 
-jbyte Java_kr_ac_snu_blackscholes_MainActivity_readDeviceStatus(JNIEnv *env,
+jbyte Java_esd2015_montecarlo_team6_MainActivity_readDeviceStatus(JNIEnv *env,
     jobject o)
 {
     jbyte ret;
@@ -122,7 +122,7 @@ jbyte Java_kr_ac_snu_blackscholes_MainActivity_readDeviceStatus(JNIEnv *env,
  * @return 0 if it succeeded.
  */
 jint
-Java_kr_ac_snu_blackscholes_MainActivity_commandDevice(JNIEnv *env,
+Java_esd2015_montecarlo_team6_MainActivity_commandDevice(JNIEnv *env,
     jobject thiz, jbyte cmd)
 {
     int fd;
