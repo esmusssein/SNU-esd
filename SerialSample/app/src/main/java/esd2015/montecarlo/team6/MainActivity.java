@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -16,8 +15,15 @@ import com.JavaComm.JavaComm;
 import java.util.Formatter;
 
 public class MainActivity extends Activity {
+
+    public native int setConstantsIntoDevice(double K, double const1, double const2, int niter);
+    public native double readSumResultFromDevice();
+    public native double readPowSumResultFromDevice();
+    public native byte readDeviceStatus();
+    public native int commandDevice(byte command);
+
     /** Called when the activity is first created. */
-    final int COMM_RECV=102;
+    final int COMM_RECV = 102;
     final int COMM_SEND = 201;
 
     final char Sync = 0x7E;
@@ -52,7 +58,9 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
+
+        System.loadLibrary("blackscholes");
 
         m_eventHandler = new EventHandler();
 
@@ -77,7 +85,7 @@ public class MainActivity extends Activity {
         etSendData = (EditText)findViewById(R.id.et_send_data);
 
         btConnect = (Button) findViewById(R.id.bt_connect);
-        btConnect.setOnClickListener(new OnClickListener(){
+        btConnect.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
                 if(isConnected)
@@ -113,7 +121,7 @@ public class MainActivity extends Activity {
 
 
         btSend = (Button)findViewById(R.id.bt_send);
-        btSend.setOnClickListener(new OnClickListener(){
+        btSend.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
 
@@ -226,29 +234,50 @@ public class MainActivity extends Activity {
         }
     }
 
-    public class EventHandler extends Handler{
+    public class EventHandler extends Handler {
         EventHandler(){}
         public void handleMessage(Message msg){
-            try{
-                if(msg.what == COMM_RECV){
+            try {
+                if (msg.what == COMM_RECV) {
                     String tmp = msg.getData().getString("getdata");
-                    OutputLogWindows("recieve: "+tmp);
+                    OutputLogWindows("recieve: " + tmp.replaceAll("\\|", " "));
+
+                    // Parsing an input string.
+                    String inputdata[] = tmp.split("\\|");
+
+                    double S = Double.parseDouble(inputdata[0]);
+                    double K = Double.parseDouble(inputdata[1]);
+                    double r = Double.parseDouble(inputdata[2]);
+                    double sigma = Double.parseDouble(inputdata[3]);
+                    double T = Double.parseDouble(inputdata[4]);
+                    int M = (int)Math.pow(10.0, Double.parseDouble(inputdata[5]));
+
+                    double const1 = S*Math.exp((r - 0.5 * Math.pow(sigma, 2)) * T);
+                    double const2 = sigma*Math.sqrt(T);
+                    double const3 = Math.exp(-r*T);
+
+                    setConstantsIntoDevice(K, const1, const2, M);
+                    commandDevice((byte) 0x01);
+                    while (true) {
+                        if (readDeviceStatus() == (byte)0x02) {
+                            double presentValueSum = readSumResultFromDevice() * const3;
+                            double presentValuePowSum = readPowSumResultFromDevice() * Math.pow(const3, 2);
+                            double presentValueMean = presentValueSum/M;
+                            double presentValueStd = Math.sqrt(presentValuePowSum/M - Math.pow(presentValueMean, 2));
+                            double intValue = 1.96*presentValueStd/Math.sqrt(M);
+                            double putValue = presentValueMean;
+
+                            commandDevice((byte) 0x02);
+                            m_comm.send("" + putValue + "|" + (putValue-intValue) + "|" + (putValue+intValue) + "!");
+                            return;
+                        }
+                    }
                 }
-
-
-                else if(msg.what == COMM_SEND){
-                    String tmp = msg.getData().getString("senddata");
-                    m_comm.send(tmp);
-
-                    OutputLogWindows("send: "+tmp);
-                    OutputLogWindows("");
-
-                }
-
+            } catch (Exception e) {
+                OutputLogWindows(e.getMessage());
+                e.printStackTrace();
             }
-            catch(Exception e){}
             return;
         }
     }
-
 }
