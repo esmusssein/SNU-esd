@@ -252,6 +252,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -128 16 -72 32))
 )
 (pin
 	(input)
@@ -1107,165 +1108,6 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 408 -24 728 200)
-	(text "host_itf" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst2" (rect 8 208 31 220)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 27 35 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "nRESET" (rect 0 0 41 12)(font "Arial" ))
-		(text "nRESET" (rect 21 43 62 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "FPGA_nRST" (rect 0 0 62 12)(font "Arial" ))
-		(text "FPGA_nRST" (rect 21 59 83 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "HOST_nOE" (rect 0 0 56 12)(font "Arial" ))
-		(text "HOST_nOE" (rect 21 75 77 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "HOST_nWE" (rect 0 0 59 12)(font "Arial" ))
-		(text "HOST_nWE" (rect 21 91 80 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96))
-	)
-	(port
-		(pt 0 112)
-		(input)
-		(text "HOST_nCS" (rect 0 0 56 12)(font "Arial" ))
-		(text "HOST_nCS" (rect 21 107 77 119)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112))
-	)
-	(port
-		(pt 0 128)
-		(input)
-		(text "HOST_ADD[20..0]" (rect 0 0 90 12)(font "Arial" ))
-		(text "HOST_ADD[20..0]" (rect 21 123 111 135)(font "Arial" ))
-		(line (pt 0 128)(pt 16 128)(line_width 3))
-	)
-	(port
-		(pt 0 144)
-		(input)
-		(text "HDI[15..0]" (rect 0 0 51 12)(font "Arial" ))
-		(text "HDI[15..0]" (rect 21 139 72 151)(font "Arial" ))
-		(line (pt 0 144)(pt 16 144)(line_width 3))
-	)
-	(port
-		(pt 0 160)
-		(input)
-		(text "proc_status[3..0]" (rect 0 0 83 12)(font "Arial" ))
-		(text "proc_status[3..0]" (rect 21 155 104 167)(font "Arial" ))
-		(line (pt 0 160)(pt 16 160)(line_width 3))
-	)
-	(port
-		(pt 0 176)
-		(input)
-		(text "proc_acc_dout[63..0]" (rect 0 0 103 12)(font "Arial" ))
-		(text "proc_acc_dout[63..0]" (rect 21 171 124 183)(font "Arial" ))
-		(line (pt 0 176)(pt 16 176)(line_width 3))
-	)
-	(port
-		(pt 0 192)
-		(input)
-		(text "proc_pow_acc_dout[63..0]" (rect 0 0 128 12)(font "Arial" ))
-		(text "proc_pow_acc_dout[63..0]" (rect 21 187 149 199)(font "Arial" ))
-		(line (pt 0 192)(pt 16 192)(line_width 3))
-	)
-	(port
-		(pt 320 32)
-		(output)
-		(text "HDO[15..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "HDO[15..0]" (rect 229 27 285 39)(font "Arial" ))
-		(line (pt 320 32)(pt 304 32)(line_width 3))
-	)
-	(port
-		(pt 320 48)
-		(output)
-		(text "SEG_COM[5..0]" (rect 0 0 79 12)(font "Arial" ))
-		(text "SEG_COM[5..0]" (rect 207 43 286 55)(font "Arial" ))
-		(line (pt 320 48)(pt 304 48)(line_width 3))
-	)
-	(port
-		(pt 320 64)
-		(output)
-		(text "SEG_DATA[7..0]" (rect 0 0 82 12)(font "Arial" ))
-		(text "SEG_DATA[7..0]" (rect 200 59 282 71)(font "Arial" ))
-		(line (pt 320 64)(pt 304 64)(line_width 3))
-	)
-	(port
-		(pt 320 80)
-		(output)
-		(text "host_sel" (rect 0 0 41 12)(font "Arial" ))
-		(text "host_sel" (rect 243 75 284 87)(font "Arial" ))
-		(line (pt 320 80)(pt 304 80))
-	)
-	(port
-		(pt 320 96)
-		(output)
-		(text "niter[31..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "niter[31..0]" (rect 215 91 268 103)(font "Arial" ))
-		(line (pt 320 96)(pt 304 96)(line_width 3))
-	)
-	(port
-		(pt 320 112)
-		(output)
-		(text "constK[63..0]" (rect 0 0 66 12)(font "Arial" ))
-		(text "constK[63..0]" (rect 207 107 273 119)(font "Arial" ))
-		(line (pt 320 112)(pt 304 112)(line_width 3))
-	)
-	(port
-		(pt 320 128)
-		(output)
-		(text "const1[63..0]" (rect 0 0 64 12)(font "Arial" ))
-		(text "const1[63..0]" (rect 207 123 271 135)(font "Arial" ))
-		(line (pt 320 128)(pt 304 128)(line_width 3))
-	)
-	(port
-		(pt 320 144)
-		(output)
-		(text "const2[63..0]" (rect 0 0 64 12)(font "Arial" ))
-		(text "const2[63..0]" (rect 207 139 271 151)(font "Arial" ))
-		(line (pt 320 144)(pt 304 144)(line_width 3))
-	)
-	(port
-		(pt 320 160)
-		(output)
-		(text "proc_cmd[3..0]" (rect 0 0 74 12)(font "Arial" ))
-		(text "proc_cmd[3..0]" (rect 200 155 274 167)(font "Arial" ))
-		(line (pt 320 160)(pt 304 160)(line_width 3))
-	)
-	(parameter
-		"CLK_CNT_FOR_ONE_SEC"
-		"49999999"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"CLK_CNT_FOR_HALF_MILLISEC"
-		"24999"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 304 208))
-	)
-	(annotation_block (parameter)(rect 728 -72 1040 -24))
-)
-(symbol
 	(rect 424 256 704 416)
 	(text "processor" (rect 5 0 53 12)(font "Arial" ))
 	(text "inst3" (rect 8 144 31 156)(font "Arial" ))
@@ -1367,7 +1209,171 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 264 144))
 	)
-	(annotation_block (parameter)(rect 704 168 888 256))
+	(annotation_block (parameter)(rect 624 240 808 328))
+)
+(symbol
+	(rect 408 -24 728 200)
+	(text "host_itf" (rect 5 0 42 12)(font "Arial" ))
+	(text "inst2" (rect 8 208 31 220)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 27 35 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "nRESET" (rect 0 0 41 12)(font "Arial" ))
+		(text "nRESET" (rect 21 43 62 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "FPGA_nRST" (rect 0 0 62 12)(font "Arial" ))
+		(text "FPGA_nRST" (rect 21 59 83 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "HOST_nOE" (rect 0 0 56 12)(font "Arial" ))
+		(text "HOST_nOE" (rect 21 75 77 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "HOST_nWE" (rect 0 0 59 12)(font "Arial" ))
+		(text "HOST_nWE" (rect 21 91 80 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "HOST_nCS" (rect 0 0 56 12)(font "Arial" ))
+		(text "HOST_nCS" (rect 21 107 77 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "HOST_ADD[20..0]" (rect 0 0 90 12)(font "Arial" ))
+		(text "HOST_ADD[20..0]" (rect 21 123 111 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "HDI[15..0]" (rect 0 0 51 12)(font "Arial" ))
+		(text "HDI[15..0]" (rect 21 139 72 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "proc_status[3..0]" (rect 0 0 83 12)(font "Arial" ))
+		(text "proc_status[3..0]" (rect 21 155 104 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "proc_sum_dout[63..0]" (rect 0 0 107 12)(font "Arial" ))
+		(text "proc_sum_dout[63..0]" (rect 21 171 128 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "proc_pow_sum_dout[63..0]" (rect 0 0 132 12)(font "Arial" ))
+		(text "proc_pow_sum_dout[63..0]" (rect 21 187 153 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 320 32)
+		(output)
+		(text "HDO[15..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "HDO[15..0]" (rect 229 27 285 39)(font "Arial" ))
+		(line (pt 320 32)(pt 304 32)(line_width 3))
+	)
+	(port
+		(pt 320 48)
+		(output)
+		(text "SEG_COM[5..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "SEG_COM[5..0]" (rect 207 43 286 55)(font "Arial" ))
+		(line (pt 320 48)(pt 304 48)(line_width 3))
+	)
+	(port
+		(pt 320 64)
+		(output)
+		(text "SEG_DATA[7..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "SEG_DATA[7..0]" (rect 200 59 282 71)(font "Arial" ))
+		(line (pt 320 64)(pt 304 64)(line_width 3))
+	)
+	(port
+		(pt 320 80)
+		(output)
+		(text "host_sel" (rect 0 0 41 12)(font "Arial" ))
+		(text "host_sel" (rect 243 75 284 87)(font "Arial" ))
+		(line (pt 320 80)(pt 304 80))
+	)
+	(port
+		(pt 320 96)
+		(output)
+		(text "niter[31..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "niter[31..0]" (rect 215 91 268 103)(font "Arial" ))
+		(line (pt 320 96)(pt 304 96)(line_width 3))
+	)
+	(port
+		(pt 320 112)
+		(output)
+		(text "constK[63..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "constK[63..0]" (rect 207 107 273 119)(font "Arial" ))
+		(line (pt 320 112)(pt 304 112)(line_width 3))
+	)
+	(port
+		(pt 320 128)
+		(output)
+		(text "const1[63..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "const1[63..0]" (rect 207 123 271 135)(font "Arial" ))
+		(line (pt 320 128)(pt 304 128)(line_width 3))
+	)
+	(port
+		(pt 320 144)
+		(output)
+		(text "const2[63..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "const2[63..0]" (rect 207 139 271 151)(font "Arial" ))
+		(line (pt 320 144)(pt 304 144)(line_width 3))
+	)
+	(port
+		(pt 320 160)
+		(output)
+		(text "proc_cmd[3..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "proc_cmd[3..0]" (rect 200 155 274 167)(font "Arial" ))
+		(line (pt 320 160)(pt 304 160)(line_width 3))
+	)
+	(parameter
+		"PROC_STATUS_COMPLETE"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CLK_CNT_FOR_ONE_SEC"
+		"49999999"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CLK_CNT_FOR_HALF_MILLISEC"
+		"24999"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 304 208))
+	)
+	(annotation_block (parameter)(rect 728 -80 1040 -24))
 )
 (connector
 	(text "FPGA_nCS" (rect 104 -96 160 -84)(font "Arial" ))
@@ -1718,18 +1724,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "proc_pow_acc_dout[63..0]" (rect 312 152 440 164)(font "Arial" ))
-	(pt 408 168)
-	(pt 312 168)
-	(bus)
-)
-(connector
-	(text "proc_acc_dout[63..0]" (rect 322 136 425 148)(font "Arial" ))
-	(pt 408 152)
-	(pt 312 152)
-	(bus)
-)
-(connector
 	(text "proc_status[3..0]" (rect 714 272 797 284)(font "Arial" ))
 	(pt 704 288)
 	(pt 776 288)
@@ -1760,14 +1754,26 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "proc_pow_acc_dout[63..0]" (rect 704 304 832 316)(font "Arial" ))
-	(pt 704 320)
-	(pt 776 320)
+	(text "proc_sum_dout[63..0]" (rect 322 136 429 148)(font "Arial" ))
+	(pt 408 152)
+	(pt 312 152)
 	(bus)
 )
 (connector
-	(text "proc_acc_dout[63..0]" (rect 704 288 807 300)(font "Arial" ))
+	(text "proc_pow_sum_dout[63..0]" (rect 312 152 444 164)(font "Arial" ))
+	(pt 408 168)
+	(pt 312 168)
+	(bus)
+)
+(connector
+	(text "proc_sum_dout[63..0]" (rect 704 288 811 300)(font "Arial" ))
 	(pt 704 304)
 	(pt 776 304)
+	(bus)
+)
+(connector
+	(text "proc_pow_sum_dout[63..0]" (rect 704 304 836 316)(font "Arial" ))
+	(pt 704 320)
+	(pt 776 320)
 	(bus)
 )

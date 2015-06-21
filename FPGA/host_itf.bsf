@@ -89,15 +89,15 @@ applicable agreement for further details.
 	(port
 		(pt 0 176)
 		(input)
-		(text "proc_acc_dout[63..0]" (rect 0 0 141 12)(font "Arial" ))
-		(text "proc_acc_dout[63..0]" (rect 21 171 162 183)(font "Arial" ))
+		(text "proc_sum_dout[63..0]" (rect 0 0 141 12)(font "Arial" ))
+		(text "proc_sum_dout[63..0]" (rect 21 171 162 183)(font "Arial" ))
 		(line (pt 0 176)(pt 16 176)(line_width 3))
 	)
 	(port
 		(pt 0 192)
 		(input)
-		(text "proc_pow_acc_dout[63..0]" (rect 0 0 169 12)(font "Arial" ))
-		(text "proc_pow_acc_dout[63..0]" (rect 21 187 190 199)(font "Arial" ))
+		(text "proc_pow_sum_dout[63..0]" (rect 0 0 169 12)(font "Arial" ))
+		(text "proc_pow_sum_dout[63..0]" (rect 21 187 190 199)(font "Arial" ))
 		(line (pt 0 192)(pt 16 192)(line_width 3))
 	)
 	(port
@@ -163,6 +163,11 @@ applicable agreement for further details.
 		(text "proc_cmd[3..0]" (rect 200 155 299 167)(font "Arial" ))
 		(line (pt 320 160)(pt 304 160)(line_width 3))
 	)
+	(parameter
+		"PROC_STATUS_COMPLETE"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"CLK_CNT_FOR_ONE_SEC"
 		"49999999"

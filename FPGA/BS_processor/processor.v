@@ -46,8 +46,8 @@ module processor(
 	parameter RUNNING = 1;
 	parameter COMPLETE = 2;
 	// Latency of each final fixed point number outputs.
-	localparam LATENCY_CONST3_MULT_CONV_DOUT = 45;
-	localparam LATENCY_POW_CONV_DOUT = 50;
+	localparam LATENCY_SUM_DOUT = 4;
+	localparam LATENCY_POW_SUM_DOUT = 5;
 	
 	reg [3:0] state;
 	reg [3:0] nxt_state;
@@ -93,9 +93,8 @@ module processor(
 	// Determine an operand to subtract to constK. If it is expected too small by the Demux above, set 0. Else if it is too large or larger than K, set K.
 	assign sub_from_k_din = (delay_2_cycle_dout == 4'd2) ? 0 : (delay_2_cycle_dout == 4'd0 || $signed(s_constK[22:0]) < $signed(const1_mult_dout[94:46])) ? s_constK[22:0] : const1_mult_dout[68:46];
 	assign pow_din = sub_from_k_dout;
-	// For testing.
-	//assign sum_dout = {const2_mult_dout[37:15], delay_2_cycle_dout};
-	assign sum_dout = pow_dout[45:15];
+	assign sum_dout = sum;
+	assign pow_sum_dout = pow_sum;
 	
 	/**
 	 *
@@ -124,7 +123,7 @@ module processor(
 		end
 		RUNNING: begin
 			// TODO: How this know the computation ends?
-			if (cnt_clk == LATENCY_POW_CONV_DOUT + niter + 8) begin
+			if (cnt_clk == LATENCY_POW_SUM_DOUT + s_niter + 10) begin
 				nxt_state = COMPLETE;
 			end else begin
 				nxt_state = state;
@@ -198,9 +197,8 @@ module processor(
 		end else begin
 			case (state)
 			RUNNING: begin
-				//pseudo_grn <= 32'b1111_1111_1111_1111_1000_0000_0000_0000;  // (17, 15)
-				//pseudo_grn <= 32'b0000_0000_0000_0000_1000_0000_0000_0000;  // (17, 15)
-				pseudo_grn <= 32'b1111_1111_1111_1110_0000_0000_0000_0000;
+				if (cnt_clk == 32'd0) pseudo_grn <= 32'b0000_0000_0000_0000_1000_0000_0000_0000;
+				else pseudo_grn <= 32'b1111_1111_1111_1111_1000_0000_0000_0000;
 			end
 			endcase
 		end
@@ -210,7 +208,7 @@ module processor(
 	 *
 	 * @update sum
 	 */
-	/*always @(posedge clk or negedge nreset) begin
+	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
 			sum <= 52'd0;
 		end else begin
@@ -219,9 +217,8 @@ module processor(
 				sum <= 52'd0;
 			end
 			RUNNING: begin
-				// TODO
-				if (cnt_clk <= LATENCY_CONST3_MULT_CONV_DOUT + niter) begin
-					sum <= sum + const3_mult_conv_dout;
+				if (cnt_clk <= LATENCY_SUM_DOUT + s_niter) begin
+					sum <= sum + sub_from_k_dout;
 				end
 			end
 			endcase
@@ -232,7 +229,7 @@ module processor(
 	 *
 	 * @update pow_sum
 	 */
-	/*always @(posedge clk or negedge nreset) begin
+	always @(posedge clk or negedge nreset) begin
 		if (nreset == 1'b0) begin
 			pow_sum <= 52'd0;
 		end else begin
@@ -241,14 +238,13 @@ module processor(
 				pow_sum <= 52'd0;
 			end
 			RUNNING: begin
-				// TODO
-				if (cnt_clk <= LATENCY_POW_CONV_DOUT + niter) begin
-					pow_sum <= pow_sum + pow_conv_dout;
+				if (cnt_clk <= LATENCY_POW_SUM_DOUT + s_niter) begin
+					pow_sum <= pow_sum + pow_dout[45:15];
 				end
 			end
 			endcase
 		end
-	end*/
+	end
 	
 	// Latency 1 clock cycle.
 	// Supports pipelining.
