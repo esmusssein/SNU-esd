@@ -8,7 +8,7 @@
 #define DOUBLE_TO_FIXED(x) ((long)((x) * (1 << FIXED_OFFSET)))
 #define FIXED_TO_DOUBLE(x) (((double)(x)) / (1 << FIXED_OFFSET))
 
-typedef long fixed;
+typedef long long fixed;
 
 /**
  * Sets constants that will be used in computation into device before it starts
@@ -39,27 +39,81 @@ Java_kr_ac_snu_blackscholes_MainActivity_setConstantsIntoDevice(JNIEnv *env,
 	return 0;
 }
 
-jint
-Java_kr_ac_snu_blackscholes_MainActivity_setupLutIntoDevice(JNIEnv *env,
-    jobject thiz)
+jdouble
+Java_kr_ac_snu_blackscholes_MainActivity_readSumResultFromDevice(JNIEnv *env,
+    jobject o)
 {
-    int i;
     int result;
     int fd;
-    fd = open(DEV_NAME, O_WRONLY);
+    fd = open(DEV_NAME, O_RDONLY);
     if (fd < 0)
         return -1;
-    result = lseek(fd, 0x100000, SEEK_SET);
+    result = lseek(fd, 0x3000, SEEK_SET);
     if (result < 0)
         return result;
-    for (i = 0; i < (1<<15); i++) {
-        double data = sqrt(-2.0*log(FIXED_TO_DOUBLE(i)));
-        short lut1_data = ((short)((data) * (1 << 13)));
-        write(fd, &lut1_data, 2);
-    }
+    fixed orig;
+    read(fd, &orig, 8);
     close(fd);
-    return 0;
+    return (double)FIXED_TO_DOUBLE(orig);
 }
+
+jdouble
+Java_kr_ac_snu_blackscholes_MainActivity_readPowSumResultFromDevice(JNIEnv *env,
+    jobject o)
+{
+    int result;
+    int fd;
+    fd = open(DEV_NAME, O_RDONLY);
+    if (fd < 0)
+        return -1;
+    result = lseek(fd, 0x3008, SEEK_SET);
+    if (result < 0)
+        return result;
+    fixed orig;
+    read(fd, &orig, 8);
+    close(fd);
+    return (double)FIXED_TO_DOUBLE(orig);
+}
+
+jbyte Java_kr_ac_snu_blackscholes_MainActivity_readDeviceStatus(JNIEnv *env,
+    jobject o)
+{
+    jbyte ret;
+    int result;
+    int fd;
+    fd = open(DEV_NAME, O_RDONLY);
+    if (fd < 0)
+        return -1;
+    result = lseek(fd, 0x2000, SEEK_SET);
+    if (result < 0)
+        return result;
+    read(fd, &ret, 2);
+    close(fd);
+    return ret;
+}
+
+// Deprecated.
+// jint
+// Java_kr_ac_snu_blackscholes_MainActivity_setupLutIntoDevice(JNIEnv *env,
+//     jobject thiz)
+// {
+//     int i;
+//     int result;
+//     int fd;
+//     fd = open(DEV_NAME, O_WRONLY);
+//     if (fd < 0)
+//         return -1;
+//     result = lseek(fd, 0x100000, SEEK_SET);
+//     if (result < 0)
+//         return result;
+//     for (i = 0; i < (1<<15); i++) {
+//         double data = sqrt(-2.0*log(FIXED_TO_DOUBLE(i)));
+//         short lut1_data = ((short)((data) * (1 << 13)));
+//         write(fd, &lut1_data, 2);
+//     }
+//     close(fd);
+//     return 0;
+// }
 
 /**
  * Sets a command byte one pre-defined memory region.

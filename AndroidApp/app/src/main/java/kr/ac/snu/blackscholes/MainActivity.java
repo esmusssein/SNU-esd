@@ -2,6 +2,7 @@ package kr.ac.snu.blackscholes;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,8 +14,9 @@ import java.util.HashMap;
 
 public class MainActivity extends Activity {
 
-    private static final byte RUN = 0x01;
-    private static final byte ACK = 0x02;
+    private static final byte STATUS_COMPLETE = 0x02;
+    private static final byte COMMAND_RUN = 0x01;
+    private static final byte COMMAND_ACK = 0x02;
     // Represents S*exp((r - 0.5*sigma^2)*T).
     private static final String DEP_CONST_1 = "dep1";
     // Represents sigma*sqrt(T).
@@ -35,7 +37,9 @@ public class MainActivity extends Activity {
 
     public native int setConstantsIntoDevice(double K, double const1, double const2, int niter);
     public native int commandDevice(byte command);
-    public native int setupLutIntoDevice();
+    public native byte readDeviceStatus();
+    public native double readSumResultFromDevice();
+    public native double readPowSumResultFromDevice();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,17 +90,56 @@ public class MainActivity extends Activity {
         }
         addMessageToMessageLayout("Succeess");
         addMessageToMessageLayout("Command the device to compute...");
-        result = commandDevice(RUN);
+        result = commandDevice(COMMAND_RUN);
         if (result != 0) {
             addMessageToMessageLayout("An error occurred at commandDevice(). Exit.");
             return;
         }
-//        result = setupLutIntoDevice();
-//        if (result != 0) {
-//            addMessageToMessageLayout("An error occurred at setupLutIntoDevice(). Exit.");
-//            return;
-//        }
-        // TODO: Confirm the device is running.
+        addMessageToMessageLayout("Succeess");
+        addMessageToMessageLayout("Polling the results...");
+        new AsyncTask<Void, Integer, String>() {
+
+            @Override
+            public String doInBackground(Void...params) {
+                while (true) {
+                    byte deviceStatus = readDeviceStatus();
+                    if (deviceStatus < 0) {
+                        System.out.println("fuck");
+                        return "An error occurred at readDeviceStatus()";
+                    }
+                    if (deviceStatus == STATUS_COMPLETE) {
+                        double sum = readSumResultFromDevice();
+                        double powSum = readPowSumResultFromDevice();
+                        commandDevice(COMMAND_ACK);
+                        double presentValueSum = mConstants.get(DEP_CONST_3) * sum;
+                        double presentValuePowSum = Math.pow(mConstants.get(DEP_CONST_3), 2) * powSum;
+                        double presentValueMean = presentValueSum / mConstants.get("M");
+                        double presentValuePowMean = presentValuePowSum / mConstants.get("M");
+                        double presentValueStd = Math.sqrt(presentValuePowMean - Math.pow(presentValueMean, 2));
+                        double intValue = 1.96*presentValueStd/Math.sqrt(mConstants.get("M"));
+                        return "present value mean " +
+                                presentValueMean +
+                                ", present value std " +
+                                presentValueStd +
+                                ", int " +
+                                intValue  +
+                                ", [put_value] " +
+                                presentValueMean +
+                                ", [put_value-int put_value_int] " +
+                                "[" +
+                                (presentValueMean-intValue) +
+                                " " +
+                                (presentValueMean+intValue) +
+                                "]";
+                    }
+                }
+            }
+
+            @Override
+            public void onPostExecute(String message) {
+                addMessageToMessageLayout(message);
+            }
+        }.execute();
     }
 
     private void addMessageToMessageLayout(String message) {
@@ -112,12 +155,14 @@ public class MainActivity extends Activity {
         mConstants.put("r", Double.valueOf(mEditTextConstantR.getText().toString()));
         mConstants.put("sigma", Double.valueOf(mEditTextConstantSigma.getText().toString()));
         mConstants.put("T", Double.valueOf(mEditTextConstantT.getText().toString()));
+        mConstants.put("M", Double.valueOf(mEditTextIterateNumber.getText().toString()));
 
         addMessageToMessageLayout("S: " + mConstants.get("S"));
         addMessageToMessageLayout("K: " + mConstants.get("K"));
         addMessageToMessageLayout("r: " + mConstants.get("r"));
         addMessageToMessageLayout("sigma: " + mConstants.get("sigma"));
         addMessageToMessageLayout("T: " + mConstants.get("T"));
+        addMessageToMessageLayout("M: " + mConstants.get("M"));
     }
 
     private void setDependentConstants() {

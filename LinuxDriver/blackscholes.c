@@ -106,7 +106,6 @@ drv_read(struct file *inode, char __user *buf, size_t lbuf, loff_t *ppos)
         return -EINVAL;
     }
 
-    // TODO: verify read operation.
     for (i = 0; i < lbuf/2; i++) {
         *(unsigned short *)(buf + i*2) = ioread16(io_mem_start + *ppos + i*2);
     }
@@ -140,42 +139,6 @@ static loff_t drv_lseek(struct file *file, loff_t offset, int orig)
     return testpos;
 }
 
-/*
- * read 또는 write 함수 만으로 처리하기 어려운 장치 제어 함수.
- * 여기에서는 예제로서 read, write 기능을 구현하였음.
- */
-// static int ledmover_ioctl(struct inode *inode, struct file *file,
-//                           unsigned int cmd, unsigned long gdata)
-// {
-//     int ret;
-//     struct ledmover_data data;
-//     unsigned short c;
-
-//     switch (cmd) {
-//     case LEDMOVER_WRITE:
-//         ret = copy_from_user(&data, (const char*)gdata, sizeof(struct ledmover_data));
-//         if (ret<0) return -1;
-//         c = data.start;
-//         c |= ((data.pos-1) & 0x7) << 2;
-//         c |= (data.dir & 0x1) << 1;
-//         *ledmover_ioremap = c;
-//         break;
-//     case LEDMOVER_READ:
-//         c = *ledmover_ioremap;
-//         data.start = c & 0x1;
-//         data.pos = ((c >> 2) & 0x7) + 1;
-//         data.dir = ((c >> 1) & 0x1) == 0 ? LEFT : WRITE;
-//         ret = copy_to_user((char *)gdata, &data, sizeof(struct ledmover_data));
-//         if (ret<0) return -1;
-//         break;
-//     default:
-//         printk(KERN_WARNING"Unknonwn command: %d\n", cmd);
-//         return ENOTTY;
-//     }
-
-//     return 0;
-// }
-
 /**
  * Define file_operations.
  */
@@ -185,8 +148,7 @@ static struct file_operations drv_fops = {
     .write  = drv_write,
     .read   = drv_read,
     .release = drv_release,
-    .llseek = drv_lseek,
-    // .ioctl  = drv_ioctl
+    .llseek = drv_lseek
 };
 
 /**
